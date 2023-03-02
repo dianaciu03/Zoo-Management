@@ -1,0 +1,14 @@
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarDesktopApp.exe.config
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarDesktopApp.exe
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarDesktopApp.pdb
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarLogicLibrary.dll
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarLogicLibrary.pdb
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.AssemblyReference.cache
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.SuggestedBindingRedirects.cache
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.Properties.Resources.resources
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.GenerateResource.cache
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CoreCompileInputs.cache
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CopyComplete
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.exe
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.pdb
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.Form1.resources

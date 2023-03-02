@@ -1,0 +1,6 @@
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\bin\Debug\ZooBazaarLogicLibrary.dll
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\bin\Debug\ZooBazaarLogicLibrary.pdb
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.AssemblyReference.cache
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.CoreCompileInputs.cache
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.dll
+D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.pdb

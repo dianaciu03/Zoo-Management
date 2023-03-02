@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooBazaarLogicLibrary", "ZooBazaarLogicLibrary\ZooBazaarLogicLibrary.csproj", "{3BEA0856-8B3D-427F-958C-831104C59A7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooBazaarDesktopApp", "ZooBazaarDesktopApp\ZooBazaarDesktopApp.csproj", "{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BEA0856-8B3D-427F-958C-831104C59A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BEA0856-8B3D-427F-958C-831104C59A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BEA0856-8B3D-427F-958C-831104C59A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BEA0856-8B3D-427F-958C-831104C59A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8882EF6D-ADB3-47A4-AAD1-5FEE4BB77107}
+	EndGlobalSection
+EndGlobal
