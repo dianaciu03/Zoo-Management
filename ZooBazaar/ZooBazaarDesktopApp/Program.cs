@@ -16,7 +16,7 @@ namespace ZooBazaarDesktopApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAnimalAdministration());
+            Application.Run(new FormLogin());
         }
     }
 }

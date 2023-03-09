@@ -31,7 +31,11 @@ namespace ZooBazaarDesktopApp
                     FormHRAdministration formHRManagement = new FormHRAdministration();
                     formHRManagement.ShowDialog();
                     break;
-
+                case ("scheduler"):
+                    this.Hide();
+                    FormScheduleTask formScheduleTask = new FormScheduleTask();
+                    formScheduleTask.ShowDialog();
+                    break;
             }
             this.Show();
             tbxLoginEmail.Clear();
