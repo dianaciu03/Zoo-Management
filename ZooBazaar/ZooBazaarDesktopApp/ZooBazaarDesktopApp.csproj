@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAnimalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAnimalForm.Designer.cs">
+      <DependentUpon>AddAnimalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddAnimalForm.resx">
+      <DependentUpon>AddAnimalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeInformation.resx">
       <DependentUpon>EmployeeInformation.cs</DependentUpon>
     </EmbeddedResource>

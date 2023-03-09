@@ -46,7 +46,6 @@
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnSearchAnimal = new System.Windows.Forms.Button();
             this.cbxEndangerment = new System.Windows.Forms.ComboBox();
-            this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.cbxDiet = new System.Windows.Forms.ComboBox();
             this.numAge = new System.Windows.Forms.NumericUpDown();
             this.cbxOrigin = new System.Windows.Forms.ComboBox();
@@ -59,52 +58,22 @@
             this.labelOrigin = new System.Windows.Forms.Label();
             this.labelSpecies = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.tabAddAnimals = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.labelNote = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.labelAddAnimalEndangerment = new System.Windows.Forms.Label();
-            this.labelAddAnimalStatus = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelAddAnimalDiet = new System.Windows.Forms.Label();
-            this.labelAddAnimalAge = new System.Windows.Forms.Label();
-            this.labelAddAnimalOrigin = new System.Windows.Forms.Label();
-            this.labelAddAnimalSpecies = new System.Windows.Forms.Label();
-            this.labelAddAnimalName = new System.Windows.Forms.Label();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
+            this.rbtnAvailable = new System.Windows.Forms.RadioButton();
+            this.rbtnTransfered = new System.Windows.Forms.RadioButton();
+            this.btnAddAnimal = new System.Windows.Forms.Button();
+            this.btnEditAnimal = new System.Windows.Forms.Button();
+            this.btnAddRelationship = new System.Windows.Forms.Button();
             this.tabControlAnimals.SuspendLayout();
             this.tabAllAnimals.SuspendLayout();
             this.groupBoxAnimalTransfer.SuspendLayout();
             this.groupBoxSearchAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAge)).BeginInit();
-            this.tabAddAnimals.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlAnimals
             // 
             this.tabControlAnimals.Controls.Add(this.tabAllAnimals);
-            this.tabControlAnimals.Controls.Add(this.tabAddAnimals);
             this.tabControlAnimals.Location = new System.Drawing.Point(13, 54);
             this.tabControlAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControlAnimals.Name = "tabControlAnimals";
@@ -115,14 +84,17 @@
             // 
             // tabAllAnimals
             // 
+            this.tabAllAnimals.Controls.Add(this.btnAddRelationship);
+            this.tabAllAnimals.Controls.Add(this.btnEditAnimal);
+            this.tabAllAnimals.Controls.Add(this.btnAddAnimal);
             this.tabAllAnimals.Controls.Add(this.groupBoxAnimalTransfer);
             this.tabAllAnimals.Controls.Add(this.lvwAnimals);
             this.tabAllAnimals.Controls.Add(this.groupBoxSearchAnimal);
-            this.tabAllAnimals.Location = new System.Drawing.Point(4, 41);
+            this.tabAllAnimals.Location = new System.Drawing.Point(4, 46);
             this.tabAllAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabAllAnimals.Name = "tabAllAnimals";
             this.tabAllAnimals.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabAllAnimals.Size = new System.Drawing.Size(1504, 727);
+            this.tabAllAnimals.Size = new System.Drawing.Size(1504, 722);
             this.tabAllAnimals.TabIndex = 0;
             this.tabAllAnimals.Text = "All animals";
             this.tabAllAnimals.UseVisualStyleBackColor = true;
@@ -161,7 +133,7 @@
             this.labelComments.Location = new System.Drawing.Point(22, 120);
             this.labelComments.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelComments.Name = "labelComments";
-            this.labelComments.Size = new System.Drawing.Size(90, 20);
+            this.labelComments.Size = new System.Drawing.Size(113, 25);
             this.labelComments.TabIndex = 17;
             this.labelComments.Text = "Comments:";
             // 
@@ -191,7 +163,7 @@
             this.tbxAnimalTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAnimalTransfer.Name = "tbxAnimalTransfer";
             this.tbxAnimalTransfer.ReadOnly = true;
-            this.tbxAnimalTransfer.Size = new System.Drawing.Size(288, 26);
+            this.tbxAnimalTransfer.Size = new System.Drawing.Size(288, 30);
             this.tbxAnimalTransfer.TabIndex = 11;
             // 
             // tbxAddressTransfer
@@ -199,7 +171,7 @@
             this.tbxAddressTransfer.Location = new System.Drawing.Point(156, 80);
             this.tbxAddressTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAddressTransfer.Name = "tbxAddressTransfer";
-            this.tbxAddressTransfer.Size = new System.Drawing.Size(288, 26);
+            this.tbxAddressTransfer.Size = new System.Drawing.Size(288, 30);
             this.tbxAddressTransfer.TabIndex = 10;
             // 
             // labelAnimalTransfer
@@ -208,7 +180,7 @@
             this.labelAnimalTransfer.Location = new System.Drawing.Point(22, 200);
             this.labelAnimalTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAnimalTransfer.Name = "labelAnimalTransfer";
-            this.labelAnimalTransfer.Size = new System.Drawing.Size(61, 20);
+            this.labelAnimalTransfer.Size = new System.Drawing.Size(78, 25);
             this.labelAnimalTransfer.TabIndex = 9;
             this.labelAnimalTransfer.Text = "Animal:";
             // 
@@ -218,7 +190,7 @@
             this.labelAdressTransfer.Location = new System.Drawing.Point(22, 83);
             this.labelAdressTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAdressTransfer.Name = "labelAdressTransfer";
-            this.labelAdressTransfer.Size = new System.Drawing.Size(102, 20);
+            this.labelAdressTransfer.Size = new System.Drawing.Size(127, 25);
             this.labelAdressTransfer.TabIndex = 8;
             this.labelAdressTransfer.Text = "Zoo address:";
             // 
@@ -227,7 +199,7 @@
             this.tbxZooNameTransfer.Location = new System.Drawing.Point(156, 40);
             this.tbxZooNameTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxZooNameTransfer.Name = "tbxZooNameTransfer";
-            this.tbxZooNameTransfer.Size = new System.Drawing.Size(288, 26);
+            this.tbxZooNameTransfer.Size = new System.Drawing.Size(288, 30);
             this.tbxZooNameTransfer.TabIndex = 7;
             // 
             // labelZooNameTransfer
@@ -236,7 +208,7 @@
             this.labelZooNameTransfer.Location = new System.Drawing.Point(22, 43);
             this.labelZooNameTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelZooNameTransfer.Name = "labelZooNameTransfer";
-            this.labelZooNameTransfer.Size = new System.Drawing.Size(85, 20);
+            this.labelZooNameTransfer.Size = new System.Drawing.Size(106, 25);
             this.labelZooNameTransfer.TabIndex = 6;
             this.labelZooNameTransfer.Text = "Zoo name:";
             // 
@@ -245,16 +217,17 @@
             this.lvwAnimals.HideSelection = false;
             this.lvwAnimals.Location = new System.Drawing.Point(545, 30);
             this.lvwAnimals.Name = "lvwAnimals";
-            this.lvwAnimals.Size = new System.Drawing.Size(924, 684);
+            this.lvwAnimals.Size = new System.Drawing.Size(932, 617);
             this.lvwAnimals.TabIndex = 2;
             this.lvwAnimals.UseCompatibleStateImageBehavior = false;
             // 
             // groupBoxSearchAnimal
             // 
+            this.groupBoxSearchAnimal.Controls.Add(this.rbtnTransfered);
+            this.groupBoxSearchAnimal.Controls.Add(this.rbtnAvailable);
             this.groupBoxSearchAnimal.Controls.Add(this.btnClearAll);
             this.groupBoxSearchAnimal.Controls.Add(this.btnSearchAnimal);
             this.groupBoxSearchAnimal.Controls.Add(this.cbxEndangerment);
-            this.groupBoxSearchAnimal.Controls.Add(this.cbxStatus);
             this.groupBoxSearchAnimal.Controls.Add(this.cbxDiet);
             this.groupBoxSearchAnimal.Controls.Add(this.numAge);
             this.groupBoxSearchAnimal.Controls.Add(this.cbxOrigin);
@@ -279,7 +252,7 @@
             // btnClearAll
             // 
             this.btnClearAll.AutoSize = true;
-            this.btnClearAll.Location = new System.Drawing.Point(324, 341);
+            this.btnClearAll.Location = new System.Drawing.Point(302, 341);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(120, 35);
             this.btnClearAll.TabIndex = 15;
@@ -301,30 +274,22 @@
             this.cbxEndangerment.FormattingEnabled = true;
             this.cbxEndangerment.Location = new System.Drawing.Point(156, 288);
             this.cbxEndangerment.Name = "cbxEndangerment";
-            this.cbxEndangerment.Size = new System.Drawing.Size(288, 28);
+            this.cbxEndangerment.Size = new System.Drawing.Size(288, 33);
             this.cbxEndangerment.TabIndex = 13;
-            // 
-            // cbxStatus
-            // 
-            this.cbxStatus.FormattingEnabled = true;
-            this.cbxStatus.Location = new System.Drawing.Point(156, 243);
-            this.cbxStatus.Name = "cbxStatus";
-            this.cbxStatus.Size = new System.Drawing.Size(288, 28);
-            this.cbxStatus.TabIndex = 12;
             // 
             // cbxDiet
             // 
             this.cbxDiet.FormattingEnabled = true;
             this.cbxDiet.Location = new System.Drawing.Point(156, 199);
             this.cbxDiet.Name = "cbxDiet";
-            this.cbxDiet.Size = new System.Drawing.Size(288, 28);
+            this.cbxDiet.Size = new System.Drawing.Size(288, 33);
             this.cbxDiet.TabIndex = 11;
             // 
             // numAge
             // 
             this.numAge.Location = new System.Drawing.Point(156, 163);
             this.numAge.Name = "numAge";
-            this.numAge.Size = new System.Drawing.Size(120, 26);
+            this.numAge.Size = new System.Drawing.Size(120, 30);
             this.numAge.TabIndex = 10;
             // 
             // cbxOrigin
@@ -332,7 +297,7 @@
             this.cbxOrigin.FormattingEnabled = true;
             this.cbxOrigin.Location = new System.Drawing.Point(156, 124);
             this.cbxOrigin.Name = "cbxOrigin";
-            this.cbxOrigin.Size = new System.Drawing.Size(288, 28);
+            this.cbxOrigin.Size = new System.Drawing.Size(288, 33);
             this.cbxOrigin.TabIndex = 9;
             // 
             // labelEndangerment
@@ -341,7 +306,7 @@
             this.labelEndangerment.Location = new System.Drawing.Point(22, 291);
             this.labelEndangerment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndangerment.Name = "labelEndangerment";
-            this.labelEndangerment.Size = new System.Drawing.Size(119, 20);
+            this.labelEndangerment.Size = new System.Drawing.Size(146, 25);
             this.labelEndangerment.TabIndex = 8;
             this.labelEndangerment.Text = "Endangerment:";
             // 
@@ -351,7 +316,7 @@
             this.labelStatus.Location = new System.Drawing.Point(22, 246);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(60, 20);
+            this.labelStatus.Size = new System.Drawing.Size(74, 25);
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "Status:";
             // 
@@ -360,7 +325,7 @@
             this.tbxSpecies.Location = new System.Drawing.Point(156, 83);
             this.tbxSpecies.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxSpecies.Name = "tbxSpecies";
-            this.tbxSpecies.Size = new System.Drawing.Size(288, 26);
+            this.tbxSpecies.Size = new System.Drawing.Size(288, 30);
             this.tbxSpecies.TabIndex = 6;
             // 
             // tbxName
@@ -368,7 +333,7 @@
             this.tbxName.Location = new System.Drawing.Point(156, 41);
             this.tbxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(288, 26);
+            this.tbxName.Size = new System.Drawing.Size(288, 30);
             this.tbxName.TabIndex = 5;
             // 
             // labelDiet
@@ -377,7 +342,7 @@
             this.labelDiet.Location = new System.Drawing.Point(22, 202);
             this.labelDiet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDiet.Name = "labelDiet";
-            this.labelDiet.Size = new System.Drawing.Size(42, 20);
+            this.labelDiet.Size = new System.Drawing.Size(52, 25);
             this.labelDiet.TabIndex = 4;
             this.labelDiet.Text = "Diet:";
             // 
@@ -387,7 +352,7 @@
             this.labelAge.Location = new System.Drawing.Point(22, 165);
             this.labelAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAge.Name = "labelAge";
-            this.labelAge.Size = new System.Drawing.Size(42, 20);
+            this.labelAge.Size = new System.Drawing.Size(54, 25);
             this.labelAge.TabIndex = 3;
             this.labelAge.Text = "Age:";
             // 
@@ -397,7 +362,7 @@
             this.labelOrigin.Location = new System.Drawing.Point(22, 127);
             this.labelOrigin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOrigin.Name = "labelOrigin";
-            this.labelOrigin.Size = new System.Drawing.Size(54, 20);
+            this.labelOrigin.Size = new System.Drawing.Size(70, 25);
             this.labelOrigin.TabIndex = 2;
             this.labelOrigin.Text = "Origin:";
             // 
@@ -407,7 +372,7 @@
             this.labelSpecies.Location = new System.Drawing.Point(22, 86);
             this.labelSpecies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSpecies.Name = "labelSpecies";
-            this.labelSpecies.Size = new System.Drawing.Size(70, 20);
+            this.labelSpecies.Size = new System.Drawing.Size(89, 25);
             this.labelSpecies.TabIndex = 1;
             this.labelSpecies.Text = "Species:";
             // 
@@ -417,324 +382,9 @@
             this.labelName.Location = new System.Drawing.Point(22, 44);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(55, 20);
+            this.labelName.Size = new System.Drawing.Size(70, 25);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Name:";
-            // 
-            // tabAddAnimals
-            // 
-            this.tabAddAnimals.Controls.Add(this.groupBox1);
-            this.tabAddAnimals.Location = new System.Drawing.Point(4, 41);
-            this.tabAddAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabAddAnimals.Name = "tabAddAnimals";
-            this.tabAddAnimals.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabAddAnimals.Size = new System.Drawing.Size(1504, 727);
-            this.tabAddAnimals.TabIndex = 1;
-            this.tabAddAnimals.Text = "Add animals";
-            this.tabAddAnimals.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.labelNote);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.labelAddAnimalEndangerment);
-            this.groupBox1.Controls.Add(this.labelAddAnimalStatus);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.labelAddAnimalDiet);
-            this.groupBox1.Controls.Add(this.labelAddAnimalAge);
-            this.groupBox1.Controls.Add(this.labelAddAnimalOrigin);
-            this.groupBox1.Controls.Add(this.labelAddAnimalSpecies);
-            this.groupBox1.Controls.Add(this.labelAddAnimalName);
-            this.groupBox1.Location = new System.Drawing.Point(26, 21);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(1458, 435);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add animal:";
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(324, 384);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 35);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Edit details";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.Location = new System.Drawing.Point(156, 384);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 35);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Add animal";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // labelNote
-            // 
-            this.labelNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNote.Location = new System.Drawing.Point(1004, 321);
-            this.labelNote.Name = "labelNote";
-            this.labelNote.Size = new System.Drawing.Size(415, 44);
-            this.labelNote.TabIndex = 27;
-            this.labelNote.Text = "*Note: If the animal has more than 1 mate, write their             IDs in one lin" +
-    "e separated ONLY by commas.";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1003, 208);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(112, 20);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Mate(s) ID(s)*:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(1140, 204);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(288, 65);
-            this.textBox7.TabIndex = 25;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1003, 168);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 20);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Parent2 ID:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(1140, 164);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(288, 26);
-            this.textBox6.TabIndex = 23;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1003, 128);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 20);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Parent1 ID:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(1140, 124);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(288, 26);
-            this.textBox4.TabIndex = 19;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1003, 86);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 20);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Relations:";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(620, 43);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown2.TabIndex = 17;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(486, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 20);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Enclosure nr:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(491, 125);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(473, 240);
-            this.textBox3.TabIndex = 15;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(487, 86);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(152, 20);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Additional mentions:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(156, 330);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(288, 28);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(156, 285);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(288, 28);
-            this.comboBox2.TabIndex = 12;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(156, 241);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(288, 28);
-            this.comboBox3.TabIndex = 11;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(156, 205);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 10;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(156, 166);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(288, 28);
-            this.comboBox4.TabIndex = 9;
-            // 
-            // labelAddAnimalEndangerment
-            // 
-            this.labelAddAnimalEndangerment.AutoSize = true;
-            this.labelAddAnimalEndangerment.Location = new System.Drawing.Point(22, 333);
-            this.labelAddAnimalEndangerment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAddAnimalEndangerment.Name = "labelAddAnimalEndangerment";
-            this.labelAddAnimalEndangerment.Size = new System.Drawing.Size(119, 20);
-            this.labelAddAnimalEndangerment.TabIndex = 8;
-            this.labelAddAnimalEndangerment.Text = "Endangerment:";
-            // 
-            // labelAddAnimalStatus
-            // 
-            this.labelAddAnimalStatus.AutoSize = true;
-            this.labelAddAnimalStatus.Location = new System.Drawing.Point(22, 288);
-            this.labelAddAnimalStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAddAnimalStatus.Name = "labelAddAnimalStatus";
-            this.labelAddAnimalStatus.Size = new System.Drawing.Size(60, 20);
-            this.labelAddAnimalStatus.TabIndex = 7;
-            this.labelAddAnimalStatus.Text = "Status:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(156, 125);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(288, 26);
-            this.textBox1.TabIndex = 6;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(156, 83);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(288, 26);
-            this.textBox2.TabIndex = 5;
-            // 
-            // labelAddAnimalDiet
-            // 
-            this.labelAddAnimalDiet.AutoSize = true;
-            this.labelAddAnimalDiet.Location = new System.Drawing.Point(22, 244);
-            this.labelAddAnimalDiet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAddAnimalDiet.Name = "labelAddAnimalDiet";
-            this.labelAddAnimalDiet.Size = new System.Drawing.Size(42, 20);
-            this.labelAddAnimalDiet.TabIndex = 4;
-            this.labelAddAnimalDiet.Text = "Diet:";
-            // 
-            // labelAddAnimalAge
-            // 
-            this.labelAddAnimalAge.AutoSize = true;
-            this.labelAddAnimalAge.Location = new System.Drawing.Point(22, 207);
-            this.labelAddAnimalAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAddAnimalAge.Name = "labelAddAnimalAge";
-            this.labelAddAnimalAge.Size = new System.Drawing.Size(42, 20);
-            this.labelAddAnimalAge.TabIndex = 3;
-            this.labelAddAnimalAge.Text = "Age:";
-            // 
-            // labelAddAnimalOrigin
-            // 
-            this.labelAddAnimalOrigin.AutoSize = true;
-            this.labelAddAnimalOrigin.Location = new System.Drawing.Point(22, 169);
-            this.labelAddAnimalOrigin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAddAnimalOrigin.Name = "labelAddAnimalOrigin";
-            this.labelAddAnimalOrigin.Size = new System.Drawing.Size(54, 20);
-            this.labelAddAnimalOrigin.TabIndex = 2;
-            this.labelAddAnimalOrigin.Text = "Origin:";
-            // 
-            // labelAddAnimalSpecies
-            // 
-            this.labelAddAnimalSpecies.AutoSize = true;
-            this.labelAddAnimalSpecies.Location = new System.Drawing.Point(22, 128);
-            this.labelAddAnimalSpecies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAddAnimalSpecies.Name = "labelAddAnimalSpecies";
-            this.labelAddAnimalSpecies.Size = new System.Drawing.Size(70, 20);
-            this.labelAddAnimalSpecies.TabIndex = 1;
-            this.labelAddAnimalSpecies.Text = "Species:";
-            // 
-            // labelAddAnimalName
-            // 
-            this.labelAddAnimalName.AutoSize = true;
-            this.labelAddAnimalName.Location = new System.Drawing.Point(22, 86);
-            this.labelAddAnimalName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAddAnimalName.Name = "labelAddAnimalName";
-            this.labelAddAnimalName.Size = new System.Drawing.Size(55, 20);
-            this.labelAddAnimalName.TabIndex = 0;
-            this.labelAddAnimalName.Text = "Name:";
             // 
             // labelTitleZooBazaar
             // 
@@ -743,13 +393,65 @@
             this.labelTitleZooBazaar.Location = new System.Drawing.Point(685, 9);
             this.labelTitleZooBazaar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitleZooBazaar.Name = "labelTitleZooBazaar";
-            this.labelTitleZooBazaar.Size = new System.Drawing.Size(184, 37);
+            this.labelTitleZooBazaar.Size = new System.Drawing.Size(225, 46);
             this.labelTitleZooBazaar.TabIndex = 1;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
+            // rbtnAvailable
+            // 
+            this.rbtnAvailable.AutoSize = true;
+            this.rbtnAvailable.Location = new System.Drawing.Point(156, 244);
+            this.rbtnAvailable.Name = "rbtnAvailable";
+            this.rbtnAvailable.Size = new System.Drawing.Size(113, 29);
+            this.rbtnAvailable.TabIndex = 16;
+            this.rbtnAvailable.TabStop = true;
+            this.rbtnAvailable.Text = "Available";
+            this.rbtnAvailable.UseVisualStyleBackColor = true;
+            // 
+            // rbtnTransfered
+            // 
+            this.rbtnTransfered.AutoSize = true;
+            this.rbtnTransfered.Location = new System.Drawing.Point(316, 244);
+            this.rbtnTransfered.Name = "rbtnTransfered";
+            this.rbtnTransfered.Size = new System.Drawing.Size(128, 29);
+            this.rbtnTransfered.TabIndex = 17;
+            this.rbtnTransfered.TabStop = true;
+            this.rbtnTransfered.Text = "Transfered";
+            this.rbtnTransfered.UseVisualStyleBackColor = true;
+            // 
+            // btnAddAnimal
+            // 
+            this.btnAddAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAnimal.Location = new System.Drawing.Point(704, 657);
+            this.btnAddAnimal.Name = "btnAddAnimal";
+            this.btnAddAnimal.Size = new System.Drawing.Size(174, 45);
+            this.btnAddAnimal.TabIndex = 4;
+            this.btnAddAnimal.Text = "Add animal";
+            this.btnAddAnimal.UseVisualStyleBackColor = true;
+            // 
+            // btnEditAnimal
+            // 
+            this.btnEditAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditAnimal.Location = new System.Drawing.Point(900, 657);
+            this.btnEditAnimal.Name = "btnEditAnimal";
+            this.btnEditAnimal.Size = new System.Drawing.Size(174, 45);
+            this.btnEditAnimal.TabIndex = 5;
+            this.btnEditAnimal.Text = "Edit animal";
+            this.btnEditAnimal.UseVisualStyleBackColor = true;
+            // 
+            // btnAddRelationship
+            // 
+            this.btnAddRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddRelationship.Location = new System.Drawing.Point(1100, 657);
+            this.btnAddRelationship.Name = "btnAddRelationship";
+            this.btnAddRelationship.Size = new System.Drawing.Size(215, 45);
+            this.btnAddRelationship.TabIndex = 6;
+            this.btnAddRelationship.Text = "Add relationship";
+            this.btnAddRelationship.UseVisualStyleBackColor = true;
+            // 
             // FormAnimalAdministration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1531, 831);
             this.Controls.Add(this.labelTitleZooBazaar);
@@ -757,7 +459,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAnimalAdministration";
-            this.Text = "Form1";
+            this.Text = "FormAnimalAdministration";
             this.tabControlAnimals.ResumeLayout(false);
             this.tabAllAnimals.ResumeLayout(false);
             this.groupBoxAnimalTransfer.ResumeLayout(false);
@@ -765,11 +467,6 @@
             this.groupBoxSearchAnimal.ResumeLayout(false);
             this.groupBoxSearchAnimal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAge)).EndInit();
-            this.tabAddAnimals.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -779,7 +476,6 @@
 
         private System.Windows.Forms.TabControl tabControlAnimals;
         private System.Windows.Forms.TabPage tabAllAnimals;
-        private System.Windows.Forms.TabPage tabAddAnimals;
         private System.Windows.Forms.Label labelTitleZooBazaar;
         private System.Windows.Forms.GroupBox groupBoxSearchAnimal;
         private System.Windows.Forms.Label labelEndangerment;
@@ -792,7 +488,6 @@
         private System.Windows.Forms.Label labelSpecies;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.ComboBox cbxEndangerment;
-        private System.Windows.Forms.ComboBox cbxStatus;
         private System.Windows.Forms.ComboBox cbxDiet;
         private System.Windows.Forms.NumericUpDown numAge;
         private System.Windows.Forms.ComboBox cbxOrigin;
@@ -810,35 +505,11 @@
         private System.Windows.Forms.Label labelZooNameTransfer;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.Button btnSearchAnimal;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label labelAddAnimalEndangerment;
-        private System.Windows.Forms.Label labelAddAnimalStatus;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label labelAddAnimalDiet;
-        private System.Windows.Forms.Label labelAddAnimalAge;
-        private System.Windows.Forms.Label labelAddAnimalOrigin;
-        private System.Windows.Forms.Label labelAddAnimalSpecies;
-        private System.Windows.Forms.Label labelAddAnimalName;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label labelNote;
+        private System.Windows.Forms.RadioButton rbtnTransfered;
+        private System.Windows.Forms.RadioButton rbtnAvailable;
+        private System.Windows.Forms.Button btnAddRelationship;
+        private System.Windows.Forms.Button btnEditAnimal;
+        private System.Windows.Forms.Button btnAddAnimal;
     }
 }
 
