@@ -12,3 +12,17 @@ D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.exe
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.pdb
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormAnimalAdministration.resources
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarDesktopApp.exe.config
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarDesktopApp.exe
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarDesktopApp.pdb
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarLogicLibrary.dll
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarLogicLibrary.pdb
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.AssemblyReference.cache
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormAnimalAdministration.resources
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.Properties.Resources.resources
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.GenerateResource.cache
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CoreCompileInputs.cache
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CopyComplete
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.exe
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.pdb

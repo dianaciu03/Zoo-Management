@@ -4,3 +4,9 @@ D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibra
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.CoreCompileInputs.cache
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.dll
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.pdb
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\bin\Debug\ZooBazaarLogicLibrary.dll
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\bin\Debug\ZooBazaarLogicLibrary.pdb
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.AssemblyReference.cache
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.dll
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.pdb
