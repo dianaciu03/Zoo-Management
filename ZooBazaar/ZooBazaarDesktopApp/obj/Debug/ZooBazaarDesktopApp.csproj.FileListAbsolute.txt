@@ -26,3 +26,4 @@ C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\Zo
 C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CopyComplete
 C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.exe
 C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.pdb
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormHRAdministration.resources
