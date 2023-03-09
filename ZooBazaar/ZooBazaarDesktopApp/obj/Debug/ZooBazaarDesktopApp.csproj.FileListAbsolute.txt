@@ -30,3 +30,18 @@ C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\Zo
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.AddAnimalForm.resources
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.EmployeeInformation.resources
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormHRAdministration.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.AssemblyReference.cache
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.SuggestedBindingRedirects.cache
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.AddAnimalForm.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.EmployeeInformation.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormAnimalAdministration.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormAssignTasks.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormHRAdministration.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormLogin.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormScheduleTask.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.Properties.Resources.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarLogicLibrary.Relationships.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.GenerateResource.cache
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CoreCompileInputs.cache
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.exe
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.pdb

@@ -56,7 +56,7 @@
             this.groupBoxRelationships.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBoxRelationships.Location = new System.Drawing.Point(12, 12);
             this.groupBoxRelationships.Name = "groupBoxRelationships";
-            this.groupBoxRelationships.Size = new System.Drawing.Size(641, 752);
+            this.groupBoxRelationships.Size = new System.Drawing.Size(641, 748);
             this.groupBoxRelationships.TabIndex = 1;
             this.groupBoxRelationships.TabStop = false;
             this.groupBoxRelationships.Text = "Add Relationship";
@@ -81,7 +81,7 @@
             // btnDeleteRelationship
             // 
             this.btnDeleteRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnDeleteRelationship.Location = new System.Drawing.Point(214, 678);
+            this.btnDeleteRelationship.Location = new System.Drawing.Point(173, 651);
             this.btnDeleteRelationship.Name = "btnDeleteRelationship";
             this.btnDeleteRelationship.Size = new System.Drawing.Size(260, 46);
             this.btnDeleteRelationship.TabIndex = 2;
@@ -92,16 +92,16 @@
             // 
             this.lbxDisplayAnimalRelationships.FormattingEnabled = true;
             this.lbxDisplayAnimalRelationships.ItemHeight = 24;
-            this.lbxDisplayAnimalRelationships.Location = new System.Drawing.Point(99, 361);
+            this.lbxDisplayAnimalRelationships.Location = new System.Drawing.Point(56, 335);
             this.lbxDisplayAnimalRelationships.Name = "lbxDisplayAnimalRelationships";
             this.lbxDisplayAnimalRelationships.ScrollAlwaysVisible = true;
-            this.lbxDisplayAnimalRelationships.Size = new System.Drawing.Size(493, 292);
+            this.lbxDisplayAnimalRelationships.Size = new System.Drawing.Size(470, 292);
             this.lbxDisplayAnimalRelationships.TabIndex = 1;
             // 
             // cbOtherAnimal
             // 
             this.cbOtherAnimal.FormattingEnabled = true;
-            this.cbOtherAnimal.Location = new System.Drawing.Point(331, 219);
+            this.cbOtherAnimal.Location = new System.Drawing.Point(265, 181);
             this.cbOtherAnimal.Name = "cbOtherAnimal";
             this.cbOtherAnimal.Size = new System.Drawing.Size(261, 32);
             this.cbOtherAnimal.TabIndex = 2;
@@ -109,7 +109,7 @@
             // cbRelationShipType
             // 
             this.cbRelationShipType.FormattingEnabled = true;
-            this.cbRelationShipType.Location = new System.Drawing.Point(331, 173);
+            this.cbRelationShipType.Location = new System.Drawing.Point(265, 134);
             this.cbRelationShipType.Name = "cbRelationShipType";
             this.cbRelationShipType.Size = new System.Drawing.Size(261, 32);
             this.cbRelationShipType.TabIndex = 1;
@@ -117,7 +117,7 @@
             // btnAddRelationship
             // 
             this.btnAddRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRelationship.Location = new System.Drawing.Point(214, 288);
+            this.btnAddRelationship.Location = new System.Drawing.Point(173, 249);
             this.btnAddRelationship.Name = "btnAddRelationship";
             this.btnAddRelationship.Size = new System.Drawing.Size(260, 41);
             this.btnAddRelationship.TabIndex = 1;
@@ -127,7 +127,7 @@
             // labelRelationshipType
             // 
             this.labelRelationshipType.AutoSize = true;
-            this.labelRelationshipType.Location = new System.Drawing.Point(93, 176);
+            this.labelRelationshipType.Location = new System.Drawing.Point(52, 137);
             this.labelRelationshipType.Name = "labelRelationshipType";
             this.labelRelationshipType.Size = new System.Drawing.Size(158, 24);
             this.labelRelationshipType.TabIndex = 2;
@@ -136,7 +136,7 @@
             // labelCompanion
             // 
             this.labelCompanion.AutoSize = true;
-            this.labelCompanion.Location = new System.Drawing.Point(93, 223);
+            this.labelCompanion.Location = new System.Drawing.Point(52, 184);
             this.labelCompanion.Name = "labelCompanion";
             this.labelCompanion.Size = new System.Drawing.Size(125, 24);
             this.labelCompanion.TabIndex = 1;

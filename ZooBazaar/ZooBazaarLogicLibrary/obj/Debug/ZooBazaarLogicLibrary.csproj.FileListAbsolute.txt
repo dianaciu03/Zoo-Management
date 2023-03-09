@@ -11,8 +11,8 @@ C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\Zo
 C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.dll
 C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.pdb
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.AssemblyReference.cache
-C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.Relationships.resources
-C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.GenerateResource.cache
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.csproj.CoreCompileInputs.cache
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.dll
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\obj\Debug\ZooBazaarLogicLibrary.pdb
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\bin\Debug\ZooBazaarLogicLibrary.dll
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarLogicLibrary\bin\Debug\ZooBazaarLogicLibrary.pdb
