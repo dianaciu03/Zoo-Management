@@ -64,6 +64,12 @@
     <Compile Include="FormAnimalAdministration.Designer.cs">
       <DependentUpon>FormAnimalAdministration.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAssignTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAssignTasks.Designer.cs">
+      <DependentUpon>FormAssignTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHRAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAnimalAdministration.resx">
       <DependentUpon>FormAnimalAdministration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAssignTasks.resx">
+      <DependentUpon>FormAssignTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHRAdministration.resx">
       <DependentUpon>FormHRAdministration.cs</DependentUpon>
