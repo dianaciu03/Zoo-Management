@@ -8,6 +8,7 @@ namespace ZooBazaarDesktopApp
 {
     internal static class Program
     {
+        //Git is my friend
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
