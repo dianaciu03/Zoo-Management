@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ZooBazaarLogicLibrary
 {
-    public class Class1
+    public enum Endangerment
     {
+        NotEvaluated,
+        LeastConcern,
+        Vulnerable,
+        Endangered,
+        CriticallyEndangered,
+        ExtinctInWild
     }
 }
