@@ -43,32 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <Compile Include="Animal.cs" />
     <Compile Include="Endangerment.cs" />
     <Compile Include="MateRelationship.cs" />
-=======
-    <Compile Include="Administrator.cs" />
-    <Compile Include="AnimalAdministrator.cs" />
-    <Compile Include="CareTaker.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeManagement.cs" />
-    <Compile Include="Endangerment.cs" />
-    <Compile Include="GENDER.cs" />
-    <Compile Include="HRAdministrator.cs" />
-    <Compile Include="Manager.cs" />
->>>>>>> Stashed changes
     <Compile Include="OriginContinent.cs" />
     <Compile Include="ParentRelationship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< Updated upstream
     <Compile Include="Relationship.cs" />
-=======
-    <Compile Include="ResourcePlanner.cs" />
-    <Compile Include="ScheduleMaker.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="TaskManagement.cs" />
->>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
