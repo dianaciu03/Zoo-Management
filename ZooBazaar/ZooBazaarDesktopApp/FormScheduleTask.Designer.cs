@@ -35,17 +35,17 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.lvwFinishedTasks = new System.Windows.Forms.ListView();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnMoreTaskDetails = new System.Windows.Forms.Button();
             this.btnRemoveTask = new System.Windows.Forms.Button();
             this.btnScheduleTask = new System.Windows.Forms.Button();
             this.tbxTaskDescription = new System.Windows.Forms.TextBox();
             this.labelTaskDescription = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.nudEstimatedTaskTime = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nudEstimatedTaskTime = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -119,6 +119,15 @@
             this.tabPage2.Text = "Finished";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lvwFinishedTasks
+            // 
+            this.lvwFinishedTasks.HideSelection = false;
+            this.lvwFinishedTasks.Location = new System.Drawing.Point(6, 5);
+            this.lvwFinishedTasks.Name = "lvwFinishedTasks";
+            this.lvwFinishedTasks.Size = new System.Drawing.Size(524, 410);
+            this.lvwFinishedTasks.TabIndex = 4;
+            this.lvwFinishedTasks.UseCompatibleStateImageBehavior = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -128,15 +137,6 @@
             this.label1.Size = new System.Drawing.Size(229, 31);
             this.label1.TabIndex = 5;
             this.label1.Text = "Scheduled tasks";
-            // 
-            // lvwFinishedTasks
-            // 
-            this.lvwFinishedTasks.HideSelection = false;
-            this.lvwFinishedTasks.Location = new System.Drawing.Point(6, 5);
-            this.lvwFinishedTasks.Name = "lvwFinishedTasks";
-            this.lvwFinishedTasks.Size = new System.Drawing.Size(524, 410);
-            this.lvwFinishedTasks.TabIndex = 4;
-            this.lvwFinishedTasks.UseCompatibleStateImageBehavior = false;
             // 
             // btnMoreTaskDetails
             // 
@@ -200,12 +200,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Schedule new task";
             // 
-            // nudEstimatedTaskTime
+            // label3
             // 
-            this.nudEstimatedTaskTime.Location = new System.Drawing.Point(276, 207);
-            this.nudEstimatedTaskTime.Name = "nudEstimatedTaskTime";
-            this.nudEstimatedTaskTime.Size = new System.Drawing.Size(133, 29);
-            this.nudEstimatedTaskTime.TabIndex = 11;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(416, 212);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 24);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "hour(s)";
             // 
             // label2
             // 
@@ -216,14 +218,12 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Estimated time:";
             // 
-            // label3
+            // nudEstimatedTaskTime
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(416, 212);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 24);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "hour(s)";
+            this.nudEstimatedTaskTime.Location = new System.Drawing.Point(276, 207);
+            this.nudEstimatedTaskTime.Name = "nudEstimatedTaskTime";
+            this.nudEstimatedTaskTime.Size = new System.Drawing.Size(133, 29);
+            this.nudEstimatedTaskTime.TabIndex = 11;
             // 
             // FormScheduleTask
             // 
@@ -236,8 +236,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormScheduleTask";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormScheduleTask";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

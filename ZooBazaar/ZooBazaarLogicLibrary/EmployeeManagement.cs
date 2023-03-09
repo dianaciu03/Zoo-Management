@@ -22,5 +22,17 @@ namespace ZooBazaarLogicLibrary
         {
             return employees.ToArray();
         }
+
+        public Employee GetEmployee(string email, string password)
+        {
+            foreach (Employee employee in employees)
+            {
+                if (employee.Email == email && employee.Password == password)
+                {
+                    return employee;
+                }
+            }
+            return null;
+        }
     }
 }

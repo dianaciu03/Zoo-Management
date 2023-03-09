@@ -46,6 +46,9 @@
             this.labelZooNameTransfer = new System.Windows.Forms.Label();
             this.lvwAnimals = new System.Windows.Forms.ListView();
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
+            this.rbtnMale = new System.Windows.Forms.RadioButton();
+            this.rbtnFemale = new System.Windows.Forms.RadioButton();
+            this.labelGenderAddAnimal = new System.Windows.Forms.Label();
             this.rbtnTransfered = new System.Windows.Forms.RadioButton();
             this.rbtnAvailable = new System.Windows.Forms.RadioButton();
             this.btnClearAll = new System.Windows.Forms.Button();
@@ -62,9 +65,6 @@
             this.labelSpecies = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
-            this.rbtnMale = new System.Windows.Forms.RadioButton();
-            this.rbtnFemale = new System.Windows.Forms.RadioButton();
-            this.labelGenderAddAnimal = new System.Windows.Forms.Label();
             this.tabControlAnimals.SuspendLayout();
             this.tabAllAnimals.SuspendLayout();
             this.groupBoxAnimalTransfer.SuspendLayout();
@@ -91,11 +91,11 @@
             this.tabAllAnimals.Controls.Add(this.groupBoxAnimalTransfer);
             this.tabAllAnimals.Controls.Add(this.lvwAnimals);
             this.tabAllAnimals.Controls.Add(this.groupBoxSearchAnimal);
-            this.tabAllAnimals.Location = new System.Drawing.Point(4, 46);
+            this.tabAllAnimals.Location = new System.Drawing.Point(4, 41);
             this.tabAllAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabAllAnimals.Name = "tabAllAnimals";
             this.tabAllAnimals.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabAllAnimals.Size = new System.Drawing.Size(1504, 722);
+            this.tabAllAnimals.Size = new System.Drawing.Size(1504, 727);
             this.tabAllAnimals.TabIndex = 0;
             this.tabAllAnimals.Text = "All animals";
             this.tabAllAnimals.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             this.labelComments.Location = new System.Drawing.Point(22, 120);
             this.labelComments.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelComments.Name = "labelComments";
-            this.labelComments.Size = new System.Drawing.Size(113, 25);
+            this.labelComments.Size = new System.Drawing.Size(90, 20);
             this.labelComments.TabIndex = 17;
             this.labelComments.Text = "Comments:";
             // 
@@ -194,7 +194,7 @@
             this.tbxAnimalTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAnimalTransfer.Name = "tbxAnimalTransfer";
             this.tbxAnimalTransfer.ReadOnly = true;
-            this.tbxAnimalTransfer.Size = new System.Drawing.Size(288, 30);
+            this.tbxAnimalTransfer.Size = new System.Drawing.Size(288, 26);
             this.tbxAnimalTransfer.TabIndex = 11;
             // 
             // tbxAddressTransfer
@@ -202,7 +202,7 @@
             this.tbxAddressTransfer.Location = new System.Drawing.Point(156, 80);
             this.tbxAddressTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAddressTransfer.Name = "tbxAddressTransfer";
-            this.tbxAddressTransfer.Size = new System.Drawing.Size(288, 30);
+            this.tbxAddressTransfer.Size = new System.Drawing.Size(288, 26);
             this.tbxAddressTransfer.TabIndex = 10;
             // 
             // labelAnimalTransfer
@@ -211,7 +211,7 @@
             this.labelAnimalTransfer.Location = new System.Drawing.Point(22, 221);
             this.labelAnimalTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAnimalTransfer.Name = "labelAnimalTransfer";
-            this.labelAnimalTransfer.Size = new System.Drawing.Size(78, 25);
+            this.labelAnimalTransfer.Size = new System.Drawing.Size(61, 20);
             this.labelAnimalTransfer.TabIndex = 9;
             this.labelAnimalTransfer.Text = "Animal:";
             // 
@@ -221,7 +221,7 @@
             this.labelAdressTransfer.Location = new System.Drawing.Point(22, 83);
             this.labelAdressTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAdressTransfer.Name = "labelAdressTransfer";
-            this.labelAdressTransfer.Size = new System.Drawing.Size(127, 25);
+            this.labelAdressTransfer.Size = new System.Drawing.Size(102, 20);
             this.labelAdressTransfer.TabIndex = 8;
             this.labelAdressTransfer.Text = "Zoo address:";
             // 
@@ -230,7 +230,7 @@
             this.tbxZooNameTransfer.Location = new System.Drawing.Point(156, 40);
             this.tbxZooNameTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxZooNameTransfer.Name = "tbxZooNameTransfer";
-            this.tbxZooNameTransfer.Size = new System.Drawing.Size(288, 30);
+            this.tbxZooNameTransfer.Size = new System.Drawing.Size(288, 26);
             this.tbxZooNameTransfer.TabIndex = 7;
             // 
             // labelZooNameTransfer
@@ -239,7 +239,7 @@
             this.labelZooNameTransfer.Location = new System.Drawing.Point(22, 43);
             this.labelZooNameTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelZooNameTransfer.Name = "labelZooNameTransfer";
-            this.labelZooNameTransfer.Size = new System.Drawing.Size(106, 25);
+            this.labelZooNameTransfer.Size = new System.Drawing.Size(85, 20);
             this.labelZooNameTransfer.TabIndex = 6;
             this.labelZooNameTransfer.Text = "Zoo name:";
             // 
@@ -281,12 +281,43 @@
             this.groupBoxSearchAnimal.TabStop = false;
             this.groupBoxSearchAnimal.Text = "Search by:";
             // 
+            // rbtnMale
+            // 
+            this.rbtnMale.AutoSize = true;
+            this.rbtnMale.Location = new System.Drawing.Point(156, 163);
+            this.rbtnMale.Name = "rbtnMale";
+            this.rbtnMale.Size = new System.Drawing.Size(61, 24);
+            this.rbtnMale.TabIndex = 34;
+            this.rbtnMale.TabStop = true;
+            this.rbtnMale.Text = "Male";
+            this.rbtnMale.UseVisualStyleBackColor = true;
+            // 
+            // rbtnFemale
+            // 
+            this.rbtnFemale.AutoSize = true;
+            this.rbtnFemale.Location = new System.Drawing.Point(275, 163);
+            this.rbtnFemale.Name = "rbtnFemale";
+            this.rbtnFemale.Size = new System.Drawing.Size(80, 24);
+            this.rbtnFemale.TabIndex = 33;
+            this.rbtnFemale.TabStop = true;
+            this.rbtnFemale.Text = "Female";
+            this.rbtnFemale.UseVisualStyleBackColor = true;
+            // 
+            // labelGenderAddAnimal
+            // 
+            this.labelGenderAddAnimal.AutoSize = true;
+            this.labelGenderAddAnimal.Location = new System.Drawing.Point(22, 165);
+            this.labelGenderAddAnimal.Name = "labelGenderAddAnimal";
+            this.labelGenderAddAnimal.Size = new System.Drawing.Size(67, 20);
+            this.labelGenderAddAnimal.TabIndex = 32;
+            this.labelGenderAddAnimal.Text = "Gender:";
+            // 
             // rbtnTransfered
             // 
             this.rbtnTransfered.AutoSize = true;
             this.rbtnTransfered.Location = new System.Drawing.Point(275, 198);
             this.rbtnTransfered.Name = "rbtnTransfered";
-            this.rbtnTransfered.Size = new System.Drawing.Size(128, 29);
+            this.rbtnTransfered.Size = new System.Drawing.Size(104, 24);
             this.rbtnTransfered.TabIndex = 17;
             this.rbtnTransfered.TabStop = true;
             this.rbtnTransfered.Text = "Transfered";
@@ -297,7 +328,7 @@
             this.rbtnAvailable.AutoSize = true;
             this.rbtnAvailable.Location = new System.Drawing.Point(156, 198);
             this.rbtnAvailable.Name = "rbtnAvailable";
-            this.rbtnAvailable.Size = new System.Drawing.Size(113, 29);
+            this.rbtnAvailable.Size = new System.Drawing.Size(90, 24);
             this.rbtnAvailable.TabIndex = 16;
             this.rbtnAvailable.TabStop = true;
             this.rbtnAvailable.Text = "Available";
@@ -328,14 +359,14 @@
             this.cbxEndangerment.FormattingEnabled = true;
             this.cbxEndangerment.Location = new System.Drawing.Point(156, 278);
             this.cbxEndangerment.Name = "cbxEndangerment";
-            this.cbxEndangerment.Size = new System.Drawing.Size(288, 33);
+            this.cbxEndangerment.Size = new System.Drawing.Size(288, 28);
             this.cbxEndangerment.TabIndex = 13;
             // 
             // numAge
             // 
             this.numAge.Location = new System.Drawing.Point(156, 235);
             this.numAge.Name = "numAge";
-            this.numAge.Size = new System.Drawing.Size(120, 30);
+            this.numAge.Size = new System.Drawing.Size(120, 26);
             this.numAge.TabIndex = 10;
             // 
             // cbxOrigin
@@ -343,7 +374,7 @@
             this.cbxOrigin.FormattingEnabled = true;
             this.cbxOrigin.Location = new System.Drawing.Point(156, 124);
             this.cbxOrigin.Name = "cbxOrigin";
-            this.cbxOrigin.Size = new System.Drawing.Size(288, 33);
+            this.cbxOrigin.Size = new System.Drawing.Size(288, 28);
             this.cbxOrigin.TabIndex = 9;
             // 
             // labelEndangerment
@@ -352,7 +383,7 @@
             this.labelEndangerment.Location = new System.Drawing.Point(22, 281);
             this.labelEndangerment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndangerment.Name = "labelEndangerment";
-            this.labelEndangerment.Size = new System.Drawing.Size(146, 25);
+            this.labelEndangerment.Size = new System.Drawing.Size(119, 20);
             this.labelEndangerment.TabIndex = 8;
             this.labelEndangerment.Text = "Endangerment:";
             // 
@@ -362,7 +393,7 @@
             this.labelStatus.Location = new System.Drawing.Point(22, 200);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(74, 25);
+            this.labelStatus.Size = new System.Drawing.Size(60, 20);
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "Status:";
             // 
@@ -371,7 +402,7 @@
             this.tbxSpecies.Location = new System.Drawing.Point(156, 83);
             this.tbxSpecies.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxSpecies.Name = "tbxSpecies";
-            this.tbxSpecies.Size = new System.Drawing.Size(288, 30);
+            this.tbxSpecies.Size = new System.Drawing.Size(288, 26);
             this.tbxSpecies.TabIndex = 6;
             // 
             // tbxName
@@ -379,7 +410,7 @@
             this.tbxName.Location = new System.Drawing.Point(156, 41);
             this.tbxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(288, 30);
+            this.tbxName.Size = new System.Drawing.Size(288, 26);
             this.tbxName.TabIndex = 5;
             // 
             // labelAge
@@ -388,7 +419,7 @@
             this.labelAge.Location = new System.Drawing.Point(22, 237);
             this.labelAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAge.Name = "labelAge";
-            this.labelAge.Size = new System.Drawing.Size(54, 25);
+            this.labelAge.Size = new System.Drawing.Size(42, 20);
             this.labelAge.TabIndex = 3;
             this.labelAge.Text = "Age:";
             // 
@@ -398,7 +429,7 @@
             this.labelOrigin.Location = new System.Drawing.Point(22, 127);
             this.labelOrigin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOrigin.Name = "labelOrigin";
-            this.labelOrigin.Size = new System.Drawing.Size(70, 25);
+            this.labelOrigin.Size = new System.Drawing.Size(54, 20);
             this.labelOrigin.TabIndex = 2;
             this.labelOrigin.Text = "Origin:";
             // 
@@ -408,7 +439,7 @@
             this.labelSpecies.Location = new System.Drawing.Point(22, 86);
             this.labelSpecies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSpecies.Name = "labelSpecies";
-            this.labelSpecies.Size = new System.Drawing.Size(89, 25);
+            this.labelSpecies.Size = new System.Drawing.Size(70, 20);
             this.labelSpecies.TabIndex = 1;
             this.labelSpecies.Text = "Species:";
             // 
@@ -418,7 +449,7 @@
             this.labelName.Location = new System.Drawing.Point(22, 44);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(70, 25);
+            this.labelName.Size = new System.Drawing.Size(55, 20);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Name:";
             // 
@@ -429,44 +460,13 @@
             this.labelTitleZooBazaar.Location = new System.Drawing.Point(685, 9);
             this.labelTitleZooBazaar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitleZooBazaar.Name = "labelTitleZooBazaar";
-            this.labelTitleZooBazaar.Size = new System.Drawing.Size(225, 46);
+            this.labelTitleZooBazaar.Size = new System.Drawing.Size(184, 37);
             this.labelTitleZooBazaar.TabIndex = 1;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
-            // rbtnMale
-            // 
-            this.rbtnMale.AutoSize = true;
-            this.rbtnMale.Location = new System.Drawing.Point(156, 163);
-            this.rbtnMale.Name = "rbtnMale";
-            this.rbtnMale.Size = new System.Drawing.Size(76, 29);
-            this.rbtnMale.TabIndex = 34;
-            this.rbtnMale.TabStop = true;
-            this.rbtnMale.Text = "Male";
-            this.rbtnMale.UseVisualStyleBackColor = true;
-            // 
-            // rbtnFemale
-            // 
-            this.rbtnFemale.AutoSize = true;
-            this.rbtnFemale.Location = new System.Drawing.Point(275, 163);
-            this.rbtnFemale.Name = "rbtnFemale";
-            this.rbtnFemale.Size = new System.Drawing.Size(98, 29);
-            this.rbtnFemale.TabIndex = 33;
-            this.rbtnFemale.TabStop = true;
-            this.rbtnFemale.Text = "Female";
-            this.rbtnFemale.UseVisualStyleBackColor = true;
-            // 
-            // labelGenderAddAnimal
-            // 
-            this.labelGenderAddAnimal.AutoSize = true;
-            this.labelGenderAddAnimal.Location = new System.Drawing.Point(22, 165);
-            this.labelGenderAddAnimal.Name = "labelGenderAddAnimal";
-            this.labelGenderAddAnimal.Size = new System.Drawing.Size(83, 25);
-            this.labelGenderAddAnimal.TabIndex = 32;
-            this.labelGenderAddAnimal.Text = "Gender:";
-            // 
             // FormAnimalAdministration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1531, 831);
             this.Controls.Add(this.labelTitleZooBazaar);
@@ -474,6 +474,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAnimalAdministration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAnimalAdministration";
             this.tabControlAnimals.ResumeLayout(false);
             this.tabAllAnimals.ResumeLayout(false);

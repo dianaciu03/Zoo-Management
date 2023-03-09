@@ -17,15 +17,19 @@ namespace ZooBazaarLogicLibrary
         public string Phone { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public Employee(int ID, string FirstName, string LastName, GENDER PersonGender, string Address, string Password, string Email)
+        public int HoursPerWeek { get; set; }
+        public Employee(int ID, string FirstName, string LastName, DateTime BirthDate, GENDER PersonGender, string Address, string Phone, string Password, string Email, int HoursPerWeek)
         {
             this.ID = ID;
             this.FirstName = FirstName;
             this.LastName = LastName;
+            this.BirthDate = BirthDate;
             this.PersonGender = PersonGender;
             this.Address = Address;
+            this.Phone = Phone;
             this.Password = Password;
             this.Email = Email;
+            this.HoursPerWeek = HoursPerWeek;
         }
     }
 }

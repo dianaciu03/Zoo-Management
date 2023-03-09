@@ -35,7 +35,7 @@ namespace ZooBazaarLogicLibrary
 
         public string Name { get { return name; } set { this.name = value; } }
 
-        public GENDER Gender { get { return name; } set { this.gender = value; } }
+        public GENDER Gender { get { return gender; } set { this.gender = value; } }
 
         public string Species { get { return species; } set { this.species = value; } }
 

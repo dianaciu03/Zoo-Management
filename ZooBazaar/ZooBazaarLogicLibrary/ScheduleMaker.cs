@@ -8,8 +8,7 @@ namespace ZooBazaarLogicLibrary
 {
     public class ScheduleMaker : Employee
     {
-        public ScheduleMaker(int ID, string FirstName, string LastName, GENDER PersonGender, string Address, string Password, string Email) :
-            base(ID, FirstName, LastName, PersonGender, Address, Password, Email)
+        public ScheduleMaker(int ID, string FirstName, string LastName, DateTime BirthDate, GENDER PersonGender, string Address, string Phone, string Password, string Email) : base(ID, FirstName, LastName, BirthDate, PersonGender, Address, Phone, Password, Email, 40)
         {
 
         }

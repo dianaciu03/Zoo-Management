@@ -7,34 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZooBazaarLogicLibrary;
 
 namespace ZooBazaarDesktopApp
 {
     public partial class FormLogin : Form
     {
+        EmployeeManagement employeeManagement;
         public FormLogin()
         {
             InitializeComponent();
+            employeeManagement = new EmployeeManagement();
+            employeeManagement.AddEmployee(new Manager(1, "John", "Johnson", DateTime.Now, GENDER.Male, "ABCD Street 1", "+312312312", "1", "1"));
+            employeeManagement.AddEmployee(new HRAdministrator(2, "Joana", "Johanson", DateTime.Now, GENDER.Female, "ABCD Street 2", "+312312000", "2", "2"));
+            employeeManagement.AddEmployee(new AnimalAdministrator(3, "Patrick", "Patrickson", DateTime.Now, GENDER.Male, "ABCD Street 3", "+312312001", "3", "3"));
+            employeeManagement.AddEmployee(new ScheduleMaker(4, "Dennis", "Dennison", DateTime.Now, GENDER.Male, "ABCD Street 4", "+312312100", "4", "4"));
+            employeeManagement.AddEmployee(new ResourcePlanner(5, "Olivia", "Olisson", DateTime.Now, GENDER.Female, "ABCD Street 5", "+312315102", "5", "5"));
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            switch (tbxLoginEmail.Text)
+            switch (employeeManagement.GetEmployee(tbxLoginEmail.Text, tbxLoginPassword.Text).GetType().Name)
             {
-                case ("animal"):
+                case ("AnimalAdministrator"):
                     this.Hide();
                     FormAnimalAdministration formAnimalManagement = new FormAnimalAdministration();
                     formAnimalManagement.ShowDialog();
                     break;
-                case ("employee"):
+                case ("HRAdministrator"):
                     this.Hide();
-                    FormHRAdministration formHRManagement = new FormHRAdministration();
+                    FormHRAdministration formHRManagement = new FormHRAdministration(employeeManagement);
                     formHRManagement.ShowDialog();
                     break;
-                case ("scheduler"):
+                case ("ScheduleMaker"):
                     this.Hide();
                     FormScheduleTask formScheduleTask = new FormScheduleTask();
                     formScheduleTask.ShowDialog();
+                    break;
+                case ("ResourcePlanner"):
+                    this.Hide();
+                    FormAssignTasks formAssignTasks = new FormAssignTasks();
+                    formAssignTasks.ShowDialog();
                     break;
             }
             this.Show();

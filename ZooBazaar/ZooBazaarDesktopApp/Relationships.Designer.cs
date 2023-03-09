@@ -54,9 +54,11 @@
             this.groupBoxRelationships.Controls.Add(this.labelRelationshipType);
             this.groupBoxRelationships.Controls.Add(this.labelCompanion);
             this.groupBoxRelationships.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxRelationships.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxRelationships.Location = new System.Drawing.Point(8, 8);
+            this.groupBoxRelationships.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxRelationships.Name = "groupBoxRelationships";
-            this.groupBoxRelationships.Size = new System.Drawing.Size(641, 748);
+            this.groupBoxRelationships.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxRelationships.Size = new System.Drawing.Size(427, 486);
             this.groupBoxRelationships.TabIndex = 1;
             this.groupBoxRelationships.TabStop = false;
             this.groupBoxRelationships.Text = "Add Relationship";
@@ -64,15 +66,17 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(75, 53);
+            this.textBox1.Location = new System.Drawing.Point(50, 34);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 29);
+            this.textBox1.Size = new System.Drawing.Size(175, 29);
             this.textBox1.TabIndex = 4;
             // 
             // labelMainAnimal
             // 
             this.labelMainAnimal.AutoSize = true;
-            this.labelMainAnimal.Location = new System.Drawing.Point(7, 53);
+            this.labelMainAnimal.Location = new System.Drawing.Point(5, 34);
+            this.labelMainAnimal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMainAnimal.Name = "labelMainAnimal";
             this.labelMainAnimal.Size = new System.Drawing.Size(44, 24);
             this.labelMainAnimal.TabIndex = 3;
@@ -81,9 +85,10 @@
             // btnDeleteRelationship
             // 
             this.btnDeleteRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnDeleteRelationship.Location = new System.Drawing.Point(173, 651);
+            this.btnDeleteRelationship.Location = new System.Drawing.Point(115, 423);
+            this.btnDeleteRelationship.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteRelationship.Name = "btnDeleteRelationship";
-            this.btnDeleteRelationship.Size = new System.Drawing.Size(260, 46);
+            this.btnDeleteRelationship.Size = new System.Drawing.Size(173, 30);
             this.btnDeleteRelationship.TabIndex = 2;
             this.btnDeleteRelationship.Text = "Delete relationship";
             this.btnDeleteRelationship.UseVisualStyleBackColor = true;
@@ -92,34 +97,38 @@
             // 
             this.lbxDisplayAnimalRelationships.FormattingEnabled = true;
             this.lbxDisplayAnimalRelationships.ItemHeight = 24;
-            this.lbxDisplayAnimalRelationships.Location = new System.Drawing.Point(56, 335);
+            this.lbxDisplayAnimalRelationships.Location = new System.Drawing.Point(37, 218);
+            this.lbxDisplayAnimalRelationships.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbxDisplayAnimalRelationships.Name = "lbxDisplayAnimalRelationships";
             this.lbxDisplayAnimalRelationships.ScrollAlwaysVisible = true;
-            this.lbxDisplayAnimalRelationships.Size = new System.Drawing.Size(470, 292);
+            this.lbxDisplayAnimalRelationships.Size = new System.Drawing.Size(315, 172);
             this.lbxDisplayAnimalRelationships.TabIndex = 1;
             // 
             // cbOtherAnimal
             // 
             this.cbOtherAnimal.FormattingEnabled = true;
-            this.cbOtherAnimal.Location = new System.Drawing.Point(265, 181);
+            this.cbOtherAnimal.Location = new System.Drawing.Point(177, 118);
+            this.cbOtherAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbOtherAnimal.Name = "cbOtherAnimal";
-            this.cbOtherAnimal.Size = new System.Drawing.Size(261, 32);
+            this.cbOtherAnimal.Size = new System.Drawing.Size(175, 32);
             this.cbOtherAnimal.TabIndex = 2;
             // 
             // cbRelationShipType
             // 
             this.cbRelationShipType.FormattingEnabled = true;
-            this.cbRelationShipType.Location = new System.Drawing.Point(265, 134);
+            this.cbRelationShipType.Location = new System.Drawing.Point(177, 87);
+            this.cbRelationShipType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRelationShipType.Name = "cbRelationShipType";
-            this.cbRelationShipType.Size = new System.Drawing.Size(261, 32);
+            this.cbRelationShipType.Size = new System.Drawing.Size(175, 32);
             this.cbRelationShipType.TabIndex = 1;
             // 
             // btnAddRelationship
             // 
             this.btnAddRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRelationship.Location = new System.Drawing.Point(173, 249);
+            this.btnAddRelationship.Location = new System.Drawing.Point(115, 162);
+            this.btnAddRelationship.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddRelationship.Name = "btnAddRelationship";
-            this.btnAddRelationship.Size = new System.Drawing.Size(260, 41);
+            this.btnAddRelationship.Size = new System.Drawing.Size(173, 27);
             this.btnAddRelationship.TabIndex = 1;
             this.btnAddRelationship.Text = "Add relationship";
             this.btnAddRelationship.UseVisualStyleBackColor = true;
@@ -127,7 +136,8 @@
             // labelRelationshipType
             // 
             this.labelRelationshipType.AutoSize = true;
-            this.labelRelationshipType.Location = new System.Drawing.Point(52, 137);
+            this.labelRelationshipType.Location = new System.Drawing.Point(35, 89);
+            this.labelRelationshipType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRelationshipType.Name = "labelRelationshipType";
             this.labelRelationshipType.Size = new System.Drawing.Size(158, 24);
             this.labelRelationshipType.TabIndex = 2;
@@ -136,7 +146,8 @@
             // labelCompanion
             // 
             this.labelCompanion.AutoSize = true;
-            this.labelCompanion.Location = new System.Drawing.Point(52, 184);
+            this.labelCompanion.Location = new System.Drawing.Point(35, 120);
+            this.labelCompanion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompanion.Name = "labelCompanion";
             this.labelCompanion.Size = new System.Drawing.Size(125, 24);
             this.labelCompanion.TabIndex = 1;
@@ -144,11 +155,13 @@
             // 
             // Relationships
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 846);
+            this.ClientSize = new System.Drawing.Size(440, 550);
             this.Controls.Add(this.groupBoxRelationships);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Relationships";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relationships";
             this.groupBoxRelationships.ResumeLayout(false);
             this.groupBoxRelationships.PerformLayout();

@@ -9,10 +9,8 @@ namespace ZooBazaarLogicLibrary
 {
     public class CareTaker : Employee
     {
-        public CareTaker(int ID, string FirstName, string LastName, GENDER PersonGender, string Address, string Password, string Email) :
-            base(ID, FirstName, LastName, PersonGender, Address, Password, Email)
+        public CareTaker(int ID, string FirstName, string LastName, DateTime BirthDate, GENDER PersonGender, string Address, string Phone, string Password, string Email, int HoursPerWeek) : base(ID, FirstName, LastName, BirthDate, PersonGender, Address, Phone, Password, Email, HoursPerWeek)
         {
-
         }
         public string GetRole()
         {

@@ -71,12 +71,13 @@
             this.colContractType});
             this.lvwEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lvwEmployees.HideSelection = false;
-            this.lvwEmployees.Location = new System.Drawing.Point(556, 83);
+            this.lvwEmployees.Location = new System.Drawing.Point(512, 83);
             this.lvwEmployees.Name = "lvwEmployees";
-            this.lvwEmployees.Size = new System.Drawing.Size(918, 730);
+            this.lvwEmployees.Size = new System.Drawing.Size(984, 730);
             this.lvwEmployees.TabIndex = 5;
             this.lvwEmployees.UseCompatibleStateImageBehavior = false;
             this.lvwEmployees.View = System.Windows.Forms.View.Details;
+            this.lvwEmployees.SelectedIndexChanged += new System.EventHandler(this.lvwEmployees_SelectedIndexChanged);
             // 
             // colID
             // 
@@ -125,7 +126,7 @@
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeLastName);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeFirstName);
             this.groupBoxSearchAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxSearchAnimal.Location = new System.Drawing.Point(31, 74);
+            this.groupBoxSearchAnimal.Location = new System.Drawing.Point(13, 83);
             this.groupBoxSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearchAnimal.Name = "groupBoxSearchAnimal";
             this.groupBoxSearchAnimal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -155,7 +156,7 @@
             // labelEmployeeBirthdate
             // 
             this.labelEmployeeBirthdate.AutoSize = true;
-            this.labelEmployeeBirthdate.Location = new System.Drawing.Point(21, 333);
+            this.labelEmployeeBirthdate.Location = new System.Drawing.Point(21, 337);
             this.labelEmployeeBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeeBirthdate.Name = "labelEmployeeBirthdate";
             this.labelEmployeeBirthdate.Size = new System.Drawing.Size(88, 24);
@@ -166,7 +167,7 @@
             // 
             this.dtmBirthdate.CustomFormat = "ddMMMMyyyy";
             this.dtmBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtmBirthdate.Location = new System.Drawing.Point(202, 329);
+            this.dtmBirthdate.Location = new System.Drawing.Point(202, 333);
             this.dtmBirthdate.Name = "dtmBirthdate";
             this.dtmBirthdate.Size = new System.Drawing.Size(242, 29);
             this.dtmBirthdate.TabIndex = 24;
@@ -262,7 +263,7 @@
             // btnSearchEmployee
             // 
             this.btnSearchEmployee.AutoSize = true;
-            this.btnSearchEmployee.Location = new System.Drawing.Point(156, 372);
+            this.btnSearchEmployee.Location = new System.Drawing.Point(157, 372);
             this.btnSearchEmployee.Name = "btnSearchEmployee";
             this.btnSearchEmployee.Size = new System.Drawing.Size(132, 35);
             this.btnSearchEmployee.TabIndex = 14;
@@ -317,7 +318,7 @@
             // 
             this.lblFormTitle.AutoSize = true;
             this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormTitle.Location = new System.Drawing.Point(24, 20);
+            this.lblFormTitle.Location = new System.Drawing.Point(13, 23);
             this.lblFormTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormTitle.Name = "lblFormTitle";
             this.lblFormTitle.Size = new System.Drawing.Size(182, 37);
@@ -329,7 +330,7 @@
             this.btnAddEmpployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnAddEmpployee.Location = new System.Drawing.Point(1172, 819);
             this.btnAddEmpployee.Name = "btnAddEmpployee";
-            this.btnAddEmpployee.Size = new System.Drawing.Size(302, 39);
+            this.btnAddEmpployee.Size = new System.Drawing.Size(324, 39);
             this.btnAddEmpployee.TabIndex = 10;
             this.btnAddEmpployee.Text = "Add employee";
             this.btnAddEmpployee.UseVisualStyleBackColor = true;
@@ -338,9 +339,9 @@
             // btnTerminateEmployeeAccount
             // 
             this.btnTerminateEmployeeAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnTerminateEmployeeAccount.Location = new System.Drawing.Point(556, 819);
+            this.btnTerminateEmployeeAccount.Location = new System.Drawing.Point(512, 819);
             this.btnTerminateEmployeeAccount.Name = "btnTerminateEmployeeAccount";
-            this.btnTerminateEmployeeAccount.Size = new System.Drawing.Size(302, 39);
+            this.btnTerminateEmployeeAccount.Size = new System.Drawing.Size(324, 39);
             this.btnTerminateEmployeeAccount.TabIndex = 11;
             this.btnTerminateEmployeeAccount.Text = "Terminate account";
             this.btnTerminateEmployeeAccount.UseVisualStyleBackColor = true;
@@ -349,9 +350,9 @@
             // btnEditEmployeeDeta
             // 
             this.btnEditEmployeeDeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnEditEmployeeDeta.Location = new System.Drawing.Point(864, 819);
+            this.btnEditEmployeeDeta.Location = new System.Drawing.Point(842, 819);
             this.btnEditEmployeeDeta.Name = "btnEditEmployeeDeta";
-            this.btnEditEmployeeDeta.Size = new System.Drawing.Size(302, 39);
+            this.btnEditEmployeeDeta.Size = new System.Drawing.Size(324, 39);
             this.btnEditEmployeeDeta.TabIndex = 12;
             this.btnEditEmployeeDeta.Text = "Edit details";
             this.btnEditEmployeeDeta.UseVisualStyleBackColor = true;
@@ -369,6 +370,7 @@
             this.Controls.Add(this.lvwEmployees);
             this.Controls.Add(this.groupBoxSearchAnimal);
             this.Name = "FormHRAdministration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormHRAdministration";
             this.groupBoxSearchAnimal.ResumeLayout(false);
             this.groupBoxSearchAnimal.PerformLayout();

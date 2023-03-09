@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
+            this.lblEmployeeGender = new System.Windows.Forms.Label();
+            this.cbxGender = new System.Windows.Forms.ComboBox();
+            this.labelEmployeePassword = new System.Windows.Forms.Label();
             this.tbxEmployeePassword = new System.Windows.Forms.TextBox();
             this.tbxAddress = new System.Windows.Forms.TextBox();
             this.labelEmployeeAddress = new System.Windows.Forms.Label();
@@ -57,7 +60,6 @@
             this.lblHoursPerWeek = new System.Windows.Forms.Label();
             this.btnConfirmEmployeeCreation = new System.Windows.Forms.Button();
             this.btnCancelEmployeeCreation = new System.Windows.Forms.Button();
-            this.labelEmployeePassword = new System.Windows.Forms.Label();
             this.groupBoxSearchAnimal.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudContractLenght)).BeginInit();
@@ -66,6 +68,8 @@
             // 
             // groupBoxSearchAnimal
             // 
+            this.groupBoxSearchAnimal.Controls.Add(this.lblEmployeeGender);
+            this.groupBoxSearchAnimal.Controls.Add(this.cbxGender);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeePassword);
             this.groupBoxSearchAnimal.Controls.Add(this.tbxEmployeePassword);
             this.groupBoxSearchAnimal.Controls.Add(this.tbxAddress);
@@ -87,14 +91,42 @@
             this.groupBoxSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearchAnimal.Name = "groupBoxSearchAnimal";
             this.groupBoxSearchAnimal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(545, 392);
+            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(545, 443);
             this.groupBoxSearchAnimal.TabIndex = 5;
             this.groupBoxSearchAnimal.TabStop = false;
             this.groupBoxSearchAnimal.Text = "Employee information";
             // 
+            // lblEmployeeGender
+            // 
+            this.lblEmployeeGender.AutoSize = true;
+            this.lblEmployeeGender.Location = new System.Drawing.Point(82, 130);
+            this.lblEmployeeGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmployeeGender.Name = "lblEmployeeGender";
+            this.lblEmployeeGender.Size = new System.Drawing.Size(79, 24);
+            this.lblEmployeeGender.TabIndex = 31;
+            this.lblEmployeeGender.Text = "Gender:";
+            // 
+            // cbxGender
+            // 
+            this.cbxGender.FormattingEnabled = true;
+            this.cbxGender.Location = new System.Drawing.Point(260, 127);
+            this.cbxGender.Name = "cbxGender";
+            this.cbxGender.Size = new System.Drawing.Size(242, 32);
+            this.cbxGender.TabIndex = 30;
+            // 
+            // labelEmployeePassword
+            // 
+            this.labelEmployeePassword.AutoSize = true;
+            this.labelEmployeePassword.Location = new System.Drawing.Point(64, 310);
+            this.labelEmployeePassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEmployeePassword.Name = "labelEmployeePassword";
+            this.labelEmployeePassword.Size = new System.Drawing.Size(97, 24);
+            this.labelEmployeePassword.TabIndex = 29;
+            this.labelEmployeePassword.Text = "Password:";
+            // 
             // tbxEmployeePassword
             // 
-            this.tbxEmployeePassword.Location = new System.Drawing.Point(260, 258);
+            this.tbxEmployeePassword.Location = new System.Drawing.Point(260, 307);
             this.tbxEmployeePassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxEmployeePassword.Name = "tbxEmployeePassword";
             this.tbxEmployeePassword.Size = new System.Drawing.Size(242, 29);
@@ -102,7 +134,7 @@
             // 
             // tbxAddress
             // 
-            this.tbxAddress.Location = new System.Drawing.Point(260, 299);
+            this.tbxAddress.Location = new System.Drawing.Point(260, 348);
             this.tbxAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(242, 29);
@@ -111,7 +143,7 @@
             // labelEmployeeAddress
             // 
             this.labelEmployeeAddress.AutoSize = true;
-            this.labelEmployeeAddress.Location = new System.Drawing.Point(79, 302);
+            this.labelEmployeeAddress.Location = new System.Drawing.Point(79, 351);
             this.labelEmployeeAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeeAddress.Name = "labelEmployeeAddress";
             this.labelEmployeeAddress.Size = new System.Drawing.Size(85, 24);
@@ -121,7 +153,7 @@
             // labelEmployeeBirthdate
             // 
             this.labelEmployeeBirthdate.AutoSize = true;
-            this.labelEmployeeBirthdate.Location = new System.Drawing.Point(73, 344);
+            this.labelEmployeeBirthdate.Location = new System.Drawing.Point(73, 393);
             this.labelEmployeeBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeeBirthdate.Name = "labelEmployeeBirthdate";
             this.labelEmployeeBirthdate.Size = new System.Drawing.Size(88, 24);
@@ -130,14 +162,14 @@
             // 
             // dtmBirthdate
             // 
-            this.dtmBirthdate.Location = new System.Drawing.Point(203, 340);
+            this.dtmBirthdate.Location = new System.Drawing.Point(203, 389);
             this.dtmBirthdate.Name = "dtmBirthdate";
             this.dtmBirthdate.Size = new System.Drawing.Size(299, 29);
             this.dtmBirthdate.TabIndex = 24;
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(260, 215);
+            this.tbxEmail.Location = new System.Drawing.Point(260, 264);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(242, 29);
@@ -146,7 +178,7 @@
             // labelEmployeeEmail
             // 
             this.labelEmployeeEmail.AutoSize = true;
-            this.labelEmployeeEmail.Location = new System.Drawing.Point(99, 218);
+            this.labelEmployeeEmail.Location = new System.Drawing.Point(99, 267);
             this.labelEmployeeEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeeEmail.Name = "labelEmployeeEmail";
             this.labelEmployeeEmail.Size = new System.Drawing.Size(62, 24);
@@ -156,7 +188,7 @@
             // labelEmployeePhone
             // 
             this.labelEmployeePhone.AutoSize = true;
-            this.labelEmployeePhone.Location = new System.Drawing.Point(21, 172);
+            this.labelEmployeePhone.Location = new System.Drawing.Point(21, 221);
             this.labelEmployeePhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeePhone.Name = "labelEmployeePhone";
             this.labelEmployeePhone.Size = new System.Drawing.Size(142, 24);
@@ -165,7 +197,7 @@
             // 
             // tbxPhone
             // 
-            this.tbxPhone.Location = new System.Drawing.Point(260, 169);
+            this.tbxPhone.Location = new System.Drawing.Point(260, 218);
             this.tbxPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxPhone.Name = "tbxPhone";
             this.tbxPhone.Size = new System.Drawing.Size(242, 29);
@@ -174,7 +206,7 @@
             // labelEmployeeRole
             // 
             this.labelEmployeeRole.AutoSize = true;
-            this.labelEmployeeRole.Location = new System.Drawing.Point(107, 129);
+            this.labelEmployeeRole.Location = new System.Drawing.Point(107, 178);
             this.labelEmployeeRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeeRole.Name = "labelEmployeeRole";
             this.labelEmployeeRole.Size = new System.Drawing.Size(54, 24);
@@ -184,7 +216,7 @@
             // cbxRole
             // 
             this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Location = new System.Drawing.Point(260, 126);
+            this.cbxRole.Location = new System.Drawing.Point(260, 175);
             this.cbxRole.Name = "cbxRole";
             this.cbxRole.Size = new System.Drawing.Size(242, 32);
             this.cbxRole.TabIndex = 9;
@@ -273,7 +305,7 @@
             this.groupBox1.Controls.Add(this.rbtnPartTimeEmployee);
             this.groupBox1.Controls.Add(this.labelEmployeeContractType);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBox1.Location = new System.Drawing.Point(24, 410);
+            this.groupBox1.Location = new System.Drawing.Point(24, 461);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -346,37 +378,28 @@
             // 
             // btnConfirmEmployeeCreation
             // 
-            this.btnConfirmEmployeeCreation.Location = new System.Drawing.Point(308, 629);
+            this.btnConfirmEmployeeCreation.Location = new System.Drawing.Point(308, 680);
             this.btnConfirmEmployeeCreation.Name = "btnConfirmEmployeeCreation";
             this.btnConfirmEmployeeCreation.Size = new System.Drawing.Size(261, 42);
             this.btnConfirmEmployeeCreation.TabIndex = 29;
             this.btnConfirmEmployeeCreation.Text = "Confirm";
             this.btnConfirmEmployeeCreation.UseVisualStyleBackColor = true;
+            this.btnConfirmEmployeeCreation.Click += new System.EventHandler(this.btnConfirmEmployeeCreation_Click);
             // 
             // btnCancelEmployeeCreation
             // 
-            this.btnCancelEmployeeCreation.Location = new System.Drawing.Point(24, 629);
+            this.btnCancelEmployeeCreation.Location = new System.Drawing.Point(24, 680);
             this.btnCancelEmployeeCreation.Name = "btnCancelEmployeeCreation";
             this.btnCancelEmployeeCreation.Size = new System.Drawing.Size(261, 42);
             this.btnCancelEmployeeCreation.TabIndex = 30;
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = true;
             // 
-            // labelEmployeePassword
-            // 
-            this.labelEmployeePassword.AutoSize = true;
-            this.labelEmployeePassword.Location = new System.Drawing.Point(60, 261);
-            this.labelEmployeePassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelEmployeePassword.Name = "labelEmployeePassword";
-            this.labelEmployeePassword.Size = new System.Drawing.Size(97, 24);
-            this.labelEmployeePassword.TabIndex = 29;
-            this.labelEmployeePassword.Text = "Password:";
-            // 
             // EmployeeInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 683);
+            this.ClientSize = new System.Drawing.Size(594, 734);
             this.Controls.Add(this.btnCancelEmployeeCreation);
             this.Controls.Add(this.btnConfirmEmployeeCreation);
             this.Controls.Add(this.groupBox1);
@@ -384,6 +407,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "EmployeeInformation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditEmployee";
             this.groupBoxSearchAnimal.ResumeLayout(false);
             this.groupBoxSearchAnimal.PerformLayout();
@@ -427,5 +451,7 @@
         private System.Windows.Forms.Button btnConfirmEmployeeCreation;
         private System.Windows.Forms.Button btnCancelEmployeeCreation;
         private System.Windows.Forms.Label labelEmployeePassword;
+        private System.Windows.Forms.Label lblEmployeeGender;
+        private System.Windows.Forms.ComboBox cbxGender;
     }
 }
