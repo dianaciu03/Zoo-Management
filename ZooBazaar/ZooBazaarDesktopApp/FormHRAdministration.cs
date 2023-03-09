@@ -26,5 +26,26 @@ namespace ZooBazaarDesktopApp
         {
 
         }
+
+        private void btnAddEmpployee_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EmployeeInformation form = new EmployeeInformation();
+            form.ShowDialog();
+            this.Show();
+        }
+
+        private void btnEditEmployeeDeta_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EmployeeInformation form = new EmployeeInformation();
+            form.ShowDialog();
+            this.Show();
+        }
+
+        private void btnTerminateEmployeeAccount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
