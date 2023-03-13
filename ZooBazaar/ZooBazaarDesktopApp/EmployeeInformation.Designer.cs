@@ -399,8 +399,8 @@
             // 
             // EmployeeInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(594, 734);
             this.Controls.Add(this.btnCancelEmployeeCreation);
             this.Controls.Add(this.btnConfirmEmployeeCreation);

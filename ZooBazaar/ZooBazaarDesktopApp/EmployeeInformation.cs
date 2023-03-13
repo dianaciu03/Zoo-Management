@@ -49,7 +49,7 @@ namespace ZooBazaarDesktopApp
         {
             tbxFirstName.Text = employee.FirstName;
             tbxLastName.Text = employee.LastName;
-            dtmBirthdate.Value = employee.BirthDate;
+            maskedtbxAddEditEmployee.Text = employee.BirthDate.ToString();
             cbxGender.SelectedItem = employee.PersonGender;
             tbxAddress.Text = employee.Address;
             tbxPhone.Text = employee.Phone;

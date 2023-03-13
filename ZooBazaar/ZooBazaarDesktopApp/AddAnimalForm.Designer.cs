@@ -38,22 +38,22 @@
             this.tbxAdditionalCommentsAddAnimal = new System.Windows.Forms.TextBox();
             this.labelAdditionalCommentsAddAnimal = new System.Windows.Forms.Label();
             this.cbxEndangermentAddAnimal = new System.Windows.Forms.ComboBox();
+            this.nudAgeAddAnimal = new System.Windows.Forms.NumericUpDown();
             this.cbxOriginAddAnimal = new System.Windows.Forms.ComboBox();
             this.labelAddAnimalEndangerment = new System.Windows.Forms.Label();
             this.tbxSpeciesAddAnimal = new System.Windows.Forms.TextBox();
             this.tbxNameAddAnimal = new System.Windows.Forms.TextBox();
-            this.labelAddAnimalBirthDate = new System.Windows.Forms.Label();
+            this.labelAddAnimalAge = new System.Windows.Forms.Label();
             this.labelAddAnimalOrigin = new System.Windows.Forms.Label();
             this.labelAddAnimalSpecies = new System.Windows.Forms.Label();
             this.labelAddAnimalName = new System.Windows.Forms.Label();
-            this.maskedtbxBirthDateAddAnimalForm = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxAddAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnclosureAddAnimal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAgeAddAnimal)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxAddAnimal
             // 
-            this.groupBoxAddAnimal.Controls.Add(this.maskedtbxBirthDateAddAnimalForm);
             this.groupBoxAddAnimal.Controls.Add(this.rbtnMaleAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.rbtnFemaleAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.labelGenderAddAnimal);
@@ -63,15 +63,16 @@
             this.groupBoxAddAnimal.Controls.Add(this.tbxAdditionalCommentsAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.labelAdditionalCommentsAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.cbxEndangermentAddAnimal);
+            this.groupBoxAddAnimal.Controls.Add(this.nudAgeAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.cbxOriginAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalEndangerment);
             this.groupBoxAddAnimal.Controls.Add(this.tbxSpeciesAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.tbxNameAddAnimal);
-            this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalBirthDate);
+            this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalAge);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalOrigin);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalSpecies);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalName);
-            this.groupBoxAddAnimal.Location = new System.Drawing.Point(17, 15);
+            this.groupBoxAddAnimal.Location = new System.Drawing.Point(26, 23);
             this.groupBoxAddAnimal.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.groupBoxAddAnimal.Name = "groupBoxAddAnimal";
             this.groupBoxAddAnimal.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
@@ -137,7 +138,7 @@
             0,
             0});
             this.nudEnclosureAddAnimal.Name = "nudEnclosureAddAnimal";
-            this.nudEnclosureAddAnimal.Size = new System.Drawing.Size(104, 29);
+            this.nudEnclosureAddAnimal.Size = new System.Drawing.Size(128, 29);
             this.nudEnclosureAddAnimal.TabIndex = 17;
             this.nudEnclosureAddAnimal.Value = new decimal(new int[] {
             1,
@@ -167,7 +168,7 @@
             // labelAdditionalCommentsAddAnimal
             // 
             this.labelAdditionalCommentsAddAnimal.AutoSize = true;
-            this.labelAdditionalCommentsAddAnimal.Location = new System.Drawing.Point(17, 378);
+            this.labelAdditionalCommentsAddAnimal.Location = new System.Drawing.Point(16, 373);
             this.labelAdditionalCommentsAddAnimal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAdditionalCommentsAddAnimal.Name = "labelAdditionalCommentsAddAnimal";
             this.labelAdditionalCommentsAddAnimal.Size = new System.Drawing.Size(191, 24);
@@ -182,6 +183,14 @@
             this.cbxEndangermentAddAnimal.Name = "cbxEndangermentAddAnimal";
             this.cbxEndangermentAddAnimal.Size = new System.Drawing.Size(397, 32);
             this.cbxEndangermentAddAnimal.TabIndex = 13;
+            // 
+            // nudAgeAddAnimal
+            // 
+            this.nudAgeAddAnimal.Location = new System.Drawing.Point(196, 226);
+            this.nudAgeAddAnimal.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.nudAgeAddAnimal.Name = "nudAgeAddAnimal";
+            this.nudAgeAddAnimal.Size = new System.Drawing.Size(128, 29);
+            this.nudAgeAddAnimal.TabIndex = 10;
             // 
             // cbxOriginAddAnimal
             // 
@@ -218,15 +227,15 @@
             this.tbxNameAddAnimal.Size = new System.Drawing.Size(397, 29);
             this.tbxNameAddAnimal.TabIndex = 5;
             // 
-            // labelAddAnimalBirthDate
+            // labelAddAnimalAge
             // 
-            this.labelAddAnimalBirthDate.AutoSize = true;
-            this.labelAddAnimalBirthDate.Location = new System.Drawing.Point(16, 228);
-            this.labelAddAnimalBirthDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelAddAnimalBirthDate.Name = "labelAddAnimalBirthDate";
-            this.labelAddAnimalBirthDate.Size = new System.Drawing.Size(114, 24);
-            this.labelAddAnimalBirthDate.TabIndex = 3;
-            this.labelAddAnimalBirthDate.Text = "Date of birth:";
+            this.labelAddAnimalAge.AutoSize = true;
+            this.labelAddAnimalAge.Location = new System.Drawing.Point(16, 228);
+            this.labelAddAnimalAge.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelAddAnimalAge.Name = "labelAddAnimalAge";
+            this.labelAddAnimalAge.Size = new System.Drawing.Size(50, 24);
+            this.labelAddAnimalAge.TabIndex = 3;
+            this.labelAddAnimalAge.Text = "Age:";
             // 
             // labelAddAnimalOrigin
             // 
@@ -258,21 +267,11 @@
             this.labelAddAnimalName.TabIndex = 0;
             this.labelAddAnimalName.Text = "Name:";
             // 
-            // maskedtbxBirthDateAddAnimalForm
-            // 
-            this.maskedtbxBirthDateAddAnimalForm.Location = new System.Drawing.Point(196, 228);
-            this.maskedtbxBirthDateAddAnimalForm.Mask = "00/00/0000";
-            this.maskedtbxBirthDateAddAnimalForm.Name = "maskedtbxBirthDateAddAnimalForm";
-            this.maskedtbxBirthDateAddAnimalForm.ResetOnSpace = false;
-            this.maskedtbxBirthDateAddAnimalForm.Size = new System.Drawing.Size(104, 29);
-            this.maskedtbxBirthDateAddAnimalForm.TabIndex = 32;
-            this.maskedtbxBirthDateAddAnimalForm.ValidatingType = typeof(System.DateTime);
-            // 
             // AddAnimalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 745);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(662, 754);
             this.Controls.Add(this.groupBoxAddAnimal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -282,6 +281,7 @@
             this.groupBoxAddAnimal.ResumeLayout(false);
             this.groupBoxAddAnimal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnclosureAddAnimal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAgeAddAnimal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -295,17 +295,17 @@
         private System.Windows.Forms.TextBox tbxAdditionalCommentsAddAnimal;
         private System.Windows.Forms.Label labelAdditionalCommentsAddAnimal;
         private System.Windows.Forms.ComboBox cbxEndangermentAddAnimal;
+        private System.Windows.Forms.NumericUpDown nudAgeAddAnimal;
         private System.Windows.Forms.ComboBox cbxOriginAddAnimal;
         private System.Windows.Forms.Label labelAddAnimalEndangerment;
         private System.Windows.Forms.TextBox tbxSpeciesAddAnimal;
         private System.Windows.Forms.TextBox tbxNameAddAnimal;
-        private System.Windows.Forms.Label labelAddAnimalBirthDate;
+        private System.Windows.Forms.Label labelAddAnimalAge;
         private System.Windows.Forms.Label labelAddAnimalOrigin;
         private System.Windows.Forms.Label labelAddAnimalSpecies;
         private System.Windows.Forms.Label labelAddAnimalName;
         private System.Windows.Forms.RadioButton rbtnMaleAddAnimal;
         private System.Windows.Forms.RadioButton rbtnFemaleAddAnimal;
         private System.Windows.Forms.Label labelGenderAddAnimal;
-        private System.Windows.Forms.MaskedTextBox maskedtbxBirthDateAddAnimalForm;
     }
 }

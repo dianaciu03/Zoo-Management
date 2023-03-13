@@ -58,3 +58,4 @@ C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktop
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarLogicLibrary.pdb
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CopyComplete
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.EditAnimalDetails.resources
+C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.EditAnimalDetails.resources
