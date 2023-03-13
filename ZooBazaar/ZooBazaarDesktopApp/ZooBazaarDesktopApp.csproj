@@ -52,6 +52,12 @@
     <Compile Include="AddAnimalForm.Designer.cs">
       <DependentUpon>AddAnimalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditAnimalDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAnimalDetails.Designer.cs">
+      <DependentUpon>EditAnimalDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="AddAnimalForm.resx">
       <DependentUpon>AddAnimalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAnimalDetails.resx">
+      <DependentUpon>EditAnimalDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeInformation.resx">
       <DependentUpon>EmployeeInformation.cs</DependentUpon>

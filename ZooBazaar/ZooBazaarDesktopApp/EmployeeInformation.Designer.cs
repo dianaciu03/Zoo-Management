@@ -36,7 +36,6 @@
             this.tbxAddress = new System.Windows.Forms.TextBox();
             this.labelEmployeeAddress = new System.Windows.Forms.Label();
             this.labelEmployeeBirthdate = new System.Windows.Forms.Label();
-            this.dtmBirthdate = new System.Windows.Forms.DateTimePicker();
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.labelEmployeeEmail = new System.Windows.Forms.Label();
             this.labelEmployeePhone = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.lblHoursPerWeek = new System.Windows.Forms.Label();
             this.btnConfirmEmployeeCreation = new System.Windows.Forms.Button();
             this.btnCancelEmployeeCreation = new System.Windows.Forms.Button();
+            this.maskedtbxAddEditEmployee = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxSearchAnimal.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudContractLenght)).BeginInit();
@@ -68,6 +68,7 @@
             // 
             // groupBoxSearchAnimal
             // 
+            this.groupBoxSearchAnimal.Controls.Add(this.maskedtbxAddEditEmployee);
             this.groupBoxSearchAnimal.Controls.Add(this.lblEmployeeGender);
             this.groupBoxSearchAnimal.Controls.Add(this.cbxGender);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeePassword);
@@ -75,7 +76,6 @@
             this.groupBoxSearchAnimal.Controls.Add(this.tbxAddress);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeAddress);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeBirthdate);
-            this.groupBoxSearchAnimal.Controls.Add(this.dtmBirthdate);
             this.groupBoxSearchAnimal.Controls.Add(this.tbxEmail);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeEmail);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeePhone);
@@ -156,16 +156,9 @@
             this.labelEmployeeBirthdate.Location = new System.Drawing.Point(73, 393);
             this.labelEmployeeBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeeBirthdate.Name = "labelEmployeeBirthdate";
-            this.labelEmployeeBirthdate.Size = new System.Drawing.Size(88, 24);
+            this.labelEmployeeBirthdate.Size = new System.Drawing.Size(114, 24);
             this.labelEmployeeBirthdate.TabIndex = 25;
-            this.labelEmployeeBirthdate.Text = "Birthdate:";
-            // 
-            // dtmBirthdate
-            // 
-            this.dtmBirthdate.Location = new System.Drawing.Point(203, 389);
-            this.dtmBirthdate.Name = "dtmBirthdate";
-            this.dtmBirthdate.Size = new System.Drawing.Size(299, 29);
-            this.dtmBirthdate.TabIndex = 24;
+            this.labelEmployeeBirthdate.Text = "Date of birth:";
             // 
             // tbxEmail
             // 
@@ -395,6 +388,15 @@
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = true;
             // 
+            // maskedtbxAddEditEmployee
+            // 
+            this.maskedtbxAddEditEmployee.Location = new System.Drawing.Point(260, 393);
+            this.maskedtbxAddEditEmployee.Mask = "00/00/0000";
+            this.maskedtbxAddEditEmployee.Name = "maskedtbxAddEditEmployee";
+            this.maskedtbxAddEditEmployee.Size = new System.Drawing.Size(108, 29);
+            this.maskedtbxAddEditEmployee.TabIndex = 32;
+            this.maskedtbxAddEditEmployee.ValidatingType = typeof(System.DateTime);
+            // 
             // EmployeeInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -426,7 +428,6 @@
         private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.Label labelEmployeeAddress;
         private System.Windows.Forms.Label labelEmployeeBirthdate;
-        private System.Windows.Forms.DateTimePicker dtmBirthdate;
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label labelEmployeeEmail;
         private System.Windows.Forms.Label labelEmployeePhone;
@@ -453,5 +454,6 @@
         private System.Windows.Forms.Label labelEmployeePassword;
         private System.Windows.Forms.Label lblEmployeeGender;
         private System.Windows.Forms.ComboBox cbxGender;
+        private System.Windows.Forms.MaskedTextBox maskedtbxAddEditEmployee;
     }
 }
