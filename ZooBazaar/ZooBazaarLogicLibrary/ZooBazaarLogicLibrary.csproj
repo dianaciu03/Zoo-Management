@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Animal.cs" />
     <Compile Include="Enums\Endangerment.cs" />
+    <Compile Include="Enums\ROLE.cs" />
     <Compile Include="MateRelationship.cs" />
     <Compile Include="Administrator.cs" />
     <Compile Include="AnimalAdministrator.cs" />

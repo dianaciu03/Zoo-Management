@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZooBazaarLogicLibrary;
+using ZooBazaarLogicLibrary.Enums;
 
 namespace ZooBazaarDesktopApp
 {
@@ -18,6 +19,9 @@ namespace ZooBazaarDesktopApp
         public EmployeeInformation(Employee em)
         {
             InitializeComponent();
+            cbxGender.DataSource = Enum.GetValues(typeof(GENDER));
+            cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
+            
             if (em != null )
             {
                 employee = em;
@@ -53,7 +57,26 @@ namespace ZooBazaarDesktopApp
             cbxGender.SelectedItem = employee.PersonGender;
             tbxAddress.Text = employee.Address;
             tbxPhone.Text = employee.Phone;
-            cbxRole.SelectedItem = employee.GetType().Name;
+            switch (employee.GetType().Name)
+            {
+                case ("Manager"):
+                    cbxRole.SelectedIndex = 0;
+                    break;
+                case ("HRAdministrator"):
+                    cbxRole.SelectedIndex = 1;
+                    break;
+                case ("AnimalAdministrator"):
+                    cbxRole.SelectedIndex = 2;
+                    break;
+                case ("ScheduleMaker"):
+                    cbxRole.SelectedIndex = 3;
+                    break;
+                case ("ResourcePlanner"):
+                    cbxRole.SelectedIndex = 4;
+                    break;
+                
+            }
+            
             tbxEmail.Text = employee.Email;
             tbxEmployeePassword.Text = employee.Password;
         }

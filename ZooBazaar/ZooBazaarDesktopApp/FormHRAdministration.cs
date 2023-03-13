@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace ZooBazaarDesktopApp
     public partial class FormHRAdministration : Form
     {
         EmployeeManagement employeeManagement;
+        Employee employee;
         public FormHRAdministration(EmployeeManagement emMng)
         {
             InitializeComponent();
@@ -47,11 +49,12 @@ namespace ZooBazaarDesktopApp
                 MessageBox.Show("You have not selected an employee");
                 return;
             }
-            Employee employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            this.Hide();
+            Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
+            employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+            //this.Hide();
             EmployeeInformation form = new EmployeeInformation(employee);
             form.ShowDialog();
-            this.Show();
+            //this.Show();
         }
 
         private void btnTerminateEmployeeAccount_Click(object sender, EventArgs e)
@@ -72,7 +75,8 @@ namespace ZooBazaarDesktopApp
                 if (employee.HoursPerWeek == 40)
                     item.SubItems.Add("Full-time");
                 else item.SubItems.Add("Part-time");
-                lvwEmployees.Items.Add(item);
+                    lvwEmployees.Items.Add(item);
+                item.Tag= employee;
             }
         }
 

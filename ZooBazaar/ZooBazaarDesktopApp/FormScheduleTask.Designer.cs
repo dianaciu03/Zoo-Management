@@ -43,11 +43,11 @@
             this.tbxTaskDescription = new System.Windows.Forms.TextBox();
             this.labelTaskDescription = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nudEstimatedTaskTime = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -205,6 +205,22 @@
             this.groupBox1.Text = "Schedule new task";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 82);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(411, 110);
+            this.listView1.TabIndex = 15;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(250, 47);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(173, 29);
+            this.textBox1.TabIndex = 14;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -229,22 +245,6 @@
             this.nudEstimatedTaskTime.Name = "nudEstimatedTaskTime";
             this.nudEstimatedTaskTime.Size = new System.Drawing.Size(133, 29);
             this.nudEstimatedTaskTime.TabIndex = 11;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(125, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 29);
-            this.textBox1.TabIndex = 14;
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 82);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(276, 97);
-            this.listView1.TabIndex = 15;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // FormScheduleTask
             // 
