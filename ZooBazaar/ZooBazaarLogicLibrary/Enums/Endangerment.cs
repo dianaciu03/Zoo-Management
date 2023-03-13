@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZooBazaarLogicLibrary
+namespace ZooBazaarLogicLibrary.Enums
 {
     public enum Endangerment
     {
