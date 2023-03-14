@@ -43,28 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="AnimalManagement.cs" />
+    <Compile Include="Animals\Animal.cs" />
+    <Compile Include="Animals\AnimalManagement.cs" />
     <Compile Include="Enums\Endangerment.cs" />
     <Compile Include="Enums\ROLE.cs" />
     <Compile Include="FormDataValidator.cs" />
-    <Compile Include="MateRelationship.cs" />
-    <Compile Include="Administrator.cs" />
-    <Compile Include="AnimalAdministrator.cs" />
-    <Compile Include="CareTaker.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeManagement.cs" />
+    <Compile Include="Animals\MateRelationship.cs" />
+    <Compile Include="Employees\Administrator.cs" />
+    <Compile Include="Employees\AnimalAdministrator.cs" />
+    <Compile Include="Employees\CareTaker.cs" />
+    <Compile Include="Employees\Employee.cs" />
+    <Compile Include="Employees\EmployeeManagement.cs" />
     <Compile Include="Enums\GENDER.cs" />
-    <Compile Include="HRAdministrator.cs" />
-    <Compile Include="Manager.cs" />
+    <Compile Include="Employees\HRAdministrator.cs" />
+    <Compile Include="Employees\Manager.cs" />
     <Compile Include="Enums\OriginContinent.cs" />
-    <Compile Include="ParentRelationship.cs" />
+    <Compile Include="Animals\ParentRelationship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Relationship.cs" />
-    <Compile Include="ResourcePlanner.cs" />
-    <Compile Include="ScheduleMaker.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="TaskManagement.cs" />
+    <Compile Include="Animals\Relationship.cs" />
+    <Compile Include="Employees\ResourcePlanner.cs" />
+    <Compile Include="Employees\ScheduleMaker.cs" />
+    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\TaskManagement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

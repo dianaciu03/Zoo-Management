@@ -49,6 +49,7 @@
             this.btnRemoveTask.TabIndex = 11;
             this.btnRemoveTask.Text = "Assign employee";
             this.btnRemoveTask.UseVisualStyleBackColor = true;
+            this.btnRemoveTask.Click += new System.EventHandler(this.btnRemoveTask_Click);
             // 
             // btnMoreTaskDetails
             // 

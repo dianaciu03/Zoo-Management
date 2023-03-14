@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ZooBazaarLogicLibrary;
 namespace ZooBazaarDesktopApp
 {
     public partial class FormAnimalAdministration : Form
@@ -19,7 +19,7 @@ namespace ZooBazaarDesktopApp
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
         {
-
+        
         }
 
         private void btnEditAnimal_Click(object sender, EventArgs e)
