@@ -52,7 +52,7 @@ namespace ZooBazaarDesktopApp
             Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
             employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
             //this.Hide();
-            EmployeeInformation form = new EmployeeInformation(employee);
+            PopupEmployeeDetails form = new PopupEmployeeDetails(employee);
             form.ShowDialog();
             //this.Show();
         }
