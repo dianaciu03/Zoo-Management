@@ -65,6 +65,7 @@
             this.labelSpecies = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControlAnimals.SuspendLayout();
             this.tabAllAnimals.SuspendLayout();
             this.groupBoxAnimalTransfer.SuspendLayout();
@@ -75,6 +76,7 @@
             // tabControlAnimals
             // 
             this.tabControlAnimals.Controls.Add(this.tabAllAnimals);
+            this.tabControlAnimals.Controls.Add(this.tabPage1);
             this.tabControlAnimals.Location = new System.Drawing.Point(13, 54);
             this.tabControlAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControlAnimals.Name = "tabControlAnimals";
@@ -171,9 +173,9 @@
             // btnCancelTransfer
             // 
             this.btnCancelTransfer.AutoSize = true;
-            this.btnCancelTransfer.Location = new System.Drawing.Point(324, 264);
+            this.btnCancelTransfer.Location = new System.Drawing.Point(312, 264);
             this.btnCancelTransfer.Name = "btnCancelTransfer";
-            this.btnCancelTransfer.Size = new System.Drawing.Size(120, 35);
+            this.btnCancelTransfer.Size = new System.Drawing.Size(132, 35);
             this.btnCancelTransfer.TabIndex = 16;
             this.btnCancelTransfer.Text = "Cancel";
             this.btnCancelTransfer.UseVisualStyleBackColor = true;
@@ -183,7 +185,7 @@
             this.btnConfirmTransfer.AutoSize = true;
             this.btnConfirmTransfer.Location = new System.Drawing.Point(156, 264);
             this.btnConfirmTransfer.Name = "btnConfirmTransfer";
-            this.btnConfirmTransfer.Size = new System.Drawing.Size(120, 35);
+            this.btnConfirmTransfer.Size = new System.Drawing.Size(132, 35);
             this.btnConfirmTransfer.TabIndex = 15;
             this.btnConfirmTransfer.Text = "Confirm";
             this.btnConfirmTransfer.UseVisualStyleBackColor = true;
@@ -337,9 +339,9 @@
             // btnClearAll
             // 
             this.btnClearAll.AutoSize = true;
-            this.btnClearAll.Location = new System.Drawing.Point(302, 326);
+            this.btnClearAll.Location = new System.Drawing.Point(312, 326);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(120, 35);
+            this.btnClearAll.Size = new System.Drawing.Size(132, 35);
             this.btnClearAll.TabIndex = 15;
             this.btnClearAll.Text = "Clear all";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -349,7 +351,7 @@
             this.btnSearchAnimal.AutoSize = true;
             this.btnSearchAnimal.Location = new System.Drawing.Point(156, 326);
             this.btnSearchAnimal.Name = "btnSearchAnimal";
-            this.btnSearchAnimal.Size = new System.Drawing.Size(120, 35);
+            this.btnSearchAnimal.Size = new System.Drawing.Size(132, 35);
             this.btnSearchAnimal.TabIndex = 14;
             this.btnSearchAnimal.Text = "Search";
             this.btnSearchAnimal.UseVisualStyleBackColor = true;
@@ -464,6 +466,16 @@
             this.labelTitleZooBazaar.TabIndex = 1;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 41);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1504, 727);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "Animal history";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // FormAnimalAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -527,6 +539,7 @@
         private System.Windows.Forms.RadioButton rbtnMale;
         private System.Windows.Forms.RadioButton rbtnFemale;
         private System.Windows.Forms.Label labelGenderAddAnimal;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 

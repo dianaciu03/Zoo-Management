@@ -91,14 +91,14 @@
             this.groupBoxSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearchAnimal.Name = "groupBoxSearchAnimal";
             this.groupBoxSearchAnimal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(545, 443);
+            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(484, 443);
             this.groupBoxSearchAnimal.TabIndex = 5;
             this.groupBoxSearchAnimal.TabStop = false;
             this.groupBoxSearchAnimal.Text = "Employee information";
             // 
             // maskedtbxAddEditEmployee
             // 
-            this.maskedtbxAddEditEmployee.Location = new System.Drawing.Point(260, 393);
+            this.maskedtbxAddEditEmployee.Location = new System.Drawing.Point(170, 390);
             this.maskedtbxAddEditEmployee.Mask = "00/00/0000";
             this.maskedtbxAddEditEmployee.Name = "maskedtbxAddEditEmployee";
             this.maskedtbxAddEditEmployee.Size = new System.Drawing.Size(108, 29);
@@ -118,9 +118,9 @@
             // cbxGender
             // 
             this.cbxGender.FormattingEnabled = true;
-            this.cbxGender.Location = new System.Drawing.Point(260, 127);
+            this.cbxGender.Location = new System.Drawing.Point(172, 127);
             this.cbxGender.Name = "cbxGender";
-            this.cbxGender.Size = new System.Drawing.Size(242, 32);
+            this.cbxGender.Size = new System.Drawing.Size(295, 32);
             this.cbxGender.TabIndex = 30;
             // 
             // labelEmployeePassword
@@ -135,18 +135,18 @@
             // 
             // tbxEmployeePassword
             // 
-            this.tbxEmployeePassword.Location = new System.Drawing.Point(260, 307);
+            this.tbxEmployeePassword.Location = new System.Drawing.Point(172, 307);
             this.tbxEmployeePassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxEmployeePassword.Name = "tbxEmployeePassword";
-            this.tbxEmployeePassword.Size = new System.Drawing.Size(242, 29);
+            this.tbxEmployeePassword.Size = new System.Drawing.Size(295, 29);
             this.tbxEmployeePassword.TabIndex = 28;
             // 
             // tbxAddress
             // 
-            this.tbxAddress.Location = new System.Drawing.Point(260, 348);
+            this.tbxAddress.Location = new System.Drawing.Point(172, 348);
             this.tbxAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAddress.Name = "tbxAddress";
-            this.tbxAddress.Size = new System.Drawing.Size(242, 29);
+            this.tbxAddress.Size = new System.Drawing.Size(295, 29);
             this.tbxAddress.TabIndex = 27;
             // 
             // labelEmployeeAddress
@@ -162,7 +162,7 @@
             // labelEmployeeBirthdate
             // 
             this.labelEmployeeBirthdate.AutoSize = true;
-            this.labelEmployeeBirthdate.Location = new System.Drawing.Point(73, 393);
+            this.labelEmployeeBirthdate.Location = new System.Drawing.Point(49, 393);
             this.labelEmployeeBirthdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmployeeBirthdate.Name = "labelEmployeeBirthdate";
             this.labelEmployeeBirthdate.Size = new System.Drawing.Size(114, 24);
@@ -171,10 +171,10 @@
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(260, 264);
+            this.tbxEmail.Location = new System.Drawing.Point(172, 264);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(242, 29);
+            this.tbxEmail.Size = new System.Drawing.Size(295, 29);
             this.tbxEmail.TabIndex = 20;
             // 
             // labelEmployeeEmail
@@ -199,10 +199,10 @@
             // 
             // tbxPhone
             // 
-            this.tbxPhone.Location = new System.Drawing.Point(260, 218);
+            this.tbxPhone.Location = new System.Drawing.Point(172, 218);
             this.tbxPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxPhone.Name = "tbxPhone";
-            this.tbxPhone.Size = new System.Drawing.Size(242, 29);
+            this.tbxPhone.Size = new System.Drawing.Size(295, 29);
             this.tbxPhone.TabIndex = 17;
             // 
             // labelEmployeeRole
@@ -218,25 +218,25 @@
             // cbxRole
             // 
             this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Location = new System.Drawing.Point(260, 175);
+            this.cbxRole.Location = new System.Drawing.Point(172, 175);
             this.cbxRole.Name = "cbxRole";
-            this.cbxRole.Size = new System.Drawing.Size(242, 32);
+            this.cbxRole.Size = new System.Drawing.Size(295, 32);
             this.cbxRole.TabIndex = 9;
             // 
             // tbxLastName
             // 
-            this.tbxLastName.Location = new System.Drawing.Point(260, 83);
+            this.tbxLastName.Location = new System.Drawing.Point(172, 83);
             this.tbxLastName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxLastName.Name = "tbxLastName";
-            this.tbxLastName.Size = new System.Drawing.Size(242, 29);
+            this.tbxLastName.Size = new System.Drawing.Size(295, 29);
             this.tbxLastName.TabIndex = 6;
             // 
             // tbxFirstName
             // 
-            this.tbxFirstName.Location = new System.Drawing.Point(260, 41);
+            this.tbxFirstName.Location = new System.Drawing.Point(172, 41);
             this.tbxFirstName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(242, 29);
+            this.tbxFirstName.Size = new System.Drawing.Size(295, 29);
             this.tbxFirstName.TabIndex = 5;
             // 
             // labelEmployeeLastName
@@ -273,7 +273,7 @@
             // rbtnFullTimeEmployee
             // 
             this.rbtnFullTimeEmployee.AutoSize = true;
-            this.rbtnFullTimeEmployee.Location = new System.Drawing.Point(259, 37);
+            this.rbtnFullTimeEmployee.Location = new System.Drawing.Point(168, 36);
             this.rbtnFullTimeEmployee.Name = "rbtnFullTimeEmployee";
             this.rbtnFullTimeEmployee.Size = new System.Drawing.Size(100, 28);
             this.rbtnFullTimeEmployee.TabIndex = 22;
@@ -285,7 +285,7 @@
             // rbtnPartTimeEmployee
             // 
             this.rbtnPartTimeEmployee.AutoSize = true;
-            this.rbtnPartTimeEmployee.Location = new System.Drawing.Point(401, 37);
+            this.rbtnPartTimeEmployee.Location = new System.Drawing.Point(286, 36);
             this.rbtnPartTimeEmployee.Name = "rbtnPartTimeEmployee";
             this.rbtnPartTimeEmployee.Size = new System.Drawing.Size(101, 28);
             this.rbtnPartTimeEmployee.TabIndex = 21;
@@ -311,14 +311,14 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(545, 213);
+            this.groupBox1.Size = new System.Drawing.Size(484, 213);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract details";
             // 
             // dtmContractStartDate
             // 
-            this.dtmContractStartDate.Location = new System.Drawing.Point(203, 78);
+            this.dtmContractStartDate.Location = new System.Drawing.Point(168, 77);
             this.dtmContractStartDate.Name = "dtmContractStartDate";
             this.dtmContractStartDate.Size = new System.Drawing.Size(299, 29);
             this.dtmContractStartDate.TabIndex = 28;
@@ -336,7 +336,7 @@
             // labelContractMonths
             // 
             this.labelContractMonths.AutoSize = true;
-            this.labelContractMonths.Location = new System.Drawing.Point(418, 167);
+            this.labelContractMonths.Location = new System.Drawing.Point(330, 166);
             this.labelContractMonths.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelContractMonths.Name = "labelContractMonths";
             this.labelContractMonths.Size = new System.Drawing.Size(84, 24);
@@ -346,7 +346,7 @@
             // nudContractLenght
             // 
             this.nudContractLenght.Enabled = false;
-            this.nudContractLenght.Location = new System.Drawing.Point(321, 165);
+            this.nudContractLenght.Location = new System.Drawing.Point(233, 164);
             this.nudContractLenght.Name = "nudContractLenght";
             this.nudContractLenght.Size = new System.Drawing.Size(90, 29);
             this.nudContractLenght.TabIndex = 27;
@@ -354,7 +354,7 @@
             // cbxFixedTermContract
             // 
             this.cbxFixedTermContract.AutoSize = true;
-            this.cbxFixedTermContract.Location = new System.Drawing.Point(64, 167);
+            this.cbxFixedTermContract.Location = new System.Drawing.Point(35, 165);
             this.cbxFixedTermContract.Name = "cbxFixedTermContract";
             this.cbxFixedTermContract.Size = new System.Drawing.Size(191, 28);
             this.cbxFixedTermContract.TabIndex = 26;
@@ -363,7 +363,7 @@
             // 
             // nudWeeklyHours
             // 
-            this.nudWeeklyHours.Location = new System.Drawing.Point(203, 119);
+            this.nudWeeklyHours.Location = new System.Drawing.Point(168, 118);
             this.nudWeeklyHours.Name = "nudWeeklyHours";
             this.nudWeeklyHours.Size = new System.Drawing.Size(120, 29);
             this.nudWeeklyHours.TabIndex = 25;
@@ -380,9 +380,9 @@
             // 
             // btnConfirmEmployeeCreation
             // 
-            this.btnConfirmEmployeeCreation.Location = new System.Drawing.Point(308, 680);
+            this.btnConfirmEmployeeCreation.Location = new System.Drawing.Point(281, 680);
             this.btnConfirmEmployeeCreation.Name = "btnConfirmEmployeeCreation";
-            this.btnConfirmEmployeeCreation.Size = new System.Drawing.Size(261, 42);
+            this.btnConfirmEmployeeCreation.Size = new System.Drawing.Size(227, 42);
             this.btnConfirmEmployeeCreation.TabIndex = 29;
             this.btnConfirmEmployeeCreation.Text = "Confirm";
             this.btnConfirmEmployeeCreation.UseVisualStyleBackColor = true;
@@ -392,7 +392,7 @@
             // 
             this.btnCancelEmployeeCreation.Location = new System.Drawing.Point(24, 680);
             this.btnCancelEmployeeCreation.Name = "btnCancelEmployeeCreation";
-            this.btnCancelEmployeeCreation.Size = new System.Drawing.Size(261, 42);
+            this.btnCancelEmployeeCreation.Size = new System.Drawing.Size(226, 42);
             this.btnCancelEmployeeCreation.TabIndex = 30;
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = true;
