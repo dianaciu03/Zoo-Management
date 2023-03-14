@@ -281,7 +281,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+<<<<<<< Updated upstream:ZooBazaar/ZooBazaarDesktopApp/PopupAnimalDetails.Designer.cs
             this.ClientSize = new System.Drawing.Size(642, 738);
+=======
+            this.ClientSize = new System.Drawing.Size(662, 754);
+>>>>>>> Stashed changes:ZooBazaar/ZooBazaarDesktopApp/AddAnimalForm.Designer.cs
             this.Controls.Add(this.groupBoxAddAnimal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);

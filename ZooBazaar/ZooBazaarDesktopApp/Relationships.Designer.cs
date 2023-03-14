@@ -58,7 +58,10 @@
             this.groupBoxRelationships.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxRelationships.Name = "groupBoxRelationships";
             this.groupBoxRelationships.Padding = new System.Windows.Forms.Padding(2);
+<<<<<<< Updated upstream
             this.groupBoxRelationships.Size = new System.Drawing.Size(427, 486);
+=======
+>>>>>>> Stashed changes
             this.groupBoxRelationships.Size = new System.Drawing.Size(427, 476);
             this.groupBoxRelationships.TabIndex = 1;
             this.groupBoxRelationships.TabStop = false;
@@ -86,7 +89,10 @@
             // btnDeleteRelationship
             // 
             this.btnDeleteRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+<<<<<<< Updated upstream
             this.btnDeleteRelationship.Location = new System.Drawing.Point(115, 423);
+=======
+>>>>>>> Stashed changes
             this.btnDeleteRelationship.Location = new System.Drawing.Point(115, 405);
             this.btnDeleteRelationship.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteRelationship.Name = "btnDeleteRelationship";
@@ -99,7 +105,10 @@
             // 
             this.lbxDisplayAnimalRelationships.FormattingEnabled = true;
             this.lbxDisplayAnimalRelationships.ItemHeight = 24;
+<<<<<<< Updated upstream
             this.lbxDisplayAnimalRelationships.Location = new System.Drawing.Point(37, 218);
+=======
+>>>>>>> Stashed changes
             this.lbxDisplayAnimalRelationships.Location = new System.Drawing.Point(39, 218);
             this.lbxDisplayAnimalRelationships.Margin = new System.Windows.Forms.Padding(2);
             this.lbxDisplayAnimalRelationships.Name = "lbxDisplayAnimalRelationships";
@@ -110,7 +119,10 @@
             // cbOtherAnimal
             // 
             this.cbOtherAnimal.FormattingEnabled = true;
+<<<<<<< Updated upstream
             this.cbOtherAnimal.Location = new System.Drawing.Point(197, 120);
+=======
+>>>>>>> Stashed changes
             this.cbOtherAnimal.Location = new System.Drawing.Point(227, 122);
             this.cbOtherAnimal.Margin = new System.Windows.Forms.Padding(2);
             this.cbOtherAnimal.Name = "cbOtherAnimal";
@@ -120,7 +132,10 @@
             // cbRelationShipType
             // 
             this.cbRelationShipType.FormattingEnabled = true;
+<<<<<<< Updated upstream
             this.cbRelationShipType.Location = new System.Drawing.Point(197, 86);
+=======
+>>>>>>> Stashed changes
             this.cbRelationShipType.Location = new System.Drawing.Point(227, 86);
             this.cbRelationShipType.Margin = new System.Windows.Forms.Padding(2);
             this.cbRelationShipType.Name = "cbRelationShipType";
@@ -130,6 +145,7 @@
             // btnAddRelationship
             // 
             this.btnAddRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< Updated upstream
             this.btnAddRelationship.Location = new System.Drawing.Point(115, 173);
             this.btnAddRelationship.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddRelationship.Name = "btnAddRelationship";
@@ -137,6 +153,11 @@
             this.btnAddRelationship.Location = new System.Drawing.Point(115, 167);
             this.btnAddRelationship.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddRelationship.Name = "btnAddRelationship";
+=======
+            this.btnAddRelationship.Location = new System.Drawing.Point(115, 167);
+            this.btnAddRelationship.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddRelationship.Name = "btnAddRelationship";
+>>>>>>> Stashed changes
             this.btnAddRelationship.Size = new System.Drawing.Size(173, 38);
             this.btnAddRelationship.TabIndex = 1;
             this.btnAddRelationship.Text = "Add relationship";
@@ -155,7 +176,10 @@
             // labelCompanion
             // 
             this.labelCompanion.AutoSize = true;
+<<<<<<< Updated upstream
             this.labelCompanion.Location = new System.Drawing.Point(35, 128);
+=======
+>>>>>>> Stashed changes
             this.labelCompanion.Location = new System.Drawing.Point(35, 125);
             this.labelCompanion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompanion.Name = "labelCompanion";
@@ -167,7 +191,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< Updated upstream
             this.ClientSize = new System.Drawing.Size(440, 505);
+=======
+>>>>>>> Stashed changes
             this.ClientSize = new System.Drawing.Size(440, 485);
             this.Controls.Add(this.groupBoxRelationships);
             this.Margin = new System.Windows.Forms.Padding(2);
