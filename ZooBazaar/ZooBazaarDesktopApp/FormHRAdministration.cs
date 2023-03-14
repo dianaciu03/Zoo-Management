@@ -37,7 +37,7 @@ namespace ZooBazaarDesktopApp
         {
             Employee employee = null;
             this.Hide();
-            EmployeeInformation form = new EmployeeInformation(employee);
+            PopupEmployeeDetails form = new PopupEmployeeDetails(employee);
             form.ShowDialog();
             this.Show();
         }

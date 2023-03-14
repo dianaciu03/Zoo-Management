@@ -46,23 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAnimalForm.cs">
+    <Compile Include="PopupAnimalDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAnimalForm.Designer.cs">
-      <DependentUpon>AddAnimalForm.cs</DependentUpon>
+    <Compile Include="PopupAnimalDetails.Designer.cs">
+      <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditAnimalDetails.cs">
+    <Compile Include="PopupEmployeeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditAnimalDetails.Designer.cs">
-      <DependentUpon>EditAnimalDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeInformation.Designer.cs">
-      <DependentUpon>EmployeeInformation.cs</DependentUpon>
+    <Compile Include="PopupEmployeeDetails.Designer.cs">
+      <DependentUpon>PopupEmployeeDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAnimalAdministration.cs">
       <SubType>Form</SubType>
@@ -102,14 +96,11 @@
     <Compile Include="Relationships.Designer.cs">
       <DependentUpon>Relationships.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddAnimalForm.resx">
-      <DependentUpon>AddAnimalForm.cs</DependentUpon>
+    <EmbeddedResource Include="PopupAnimalDetails.resx">
+      <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditAnimalDetails.resx">
-      <DependentUpon>EditAnimalDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeInformation.resx">
-      <DependentUpon>EmployeeInformation.cs</DependentUpon>
+    <EmbeddedResource Include="PopupEmployeeDetails.resx">
+      <DependentUpon>PopupEmployeeDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAnimalAdministration.resx">
       <DependentUpon>FormAnimalAdministration.cs</DependentUpon>

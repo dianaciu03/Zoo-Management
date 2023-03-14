@@ -1,6 +1,6 @@
 ﻿namespace ZooBazaarDesktopApp
 {
-    partial class EmployeeInformation
+    partial class PopupEmployeeDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
+            this.maskedtbxAddEditEmployee = new System.Windows.Forms.MaskedTextBox();
             this.lblEmployeeGender = new System.Windows.Forms.Label();
             this.cbxGender = new System.Windows.Forms.ComboBox();
             this.labelEmployeePassword = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.lblHoursPerWeek = new System.Windows.Forms.Label();
             this.btnConfirmEmployeeCreation = new System.Windows.Forms.Button();
             this.btnCancelEmployeeCreation = new System.Windows.Forms.Button();
-            this.maskedtbxAddEditEmployee = new System.Windows.Forms.MaskedTextBox();
             this.groupBoxSearchAnimal.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudContractLenght)).BeginInit();
@@ -95,6 +95,15 @@
             this.groupBoxSearchAnimal.TabIndex = 5;
             this.groupBoxSearchAnimal.TabStop = false;
             this.groupBoxSearchAnimal.Text = "Employee information";
+            // 
+            // maskedtbxAddEditEmployee
+            // 
+            this.maskedtbxAddEditEmployee.Location = new System.Drawing.Point(260, 393);
+            this.maskedtbxAddEditEmployee.Mask = "00/00/0000";
+            this.maskedtbxAddEditEmployee.Name = "maskedtbxAddEditEmployee";
+            this.maskedtbxAddEditEmployee.Size = new System.Drawing.Size(108, 29);
+            this.maskedtbxAddEditEmployee.TabIndex = 32;
+            this.maskedtbxAddEditEmployee.ValidatingType = typeof(System.DateTime);
             // 
             // lblEmployeeGender
             // 
@@ -388,16 +397,7 @@
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = true;
             // 
-            // maskedtbxAddEditEmployee
-            // 
-            this.maskedtbxAddEditEmployee.Location = new System.Drawing.Point(260, 393);
-            this.maskedtbxAddEditEmployee.Mask = "00/00/0000";
-            this.maskedtbxAddEditEmployee.Name = "maskedtbxAddEditEmployee";
-            this.maskedtbxAddEditEmployee.Size = new System.Drawing.Size(108, 29);
-            this.maskedtbxAddEditEmployee.TabIndex = 32;
-            this.maskedtbxAddEditEmployee.ValidatingType = typeof(System.DateTime);
-            // 
-            // EmployeeInformation
+            // PopupEmployeeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -408,9 +408,9 @@
             this.Controls.Add(this.groupBoxSearchAnimal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "EmployeeInformation";
+            this.Name = "PopupEmployeeDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddEditEmployee";
+            this.Text = "Employee Details";
             this.groupBoxSearchAnimal.ResumeLayout(false);
             this.groupBoxSearchAnimal.PerformLayout();
             this.groupBox1.ResumeLayout(false);
