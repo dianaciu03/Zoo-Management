@@ -13,12 +13,12 @@ namespace ZooBazaarLogicLibrary
         private GENDER gender;
         private string species;
         private int age;
-        private OriginContinent origin;
+        private ORIGINCONTINENT origin;
         private string description;
-        private Endangerment endangerment;
+        private ENDANGERMENT endangerment;
         private int enclosure;
 
-        public Animal(int id, string name, GENDER gender, string species, int age, OriginContinent origin, string description, Endangerment endangerment, int enclosure)
+        public Animal(int id, string name, GENDER gender, string species, int age, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure)
         {
             this.id = id;
             this.name = name;
@@ -41,11 +41,11 @@ namespace ZooBazaarLogicLibrary
 
         public int Age { get { return age; } set { this.age = value; } }
 
-        public OriginContinent OriginContinent { get { return origin; } set { this.origin = value; } }
+        public ORIGINCONTINENT OriginContinent { get { return origin; } set { this.origin = value; } }
 
         public string Description { get { return description; } set { this.description = value; } }
 
-        public Endangerment Endangerment { get { return endangerment; } set { this.endangerment = value; } }
+        public ENDANGERMENT Endangerment { get { return endangerment; } set { this.endangerment = value; } }
 
         public int Enclosure { get { return enclosure; } set { this.enclosure = value; } }
 

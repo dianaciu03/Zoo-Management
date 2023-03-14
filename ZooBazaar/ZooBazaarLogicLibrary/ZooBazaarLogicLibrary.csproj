@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Animals\Animal.cs" />
     <Compile Include="Animals\AnimalManagement.cs" />
-    <Compile Include="Enums\Endangerment.cs" />
+    <Compile Include="Enums\ENDANGERMENT.cs" />
     <Compile Include="Enums\ROLE.cs" />
     <Compile Include="FormDataValidator.cs" />
     <Compile Include="Animals\MateRelationship.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="Enums\GENDER.cs" />
     <Compile Include="Employees\HRAdministrator.cs" />
     <Compile Include="Employees\Manager.cs" />
-    <Compile Include="Enums\OriginContinent.cs" />
+    <Compile Include="Enums\ORIGINCONTINENT.cs" />
     <Compile Include="Animals\ParentRelationship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Animals\Relationship.cs" />

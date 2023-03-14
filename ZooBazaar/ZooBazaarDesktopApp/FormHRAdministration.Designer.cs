@@ -30,9 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnEditEmployeeDeta = new System.Windows.Forms.Button();
-            this.btnAddEmpployee = new System.Windows.Forms.Button();
+            this.btnAddEmployee = new System.Windows.Forms.Button();
             this.lvwEmployees = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -59,6 +58,7 @@
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.labelEmployeeLastName = new System.Windows.Forms.Label();
             this.labelEmployeeFirstName = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -79,7 +79,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.btnEditEmployeeDeta);
-            this.tabPage1.Controls.Add(this.btnAddEmpployee);
+            this.tabPage1.Controls.Add(this.btnAddEmployee);
             this.tabPage1.Controls.Add(this.lvwEmployees);
             this.tabPage1.Controls.Add(this.groupBoxSearchAnimal);
             this.tabPage1.Location = new System.Drawing.Point(4, 41);
@@ -90,16 +90,6 @@
             this.tabPage1.Text = "All employees";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 41);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1476, 757);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Employee history";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // btnEditEmployeeDeta
             // 
             this.btnEditEmployeeDeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
@@ -109,16 +99,18 @@
             this.btnEditEmployeeDeta.TabIndex = 17;
             this.btnEditEmployeeDeta.Text = "Manage employee";
             this.btnEditEmployeeDeta.UseVisualStyleBackColor = true;
+            this.btnEditEmployeeDeta.Click += new System.EventHandler(this.btnEditEmployeeDeta_Click);
             // 
-            // btnAddEmpployee
+            // btnAddEmployee
             // 
-            this.btnAddEmpployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnAddEmpployee.Location = new System.Drawing.Point(673, 719);
-            this.btnAddEmpployee.Name = "btnAddEmpployee";
-            this.btnAddEmpployee.Size = new System.Drawing.Size(314, 40);
-            this.btnAddEmpployee.TabIndex = 15;
-            this.btnAddEmpployee.Text = "Add employee";
-            this.btnAddEmpployee.UseVisualStyleBackColor = true;
+            this.btnAddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnAddEmployee.Location = new System.Drawing.Point(673, 719);
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.Size = new System.Drawing.Size(314, 40);
+            this.btnAddEmployee.TabIndex = 15;
+            this.btnAddEmployee.Text = "Add employee";
+            this.btnAddEmployee.UseVisualStyleBackColor = true;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // lvwEmployees
             // 
@@ -131,6 +123,7 @@
             this.lvwEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lvwEmployees.HideSelection = false;
             this.lvwEmployees.Location = new System.Drawing.Point(506, 14);
+            this.lvwEmployees.MultiSelect = false;
             this.lvwEmployees.Name = "lvwEmployees";
             this.lvwEmployees.Size = new System.Drawing.Size(954, 699);
             this.lvwEmployees.TabIndex = 14;
@@ -372,6 +365,16 @@
             this.labelEmployeeFirstName.TabIndex = 0;
             this.labelEmployeeFirstName.Text = "First name:";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1476, 757);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Employee history";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // labelTitleZooBazaar
             // 
             this.labelTitleZooBazaar.AutoSize = true;
@@ -409,7 +412,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnEditEmployeeDeta;
-        private System.Windows.Forms.Button btnAddEmpployee;
+        private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.ListView lvwEmployees;
         private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colFirstName;

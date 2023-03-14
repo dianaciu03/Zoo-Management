@@ -268,7 +268,6 @@
             this.labelEmployeeContractType.Size = new System.Drawing.Size(124, 24);
             this.labelEmployeeContractType.TabIndex = 23;
             this.labelEmployeeContractType.Text = "Contract type:";
-            this.labelEmployeeContractType.Click += new System.EventHandler(this.labelEmployeeContractType_Click);
             // 
             // rbtnFullTimeEmployee
             // 
@@ -280,7 +279,6 @@
             this.rbtnFullTimeEmployee.TabStop = true;
             this.rbtnFullTimeEmployee.Text = "Full-time";
             this.rbtnFullTimeEmployee.UseVisualStyleBackColor = true;
-            this.rbtnFullTimeEmployee.CheckedChanged += new System.EventHandler(this.rbtnFullTimeEmployee_CheckedChanged);
             // 
             // rbtnPartTimeEmployee
             // 
@@ -292,7 +290,6 @@
             this.rbtnPartTimeEmployee.TabStop = true;
             this.rbtnPartTimeEmployee.Text = "Part-time";
             this.rbtnPartTimeEmployee.UseVisualStyleBackColor = true;
-            this.rbtnPartTimeEmployee.CheckedChanged += new System.EventHandler(this.rbtnPartTimeEmployee_CheckedChanged);
             // 
             // groupBox1
             // 

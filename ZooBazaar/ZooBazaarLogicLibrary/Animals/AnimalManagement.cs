@@ -19,5 +19,6 @@ namespace ZooBazaarLogicLibrary
         {
             animalsList.Add(animal);
         }
+
     }
 }

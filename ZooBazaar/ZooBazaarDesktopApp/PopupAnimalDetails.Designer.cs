@@ -30,8 +30,8 @@
         {
             this.groupBoxAddAnimal = new System.Windows.Forms.GroupBox();
             this.labelEditAnimalBirthDate = new System.Windows.Forms.Label();
-            this.btnCancelEmployeeCreation = new System.Windows.Forms.Button();
-            this.btnConfirmEmployeeCreation = new System.Windows.Forms.Button();
+            this.btnCancelAnimalCreation = new System.Windows.Forms.Button();
+            this.btnConfirmAnimalCreation = new System.Windows.Forms.Button();
             this.maskedtbxBirthDateEditAnimalForm = new System.Windows.Forms.MaskedTextBox();
             this.rbtnMaleAddAnimal = new System.Windows.Forms.RadioButton();
             this.rbtnFemaleAddAnimal = new System.Windows.Forms.RadioButton();
@@ -55,8 +55,8 @@
             // groupBoxAddAnimal
             // 
             this.groupBoxAddAnimal.Controls.Add(this.labelEditAnimalBirthDate);
-            this.groupBoxAddAnimal.Controls.Add(this.btnCancelEmployeeCreation);
-            this.groupBoxAddAnimal.Controls.Add(this.btnConfirmEmployeeCreation);
+            this.groupBoxAddAnimal.Controls.Add(this.btnCancelAnimalCreation);
+            this.groupBoxAddAnimal.Controls.Add(this.btnConfirmAnimalCreation);
             this.groupBoxAddAnimal.Controls.Add(this.maskedtbxBirthDateEditAnimalForm);
             this.groupBoxAddAnimal.Controls.Add(this.rbtnMaleAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.rbtnFemaleAddAnimal);
@@ -92,24 +92,25 @@
             this.labelEditAnimalBirthDate.TabIndex = 38;
             this.labelEditAnimalBirthDate.Text = "Date of birth:";
             // 
-            // btnCancelEmployeeCreation
+            // btnCancelAnimalCreation
             // 
-            this.btnCancelEmployeeCreation.Location = new System.Drawing.Point(21, 653);
-            this.btnCancelEmployeeCreation.Name = "btnCancelEmployeeCreation";
-            this.btnCancelEmployeeCreation.Size = new System.Drawing.Size(261, 42);
-            this.btnCancelEmployeeCreation.TabIndex = 37;
-            this.btnCancelEmployeeCreation.Text = "Cancel";
-            this.btnCancelEmployeeCreation.UseVisualStyleBackColor = true;
+            this.btnCancelAnimalCreation.Location = new System.Drawing.Point(21, 653);
+            this.btnCancelAnimalCreation.Name = "btnCancelAnimalCreation";
+            this.btnCancelAnimalCreation.Size = new System.Drawing.Size(261, 42);
+            this.btnCancelAnimalCreation.TabIndex = 37;
+            this.btnCancelAnimalCreation.Text = "Cancel";
+            this.btnCancelAnimalCreation.UseVisualStyleBackColor = true;
+            this.btnCancelAnimalCreation.Click += new System.EventHandler(this.btnCancelAnimalCreation_Click);
             // 
-            // btnConfirmEmployeeCreation
+            // btnConfirmAnimalCreation
             // 
-            this.btnConfirmEmployeeCreation.Location = new System.Drawing.Point(332, 653);
-            this.btnConfirmEmployeeCreation.Name = "btnConfirmEmployeeCreation";
-            this.btnConfirmEmployeeCreation.Size = new System.Drawing.Size(261, 42);
-            this.btnConfirmEmployeeCreation.TabIndex = 36;
-            this.btnConfirmEmployeeCreation.Text = "Confirm";
-            this.btnConfirmEmployeeCreation.UseVisualStyleBackColor = true;
-            this.btnConfirmEmployeeCreation.Click += new System.EventHandler(this.btnConfirmEmployeeCreation_Click);
+            this.btnConfirmAnimalCreation.Location = new System.Drawing.Point(332, 653);
+            this.btnConfirmAnimalCreation.Name = "btnConfirmAnimalCreation";
+            this.btnConfirmAnimalCreation.Size = new System.Drawing.Size(261, 42);
+            this.btnConfirmAnimalCreation.TabIndex = 36;
+            this.btnConfirmAnimalCreation.Text = "Confirm";
+            this.btnConfirmAnimalCreation.UseVisualStyleBackColor = true;
+            this.btnConfirmAnimalCreation.Click += new System.EventHandler(this.btnConfirmAnimalCreation_Click);
             // 
             // maskedtbxBirthDateEditAnimalForm
             // 
@@ -315,8 +316,8 @@
         private System.Windows.Forms.RadioButton rbtnFemaleAddAnimal;
         private System.Windows.Forms.Label labelGenderAddAnimal;
         private System.Windows.Forms.MaskedTextBox maskedtbxBirthDateEditAnimalForm;
-        private System.Windows.Forms.Button btnCancelEmployeeCreation;
-        private System.Windows.Forms.Button btnConfirmEmployeeCreation;
+        private System.Windows.Forms.Button btnCancelAnimalCreation;
+        private System.Windows.Forms.Button btnConfirmAnimalCreation;
         private System.Windows.Forms.Label labelEditAnimalBirthDate;
     }
 }

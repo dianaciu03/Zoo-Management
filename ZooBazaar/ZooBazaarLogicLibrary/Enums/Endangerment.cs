@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZooBazaarLogicLibrary.Enums
 {
-    public enum Endangerment
+    public enum ENDANGERMENT
     {
         NotEvaluated,
         LeastConcern,

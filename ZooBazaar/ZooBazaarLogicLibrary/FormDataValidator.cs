@@ -8,6 +8,7 @@ namespace ZooBazaarLogicLibrary
 {
     public class FormDataValidator
     {
+        public FormDataValidator() { }
         //Checks if string contains any int, if it contains int return false
         public bool IsValidStringOnly(string name)
         {

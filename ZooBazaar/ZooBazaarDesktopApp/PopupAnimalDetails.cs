@@ -18,9 +18,14 @@ namespace ZooBazaarDesktopApp
             InitializeComponent();
         }
 
-        private void btnConfirmEmployeeCreation_Click(object sender, EventArgs e)
+        private void btnCancelAnimalCreation_Click(object sender, EventArgs e)
         {
-        
+
+        }
+
+        private void btnConfirmAnimalCreation_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

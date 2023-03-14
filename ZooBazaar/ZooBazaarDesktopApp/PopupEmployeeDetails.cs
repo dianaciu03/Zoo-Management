@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZooBazaarLogicLibrary;
+using ZooBazaarLogicLibrary.Animals;
 
 namespace ZooBazaarDesktopApp
 {
@@ -15,6 +16,7 @@ namespace ZooBazaarDesktopApp
     {
         bool newEmployeeCreation;
         Employee employee;
+        FormDataValidator dataValidator= new FormDataValidator();
         public PopupEmployeeDetails(Employee em)
         {
             InitializeComponent();
@@ -28,21 +30,6 @@ namespace ZooBazaarDesktopApp
             {
                 newEmployeeCreation = true;
             }
-        }
-
-        private void labelEmployeeContractType_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnFullTimeEmployee_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnPartTimeEmployee_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void fillInFields()
@@ -60,12 +47,14 @@ namespace ZooBazaarDesktopApp
 
         private void btnConfirmEmployeeCreation_Click(object sender, EventArgs e)
         {
-            /*if (!newEmployeeCreation)
+            if (newEmployeeCreation)
             {
-                employee.FirstName= tbxFirstName.Text;
-                employee.LastName= tbxLastName.Text;
-                employee.PersonGender = (GENDER)cbxGender.SelectedItem;
-            }*/
+                //if(string.isEmptyOrNull())
+                if (!dataValidator.IsValidStringOnly(tbxFirstName.Text))
+                {
+                    MessageBox.Show("Please input a valid name!");
+                }
+            }
         }
     }
 }

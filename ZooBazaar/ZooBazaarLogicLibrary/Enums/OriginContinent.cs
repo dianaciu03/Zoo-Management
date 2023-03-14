@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZooBazaarLogicLibrary.Enums
 {
-    public enum OriginContinent
+    public enum ORIGINCONTINENT
     {
         Africa,
         Antarctica,

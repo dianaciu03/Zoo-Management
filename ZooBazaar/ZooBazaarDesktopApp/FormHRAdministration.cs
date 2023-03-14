@@ -23,43 +23,12 @@ namespace ZooBazaarDesktopApp
             updateEmployees();
         }
 
-        private void labelOrigin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numAge_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddEmpployee_Click(object sender, EventArgs e)
         {
             Employee employee = null;
-            this.Hide();
             PopupEmployeeDetails form = new PopupEmployeeDetails(employee);
             form.ShowDialog();
             this.Show();
-        }
-
-        private void btnEditEmployeeDeta_Click(object sender, EventArgs e)
-        {
-            if (lvwEmployees.SelectedIndices[0] == -1)
-            {
-                MessageBox.Show("You have not selected an employee");
-                return;
-            }
-            Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
-            employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            //this.Hide();
-            PopupEmployeeDetails form = new PopupEmployeeDetails(employee);
-            form.ShowDialog();
-            //this.Show();
-        }
-
-        private void btnTerminateEmployeeAccount_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void updateEmployees()
@@ -80,9 +49,26 @@ namespace ZooBazaarDesktopApp
             }
         }
 
-        private void lvwEmployees_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnEditEmployeeDeta_Click(object sender, EventArgs e)
         {
+            if (lvwEmployees.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("You have not selected an employee");
+                return;
+            }
+            Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
+            employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+            //this.Hide();
+            PopupEmployeeDetails form = new PopupEmployeeDetails(employee);
+            form.ShowDialog();
+            //this.Show();
+        }
 
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            Employee employee = null;
+            PopupEmployeeDetails popupEmployeeDetails = new PopupEmployeeDetails(employee);
+            popupEmployeeDetails.ShowDialog();
         }
     }
 }
