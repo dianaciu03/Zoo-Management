@@ -121,6 +121,7 @@
             this.btnEditAnimal.TabIndex = 5;
             this.btnEditAnimal.Text = "Edit animal";
             this.btnEditAnimal.UseVisualStyleBackColor = true;
+            this.btnEditAnimal.Click += new System.EventHandler(this.btnEditAnimal_Click);
             // 
             // btnAddAnimal
             // 
@@ -131,6 +132,7 @@
             this.btnAddAnimal.TabIndex = 4;
             this.btnAddAnimal.Text = "Add animal";
             this.btnAddAnimal.UseVisualStyleBackColor = true;
+            this.btnAddAnimal.Click += new System.EventHandler(this.btnAddAnimal_Click);
             // 
             // groupBoxAnimalTransfer
             // 

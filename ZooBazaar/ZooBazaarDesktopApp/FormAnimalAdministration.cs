@@ -17,5 +17,14 @@ namespace ZooBazaarDesktopApp
             InitializeComponent();
         }
 
+        private void btnAddAnimal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditAnimal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

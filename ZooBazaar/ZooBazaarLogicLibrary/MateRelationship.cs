@@ -8,8 +8,8 @@ namespace ZooBazaarLogicLibrary
 {
     class MateRelationship:Relationship
     {
-        public MateRelationship(/* Animal animal1, Animal animal2,*/)
-            :base(/*animal1,animal2,*/) 
+        public MateRelationship(Animal animal1, Animal animal2)
+            :base(animal1,animal2) 
         {
 
         }

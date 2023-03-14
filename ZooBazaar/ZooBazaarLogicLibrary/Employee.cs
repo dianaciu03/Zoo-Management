@@ -19,7 +19,7 @@ namespace ZooBazaarLogicLibrary
         public string Password { get; set; }
         public string Email { get; set; }
         public int HoursPerWeek { get; set; }
-        public Employee(int ID, string FirstName, string LastName, DateTime BirthDate, GENDER PersonGender, string Address, string Phone, string Password, string Email, int HoursPerWeek)
+        protected Employee(int ID, string FirstName, string LastName, DateTime BirthDate, GENDER PersonGender, string Address, string Phone, string Password, string Email, int HoursPerWeek)
         {
             this.ID = ID;
             this.FirstName = FirstName;

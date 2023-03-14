@@ -9,7 +9,7 @@ namespace ZooBazaarLogicLibrary
 {
     public abstract class Administrator : Employee
     {
-        public Administrator(int ID, string FirstName, string LastName, DateTime BirthDate, GENDER PersonGender, string Address, string Phone, string Password, string Email) :
+        protected Administrator(int ID, string FirstName, string LastName, DateTime BirthDate, GENDER PersonGender, string Address, string Phone, string Password, string Email) :
                    base(ID, FirstName, LastName, BirthDate, PersonGender, Address, Phone, Password, Email, 40)
         {
 

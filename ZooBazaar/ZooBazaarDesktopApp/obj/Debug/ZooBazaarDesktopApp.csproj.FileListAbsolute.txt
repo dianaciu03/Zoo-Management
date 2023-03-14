@@ -30,8 +30,6 @@ C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\Zo
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormHRAdministration.resources
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.AssemblyReference.cache
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.SuggestedBindingRedirects.cache
-C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.AddAnimalForm.resources
-C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.EmployeeInformation.resources
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormAnimalAdministration.resources
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormAssignTasks.resources
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormHRAdministration.resources
@@ -55,7 +53,6 @@ C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktop
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarLogicLibrary.dll
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\bin\Debug\ZooBazaarLogicLibrary.pdb
 C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.csproj.CopyComplete
-C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.EditAnimalDetails.resources
 C:\Users\Augustinas\Documents\GitRepo\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.EditAnimalDetails.resources
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormAssignTasks.resources
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.FormLogin.resources
@@ -63,3 +60,5 @@ D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarLogicLibrary.Relationships.resources
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.PopupAnimalDetails.resources
 D:\FONTYS\Semester 2\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.PopupEmployeeDetails.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.PopupAnimalDetails.resources
+C:\Gitrepo\PROJECTSEM02\semester-2-project-cb03-grp-2\ZooBazaar\ZooBazaarDesktopApp\obj\Debug\ZooBazaarDesktopApp.PopupEmployeeDetails.resources

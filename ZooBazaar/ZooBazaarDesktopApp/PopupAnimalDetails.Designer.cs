@@ -109,6 +109,7 @@
             this.btnConfirmEmployeeCreation.TabIndex = 36;
             this.btnConfirmEmployeeCreation.Text = "Confirm";
             this.btnConfirmEmployeeCreation.UseVisualStyleBackColor = true;
+            this.btnConfirmEmployeeCreation.Click += new System.EventHandler(this.btnConfirmEmployeeCreation_Click);
             // 
             // maskedtbxBirthDateEditAnimalForm
             // 
