@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooBazaarLogicLibrary", "Zo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooBazaarDesktopApp", "ZooBazaarDesktopApp\ZooBazaarDesktopApp.csproj", "{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLogicLibrary", "DatabaseLogicLibrary\DatabaseLogicLibrary.csproj", "{A9EB1B52-3F7B-4E16-82FC-EFA906C0A474}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725C52F8-AC18-4AD9-9B20-2FEFBF093CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9EB1B52-3F7B-4E16-82FC-EFA906C0A474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9EB1B52-3F7B-4E16-82FC-EFA906C0A474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9EB1B52-3F7B-4E16-82FC-EFA906C0A474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9EB1B52-3F7B-4E16-82FC-EFA906C0A474}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
