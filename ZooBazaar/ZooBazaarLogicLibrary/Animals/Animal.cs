@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZooBazaarLogicLibrary.Enums;
+
 namespace ZooBazaarLogicLibrary
 {
     public class Animal
@@ -13,13 +13,13 @@ namespace ZooBazaarLogicLibrary
         private string gender;
         private string species;
         private DateTime birthday;
-        private OriginContinent origin;
+        private ORIGINCONTINENT origin;
         private string description;
         private ENDANGERMENT endangerment;
         private int enclosure;
         private string availability;
 
-        public Animal(int id, string name, string gender, string species, DateTime birthday, OriginContinent origin, string description, Endangerment endangerment, int enclosure)
+        public Animal(int id, string name, string gender, string species, DateTime birthday, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure)
         {
             this.id = id;
             this.name = name;

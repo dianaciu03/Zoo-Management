@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZooBazaarLogicLibrary.Enums
+namespace ZooBazaarLogicLibrary
 {
     public enum ORIGINCONTINENT
     {

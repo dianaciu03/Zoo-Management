@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZooBazaarLogicLibrary;
-using ZooBazaarLogicLibrary.Enums;
 
 namespace ZooBazaarDesktopApp
 {
@@ -25,19 +24,19 @@ namespace ZooBazaarDesktopApp
 
         private void InitializeFormElements()
         {
-            cbxEndangerment.DataSource = Enum.GetValues(typeof(Endangerment));
-            cbxOrigin.DataSource = Enum.GetValues(typeof(OriginContinent));
+            cbxEndangerment.DataSource = Enum.GetValues(typeof(ENDANGERMENT));
+            cbxOrigin.DataSource = Enum.GetValues(typeof(ORIGINCONTINENT));
             btnClearAll_Click(this, EventArgs.Empty);
             btnCancelTransfer_Click(this, EventArgs.Empty);
         }
 
         public void InitializeAnimalMockData()
         {
-            animalManagement.Animals.Add(new Animal(1, "Ana", "Female", "zebra", DateTime.Now, OriginContinent.Africa, "descriere zebra", Endangerment.LeastConcern, 1));
-            animalManagement.Animals.Add(new Animal(2, "Maria", "Female", "alpaca", DateTime.Now, OriginContinent.Asia, "descriere alpaca", Endangerment.LeastConcern, 2));
-            animalManagement.Animals.Add(new Animal(3, "Tudor", "Male", "lion", DateTime.Now, OriginContinent.Africa, "descriere lion", Endangerment.LeastConcern, 4));
-            animalManagement.Animals.Add(new Animal(4, "Andrei", "Male", "lion", DateTime.Now, OriginContinent.Africa, "descriere lion", Endangerment.NotEvaluated, 4));
-            animalManagement.Animals.Add(new Animal(5, "Alex", "Male", "sloth", DateTime.Now, OriginContinent.Africa, "descriere sloth", Endangerment.LeastConcern, 3));
+            animalManagement.Animals.Add(new Animal(1, "Ana", "Female", "zebra", DateTime.Now, ORIGINCONTINENT.Africa, "descriere zebra", ENDANGERMENT.LeastConcern, 1));
+            animalManagement.Animals.Add(new Animal(2, "Maria", "Female", "alpaca", DateTime.Now, ORIGINCONTINENT.Asia, "descriere alpaca", ENDANGERMENT.LeastConcern, 2));
+            animalManagement.Animals.Add(new Animal(3, "Tudor", "Male", "lion", DateTime.Now, ORIGINCONTINENT.Africa, "descriere lion", ENDANGERMENT.LeastConcern, 4));
+            animalManagement.Animals.Add(new Animal(4, "Andrei", "Male", "lion", DateTime.Now, ORIGINCONTINENT.Africa, "descriere lion", ENDANGERMENT.NotEvaluated, 4));
+            animalManagement.Animals.Add(new Animal(5, "Alex", "Male", "sloth", DateTime.Now, ORIGINCONTINENT.Africa, "descriere sloth", ENDANGERMENT.LeastConcern, 3));
         }
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
@@ -49,7 +48,7 @@ namespace ZooBazaarDesktopApp
 
         private void btnEditAnimal_Click(object sender, EventArgs e)
         {
-            if(lvwAnimals.CheckedItems.Count > 1)
+            /*if(lvwAnimals.CheckedItems.Count > 1)
             {
                 MessageBox.Show("Please select only one animal!");
                 return;
@@ -59,7 +58,7 @@ namespace ZooBazaarDesktopApp
                 MessageBox.Show("Please select an animal to edit details!");
                 return;
             }
-            
+            */
             PopupAnimalDetails popupAnimalDetails = new PopupAnimalDetails();
             popupAnimalDetails.Show();
         }
