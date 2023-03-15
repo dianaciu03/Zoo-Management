@@ -30,7 +30,6 @@
         {
             this.tabControlAnimals = new System.Windows.Forms.TabControl();
             this.tabAllAnimals = new System.Windows.Forms.TabPage();
-            this.lbxAnimals = new System.Windows.Forms.ListBox();
             this.btnAddRelationship = new System.Windows.Forms.Button();
             this.btnEditAnimal = new System.Windows.Forms.Button();
             this.btnAddAnimal = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.tbxZooNameTransfer = new System.Windows.Forms.TextBox();
             this.labelZooNameTransfer = new System.Windows.Forms.Label();
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
+            this.tbxAge = new System.Windows.Forms.TextBox();
             this.cbTransferred = new System.Windows.Forms.CheckBox();
             this.cbAvailable = new System.Windows.Forms.CheckBox();
             this.rbtnMale = new System.Windows.Forms.RadioButton();
@@ -65,7 +65,13 @@
             this.labelName = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
-            this.tbxAge = new System.Windows.Forms.TextBox();
+            this.lvwAnimals = new System.Windows.Forms.ListView();
+            this.colAnimalID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colAnimalName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSpecies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEnclosure = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colAvailability = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colContinent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControlAnimals.SuspendLayout();
             this.tabAllAnimals.SuspendLayout();
             this.groupBoxAnimalTransfer.SuspendLayout();
@@ -86,7 +92,7 @@
             // 
             // tabAllAnimals
             // 
-            this.tabAllAnimals.Controls.Add(this.lbxAnimals);
+            this.tabAllAnimals.Controls.Add(this.lvwAnimals);
             this.tabAllAnimals.Controls.Add(this.btnAddRelationship);
             this.tabAllAnimals.Controls.Add(this.btnEditAnimal);
             this.tabAllAnimals.Controls.Add(this.btnAddAnimal);
@@ -101,19 +107,10 @@
             this.tabAllAnimals.Text = "All animals";
             this.tabAllAnimals.UseVisualStyleBackColor = true;
             // 
-            // lbxAnimals
-            // 
-            this.lbxAnimals.FormattingEnabled = true;
-            this.lbxAnimals.ItemHeight = 20;
-            this.lbxAnimals.Location = new System.Drawing.Point(557, 30);
-            this.lbxAnimals.Name = "lbxAnimals";
-            this.lbxAnimals.Size = new System.Drawing.Size(924, 624);
-            this.lbxAnimals.TabIndex = 7;
-            // 
             // btnAddRelationship
             // 
             this.btnAddRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRelationship.Location = new System.Drawing.Point(1135, 669);
+            this.btnAddRelationship.Location = new System.Drawing.Point(1124, 669);
             this.btnAddRelationship.Name = "btnAddRelationship";
             this.btnAddRelationship.Size = new System.Drawing.Size(215, 45);
             this.btnAddRelationship.TabIndex = 6;
@@ -123,7 +120,7 @@
             // btnEditAnimal
             // 
             this.btnEditAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAnimal.Location = new System.Drawing.Point(914, 669);
+            this.btnEditAnimal.Location = new System.Drawing.Point(876, 669);
             this.btnEditAnimal.Name = "btnEditAnimal";
             this.btnEditAnimal.Size = new System.Drawing.Size(215, 45);
             this.btnEditAnimal.TabIndex = 5;
@@ -134,7 +131,7 @@
             // btnAddAnimal
             // 
             this.btnAddAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAnimal.Location = new System.Drawing.Point(693, 669);
+            this.btnAddAnimal.Location = new System.Drawing.Point(627, 669);
             this.btnAddAnimal.Name = "btnAddAnimal";
             this.btnAddAnimal.Size = new System.Drawing.Size(215, 45);
             this.btnAddAnimal.TabIndex = 4;
@@ -284,6 +281,14 @@
             this.groupBoxSearchAnimal.TabIndex = 0;
             this.groupBoxSearchAnimal.TabStop = false;
             this.groupBoxSearchAnimal.Text = "Search by:";
+            // 
+            // tbxAge
+            // 
+            this.tbxAge.Location = new System.Drawing.Point(156, 234);
+            this.tbxAge.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxAge.Name = "tbxAge";
+            this.tbxAge.Size = new System.Drawing.Size(91, 26);
+            this.tbxAge.TabIndex = 37;
             // 
             // cbTransferred
             // 
@@ -471,13 +476,51 @@
             this.labelTitleZooBazaar.TabIndex = 1;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
-            // tbxAge
+            // lvwAnimals
             // 
-            this.tbxAge.Location = new System.Drawing.Point(156, 234);
-            this.tbxAge.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbxAge.Name = "tbxAge";
-            this.tbxAge.Size = new System.Drawing.Size(91, 26);
-            this.tbxAge.TabIndex = 37;
+            this.lvwAnimals.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colAnimalID,
+            this.colAnimalName,
+            this.colSpecies,
+            this.colContinent,
+            this.colEnclosure,
+            this.colAvailability});
+            this.lvwAnimals.HideSelection = false;
+            this.lvwAnimals.Location = new System.Drawing.Point(627, 30);
+            this.lvwAnimals.Name = "lvwAnimals";
+            this.lvwAnimals.Size = new System.Drawing.Size(859, 633);
+            this.lvwAnimals.TabIndex = 7;
+            this.lvwAnimals.UseCompatibleStateImageBehavior = false;
+            this.lvwAnimals.View = System.Windows.Forms.View.Details;
+            // 
+            // colAnimalID
+            // 
+            this.colAnimalID.Text = "ID";
+            // 
+            // colAnimalName
+            // 
+            this.colAnimalName.Text = "Name";
+            this.colAnimalName.Width = 206;
+            // 
+            // colSpecies
+            // 
+            this.colSpecies.Text = "Specie";
+            this.colSpecies.Width = 160;
+            // 
+            // colEnclosure
+            // 
+            this.colEnclosure.Text = "Enclosure";
+            this.colEnclosure.Width = 102;
+            // 
+            // colAvailability
+            // 
+            this.colAvailability.Text = "Availability";
+            this.colAvailability.Width = 160;
+            // 
+            // colContinent
+            // 
+            this.colContinent.Text = "Continent";
+            this.colContinent.Width = 166;
             // 
             // FormAnimalAdministration
             // 
@@ -540,8 +583,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckBox cbTransferred;
         private System.Windows.Forms.CheckBox cbAvailable;
-        private System.Windows.Forms.ListBox lbxAnimals;
         private System.Windows.Forms.TextBox tbxAge;
+        private System.Windows.Forms.ListView lvwAnimals;
+        private System.Windows.Forms.ColumnHeader colAnimalID;
+        private System.Windows.Forms.ColumnHeader colAnimalName;
+        private System.Windows.Forms.ColumnHeader colSpecies;
+        private System.Windows.Forms.ColumnHeader colEnclosure;
+        private System.Windows.Forms.ColumnHeader colAvailability;
+        private System.Windows.Forms.ColumnHeader colContinent;
     }
 }
 

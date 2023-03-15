@@ -28,6 +28,7 @@ namespace ZooBazaarDesktopApp
             cbxOrigin.DataSource = Enum.GetValues(typeof(ORIGINCONTINENT));
             btnClearAll_Click(this, EventArgs.Empty);
             btnCancelTransfer_Click(this, EventArgs.Empty);
+            btnSearchAnimal_Click(this, EventArgs.Empty);
         }
 
         public void InitializeAnimalMockData()
@@ -41,9 +42,9 @@ namespace ZooBazaarDesktopApp
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
         {
-            
-            PopupAnimalDetails popupAnimalDetails = new PopupAnimalDetails();
-            popupAnimalDetails.Show();
+            PopupAnimalDetails popupAnimalDetails = new PopupAnimalDetails(null, animalManagement);
+            popupAnimalDetails.ShowDialog();
+            btnSearchAnimal_Click(sender, e);
         }
 
         private void btnEditAnimal_Click(object sender, EventArgs e)
@@ -52,20 +53,21 @@ namespace ZooBazaarDesktopApp
             {
                 MessageBox.Show("Please select only one animal!");
                 return;
-            }
-            if(lvwAnimals.CheckedItems.Count == 0)
+            }*/
+            if (lvwAnimals.SelectedIndices[0] != -1)
             {
-                MessageBox.Show("Please select an animal to edit details!");
+                Animal selectedAnimal = (Animal)lvwAnimals.SelectedItems[0].Tag;
+                PopupAnimalDetails popupAnimalDetails = new PopupAnimalDetails(selectedAnimal, animalManagement);
+                popupAnimalDetails.ShowDialog();
+                btnSearchAnimal_Click(sender, e);
                 return;
             }
-            */
-            PopupAnimalDetails popupAnimalDetails = new PopupAnimalDetails();
-            popupAnimalDetails.Show();
+            MessageBox.Show("Please select an animal to edit details!");
         }
 
         private void btnSearchAnimal_Click(object sender, EventArgs e)
         {
-            lbxAnimals.Items.Clear();
+            /*lbxAnimals.Items.Clear();
             List<Animal> searchedAnimals = new List<Animal>();
 
             string gender = string.Empty;
@@ -87,6 +89,39 @@ namespace ZooBazaarDesktopApp
             foreach (Animal animal in searchedAnimals)
             {
                 lbxAnimals.Items.Add(animal);
+            }*/
+
+            lvwAnimals.Items.Clear();
+
+            List<Animal> searchedAnimals = new List<Animal>();
+
+            string gender = string.Empty;
+            if (rbtnFemale.Checked)
+                gender = rbtnFemale.Text;
+            else if (rbtnMale.Checked)
+                gender = rbtnMale.Text;
+
+            string availability = string.Empty;
+            if (cbAvailable.Checked == true && cbTransferred.Checked == false)
+                availability = cbAvailable.Text;
+            else if (cbAvailable.Checked == false && cbTransferred.Checked == true)
+                availability = cbTransferred.Text;
+            else if (cbAvailable.Checked == false && cbTransferred.Checked == false || cbAvailable.Checked == false && cbTransferred.Checked == false)
+                availability = string.Empty;
+
+            searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, tbxSpecies.Text, cbxOrigin.Text, gender, availability, tbxAge.Text, cbxEndangerment.Text);
+
+            foreach (var animal in searchedAnimals)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = animal.Id.ToString();
+                item.Tag = animal;
+                item.SubItems.Add(animal.Name);
+                item.SubItems.Add(animal.Species);
+                item.SubItems.Add(animal.OriginContinent.ToString());
+                item.SubItems.Add(animal.Enclosure.ToString());
+                item.SubItems.Add(animal.Availability.ToString());
+                lvwAnimals.Items.Add(item);
             }
         }
 

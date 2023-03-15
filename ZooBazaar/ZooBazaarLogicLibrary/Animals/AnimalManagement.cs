@@ -55,5 +55,10 @@ namespace ZooBazaarLogicLibrary
             }
             return searchedAnimals;
         }
+
+        public Animal[] GetAllAnimals()
+        {
+            return animalsList.ToArray();
+        }
     }
 }

@@ -121,6 +121,7 @@
             this.colRole,
             this.colContractType});
             this.lvwEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lvwEmployees.FullRowSelect = true;
             this.lvwEmployees.HideSelection = false;
             this.lvwEmployees.Location = new System.Drawing.Point(506, 14);
             this.lvwEmployees.MultiSelect = false;
