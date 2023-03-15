@@ -32,35 +32,35 @@
             this.dtpTaskTime = new System.Windows.Forms.DateTimePicker();
             this.labelTaskTime = new System.Windows.Forms.Label();
             this.lvwTasksInProgress = new System.Windows.Forms.ListView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControlScheduledTasks = new System.Windows.Forms.TabControl();
+            this.tabPageInProgress = new System.Windows.Forms.TabPage();
+            this.tabPageFinished = new System.Windows.Forms.TabPage();
             this.lvwFinishedTasks = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelScheduledTasks = new System.Windows.Forms.Label();
             this.btnMoreTaskDetails = new System.Windows.Forms.Button();
             this.btnRemoveTask = new System.Windows.Forms.Button();
             this.btnScheduleTask = new System.Windows.Forms.Button();
             this.tbxTaskDescription = new System.Windows.Forms.TextBox();
             this.labelTaskDescription = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxScheduleNewTask = new System.Windows.Forms.GroupBox();
+            this.groupBoxAnimalSearch = new System.Windows.Forms.GroupBox();
             this.lvwAnimalSearch = new System.Windows.Forms.ListView();
-            this.tbxSearchByName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.nudEstimatedTaskTime = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbxSearchBySpecie = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSpecie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.labelSearchByName = new System.Windows.Forms.Label();
+            this.labelSpecies = new System.Windows.Forms.Label();
+            this.tbxSearchByName = new System.Windows.Forms.TextBox();
+            this.cbxSearchBySpecie = new System.Windows.Forms.ComboBox();
+            this.labelHours = new System.Windows.Forms.Label();
+            this.labelEstimatedTime = new System.Windows.Forms.Label();
+            this.nudEstimatedTaskTime = new System.Windows.Forms.NumericUpDown();
+            this.tabControlScheduledTasks.SuspendLayout();
+            this.tabPageInProgress.SuspendLayout();
+            this.tabPageFinished.SuspendLayout();
+            this.groupBoxScheduleNewTask.SuspendLayout();
+            this.groupBoxAnimalSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEstimatedTaskTime)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // calTaskDateSelection
@@ -97,37 +97,37 @@
             this.lvwTasksInProgress.TabIndex = 3;
             this.lvwTasksInProgress.UseCompatibleStateImageBehavior = false;
             // 
-            // tabControl1
+            // tabControlScheduledTasks
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(800, 43);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(438, 458);
-            this.tabControl1.TabIndex = 4;
+            this.tabControlScheduledTasks.Controls.Add(this.tabPageInProgress);
+            this.tabControlScheduledTasks.Controls.Add(this.tabPageFinished);
+            this.tabControlScheduledTasks.Location = new System.Drawing.Point(771, 43);
+            this.tabControlScheduledTasks.Name = "tabControlScheduledTasks";
+            this.tabControlScheduledTasks.SelectedIndex = 0;
+            this.tabControlScheduledTasks.Size = new System.Drawing.Size(467, 458);
+            this.tabControlScheduledTasks.TabIndex = 4;
             // 
-            // tabPage1
+            // tabPageInProgress
             // 
-            this.tabPage1.Controls.Add(this.lvwTasksInProgress);
-            this.tabPage1.Location = new System.Drawing.Point(4, 33);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(430, 421);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "In progress";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageInProgress.Controls.Add(this.lvwTasksInProgress);
+            this.tabPageInProgress.Location = new System.Drawing.Point(4, 33);
+            this.tabPageInProgress.Name = "tabPageInProgress";
+            this.tabPageInProgress.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInProgress.Size = new System.Drawing.Size(430, 421);
+            this.tabPageInProgress.TabIndex = 0;
+            this.tabPageInProgress.Text = "In progress";
+            this.tabPageInProgress.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabPageFinished
             // 
-            this.tabPage2.Controls.Add(this.lvwFinishedTasks);
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(430, 421);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Finished";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageFinished.Controls.Add(this.lvwFinishedTasks);
+            this.tabPageFinished.Location = new System.Drawing.Point(4, 33);
+            this.tabPageFinished.Name = "tabPageFinished";
+            this.tabPageFinished.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFinished.Size = new System.Drawing.Size(459, 421);
+            this.tabPageFinished.TabIndex = 1;
+            this.tabPageFinished.Text = "Finished";
+            this.tabPageFinished.UseVisualStyleBackColor = true;
             // 
             // lvwFinishedTasks
             // 
@@ -138,15 +138,15 @@
             this.lvwFinishedTasks.TabIndex = 4;
             this.lvwFinishedTasks.UseCompatibleStateImageBehavior = false;
             // 
-            // label1
+            // labelScheduledTasks
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(798, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 31);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Scheduled tasks";
+            this.labelScheduledTasks.AutoSize = true;
+            this.labelScheduledTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScheduledTasks.Location = new System.Drawing.Point(769, 9);
+            this.labelScheduledTasks.Name = "labelScheduledTasks";
+            this.labelScheduledTasks.Size = new System.Drawing.Size(229, 31);
+            this.labelScheduledTasks.TabIndex = 5;
+            this.labelScheduledTasks.Text = "Scheduled tasks";
             // 
             // btnMoreTaskDetails
             // 
@@ -159,7 +159,7 @@
             // 
             // btnRemoveTask
             // 
-            this.btnRemoveTask.Location = new System.Drawing.Point(804, 503);
+            this.btnRemoveTask.Location = new System.Drawing.Point(775, 503);
             this.btnRemoveTask.Name = "btnRemoveTask";
             this.btnRemoveTask.Size = new System.Drawing.Size(209, 44);
             this.btnRemoveTask.TabIndex = 7;
@@ -180,7 +180,7 @@
             this.tbxTaskDescription.Location = new System.Drawing.Point(6, 359);
             this.tbxTaskDescription.Multiline = true;
             this.tbxTaskDescription.Name = "tbxTaskDescription";
-            this.tbxTaskDescription.Size = new System.Drawing.Size(662, 146);
+            this.tbxTaskDescription.Size = new System.Drawing.Size(718, 146);
             this.tbxTaskDescription.TabIndex = 9;
             // 
             // labelTaskDescription
@@ -192,25 +192,39 @@
             this.labelTaskDescription.TabIndex = 10;
             this.labelTaskDescription.Text = "Task description";
             // 
-            // groupBox1
+            // groupBoxScheduleNewTask
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.nudEstimatedTaskTime);
-            this.groupBox1.Controls.Add(this.tbxTaskDescription);
-            this.groupBox1.Controls.Add(this.labelTaskDescription);
-            this.groupBox1.Controls.Add(this.btnScheduleTask);
-            this.groupBox1.Controls.Add(this.dtpTaskTime);
-            this.groupBox1.Controls.Add(this.labelTaskTime);
-            this.groupBox1.Controls.Add(this.calTaskDateSelection);
-            this.groupBox1.Location = new System.Drawing.Point(12, 9);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 573);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Schedule new task";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBoxScheduleNewTask.Controls.Add(this.groupBoxAnimalSearch);
+            this.groupBoxScheduleNewTask.Controls.Add(this.labelHours);
+            this.groupBoxScheduleNewTask.Controls.Add(this.labelEstimatedTime);
+            this.groupBoxScheduleNewTask.Controls.Add(this.nudEstimatedTaskTime);
+            this.groupBoxScheduleNewTask.Controls.Add(this.tbxTaskDescription);
+            this.groupBoxScheduleNewTask.Controls.Add(this.labelTaskDescription);
+            this.groupBoxScheduleNewTask.Controls.Add(this.btnScheduleTask);
+            this.groupBoxScheduleNewTask.Controls.Add(this.dtpTaskTime);
+            this.groupBoxScheduleNewTask.Controls.Add(this.labelTaskTime);
+            this.groupBoxScheduleNewTask.Controls.Add(this.calTaskDateSelection);
+            this.groupBoxScheduleNewTask.Location = new System.Drawing.Point(12, 9);
+            this.groupBoxScheduleNewTask.Name = "groupBoxScheduleNewTask";
+            this.groupBoxScheduleNewTask.Size = new System.Drawing.Size(742, 573);
+            this.groupBoxScheduleNewTask.TabIndex = 11;
+            this.groupBoxScheduleNewTask.TabStop = false;
+            this.groupBoxScheduleNewTask.Text = "Schedule new task";
+            this.groupBoxScheduleNewTask.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBoxAnimalSearch
+            // 
+            this.groupBoxAnimalSearch.Controls.Add(this.lvwAnimalSearch);
+            this.groupBoxAnimalSearch.Controls.Add(this.labelSearchByName);
+            this.groupBoxAnimalSearch.Controls.Add(this.labelSpecies);
+            this.groupBoxAnimalSearch.Controls.Add(this.tbxSearchByName);
+            this.groupBoxAnimalSearch.Controls.Add(this.cbxSearchBySpecie);
+            this.groupBoxAnimalSearch.Location = new System.Drawing.Point(6, 38);
+            this.groupBoxAnimalSearch.Name = "groupBoxAnimalSearch";
+            this.groupBoxAnimalSearch.Size = new System.Drawing.Size(479, 284);
+            this.groupBoxAnimalSearch.TabIndex = 19;
+            this.groupBoxAnimalSearch.TabStop = false;
+            this.groupBoxAnimalSearch.Text = "Animal search";
             // 
             // lvwAnimalSearch
             // 
@@ -226,46 +240,45 @@
             this.lvwAnimalSearch.UseCompatibleStateImageBehavior = false;
             this.lvwAnimalSearch.View = System.Windows.Forms.View.Details;
             // 
+            // colID
+            // 
+            this.colID.Text = "ID";
+            this.colID.Width = 62;
+            // 
+            // colSpecie
+            // 
+            this.colSpecie.Text = "Specie";
+            this.colSpecie.Width = 147;
+            // 
+            // colName
+            // 
+            this.colName.Text = "Name";
+            this.colName.Width = 174;
+            // 
+            // labelSearchByName
+            // 
+            this.labelSearchByName.AutoSize = true;
+            this.labelSearchByName.Location = new System.Drawing.Point(80, 80);
+            this.labelSearchByName.Name = "labelSearchByName";
+            this.labelSearchByName.Size = new System.Drawing.Size(153, 24);
+            this.labelSearchByName.TabIndex = 16;
+            this.labelSearchByName.Text = "Search by name:";
+            // 
+            // labelSpecies
+            // 
+            this.labelSpecies.AutoSize = true;
+            this.labelSpecies.Location = new System.Drawing.Point(150, 42);
+            this.labelSpecies.Name = "labelSpecies";
+            this.labelSpecies.Size = new System.Drawing.Size(83, 24);
+            this.labelSpecies.TabIndex = 18;
+            this.labelSpecies.Text = "Species:";
+            // 
             // tbxSearchByName
             // 
             this.tbxSearchByName.Location = new System.Drawing.Point(253, 77);
             this.tbxSearchByName.Name = "tbxSearchByName";
             this.tbxSearchByName.Size = new System.Drawing.Size(207, 29);
             this.tbxSearchByName.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(636, 295);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 24);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "hour(s)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(493, 266);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 24);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Estimated time:";
-            // 
-            // nudEstimatedTaskTime
-            // 
-            this.nudEstimatedTaskTime.Location = new System.Drawing.Point(497, 293);
-            this.nudEstimatedTaskTime.Name = "nudEstimatedTaskTime";
-            this.nudEstimatedTaskTime.Size = new System.Drawing.Size(133, 29);
-            this.nudEstimatedTaskTime.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 80);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 24);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Search by name:";
             // 
             // cbxSearchBySpecie
             // 
@@ -275,67 +288,54 @@
             this.cbxSearchBySpecie.Size = new System.Drawing.Size(207, 32);
             this.cbxSearchBySpecie.TabIndex = 17;
             // 
-            // label5
+            // labelHours
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(150, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 24);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Species:";
+            this.labelHours.AutoSize = true;
+            this.labelHours.Location = new System.Drawing.Point(636, 295);
+            this.labelHours.Name = "labelHours";
+            this.labelHours.Size = new System.Drawing.Size(70, 24);
+            this.labelHours.TabIndex = 13;
+            this.labelHours.Text = "hour(s)";
             // 
-            // groupBox2
+            // labelEstimatedTime
             // 
-            this.groupBox2.Controls.Add(this.lvwAnimalSearch);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.tbxSearchByName);
-            this.groupBox2.Controls.Add(this.cbxSearchBySpecie);
-            this.groupBox2.Location = new System.Drawing.Point(6, 38);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(479, 284);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Animal search";
+            this.labelEstimatedTime.AutoSize = true;
+            this.labelEstimatedTime.Location = new System.Drawing.Point(493, 266);
+            this.labelEstimatedTime.Name = "labelEstimatedTime";
+            this.labelEstimatedTime.Size = new System.Drawing.Size(137, 24);
+            this.labelEstimatedTime.TabIndex = 12;
+            this.labelEstimatedTime.Text = "Estimated time:";
             // 
-            // colID
+            // nudEstimatedTaskTime
             // 
-            this.colID.Text = "ID";
-            this.colID.Width = 62;
-            // 
-            // colSpecie
-            // 
-            this.colSpecie.Text = "Specie";
-            this.colSpecie.Width = 142;
-            // 
-            // colName
-            // 
-            this.colName.Text = "Name";
-            this.colName.Width = 174;
+            this.nudEstimatedTaskTime.Location = new System.Drawing.Point(497, 293);
+            this.nudEstimatedTaskTime.Name = "nudEstimatedTaskTime";
+            this.nudEstimatedTaskTime.Size = new System.Drawing.Size(133, 29);
+            this.nudEstimatedTaskTime.TabIndex = 11;
             // 
             // FormScheduleTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1255, 588);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxScheduleNewTask);
             this.Controls.Add(this.btnRemoveTask);
             this.Controls.Add(this.btnMoreTaskDetails);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.labelScheduledTasks);
+            this.Controls.Add(this.tabControlScheduledTasks);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormScheduleTask";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormScheduleTask";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tabControlScheduledTasks.ResumeLayout(false);
+            this.tabPageInProgress.ResumeLayout(false);
+            this.tabPageFinished.ResumeLayout(false);
+            this.groupBoxScheduleNewTask.ResumeLayout(false);
+            this.groupBoxScheduleNewTask.PerformLayout();
+            this.groupBoxAnimalSearch.ResumeLayout(false);
+            this.groupBoxAnimalSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEstimatedTaskTime)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,28 +347,28 @@
         private System.Windows.Forms.DateTimePicker dtpTaskTime;
         private System.Windows.Forms.Label labelTaskTime;
         private System.Windows.Forms.ListView lvwTasksInProgress;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabControlScheduledTasks;
+        private System.Windows.Forms.TabPage tabPageInProgress;
+        private System.Windows.Forms.TabPage tabPageFinished;
         private System.Windows.Forms.ListView lvwFinishedTasks;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelScheduledTasks;
         private System.Windows.Forms.Button btnMoreTaskDetails;
         private System.Windows.Forms.Button btnRemoveTask;
         private System.Windows.Forms.Button btnScheduleTask;
         private System.Windows.Forms.TextBox tbxTaskDescription;
         private System.Windows.Forms.Label labelTaskDescription;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBoxScheduleNewTask;
+        private System.Windows.Forms.Label labelHours;
+        private System.Windows.Forms.Label labelEstimatedTime;
         private System.Windows.Forms.NumericUpDown nudEstimatedTaskTime;
         private System.Windows.Forms.ListView lvwAnimalSearch;
         private System.Windows.Forms.TextBox tbxSearchByName;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxAnimalSearch;
         private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colSpecie;
         private System.Windows.Forms.ColumnHeader colName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelSearchByName;
+        private System.Windows.Forms.Label labelSpecies;
         private System.Windows.Forms.ComboBox cbxSearchBySpecie;
     }
 }

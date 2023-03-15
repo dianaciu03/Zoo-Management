@@ -54,7 +54,6 @@
     <Compile Include="Employees\CareTaker.cs" />
     <Compile Include="Employees\Employee.cs" />
     <Compile Include="Employees\EmployeeManagement.cs" />
-    <Compile Include="Enums\GENDER.cs" />
     <Compile Include="Employees\HRAdministrator.cs" />
     <Compile Include="Employees\Manager.cs" />
     <Compile Include="Enums\ORIGINCONTINENT.cs" />
