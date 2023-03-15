@@ -43,7 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionHelper.cs" />
+    <Compile Include="DatabaseAnimalHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZooBazaarLogicLibrary\ZooBazaarLogicLibrary.csproj">
+      <Project>{3bea0856-8b3d-427f-958c-831104c59a7a}</Project>
+      <Name>ZooBazaarLogicLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
