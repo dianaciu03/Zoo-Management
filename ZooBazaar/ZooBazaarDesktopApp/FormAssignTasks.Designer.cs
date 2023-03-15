@@ -30,20 +30,22 @@
         {
             this.btnRemoveTask = new System.Windows.Forms.Button();
             this.btnMoreTaskDetails = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelScheduledTasks = new System.Windows.Forms.Label();
+            this.tabControlScheduledTasks = new System.Windows.Forms.TabControl();
+            this.tabPageInProgress = new System.Windows.Forms.TabPage();
             this.lvwTasksInProgress = new System.Windows.Forms.ListView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageFinished = new System.Windows.Forms.TabPage();
             this.lvwFinishedTasks = new System.Windows.Forms.ListView();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.lvwCaretakers = new System.Windows.Forms.ListView();
+            this.labelCaretakers = new System.Windows.Forms.Label();
+            this.tabControlScheduledTasks.SuspendLayout();
+            this.tabPageInProgress.SuspendLayout();
+            this.tabPageFinished.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRemoveTask
             // 
-            this.btnRemoveTask.Location = new System.Drawing.Point(279, 499);
+            this.btnRemoveTask.Location = new System.Drawing.Point(568, 499);
             this.btnRemoveTask.Name = "btnRemoveTask";
             this.btnRemoveTask.Size = new System.Drawing.Size(268, 44);
             this.btnRemoveTask.TabIndex = 11;
@@ -60,36 +62,36 @@
             this.btnMoreTaskDetails.Text = "More details";
             this.btnMoreTaskDetails.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // labelScheduledTasks
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 31);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Scheduled tasks";
+            this.labelScheduledTasks.AutoSize = true;
+            this.labelScheduledTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScheduledTasks.Location = new System.Drawing.Point(1, 5);
+            this.labelScheduledTasks.Name = "labelScheduledTasks";
+            this.labelScheduledTasks.Size = new System.Drawing.Size(229, 31);
+            this.labelScheduledTasks.TabIndex = 9;
+            this.labelScheduledTasks.Text = "Scheduled tasks";
             // 
-            // tabControl1
+            // tabControlScheduledTasks
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, 39);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(544, 458);
-            this.tabControl1.TabIndex = 8;
+            this.tabControlScheduledTasks.Controls.Add(this.tabPageInProgress);
+            this.tabControlScheduledTasks.Controls.Add(this.tabPageFinished);
+            this.tabControlScheduledTasks.Location = new System.Drawing.Point(3, 39);
+            this.tabControlScheduledTasks.Name = "tabControlScheduledTasks";
+            this.tabControlScheduledTasks.SelectedIndex = 0;
+            this.tabControlScheduledTasks.Size = new System.Drawing.Size(544, 458);
+            this.tabControlScheduledTasks.TabIndex = 8;
             // 
-            // tabPage1
+            // tabPageInProgress
             // 
-            this.tabPage1.Controls.Add(this.lvwTasksInProgress);
-            this.tabPage1.Location = new System.Drawing.Point(4, 33);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(536, 421);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "In progress";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageInProgress.Controls.Add(this.lvwTasksInProgress);
+            this.tabPageInProgress.Location = new System.Drawing.Point(4, 33);
+            this.tabPageInProgress.Name = "tabPageInProgress";
+            this.tabPageInProgress.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInProgress.Size = new System.Drawing.Size(536, 421);
+            this.tabPageInProgress.TabIndex = 0;
+            this.tabPageInProgress.Text = "In progress";
+            this.tabPageInProgress.UseVisualStyleBackColor = true;
             // 
             // lvwTasksInProgress
             // 
@@ -100,16 +102,16 @@
             this.lvwTasksInProgress.TabIndex = 3;
             this.lvwTasksInProgress.UseCompatibleStateImageBehavior = false;
             // 
-            // tabPage2
+            // tabPageFinished
             // 
-            this.tabPage2.Controls.Add(this.lvwFinishedTasks);
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(536, 421);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Finished";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageFinished.Controls.Add(this.lvwFinishedTasks);
+            this.tabPageFinished.Location = new System.Drawing.Point(4, 33);
+            this.tabPageFinished.Name = "tabPageFinished";
+            this.tabPageFinished.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFinished.Size = new System.Drawing.Size(536, 421);
+            this.tabPageFinished.TabIndex = 1;
+            this.tabPageFinished.Text = "Finished";
+            this.tabPageFinished.UseVisualStyleBackColor = true;
             // 
             // lvwFinishedTasks
             // 
@@ -120,23 +122,44 @@
             this.lvwFinishedTasks.TabIndex = 4;
             this.lvwFinishedTasks.UseCompatibleStateImageBehavior = false;
             // 
+            // lvwCaretakers
+            // 
+            this.lvwCaretakers.HideSelection = false;
+            this.lvwCaretakers.Location = new System.Drawing.Point(568, 72);
+            this.lvwCaretakers.Name = "lvwCaretakers";
+            this.lvwCaretakers.Size = new System.Drawing.Size(524, 421);
+            this.lvwCaretakers.TabIndex = 12;
+            this.lvwCaretakers.UseCompatibleStateImageBehavior = false;
+            // 
+            // labelCaretakers
+            // 
+            this.labelCaretakers.AutoSize = true;
+            this.labelCaretakers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCaretakers.Location = new System.Drawing.Point(564, 45);
+            this.labelCaretakers.Name = "labelCaretakers";
+            this.labelCaretakers.Size = new System.Drawing.Size(104, 24);
+            this.labelCaretakers.TabIndex = 13;
+            this.labelCaretakers.Text = "Care takers";
+            // 
             // FormAssignTasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1091, 561);
+            this.ClientSize = new System.Drawing.Size(1104, 561);
+            this.Controls.Add(this.labelCaretakers);
+            this.Controls.Add(this.lvwCaretakers);
             this.Controls.Add(this.btnRemoveTask);
             this.Controls.Add(this.btnMoreTaskDetails);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.labelScheduledTasks);
+            this.Controls.Add(this.tabControlScheduledTasks);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormAssignTasks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAssignTasks";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tabControlScheduledTasks.ResumeLayout(false);
+            this.tabPageInProgress.ResumeLayout(false);
+            this.tabPageFinished.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,11 +169,13 @@
 
         private System.Windows.Forms.Button btnRemoveTask;
         private System.Windows.Forms.Button btnMoreTaskDetails;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label labelScheduledTasks;
+        private System.Windows.Forms.TabControl tabControlScheduledTasks;
+        private System.Windows.Forms.TabPage tabPageInProgress;
         private System.Windows.Forms.ListView lvwTasksInProgress;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageFinished;
         private System.Windows.Forms.ListView lvwFinishedTasks;
+        private System.Windows.Forms.ListView lvwCaretakers;
+        private System.Windows.Forms.Label labelCaretakers;
     }
 }
