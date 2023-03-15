@@ -108,9 +108,10 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        public List<Animal> SearchAnimals(string Species)
+        //TODO Add search functionality.
+/*        public List<Animal> SearchAnimals(string Species)
         {
 
-        }
+        }*/
     }
 }
