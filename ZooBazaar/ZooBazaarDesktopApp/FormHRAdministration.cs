@@ -68,5 +68,10 @@ namespace ZooBazaarDesktopApp
         {
             updateEmployees();
         }
+
+        private void btnSearchEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

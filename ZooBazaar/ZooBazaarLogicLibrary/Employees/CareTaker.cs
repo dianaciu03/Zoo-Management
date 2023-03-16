@@ -13,6 +13,7 @@ namespace ZooBazaarLogicLibrary
             base(ID, FirstName, LastName, BirthDate, PersonGender, Address, Phone, Password, Email, HoursPerWeek)
         {
         }
+
         public string GetRole()
         {
             return this.GetType().Name;

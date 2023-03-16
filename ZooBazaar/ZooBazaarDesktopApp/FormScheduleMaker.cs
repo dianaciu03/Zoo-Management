@@ -11,16 +11,22 @@ using ZooBazaarLogicLibrary;
 
 namespace ZooBazaarDesktopApp
 {
-    public partial class FormAssignTasks : Form
+    public partial class FormScheduleMaker : Form
     {
-        public FormAssignTasks()
+
+        public FormScheduleMaker()
         {
             InitializeComponent();
         }
 
-        private void btnRemoveTask_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-        
+
+        }
+
+        private void btnScheduleTask_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

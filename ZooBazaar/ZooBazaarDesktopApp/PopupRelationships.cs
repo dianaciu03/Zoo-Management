@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ZooBazaarDesktopApp
+namespace ZooBazaarLogicLibrary
 {
-    public partial class FormScheduleTask : Form
+    public partial class PopupRelationships : Form
     {
-        public FormScheduleTask()
+        public PopupRelationships()
         {
             InitializeComponent();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
