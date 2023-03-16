@@ -70,5 +70,10 @@ namespace ZooBazaarDesktopApp
             PopupEmployeeDetails popupEmployeeDetails = new PopupEmployeeDetails(employee);
             popupEmployeeDetails.ShowDialog();
         }
+
+        private void btnSearchEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

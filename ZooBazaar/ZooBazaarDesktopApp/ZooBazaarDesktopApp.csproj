@@ -64,11 +64,11 @@
     <Compile Include="FormAnimalAdministration.Designer.cs">
       <DependentUpon>FormAnimalAdministration.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAssignTasks.cs">
+    <Compile Include="FormResourcePlanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAssignTasks.Designer.cs">
-      <DependentUpon>FormAssignTasks.cs</DependentUpon>
+    <Compile Include="FormResourcePlanner.Designer.cs">
+      <DependentUpon>FormResourcePlanner.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHRAdministration.cs">
       <SubType>Form</SubType>
@@ -82,19 +82,19 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormScheduleTask.cs">
+    <Compile Include="FormScheduleMaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormScheduleTask.Designer.cs">
-      <DependentUpon>FormScheduleTask.cs</DependentUpon>
+    <Compile Include="FormScheduleMaker.Designer.cs">
+      <DependentUpon>FormScheduleMaker.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Relationships.cs">
+    <Compile Include="PopupRelationships.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relationships.Designer.cs">
-      <DependentUpon>Relationships.cs</DependentUpon>
+    <Compile Include="PopupRelationships.Designer.cs">
+      <DependentUpon>PopupRelationships.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="PopupAnimalDetails.resx">
       <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="FormAnimalAdministration.resx">
       <DependentUpon>FormAnimalAdministration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAssignTasks.resx">
-      <DependentUpon>FormAssignTasks.cs</DependentUpon>
+    <EmbeddedResource Include="FormResourcePlanner.resx">
+      <DependentUpon>FormResourcePlanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHRAdministration.resx">
       <DependentUpon>FormHRAdministration.cs</DependentUpon>
@@ -114,8 +114,8 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormScheduleTask.resx">
-      <DependentUpon>FormScheduleTask.cs</DependentUpon>
+    <EmbeddedResource Include="FormScheduleMaker.resx">
+      <DependentUpon>FormScheduleMaker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,8 +126,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Relationships.resx">
-      <DependentUpon>Relationships.cs</DependentUpon>
+    <EmbeddedResource Include="PopupRelationships.resx">
+      <DependentUpon>PopupRelationships.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZooBazaarLogicLibrary;
 
-namespace ZooBazaarLogicLibrary
+namespace ZooBazaarDesktopApp
 {
-    public partial class Relationships : Form
+    public partial class FormResourcePlanner : Form
     {
-        public Relationships()
+        public FormResourcePlanner()
         {
             InitializeComponent();
         }
+
     }
 }
