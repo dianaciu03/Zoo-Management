@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ConnectionHelper.cs" />
     <Compile Include="DatabaseAnimalHelper.cs" />
+    <Compile Include="DatabaseEmployeeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

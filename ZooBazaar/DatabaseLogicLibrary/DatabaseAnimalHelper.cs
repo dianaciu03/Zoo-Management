@@ -94,7 +94,7 @@ namespace DatabaseLogicLibrary
         {
             using (SqlCommand command = new SqlCommand("UPDATE Animals " +
                                                        "SET AnimalID = @AmimalID, Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +
-                                                       "Origin = @Origin, Description = @Description, Endangerment = @Endangerment, Enclosure = @Enclosure, Availability = @Availability) " +
+                                                       "Origin = @Origin, Description = @Description, Endangerment = @Endangerment, Enclosure = @Enclosure, Availability = @Availability " +
                                                        "WHERE AnimalID = @AnmimalID", connection))
             {
                 command.Parameters.AddWithValue("@AnimalID", animal.Id);
@@ -112,7 +112,7 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        public int? GetAnimalCount()
+        public int? GetAnimalCount() //Get count of how many animals total are in the database
         {
             int count = 0;
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
@@ -126,7 +126,19 @@ namespace DatabaseLogicLibrary
             return count;
         }
 
-        //TODO Get count database //caviate if animal removed we get same id.
+        public void ChangeAvailability(int animalID, string animalAvailability)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return; }
+
+                SqlCommand command = new SqlCommand($"UPDATE Animals SET Availability = { animalAvailability } WHERE AnimalID = { animalID }");
+                command.ExecuteNonQuery();
+            }
+        }
+
+
 
         //TODO remove function that changes its status
 
