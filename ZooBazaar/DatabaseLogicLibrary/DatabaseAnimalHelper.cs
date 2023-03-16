@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using ZooBazaarLogicLibrary;
@@ -41,7 +42,8 @@ namespace DatabaseLogicLibrary
                                                 (ORIGINCONTINENT)Enum.Parse(typeof(ORIGINCONTINENT), reader.GetString(reader.GetOrdinal("Origin"))),
                                                 reader.GetString(reader.GetOrdinal("Description")),
                                                 (ENDANGERMENT)Enum.Parse(typeof(ENDANGERMENT), reader.GetString(reader.GetOrdinal("Endangerment"))),
-                                                reader.GetInt32(reader.GetOrdinal("Enclosure")));
+                                                reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                                                reader.GetString(reader.GetOrdinal("Availability")));
                     animals.Add(animal);
                 }
             }
@@ -71,7 +73,7 @@ namespace DatabaseLogicLibrary
         private void AddNewAnimal( Animal animal , SqlConnection connection) //Inserts the new Animal into the database.
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Animals" +
-                                                       "VALUES (@AnimalID,@Name,Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure)", connection))
+                                                       "VALUES (@AnimalID,@Name,Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure, @Availability)", connection))
             {
                 command.Parameters.AddWithValue("@AnimalID", animal.Id);
                 command.Parameters.AddWithValue("@Name", animal.Name);
@@ -82,6 +84,7 @@ namespace DatabaseLogicLibrary
                 command.Parameters.AddWithValue("@Description", animal.Description);
                 command.Parameters.AddWithValue("@Endangerment", animal.Endangerment.ToString());
                 command.Parameters.AddWithValue("@Enclosure", animal.Enclosure);
+                command.Parameters.AddWithValue("@Availability", animal.Availability);
 
                 command.ExecuteNonQuery();
             }
@@ -91,7 +94,7 @@ namespace DatabaseLogicLibrary
         {
             using (SqlCommand command = new SqlCommand("UPDATE Animals " +
                                                        "SET AnimalID = @AmimalID, Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +
-                                                       "Origin = @Origin, Description = @Description, Endangerment = @Endangerment, Enclosure = @Enclosure) " +
+                                                       "Origin = @Origin, Description = @Description, Endangerment = @Endangerment, Enclosure = @Enclosure, Availability = @Availability) " +
                                                        "WHERE AnimalID = @AnmimalID", connection))
             {
                 command.Parameters.AddWithValue("@AnimalID", animal.Id);
@@ -103,14 +106,27 @@ namespace DatabaseLogicLibrary
                 command.Parameters.AddWithValue("@Description", animal.Description);
                 command.Parameters.AddWithValue("@Endangerment", animal.Endangerment.ToString());
                 command.Parameters.AddWithValue("@Enclosure", animal.Enclosure);
+                command.Parameters.AddWithValue("@Availability", animal.Availability);
 
                 command.ExecuteNonQuery();
             }
         }
 
+        public int? GetAnimalCount()
+        {
+            int count = 0;
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return null; }
+
+                SqlCommand command = new SqlCommand("SELECT COUNT(AnimalID) FROM Animals");
+                count = (Int32)command.ExecuteScalar();
+            }
+            return count;
+        }
+
         //TODO Get count database //caviate if animal removed we get same id.
-
-
 
         //TODO remove function that changes its status
 
