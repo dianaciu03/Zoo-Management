@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxAddAnimal = new System.Windows.Forms.GroupBox();
+            this.btnConfirmChanges = new System.Windows.Forms.Button();
             this.labelEditAnimalBirthDate = new System.Windows.Forms.Label();
             this.btnCancelAnimalCreation = new System.Windows.Forms.Button();
             this.btnConfirmAnimalCreation = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.labelAddAnimalOrigin = new System.Windows.Forms.Label();
             this.labelAddAnimalSpecies = new System.Windows.Forms.Label();
             this.labelAddAnimalName = new System.Windows.Forms.Label();
-            this.btnConfirmChanges = new System.Windows.Forms.Button();
             this.groupBoxAddAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnclosureAddAnimal)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +83,16 @@
             this.groupBoxAddAnimal.TabIndex = 2;
             this.groupBoxAddAnimal.TabStop = false;
             this.groupBoxAddAnimal.Text = "Animal details:";
+            // 
+            // btnConfirmChanges
+            // 
+            this.btnConfirmChanges.Location = new System.Drawing.Point(332, 653);
+            this.btnConfirmChanges.Name = "btnConfirmChanges";
+            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 42);
+            this.btnConfirmChanges.TabIndex = 39;
+            this.btnConfirmChanges.Text = "Confirm";
+            this.btnConfirmChanges.UseVisualStyleBackColor = true;
+            this.btnConfirmChanges.Click += new System.EventHandler(this.btnConfirmChanges_Click);
             // 
             // labelEditAnimalBirthDate
             // 
@@ -122,7 +132,6 @@
             this.maskedtbxBirthDateEditAnimalForm.ResetOnSpace = false;
             this.maskedtbxBirthDateEditAnimalForm.Size = new System.Drawing.Size(109, 29);
             this.maskedtbxBirthDateEditAnimalForm.TabIndex = 35;
-            this.maskedtbxBirthDateEditAnimalForm.ValidatingType = typeof(System.DateTime);
             // 
             // rbtnMaleAddAnimal
             // 
@@ -280,16 +289,6 @@
             this.labelAddAnimalName.Size = new System.Drawing.Size(66, 24);
             this.labelAddAnimalName.TabIndex = 0;
             this.labelAddAnimalName.Text = "Name:";
-            // 
-            // btnConfirmChanges
-            // 
-            this.btnConfirmChanges.Location = new System.Drawing.Point(332, 653);
-            this.btnConfirmChanges.Name = "btnConfirmChanges";
-            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 42);
-            this.btnConfirmChanges.TabIndex = 39;
-            this.btnConfirmChanges.Text = "Confirm";
-            this.btnConfirmChanges.UseVisualStyleBackColor = true;
-            this.btnConfirmChanges.Click += new System.EventHandler(this.btnConfirmChanges_Click);
             // 
             // PopupAnimalDetails
             // 
