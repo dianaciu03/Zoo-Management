@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -42,6 +43,18 @@ namespace ZooBazaarDesktopApp
 
         private void btnConfirmAnimalCreation_Click(object sender, EventArgs e)
         {
+
+            string input = maskedtbxBirthDateEditAnimalForm.Text;
+            DateTime date;
+
+            // Try to parse the input string as a date
+            if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+            {
+                // If the parsing is successful, format the date and update the text box
+                maskedtbxBirthDateEditAnimalForm.Text = date.ToString("dd/MM/yyyy");
+                maskedtbxBirthDateEditAnimalForm.SelectionStart = maskedtbxBirthDateEditAnimalForm.Text.Length;
+            }
+
             int animalID;
             if (animalManagement.GetAllAnimals().Length > 0)
             {
@@ -54,16 +67,27 @@ namespace ZooBazaarDesktopApp
             else if (rbtnFemaleAddAnimal.Checked) gender = "Female";
             else throw (new Exception("Please select a gender"));
 
-            animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateEditAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value);
+            animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(input), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value);
             animalManagement.AddAnimal(animal);
             this.Close();
         }
 
         private void btnConfirmChanges_Click(object sender, EventArgs e)
         {
+            string input = maskedtbxBirthDateEditAnimalForm.Text;
+            DateTime date;
+
+            // Try to parse the input string as a date
+            if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+            {
+                // If the parsing is successful, format the date and update the text box
+                maskedtbxBirthDateEditAnimalForm.Text = date.ToString("dd/MM/yyyy");
+                maskedtbxBirthDateEditAnimalForm.SelectionStart = maskedtbxBirthDateEditAnimalForm.Text.Length;
+            }
+
             animal.Name = tbxNameAddAnimal.Text;
             animal.Species = tbxSpeciesAddAnimal.Text;
-            animal.Birthday = DateTime.Parse(maskedtbxBirthDateEditAnimalForm.Text);
+            animal.Birthday = DateTime.Parse(input);
             animal.Enclosure = (int)nudEnclosureAddAnimal.Value;
             animal.OriginContinent = (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem;
             animal.Endangerment = (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem;
@@ -79,7 +103,7 @@ namespace ZooBazaarDesktopApp
         {
             tbxNameAddAnimal.Text = a.Name;
             tbxSpeciesAddAnimal.Text = a.Species;
-            maskedtbxBirthDateEditAnimalForm.Text = a.Birthday.ToString();
+            maskedtbxBirthDateEditAnimalForm.Text = a.Birthday.ToString("dd/MM/yyyy");
             cbxOriginAddAnimal.SelectedItem = a.OriginContinent;
             cbxEndangermentAddAnimal.SelectedItem = a.Endangerment;
             if (a.Gender == "Male") rbtnMaleAddAnimal.Checked = true;
