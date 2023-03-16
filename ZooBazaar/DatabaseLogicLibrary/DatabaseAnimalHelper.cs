@@ -48,7 +48,7 @@ namespace DatabaseLogicLibrary
            return animals;
         }
 
-        public void AddUpdateAnimal(Animal animal)
+        public void AddUpdateAnimal(Animal animal) //Opens connection and checks if the animal provided already exists in the database.
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
@@ -68,7 +68,7 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        private void AddNewAnimal( Animal animal , SqlConnection connection)
+        private void AddNewAnimal( Animal animal , SqlConnection connection) //Inserts the new Animal into the database.
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Animals" +
                                                        "VALUES (@AnimalID,@Name,Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure)", connection))
@@ -87,7 +87,7 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        private void UpdateAnimal( Animal animal, SqlConnection connection)
+        private void UpdateAnimal( Animal animal, SqlConnection connection) //Updates and already existing animal from the database
         {
             using (SqlCommand command = new SqlCommand("UPDATE Animals " +
                                                        "SET AnimalID = @AmimalID, Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +
@@ -108,10 +108,26 @@ namespace DatabaseLogicLibrary
             }
         }
 
+        //TODO Get count database //caviate if animal removed we get same id.
+
+
+
+        //TODO remove function that changes its status
+
+        //Transfer detail table
+
+        //Relationship table
+
         //TODO Add search functionality.
 /*        public List<Animal> SearchAnimals(string Species)
         {
 
         }*/
+
+        //Employee
+            //Get all
+            //Add/Update
+            //Get by role
+            //Get employee count
     }
 }
