@@ -415,7 +415,7 @@
             // 
             // btnConfirmEditEmployeeDetailsPopup
             // 
-            this.btnConfirmEditEmployeeDetailsPopup.Location = new System.Drawing.Point(386, 632);
+            this.btnConfirmEditEmployeeDetailsPopup.Location = new System.Drawing.Point(281, 680);
             this.btnConfirmEditEmployeeDetailsPopup.Name = "btnConfirmEditEmployeeDetailsPopup";
             this.btnConfirmEditEmployeeDetailsPopup.Size = new System.Drawing.Size(227, 42);
             this.btnConfirmEditEmployeeDetailsPopup.TabIndex = 31;

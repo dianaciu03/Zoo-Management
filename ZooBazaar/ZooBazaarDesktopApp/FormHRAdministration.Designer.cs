@@ -42,24 +42,24 @@
             this.labelEmployeeContractType = new System.Windows.Forms.Label();
             this.rbtnFullTimeEmployee = new System.Windows.Forms.RadioButton();
             this.rbtnPartTimeEmployee = new System.Windows.Forms.RadioButton();
-            this.labelEmployeeRole = new System.Windows.Forms.Label();
-            this.btnClearAll = new System.Windows.Forms.Button();
-            this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.cbxRole = new System.Windows.Forms.ComboBox();
+            this.btnClearAll = new System.Windows.Forms.Button();
+            this.labelEmployeeRole = new System.Windows.Forms.Label();
+            this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.tbxLastName = new System.Windows.Forms.TextBox();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.labelEmployeeLastName = new System.Windows.Forms.Label();
             this.labelEmployeeFirstName = new System.Windows.Forms.Label();
             this.tabPageEmployeeHistory = new System.Windows.Forms.TabPage();
-            this.labelTitleZooBazaar = new System.Windows.Forms.Label();
-            this.labelAllAnimals = new System.Windows.Forms.Label();
+            this.lvwEmployeeHistory = new System.Windows.Forms.ListView();
+            this.btnSearchHistory = new System.Windows.Forms.Button();
+            this.rbtnSortByContract = new System.Windows.Forms.RadioButton();
+            this.rbtnSortByRole = new System.Windows.Forms.RadioButton();
+            this.rbtnSortAlphabeticalDesc = new System.Windows.Forms.RadioButton();
+            this.rbtnSortAlphabeticalAsc = new System.Windows.Forms.RadioButton();
             this.labelSortbyEmployee = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.labelAllAnimals = new System.Windows.Forms.Label();
+            this.labelTitleZooBazaar = new System.Windows.Forms.Label();
             this.tabControlHRAdministration.SuspendLayout();
             this.tabPageAllEmployees.SuspendLayout();
             this.groupBoxSearchAnimal.SuspendLayout();
@@ -213,15 +213,13 @@
             this.rbtnPartTimeEmployee.Text = "Part-time";
             this.rbtnPartTimeEmployee.UseVisualStyleBackColor = true;
             // 
-            // labelEmployeeRole
+            // cbxRole
             // 
-            this.labelEmployeeRole.AutoSize = true;
-            this.labelEmployeeRole.Location = new System.Drawing.Point(9, 164);
-            this.labelEmployeeRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelEmployeeRole.Name = "labelEmployeeRole";
-            this.labelEmployeeRole.Size = new System.Drawing.Size(54, 24);
-            this.labelEmployeeRole.TabIndex = 16;
-            this.labelEmployeeRole.Text = "Role:";
+            this.cbxRole.FormattingEnabled = true;
+            this.cbxRole.Location = new System.Drawing.Point(162, 164);
+            this.cbxRole.Name = "cbxRole";
+            this.cbxRole.Size = new System.Drawing.Size(270, 32);
+            this.cbxRole.TabIndex = 9;
             // 
             // btnClearAll
             // 
@@ -233,6 +231,16 @@
             this.btnClearAll.Text = "Clear all";
             this.btnClearAll.UseVisualStyleBackColor = true;
             // 
+            // labelEmployeeRole
+            // 
+            this.labelEmployeeRole.AutoSize = true;
+            this.labelEmployeeRole.Location = new System.Drawing.Point(9, 164);
+            this.labelEmployeeRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEmployeeRole.Name = "labelEmployeeRole";
+            this.labelEmployeeRole.Size = new System.Drawing.Size(54, 24);
+            this.labelEmployeeRole.TabIndex = 16;
+            this.labelEmployeeRole.Text = "Role:";
+            // 
             // btnSearchEmployee
             // 
             this.btnSearchEmployee.AutoSize = true;
@@ -243,14 +251,6 @@
             this.btnSearchEmployee.Text = "Search";
             this.btnSearchEmployee.UseVisualStyleBackColor = true;
             this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
-            // 
-            // cbxRole
-            // 
-            this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Location = new System.Drawing.Point(162, 164);
-            this.cbxRole.Name = "cbxRole";
-            this.cbxRole.Size = new System.Drawing.Size(270, 32);
-            this.cbxRole.TabIndex = 9;
             // 
             // tbxLastName
             // 
@@ -290,12 +290,12 @@
             // 
             // tabPageEmployeeHistory
             // 
-            this.tabPageEmployeeHistory.Controls.Add(this.listView1);
-            this.tabPageEmployeeHistory.Controls.Add(this.button1);
-            this.tabPageEmployeeHistory.Controls.Add(this.radioButton4);
-            this.tabPageEmployeeHistory.Controls.Add(this.radioButton3);
-            this.tabPageEmployeeHistory.Controls.Add(this.radioButton2);
-            this.tabPageEmployeeHistory.Controls.Add(this.radioButton1);
+            this.tabPageEmployeeHistory.Controls.Add(this.lvwEmployeeHistory);
+            this.tabPageEmployeeHistory.Controls.Add(this.btnSearchHistory);
+            this.tabPageEmployeeHistory.Controls.Add(this.rbtnSortByContract);
+            this.tabPageEmployeeHistory.Controls.Add(this.rbtnSortByRole);
+            this.tabPageEmployeeHistory.Controls.Add(this.rbtnSortAlphabeticalDesc);
+            this.tabPageEmployeeHistory.Controls.Add(this.rbtnSortAlphabeticalAsc);
             this.tabPageEmployeeHistory.Controls.Add(this.labelSortbyEmployee);
             this.tabPageEmployeeHistory.Controls.Add(this.labelAllAnimals);
             this.tabPageEmployeeHistory.Location = new System.Drawing.Point(4, 45);
@@ -306,26 +306,69 @@
             this.tabPageEmployeeHistory.Text = "Employee history";
             this.tabPageEmployeeHistory.UseVisualStyleBackColor = true;
             // 
-            // labelTitleZooBazaar
+            // lvwEmployeeHistory
             // 
-            this.labelTitleZooBazaar.AutoSize = true;
-            this.labelTitleZooBazaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleZooBazaar.Location = new System.Drawing.Point(585, 9);
-            this.labelTitleZooBazaar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTitleZooBazaar.Name = "labelTitleZooBazaar";
-            this.labelTitleZooBazaar.Size = new System.Drawing.Size(184, 37);
-            this.labelTitleZooBazaar.TabIndex = 10;
-            this.labelTitleZooBazaar.Text = "ZooBazaar";
+            this.lvwEmployeeHistory.HideSelection = false;
+            this.lvwEmployeeHistory.Location = new System.Drawing.Point(12, 60);
+            this.lvwEmployeeHistory.Name = "lvwEmployeeHistory";
+            this.lvwEmployeeHistory.Size = new System.Drawing.Size(1393, 652);
+            this.lvwEmployeeHistory.TabIndex = 43;
+            this.lvwEmployeeHistory.UseCompatibleStateImageBehavior = false;
             // 
-            // labelAllAnimals
+            // btnSearchHistory
             // 
-            this.labelAllAnimals.AutoSize = true;
-            this.labelAllAnimals.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAllAnimals.Location = new System.Drawing.Point(6, 14);
-            this.labelAllAnimals.Name = "labelAllAnimals";
-            this.labelAllAnimals.Size = new System.Drawing.Size(195, 31);
-            this.labelAllAnimals.TabIndex = 36;
-            this.labelAllAnimals.Text = "All employees";
+            this.btnSearchHistory.Location = new System.Drawing.Point(1314, 12);
+            this.btnSearchHistory.Name = "btnSearchHistory";
+            this.btnSearchHistory.Size = new System.Drawing.Size(91, 36);
+            this.btnSearchHistory.TabIndex = 42;
+            this.btnSearchHistory.Text = "Search";
+            this.btnSearchHistory.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSortByContract
+            // 
+            this.rbtnSortByContract.AutoSize = true;
+            this.rbtnSortByContract.Location = new System.Drawing.Point(1155, 19);
+            this.rbtnSortByContract.Name = "rbtnSortByContract";
+            this.rbtnSortByContract.Size = new System.Drawing.Size(137, 28);
+            this.rbtnSortByContract.TabIndex = 41;
+            this.rbtnSortByContract.TabStop = true;
+            this.rbtnSortByContract.Text = "Contract type";
+            this.rbtnSortByContract.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSortByRole
+            // 
+            this.rbtnSortByRole.AutoSize = true;
+            this.rbtnSortByRole.Location = new System.Drawing.Point(1082, 16);
+            this.rbtnSortByRole.Name = "rbtnSortByRole";
+            this.rbtnSortByRole.Size = new System.Drawing.Size(67, 28);
+            this.rbtnSortByRole.TabIndex = 40;
+            this.rbtnSortByRole.TabStop = true;
+            this.rbtnSortByRole.Text = "Role";
+            this.rbtnSortByRole.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSortAlphabeticalDesc
+            // 
+            this.rbtnSortAlphabeticalDesc.AutoSize = true;
+            this.rbtnSortAlphabeticalDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnSortAlphabeticalDesc.Location = new System.Drawing.Point(930, 16);
+            this.rbtnSortAlphabeticalDesc.Name = "rbtnSortAlphabeticalDesc";
+            this.rbtnSortAlphabeticalDesc.Size = new System.Drawing.Size(146, 28);
+            this.rbtnSortAlphabeticalDesc.TabIndex = 39;
+            this.rbtnSortAlphabeticalDesc.TabStop = true;
+            this.rbtnSortAlphabeticalDesc.Text = "Alphabetical ↓";
+            this.rbtnSortAlphabeticalDesc.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSortAlphabeticalAsc
+            // 
+            this.rbtnSortAlphabeticalAsc.AutoSize = true;
+            this.rbtnSortAlphabeticalAsc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnSortAlphabeticalAsc.Location = new System.Drawing.Point(778, 16);
+            this.rbtnSortAlphabeticalAsc.Name = "rbtnSortAlphabeticalAsc";
+            this.rbtnSortAlphabeticalAsc.Size = new System.Drawing.Size(146, 28);
+            this.rbtnSortAlphabeticalAsc.TabIndex = 38;
+            this.rbtnSortAlphabeticalAsc.TabStop = true;
+            this.rbtnSortAlphabeticalAsc.Text = "Alphabetical ↑";
+            this.rbtnSortAlphabeticalAsc.UseVisualStyleBackColor = true;
             // 
             // labelSortbyEmployee
             // 
@@ -337,69 +380,26 @@
             this.labelSortbyEmployee.TabIndex = 37;
             this.labelSortbyEmployee.Text = "Sort by:";
             // 
-            // radioButton1
+            // labelAllAnimals
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(778, 16);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(146, 28);
-            this.radioButton1.TabIndex = 38;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Alphabetical ↑";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.labelAllAnimals.AutoSize = true;
+            this.labelAllAnimals.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAllAnimals.Location = new System.Drawing.Point(6, 14);
+            this.labelAllAnimals.Name = "labelAllAnimals";
+            this.labelAllAnimals.Size = new System.Drawing.Size(195, 31);
+            this.labelAllAnimals.TabIndex = 36;
+            this.labelAllAnimals.Text = "All employees";
             // 
-            // radioButton2
+            // labelTitleZooBazaar
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(930, 16);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(146, 28);
-            this.radioButton2.TabIndex = 39;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Alphabetical ↓";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(1082, 16);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(67, 28);
-            this.radioButton3.TabIndex = 40;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Role";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(1155, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(137, 28);
-            this.radioButton4.TabIndex = 41;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Contract type";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1314, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 36);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 60);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1393, 652);
-            this.listView1.TabIndex = 43;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.labelTitleZooBazaar.AutoSize = true;
+            this.labelTitleZooBazaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleZooBazaar.Location = new System.Drawing.Point(585, 9);
+            this.labelTitleZooBazaar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTitleZooBazaar.Name = "labelTitleZooBazaar";
+            this.labelTitleZooBazaar.Size = new System.Drawing.Size(184, 37);
+            this.labelTitleZooBazaar.TabIndex = 10;
+            this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
             // FormHRAdministration
             // 
@@ -451,11 +451,11 @@
         private System.Windows.Forms.Label labelTitleZooBazaar;
         private System.Windows.Forms.Label labelAllAnimals;
         private System.Windows.Forms.Label labelSortbyEmployee;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.RadioButton rbtnSortAlphabeticalDesc;
+        private System.Windows.Forms.RadioButton rbtnSortAlphabeticalAsc;
+        private System.Windows.Forms.Button btnSearchHistory;
+        private System.Windows.Forms.RadioButton rbtnSortByContract;
+        private System.Windows.Forms.RadioButton rbtnSortByRole;
+        private System.Windows.Forms.ListView lvwEmployeeHistory;
     }
 }

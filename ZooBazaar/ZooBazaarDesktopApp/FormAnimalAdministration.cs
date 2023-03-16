@@ -66,8 +66,6 @@ namespace ZooBazaarDesktopApp
 
         private void btnSearchAnimal_Click(object sender, EventArgs e)
         {
-            
-
             List<Animal> searchedAnimals = new List<Animal>();
 
             string gender = string.Empty;

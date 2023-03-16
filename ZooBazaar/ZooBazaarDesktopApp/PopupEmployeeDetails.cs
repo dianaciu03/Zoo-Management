@@ -49,24 +49,22 @@ namespace ZooBazaarDesktopApp
         {
             tbxFirstName.Text = employee.FirstName;
             tbxLastName.Text = employee.LastName;
-            maskedtbxDoBEmployee.Text = employee.BirthDate.ToString();
-            if(employee.PersonGender == "Male")
+            maskedtbxDoBEmployee.Text = employee.BirthDate.ToString("MM/dd/yyyy");
+           
+
+            if (employee.PersonGender == "Male")
                 rbMaleEmployeeDetails.Checked = true;
             else
                 rbFemale.Checked = true;
             tbxAddress.Text = employee.Address;
             tbxPhone.Text = employee.Phone;
-            //employee.GetType() returns a ZooBazaar.Role object,
-            //i convert it to a string, split it after '.'
-            //i set the default value to the first option in the cbx
-            //i compare the strings of the Role enum with the string and if they match
-            //I assign the selected cbx to the Role that matches and break the foreach
-            //UR WELCOME ALSO COMMENT UR CODE FFS
-            string[] tempString = employee.GetType().ToString().Split('.');
+      
+
+            string tempString = employee.GetType().Name;
             cbxRole.SelectedIndex = -1;
             foreach (ROLE role in Enum.GetValues(typeof(ROLE)))
             {
-                if (tempString[1] == role.ToString())
+                if (tempString == role.ToString())
                 {
                     cbxRole.SelectedItem = role;
                     break;
@@ -78,6 +76,13 @@ namespace ZooBazaarDesktopApp
 
         private void btnConfirmEmployeeCreation_Click(object sender, EventArgs e)
         {
+            int employeeID;
+            if (employeeManagement.GetEmployees().Length > 0)
+            {
+                employeeID = employeeManagement.GetEmployees().Last().ID + 1;
+            }
+            else employeeID = 1;
+
             //this validates if the data is correct data type and or empty, check FormDataValidator
             if(dataValidator.ValidateEmployeeFields(tbxFirstName.Text,tbxLastName.Text,tbxEmail.Text,tbxPhone.Text,
               tbxEmployeePassword.Text,tbxAddress.Text, maskedtbxDoBEmployee.Text))
@@ -94,37 +99,37 @@ namespace ZooBazaarDesktopApp
                         {
   
                             case(ROLE.HRAdministrator):
-                                 employee = new HRAdministrator(1,tbxFirstName.Text,tbxLastName.Text,
+                                 employee = new HRAdministrator(employeeID,tbxFirstName.Text,tbxLastName.Text,
                                                     DateTime.ParseExact(maskedtbxDoBEmployee.Text, "dd/mm/yyyy", CultureInfo.InvariantCulture),
                                                     gender,tbxAddress.Text,tbxPhone.Text,tbxEmployeePassword.Text,tbxEmail.Text,40);
                                 break;
 
                             case(ROLE.ResourcePlanner):
-                                employee = new ResourcePlanner(1, tbxFirstName.Text, tbxLastName.Text,
+                                employee = new ResourcePlanner(employeeID, tbxFirstName.Text, tbxLastName.Text,
                                                     Convert.ToDateTime(maskedtbxDoBEmployee.Text),
                                                     gender, tbxAddress.Text, tbxPhone.Text, tbxEmployeePassword.Text, tbxEmail.Text, 40);
                                 break;
 
                             case(ROLE.Manager):
-                                employee = new Manager(1, tbxFirstName.Text, tbxLastName.Text,
+                                employee = new Manager(employeeID, tbxFirstName.Text, tbxLastName.Text,
                                                     Convert.ToDateTime(maskedtbxDoBEmployee.Text),
                                                     gender, tbxAddress.Text, tbxPhone.Text, tbxEmployeePassword.Text, tbxEmail.Text, 40);
                                 break;
                             
                             case (ROLE.ScheduleMaker):
-                                employee = new ScheduleMaker(1, tbxFirstName.Text, tbxLastName.Text,
+                                employee = new ScheduleMaker(employeeID, tbxFirstName.Text, tbxLastName.Text,
                                                     Convert.ToDateTime(maskedtbxDoBEmployee.Text),
                                                     gender, tbxAddress.Text, tbxPhone.Text, tbxEmployeePassword.Text, tbxEmail.Text, 40);
                                 break;
 
                             case (ROLE.AnimalAdministrator):
-                                employee = new AnimalAdministrator(1, tbxFirstName.Text, tbxLastName.Text,
+                                employee = new AnimalAdministrator(employeeID, tbxFirstName.Text, tbxLastName.Text,
                                                     Convert.ToDateTime(maskedtbxDoBEmployee.Text),
                                                     gender, tbxAddress.Text, tbxPhone.Text, tbxEmployeePassword.Text, tbxEmail.Text,40);
                                 break;
 
                             case (ROLE.CareTaker):
-                                employee = new CareTaker(1, tbxFirstName.Text, tbxLastName.Text,
+                                employee = new CareTaker(employeeID, tbxFirstName.Text, tbxLastName.Text,
                                                     Convert.ToDateTime(maskedtbxDoBEmployee.Text),
                                                     gender, tbxAddress.Text, tbxPhone.Text, tbxEmployeePassword.Text, tbxEmail.Text,40);
                                 break;
@@ -133,7 +138,6 @@ namespace ZooBazaarDesktopApp
                                 MessageBox.Show("Account couldn't be created!");
                                 break;
                         }
-                    //this may not work, or the lvw is not working properly
                     employeeManagement.AddEmployee(employee);
                     MessageBox.Show("Account creation was succesfull!");
                 }
@@ -144,14 +148,47 @@ namespace ZooBazaarDesktopApp
                 }
             else
             {
-                MessageBox.Show("Employee account creation didn't work! Please make sure you complete all of the fields!");
+                MessageBox.Show("Employee account creation didn't work! Please make sure you complete all of the fields in the correct format!");
                 return;
             }
+            this.Close();
         }
 
         private void btnConfirmEditEmployeeDetailsPopup_Click(object sender, EventArgs e)
         {
+            string input = maskedtbxDoBEmployee.Text;
+            DateTime date;
 
+            // Try to parse the input string as a date
+            if (DateTime.TryParseExact(input, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+            {
+                // If the parsing is successful, format the date and update the text box
+                maskedtbxDoBEmployee.Text = date.ToString("MM/dd/yyyy");
+                maskedtbxDoBEmployee.SelectionStart = maskedtbxDoBEmployee.Text.Length;
+            }
+
+            if (dataValidator.ValidateEmployeeFields(tbxFirstName.Text, tbxLastName.Text, tbxEmail.Text, tbxPhone.Text,
+              tbxEmployeePassword.Text, tbxAddress.Text, maskedtbxDoBEmployee.Text))
+            {
+                try
+                {
+                    employee.FirstName = tbxFirstName.Text;
+                    employee.LastName = tbxLastName.Text;
+                    employee.Email = tbxEmail.Text;
+                    employee.Phone = tbxPhone.Text;
+                    employee.Password = tbxEmployeePassword.Text;
+                    employee.Address = tbxAddress.Text;
+                    employee.BirthDate = DateTime.Parse(input);
+                    if (rbFemale.Checked) { employee.PersonGender = "Female"; }
+                    else if (rbMaleEmployeeDetails.Checked) { employee.PersonGender = "Male"; }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else MessageBox.Show("WTF");
+            this.Close();
         }
     }
 }

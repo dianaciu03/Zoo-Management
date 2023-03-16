@@ -78,10 +78,10 @@ namespace ZooBazaarDesktopApp
             DateTime date;
 
             // Try to parse the input string as a date
-            if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+            if (DateTime.TryParseExact(input, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
             {
                 // If the parsing is successful, format the date and update the text box
-                maskedtbxBirthDateEditAnimalForm.Text = date.ToString("dd/MM/yyyy");
+                maskedtbxBirthDateEditAnimalForm.Text = date.ToString("MM/dd/yyyy");
                 maskedtbxBirthDateEditAnimalForm.SelectionStart = maskedtbxBirthDateEditAnimalForm.Text.Length;
             }
 
@@ -103,7 +103,7 @@ namespace ZooBazaarDesktopApp
         {
             tbxNameAddAnimal.Text = a.Name;
             tbxSpeciesAddAnimal.Text = a.Species;
-            maskedtbxBirthDateEditAnimalForm.Text = a.Birthday.ToString("dd/MM/yyyy");
+            maskedtbxBirthDateEditAnimalForm.Text = a.Birthday.ToString("MM/dd/yyyy");
             cbxOriginAddAnimal.SelectedItem = a.OriginContinent;
             cbxEndangermentAddAnimal.SelectedItem = a.Endangerment;
             if (a.Gender == "Male") rbtnMaleAddAnimal.Checked = true;

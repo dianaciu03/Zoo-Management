@@ -74,13 +74,12 @@ namespace ZooBazaarLogicLibrary
             if (string.IsNullOrEmpty(address))
                 return false;
            // Converting from string to DateTime
-            DateTime dateTimeValue;
             DateTime myDateTimeVariable;
             // this just gets the time from the masked tbx, idk why it takes so many arguments, ask CHATGPT
-            myDateTimeVariable = DateTime.ParseExact(birthDay,"dd/mm/yyyy", CultureInfo.InvariantCulture);
+            myDateTimeVariable = DateTime.ParseExact(birthDay,"MM/dd/yyyy", CultureInfo.InvariantCulture);
 
-            if (!IsValidDateOfBirthEmployee(myDateTimeVariable))
-                return false;
+            /*if (!IsValidDateOfBirthEmployee(myDateTimeVariable))
+                return false;*/
 
             return true;
         }
