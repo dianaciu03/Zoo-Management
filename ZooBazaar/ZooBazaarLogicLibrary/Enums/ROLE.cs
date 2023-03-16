@@ -12,6 +12,7 @@ namespace ZooBazaarLogicLibrary
         HRAdministrator,
         AnimalAdministrator,
         ScheduleMaker,
-        ResourcePlanner
+        ResourcePlanner,
+        CareTaker
     }
 }

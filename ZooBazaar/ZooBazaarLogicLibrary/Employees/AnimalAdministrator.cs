@@ -10,7 +10,7 @@ namespace ZooBazaarLogicLibrary
     {
 
         public AnimalAdministrator(int ID, string FirstName, string LastName, DateTime BirthDate, string PersonGender, string Address, string Phone, string Password, string Email, int HoursPerWeek)
-            :base(ID,FirstName,LastName,BirthDate,PersonGender,Address,Phone,Password,Email)
+            :base(ID,FirstName,LastName,BirthDate,PersonGender,Address,Phone,Password,Email,40)
         { 
            
         }
