@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ZooBazaarLogicLibrary
 {
@@ -12,7 +14,7 @@ namespace ZooBazaarLogicLibrary
         //Checks if string contains any int, if it contains int return false
         public bool IsValidStringOnly(string name)
         {
-            if(name.Any(char.IsDigit)) 
+            if (name.Any(char.IsDigit))
             {
                 return false;
             }
@@ -33,19 +35,19 @@ namespace ZooBazaarLogicLibrary
         public bool IsValidDateOfBirthEmployee(DateTime dateOfBirth)
         {
             DateTime timeNow = DateTime.Now;
-            if (dateOfBirth.Year-timeNow.Year >= 16)
+            if (timeNow.Year - dateOfBirth.Year >= 16)
             {
                 return true;
             }
             return false;
         }
 
-        //Checks if string is int (only), if string its int return true
+        //Checks if string is int (only), if string is int return true
         public bool IsValidIntOnly(string number)
         {
             try
             {
-                Convert.ToInt32(number);
+                Convert.ToInt64(number);
                 return true;
             }
             catch
@@ -53,6 +55,34 @@ namespace ZooBazaarLogicLibrary
                 return false;
             }
         }
-        
+        //Checks if certain fields are empty or if some fields are chars only or ints only(phoneNumber)
+        public bool ValidateEmployeeFields(string firstName, string lastName, string email,
+            string phoneNumber, string password, string address,string birthDay)
+        {
+            if (!IsValidStringOnly(firstName) || string.IsNullOrEmpty(firstName))
+                return false;
+            
+            if (!IsValidStringOnly(lastName) || string.IsNullOrEmpty(lastName))
+                return false;
+
+            if(string.IsNullOrEmpty(email))
+                return false;
+            if (string.IsNullOrEmpty(phoneNumber) || !IsValidIntOnly(phoneNumber))
+                return false;
+            if(string.IsNullOrEmpty(password))
+                return false;
+            if (string.IsNullOrEmpty(address))
+                return false;
+           // Converting from string to DateTime
+            DateTime dateTimeValue;
+            DateTime myDateTimeVariable;
+            // this just gets the time from the masked tbx, idk why it takes so many arguments, ask CHATGPT
+            myDateTimeVariable = DateTime.ParseExact(birthDay,"dd/mm/yyyy", CultureInfo.InvariantCulture);
+
+            if (!IsValidDateOfBirthEmployee(myDateTimeVariable))
+                return false;
+
+            return true;
+        }
     }
 }

@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
-            this.maskedtbxAddEditEmployee = new System.Windows.Forms.MaskedTextBox();
+            this.groupBoxEmployeeDetailsPopup = new System.Windows.Forms.GroupBox();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
+            this.rbMaleEmployeeDetails = new System.Windows.Forms.RadioButton();
+            this.maskedtbxDoBEmployee = new System.Windows.Forms.MaskedTextBox();
             this.lblEmployeeGender = new System.Windows.Forms.Label();
-            this.cbxGender = new System.Windows.Forms.ComboBox();
             this.labelEmployeePassword = new System.Windows.Forms.Label();
             this.tbxEmployeePassword = new System.Windows.Forms.TextBox();
             this.tbxAddress = new System.Windows.Forms.TextBox();
@@ -50,7 +51,7 @@
             this.labelEmployeeContractType = new System.Windows.Forms.Label();
             this.rbtnFullTimeEmployee = new System.Windows.Forms.RadioButton();
             this.rbtnPartTimeEmployee = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxContractDetailsPopup = new System.Windows.Forms.GroupBox();
             this.dtmContractStartDate = new System.Windows.Forms.DateTimePicker();
             this.labelContractStartDate = new System.Windows.Forms.Label();
             this.labelContractMonths = new System.Windows.Forms.Label();
@@ -60,50 +61,74 @@
             this.lblHoursPerWeek = new System.Windows.Forms.Label();
             this.btnConfirmEmployeeCreation = new System.Windows.Forms.Button();
             this.btnCancelEmployeeCreation = new System.Windows.Forms.Button();
-            this.groupBoxSearchAnimal.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.btnConfirmEditEmployeeDetailsPopup = new System.Windows.Forms.Button();
+            this.groupBoxEmployeeDetailsPopup.SuspendLayout();
+            this.groupBoxContractDetailsPopup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudContractLenght)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeeklyHours)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBoxSearchAnimal
+            // groupBoxEmployeeDetailsPopup
             // 
-            this.groupBoxSearchAnimal.Controls.Add(this.maskedtbxAddEditEmployee);
-            this.groupBoxSearchAnimal.Controls.Add(this.lblEmployeeGender);
-            this.groupBoxSearchAnimal.Controls.Add(this.cbxGender);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeePassword);
-            this.groupBoxSearchAnimal.Controls.Add(this.tbxEmployeePassword);
-            this.groupBoxSearchAnimal.Controls.Add(this.tbxAddress);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeAddress);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeBirthdate);
-            this.groupBoxSearchAnimal.Controls.Add(this.tbxEmail);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeEmail);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeePhone);
-            this.groupBoxSearchAnimal.Controls.Add(this.tbxPhone);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeRole);
-            this.groupBoxSearchAnimal.Controls.Add(this.cbxRole);
-            this.groupBoxSearchAnimal.Controls.Add(this.tbxLastName);
-            this.groupBoxSearchAnimal.Controls.Add(this.tbxFirstName);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeLastName);
-            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeFirstName);
-            this.groupBoxSearchAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxSearchAnimal.Location = new System.Drawing.Point(24, 12);
-            this.groupBoxSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxSearchAnimal.Name = "groupBoxSearchAnimal";
-            this.groupBoxSearchAnimal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(484, 443);
-            this.groupBoxSearchAnimal.TabIndex = 5;
-            this.groupBoxSearchAnimal.TabStop = false;
-            this.groupBoxSearchAnimal.Text = "Employee information";
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.rbFemale);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.rbMaleEmployeeDetails);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.maskedtbxDoBEmployee);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.lblEmployeeGender);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeePassword);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.tbxEmployeePassword);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.tbxAddress);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeeAddress);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeeBirthdate);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.tbxEmail);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeeEmail);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeePhone);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.tbxPhone);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeeRole);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.cbxRole);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.tbxLastName);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.tbxFirstName);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeeLastName);
+            this.groupBoxEmployeeDetailsPopup.Controls.Add(this.labelEmployeeFirstName);
+            this.groupBoxEmployeeDetailsPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groupBoxEmployeeDetailsPopup.Location = new System.Drawing.Point(24, 12);
+            this.groupBoxEmployeeDetailsPopup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxEmployeeDetailsPopup.Name = "groupBoxEmployeeDetailsPopup";
+            this.groupBoxEmployeeDetailsPopup.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxEmployeeDetailsPopup.Size = new System.Drawing.Size(484, 443);
+            this.groupBoxEmployeeDetailsPopup.TabIndex = 5;
+            this.groupBoxEmployeeDetailsPopup.TabStop = false;
+            this.groupBoxEmployeeDetailsPopup.Text = "Employee information";
             // 
-            // maskedtbxAddEditEmployee
+            // rbFemale
             // 
-            this.maskedtbxAddEditEmployee.Location = new System.Drawing.Point(170, 390);
-            this.maskedtbxAddEditEmployee.Mask = "00/00/0000";
-            this.maskedtbxAddEditEmployee.Name = "maskedtbxAddEditEmployee";
-            this.maskedtbxAddEditEmployee.Size = new System.Drawing.Size(108, 29);
-            this.maskedtbxAddEditEmployee.TabIndex = 32;
-            this.maskedtbxAddEditEmployee.ValidatingType = typeof(System.DateTime);
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Location = new System.Drawing.Point(322, 130);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(92, 28);
+            this.rbFemale.TabIndex = 34;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
+            // 
+            // rbMaleEmployeeDetails
+            // 
+            this.rbMaleEmployeeDetails.AutoSize = true;
+            this.rbMaleEmployeeDetails.Location = new System.Drawing.Point(199, 130);
+            this.rbMaleEmployeeDetails.Name = "rbMaleEmployeeDetails";
+            this.rbMaleEmployeeDetails.Size = new System.Drawing.Size(69, 28);
+            this.rbMaleEmployeeDetails.TabIndex = 33;
+            this.rbMaleEmployeeDetails.TabStop = true;
+            this.rbMaleEmployeeDetails.Text = "Male";
+            this.rbMaleEmployeeDetails.UseVisualStyleBackColor = true;
+            // 
+            // maskedtbxDoBEmployee
+            // 
+            this.maskedtbxDoBEmployee.Location = new System.Drawing.Point(170, 390);
+            this.maskedtbxDoBEmployee.Mask = "00/00/0000";
+            this.maskedtbxDoBEmployee.Name = "maskedtbxDoBEmployee";
+            this.maskedtbxDoBEmployee.Size = new System.Drawing.Size(108, 29);
+            this.maskedtbxDoBEmployee.TabIndex = 32;
+            this.maskedtbxDoBEmployee.ValidatingType = typeof(System.DateTime);
             // 
             // lblEmployeeGender
             // 
@@ -114,14 +139,6 @@
             this.lblEmployeeGender.Size = new System.Drawing.Size(79, 24);
             this.lblEmployeeGender.TabIndex = 31;
             this.lblEmployeeGender.Text = "Gender:";
-            // 
-            // cbxGender
-            // 
-            this.cbxGender.FormattingEnabled = true;
-            this.cbxGender.Location = new System.Drawing.Point(172, 127);
-            this.cbxGender.Name = "cbxGender";
-            this.cbxGender.Size = new System.Drawing.Size(295, 32);
-            this.cbxGender.TabIndex = 30;
             // 
             // labelEmployeePassword
             // 
@@ -217,6 +234,8 @@
             // 
             // cbxRole
             // 
+            this.cbxRole.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
+            this.cbxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRole.FormattingEnabled = true;
             this.cbxRole.Location = new System.Drawing.Point(172, 175);
             this.cbxRole.Name = "cbxRole";
@@ -291,27 +310,27 @@
             this.rbtnPartTimeEmployee.Text = "Part-time";
             this.rbtnPartTimeEmployee.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // groupBoxContractDetailsPopup
             // 
-            this.groupBox1.Controls.Add(this.dtmContractStartDate);
-            this.groupBox1.Controls.Add(this.labelContractStartDate);
-            this.groupBox1.Controls.Add(this.labelContractMonths);
-            this.groupBox1.Controls.Add(this.nudContractLenght);
-            this.groupBox1.Controls.Add(this.cbxFixedTermContract);
-            this.groupBox1.Controls.Add(this.nudWeeklyHours);
-            this.groupBox1.Controls.Add(this.lblHoursPerWeek);
-            this.groupBox1.Controls.Add(this.rbtnFullTimeEmployee);
-            this.groupBox1.Controls.Add(this.rbtnPartTimeEmployee);
-            this.groupBox1.Controls.Add(this.labelEmployeeContractType);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBox1.Location = new System.Drawing.Point(24, 461);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(484, 213);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Contract details";
+            this.groupBoxContractDetailsPopup.Controls.Add(this.dtmContractStartDate);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.labelContractStartDate);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.labelContractMonths);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.nudContractLenght);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.cbxFixedTermContract);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.nudWeeklyHours);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.lblHoursPerWeek);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.rbtnFullTimeEmployee);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.rbtnPartTimeEmployee);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.labelEmployeeContractType);
+            this.groupBoxContractDetailsPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groupBoxContractDetailsPopup.Location = new System.Drawing.Point(24, 461);
+            this.groupBoxContractDetailsPopup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxContractDetailsPopup.Name = "groupBoxContractDetailsPopup";
+            this.groupBoxContractDetailsPopup.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxContractDetailsPopup.Size = new System.Drawing.Size(484, 213);
+            this.groupBoxContractDetailsPopup.TabIndex = 28;
+            this.groupBoxContractDetailsPopup.TabStop = false;
+            this.groupBoxContractDetailsPopup.Text = "Contract details";
             // 
             // dtmContractStartDate
             // 
@@ -381,7 +400,7 @@
             this.btnConfirmEmployeeCreation.Name = "btnConfirmEmployeeCreation";
             this.btnConfirmEmployeeCreation.Size = new System.Drawing.Size(227, 42);
             this.btnConfirmEmployeeCreation.TabIndex = 29;
-            this.btnConfirmEmployeeCreation.Text = "Confirm";
+            this.btnConfirmEmployeeCreation.Text = "Create account";
             this.btnConfirmEmployeeCreation.UseVisualStyleBackColor = true;
             this.btnConfirmEmployeeCreation.Click += new System.EventHandler(this.btnConfirmEmployeeCreation_Click);
             // 
@@ -394,24 +413,35 @@
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = true;
             // 
+            // btnConfirmEditEmployeeDetailsPopup
+            // 
+            this.btnConfirmEditEmployeeDetailsPopup.Location = new System.Drawing.Point(386, 632);
+            this.btnConfirmEditEmployeeDetailsPopup.Name = "btnConfirmEditEmployeeDetailsPopup";
+            this.btnConfirmEditEmployeeDetailsPopup.Size = new System.Drawing.Size(227, 42);
+            this.btnConfirmEditEmployeeDetailsPopup.TabIndex = 31;
+            this.btnConfirmEditEmployeeDetailsPopup.Text = "Save changes";
+            this.btnConfirmEditEmployeeDetailsPopup.UseVisualStyleBackColor = true;
+            this.btnConfirmEditEmployeeDetailsPopup.Click += new System.EventHandler(this.btnConfirmEditEmployeeDetailsPopup_Click);
+            // 
             // PopupEmployeeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(594, 734);
+            this.ClientSize = new System.Drawing.Size(541, 734);
+            this.Controls.Add(this.btnConfirmEditEmployeeDetailsPopup);
             this.Controls.Add(this.btnCancelEmployeeCreation);
             this.Controls.Add(this.btnConfirmEmployeeCreation);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBoxSearchAnimal);
+            this.Controls.Add(this.groupBoxContractDetailsPopup);
+            this.Controls.Add(this.groupBoxEmployeeDetailsPopup);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PopupEmployeeDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Details";
-            this.groupBoxSearchAnimal.ResumeLayout(false);
-            this.groupBoxSearchAnimal.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxEmployeeDetailsPopup.ResumeLayout(false);
+            this.groupBoxEmployeeDetailsPopup.PerformLayout();
+            this.groupBoxContractDetailsPopup.ResumeLayout(false);
+            this.groupBoxContractDetailsPopup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudContractLenght)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeeklyHours)).EndInit();
             this.ResumeLayout(false);
@@ -420,8 +450,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBoxSearchAnimal;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxEmployeeDetailsPopup;
+        private System.Windows.Forms.GroupBox groupBoxContractDetailsPopup;
         private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.Label labelEmployeeAddress;
         private System.Windows.Forms.Label labelEmployeeBirthdate;
@@ -450,7 +480,9 @@
         private System.Windows.Forms.Button btnCancelEmployeeCreation;
         private System.Windows.Forms.Label labelEmployeePassword;
         private System.Windows.Forms.Label lblEmployeeGender;
-        private System.Windows.Forms.ComboBox cbxGender;
-        private System.Windows.Forms.MaskedTextBox maskedtbxAddEditEmployee;
+        private System.Windows.Forms.MaskedTextBox maskedtbxDoBEmployee;
+        private System.Windows.Forms.RadioButton rbFemale;
+        private System.Windows.Forms.RadioButton rbMaleEmployeeDetails;
+        private System.Windows.Forms.Button btnConfirmEditEmployeeDetailsPopup;
     }
 }

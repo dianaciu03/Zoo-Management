@@ -60,6 +60,7 @@
             this.labelEmployeeFirstName = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxSearchAnimal.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnUpdate);
             this.tabPage1.Controls.Add(this.btnEditEmployeeDeta);
             this.tabPage1.Controls.Add(this.btnAddEmployee);
             this.tabPage1.Controls.Add(this.lvwEmployees);
@@ -387,6 +389,16 @@
             this.labelTitleZooBazaar.TabIndex = 10;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(214, 470);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(122, 30);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // FormHRAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -441,5 +453,6 @@
         private System.Windows.Forms.Label labelEmployeeLastName;
         private System.Windows.Forms.Label labelEmployeeFirstName;
         private System.Windows.Forms.Label labelTitleZooBazaar;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

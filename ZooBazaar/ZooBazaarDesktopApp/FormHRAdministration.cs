@@ -23,14 +23,6 @@ namespace ZooBazaarDesktopApp
             updateEmployees();
         }
 
-        private void btnAddEmpployee_Click(object sender, EventArgs e)
-        {
-            Employee employee = null;
-            PopupEmployeeDetails form = new PopupEmployeeDetails(employee);
-            form.ShowDialog();
-            this.Show();
-        }
-
         private void updateEmployees()
         {
             lvwEmployees.Items.Clear();
@@ -59,7 +51,7 @@ namespace ZooBazaarDesktopApp
             Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
             employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
             //this.Hide();
-            PopupEmployeeDetails form = new PopupEmployeeDetails(employee);
+            PopupEmployeeDetails form = new PopupEmployeeDetails(employee,employeeManagement);
             form.ShowDialog();
             //this.Show();
         }
@@ -67,8 +59,14 @@ namespace ZooBazaarDesktopApp
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             Employee employee = null;
-            PopupEmployeeDetails popupEmployeeDetails = new PopupEmployeeDetails(employee);
+            PopupEmployeeDetails popupEmployeeDetails = new PopupEmployeeDetails(employee,employeeManagement);
             popupEmployeeDetails.ShowDialog();
+            updateEmployees();
+        }
+        //needs fixing, this updates the list but doesnt work
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            updateEmployees();
         }
     }
 }
