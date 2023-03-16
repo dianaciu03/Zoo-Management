@@ -48,12 +48,14 @@
             this.labelAddAnimalOrigin = new System.Windows.Forms.Label();
             this.labelAddAnimalSpecies = new System.Windows.Forms.Label();
             this.labelAddAnimalName = new System.Windows.Forms.Label();
+            this.btnConfirmChanges = new System.Windows.Forms.Button();
             this.groupBoxAddAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnclosureAddAnimal)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxAddAnimal
             // 
+            this.groupBoxAddAnimal.Controls.Add(this.btnConfirmChanges);
             this.groupBoxAddAnimal.Controls.Add(this.labelEditAnimalBirthDate);
             this.groupBoxAddAnimal.Controls.Add(this.btnCancelAnimalCreation);
             this.groupBoxAddAnimal.Controls.Add(this.btnConfirmAnimalCreation);
@@ -279,6 +281,16 @@
             this.labelAddAnimalName.TabIndex = 0;
             this.labelAddAnimalName.Text = "Name:";
             // 
+            // btnConfirmChanges
+            // 
+            this.btnConfirmChanges.Location = new System.Drawing.Point(332, 653);
+            this.btnConfirmChanges.Name = "btnConfirmChanges";
+            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 42);
+            this.btnConfirmChanges.TabIndex = 39;
+            this.btnConfirmChanges.Text = "Confirm";
+            this.btnConfirmChanges.UseVisualStyleBackColor = true;
+            this.btnConfirmChanges.Click += new System.EventHandler(this.btnConfirmChanges_Click);
+            // 
             // PopupAnimalDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -319,5 +331,6 @@
         private System.Windows.Forms.Button btnCancelAnimalCreation;
         private System.Windows.Forms.Button btnConfirmAnimalCreation;
         private System.Windows.Forms.Label labelEditAnimalBirthDate;
+        private System.Windows.Forms.Button btnConfirmChanges;
     }
 }
