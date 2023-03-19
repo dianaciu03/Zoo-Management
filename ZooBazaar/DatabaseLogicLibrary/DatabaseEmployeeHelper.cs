@@ -74,5 +74,67 @@ namespace DatabaseLogicLibrary
             }
             return employees;
         }
+
+        public void AddUpdateEmployee(Employee employee)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return; }
+
+                SqlCommand existsInDatabase = new SqlCommand($"SELECT COUNT(*) FROM Employees WHERE EmployeeID = {employee.ID}");
+                if ((int)existsInDatabase.ExecuteScalar() > 0)
+                {
+                    UpdateEmployee(employee, connection);
+                }
+                else
+                {
+                    AddNewEmployee(employee, connection);
+                }
+                connection.Close();
+            }
+        }
+
+        private void UpdateEmployee(Employee employee, SqlConnection connection)
+        {
+            using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
+                                           "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
+            {
+                command.Parameters.AddWithValue("@EmployeeID", employee.ID);
+                command.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                command.Parameters.AddWithValue("@LastName", employee.LastName);
+                command.Parameters.AddWithValue("@Birthdate", employee.BirthDate.ToString());
+                command.Parameters.AddWithValue("@Gender", employee.PersonGender);
+                command.Parameters.AddWithValue("@Address", employee.Address);
+                command.Parameters.AddWithValue("@Phone", employee.Phone);
+                command.Parameters.AddWithValue("@Password", employee.Password);
+                command.Parameters.AddWithValue("@Email", employee.Email);
+                command.Parameters.AddWithValue("@EmployeeType", employee.GetType().ToString());
+                command.Parameters.AddWithValue("@WeeklyHours", employee.HoursPerWeek.ToString());
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        private void AddNewEmployee(Employee employee, SqlConnection connection)
+        {
+            using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
+                               "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
+            {
+                command.Parameters.AddWithValue("@EmployeeID", employee.ID);
+                command.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                command.Parameters.AddWithValue("@LastName", employee.LastName);
+                command.Parameters.AddWithValue("@Birthdate", employee.BirthDate.ToString());
+                command.Parameters.AddWithValue("@Gender", employee.PersonGender);
+                command.Parameters.AddWithValue("@Address", employee.Address);
+                command.Parameters.AddWithValue("@Phone", employee.Phone);
+                command.Parameters.AddWithValue("@Password", employee.Password);
+                command.Parameters.AddWithValue("@Email", employee.Email);
+                command.Parameters.AddWithValue("@EmployeeType", employee.GetType().ToString());
+                command.Parameters.AddWithValue("@WeeklyHours", employee.HoursPerWeek.ToString());
+
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

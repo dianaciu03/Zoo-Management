@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DatabaseLogicLibrary;
 
 namespace ZooBazaarLogicLibrary
 {
     public class AnimalManagement
     {
         List<Animal> animalsList;
+        DatabaseAnimalHelper helper = new DatabaseAnimalHelper();
 
         public AnimalManagement()
         {
             animalsList = new List<Animal>();
+            animalsList = helper.GetAllAnimals();
         }
 
         public List<Animal> Animals { get { return animalsList;} }
