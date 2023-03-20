@@ -11,18 +11,16 @@ using ZooBazaarLogicLibrary;
 
 namespace ZooBazaarDesktopApp
 {
-    public partial class FormScheduleMaker : Form
+    public partial class PopupAnimalTransfer : Form
     {
-
-        public FormScheduleMaker()
+        public PopupAnimalTransfer()
         {
             InitializeComponent();
         }
 
-
-        private void btnScheduleTask_Click(object sender, EventArgs e)
+        private void btnCancelTransfer_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

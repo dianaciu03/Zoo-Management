@@ -52,6 +52,12 @@
     <Compile Include="PopupAnimalDetails.Designer.cs">
       <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="PopupAnimalTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopupAnimalTransfer.Designer.cs">
+      <DependentUpon>PopupAnimalTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopupEmployeeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <EmbeddedResource Include="PopupAnimalDetails.resx">
       <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PopupAnimalTransfer.resx">
+      <DependentUpon>PopupAnimalTransfer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PopupEmployeeDetails.resx">
       <DependentUpon>PopupEmployeeDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +134,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="PopupRelationships.resx">
       <DependentUpon>PopupRelationships.cs</DependentUpon>
@@ -147,6 +157,9 @@
       <Project>{3bea0856-8b3d-427f-958c-831104c59a7a}</Project>
       <Name>ZooBazaarLogicLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zooimg5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

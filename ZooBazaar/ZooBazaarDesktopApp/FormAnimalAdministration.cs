@@ -27,7 +27,7 @@ namespace ZooBazaarDesktopApp
             cbxEndangerment.DataSource = Enum.GetValues(typeof(ENDANGERMENT));
             cbxOrigin.DataSource = Enum.GetValues(typeof(ORIGINCONTINENT));
             btnClearAll_Click(this, EventArgs.Empty);
-            btnCancelTransfer_Click(this, EventArgs.Empty);
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         public void InitializeAnimalMockData()
@@ -99,15 +99,6 @@ namespace ZooBazaarDesktopApp
             tbxSpecies.Text = string.Empty;
         }
 
-        //clears all fields in the transfer form
-        private void btnCancelTransfer_Click(object sender, EventArgs e)
-        {
-            tbxAddressTransfer.Text = string.Empty;
-            tbxZooNameTransfer.Text = string.Empty;
-            tbxComments.Text = string.Empty;
-            tbxAnimalTransfer.Text = string.Empty;
-        }
-
         private void updateAnimalListview(Animal[] animals)
         {
             lvwAnimals.Items.Clear();
@@ -123,6 +114,18 @@ namespace ZooBazaarDesktopApp
                 item.SubItems.Add(animal.Availability.ToString());
                 lvwAnimals.Items.Add(item);
             }
+        }
+
+        private void btnDisplayHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTransferAnimal_Click(object sender, EventArgs e)
+        {
+            PopupAnimalTransfer popupAnimalTransfer = new PopupAnimalTransfer();
+            popupAnimalTransfer.ShowDialog();
+            updateAnimalListview(animalManagement.GetAllAnimals());
         }
     }
 }
