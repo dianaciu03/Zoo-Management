@@ -8,24 +8,24 @@ namespace ZooBazaarLogicLibrary
 {
     public class EmployeeManagement
     {
-        private List<Employee> employees;
+        private List<Employee> employeeList;
 
         public EmployeeManagement() 
         {
-            this.employees = new List<Employee>();
+            this.employeeList = new List<Employee>();
         }
         public void AddEmployee(Employee employee)
         {
-            employees.Add(employee);
+            employeeList.Add(employee);
         }
         public Employee[] GetEmployees()
         {
-            return employees.ToArray();
+            return employeeList.ToArray();
         }
 
         public Employee GetEmployee(string email, string password)
         {
-            foreach (Employee employee in employees)
+            foreach (Employee employee in employeeList)
             {
                 if (employee.Email == email && employee.Password == password)
                 {
@@ -33,6 +33,34 @@ namespace ZooBazaarLogicLibrary
                 }
             }
             return null;
+        }
+
+        public List<Employee> GetSearchedEmployees(string firstName, string lastName, string contractType, string role)
+        {
+            List<Employee> searchedEmployees = new List<Employee>();
+            foreach (Employee employee in employeeList)
+            {
+                if (contractType == string.Empty)
+                {
+                    if ((employee.FirstName.ToLower().Contains(firstName.ToLower()) || String.IsNullOrEmpty(firstName)) &&
+                        (employee.LastName.ToLower().Contains(lastName.ToLower()) || String.IsNullOrEmpty(lastName)) &&
+                        (employee.GetRole() == role || String.IsNullOrEmpty(role.ToString())))
+                    {
+                        searchedEmployees.Add(employee);
+                    }
+                }
+                else
+                {
+                    if ((employee.FirstName.ToLower().Contains(firstName.ToLower()) || String.IsNullOrEmpty(firstName)) &&
+                        (employee.LastName.ToLower().Contains(lastName.ToLower()) || String.IsNullOrEmpty(lastName)) &&
+                        (employee.GetRole() == role.ToString() || String.IsNullOrEmpty(role.ToString())) &&
+                        (employee.HoursPerWeek == 40)) //needs fixing when we add contracts
+                    {
+                        searchedEmployees.Add(employee);
+                    }
+                }
+            }
+            return searchedEmployees;
         }
     }
 }

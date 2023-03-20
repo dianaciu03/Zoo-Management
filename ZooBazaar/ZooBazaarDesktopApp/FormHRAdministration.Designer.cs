@@ -230,6 +230,7 @@
             this.btnClearAll.TabIndex = 15;
             this.btnClearAll.Text = "Clear all";
             this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // labelEmployeeRole
             // 

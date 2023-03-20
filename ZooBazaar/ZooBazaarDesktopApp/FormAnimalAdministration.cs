@@ -28,7 +28,6 @@ namespace ZooBazaarDesktopApp
             cbxOrigin.DataSource = Enum.GetValues(typeof(ORIGINCONTINENT));
             btnClearAll_Click(this, EventArgs.Empty);
             btnCancelTransfer_Click(this, EventArgs.Empty);
-            updateAnimalListview(animalManagement.GetAllAnimals());
         }
 
         public void InitializeAnimalMockData()
@@ -96,6 +95,8 @@ namespace ZooBazaarDesktopApp
             tbxAge.Text = string.Empty;
             cbxOrigin.SelectedIndex = -1;
             cbxEndangerment.SelectedIndex = -1;
+            tbxName.Text = string.Empty;
+            tbxSpecies.Text = string.Empty;
         }
 
         //clears all fields in the transfer form
@@ -110,7 +111,7 @@ namespace ZooBazaarDesktopApp
         private void updateAnimalListview(Animal[] animals)
         {
             lvwAnimals.Items.Clear();
-            foreach (var animal in animals)
+            foreach (Animal animal in animals)
             {
                 ListViewItem item = new ListViewItem();
                 item.Text = animal.Id.ToString();

@@ -91,12 +91,12 @@
             // 
             this.tabControlAnimals.Controls.Add(this.tabSearchAnimals);
             this.tabControlAnimals.Controls.Add(this.tabAnimalHistory);
-            this.tabControlAnimals.Location = new System.Drawing.Point(13, 51);
+            this.tabControlAnimals.Location = new System.Drawing.Point(13, 58);
             this.tabControlAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControlAnimals.Name = "tabControlAnimals";
             this.tabControlAnimals.Padding = new System.Drawing.Point(70, 9);
             this.tabControlAnimals.SelectedIndex = 0;
-            this.tabControlAnimals.Size = new System.Drawing.Size(1265, 772);
+            this.tabControlAnimals.Size = new System.Drawing.Size(1893, 989);
             this.tabControlAnimals.TabIndex = 0;
             // 
             // tabSearchAnimals
@@ -107,11 +107,11 @@
             this.tabSearchAnimals.Controls.Add(this.btnAddAnimal);
             this.tabSearchAnimals.Controls.Add(this.groupBoxAnimalTransfer);
             this.tabSearchAnimals.Controls.Add(this.groupBoxSearchAnimal);
-            this.tabSearchAnimals.Location = new System.Drawing.Point(4, 41);
+            this.tabSearchAnimals.Location = new System.Drawing.Point(4, 46);
             this.tabSearchAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabSearchAnimals.Name = "tabSearchAnimals";
             this.tabSearchAnimals.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabSearchAnimals.Size = new System.Drawing.Size(1257, 727);
+            this.tabSearchAnimals.Size = new System.Drawing.Size(1885, 939);
             this.tabSearchAnimals.TabIndex = 0;
             this.tabSearchAnimals.Text = "Search animals";
             this.tabSearchAnimals.UseVisualStyleBackColor = true;
@@ -126,9 +126,9 @@
             this.colEnclosure,
             this.colAvailability});
             this.lvwAnimals.HideSelection = false;
-            this.lvwAnimals.Location = new System.Drawing.Point(502, 30);
+            this.lvwAnimals.Location = new System.Drawing.Point(673, 30);
             this.lvwAnimals.Name = "lvwAnimals";
-            this.lvwAnimals.Size = new System.Drawing.Size(742, 633);
+            this.lvwAnimals.Size = new System.Drawing.Size(956, 633);
             this.lvwAnimals.TabIndex = 7;
             this.lvwAnimals.UseCompatibleStateImageBehavior = false;
             this.lvwAnimals.View = System.Windows.Forms.View.Details;
@@ -229,7 +229,7 @@
             this.labelComments.Location = new System.Drawing.Point(22, 120);
             this.labelComments.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelComments.Name = "labelComments";
-            this.labelComments.Size = new System.Drawing.Size(90, 20);
+            this.labelComments.Size = new System.Drawing.Size(125, 26);
             this.labelComments.TabIndex = 17;
             this.labelComments.Text = "Comments:";
             // 
@@ -238,7 +238,7 @@
             this.btnCancelTransfer.AutoSize = true;
             this.btnCancelTransfer.Location = new System.Drawing.Point(312, 264);
             this.btnCancelTransfer.Name = "btnCancelTransfer";
-            this.btnCancelTransfer.Size = new System.Drawing.Size(132, 35);
+            this.btnCancelTransfer.Size = new System.Drawing.Size(132, 36);
             this.btnCancelTransfer.TabIndex = 16;
             this.btnCancelTransfer.Text = "Cancel";
             this.btnCancelTransfer.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             this.btnConfirmTransfer.AutoSize = true;
             this.btnConfirmTransfer.Location = new System.Drawing.Point(156, 264);
             this.btnConfirmTransfer.Name = "btnConfirmTransfer";
-            this.btnConfirmTransfer.Size = new System.Drawing.Size(132, 35);
+            this.btnConfirmTransfer.Size = new System.Drawing.Size(132, 36);
             this.btnConfirmTransfer.TabIndex = 15;
             this.btnConfirmTransfer.Text = "Confirm";
             this.btnConfirmTransfer.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@
             this.tbxAnimalTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAnimalTransfer.Name = "tbxAnimalTransfer";
             this.tbxAnimalTransfer.ReadOnly = true;
-            this.tbxAnimalTransfer.Size = new System.Drawing.Size(288, 26);
+            this.tbxAnimalTransfer.Size = new System.Drawing.Size(288, 32);
             this.tbxAnimalTransfer.TabIndex = 11;
             // 
             // tbxAddressTransfer
@@ -268,7 +268,7 @@
             this.tbxAddressTransfer.Location = new System.Drawing.Point(156, 80);
             this.tbxAddressTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAddressTransfer.Name = "tbxAddressTransfer";
-            this.tbxAddressTransfer.Size = new System.Drawing.Size(288, 26);
+            this.tbxAddressTransfer.Size = new System.Drawing.Size(288, 32);
             this.tbxAddressTransfer.TabIndex = 10;
             // 
             // labelAnimalTransfer
@@ -277,7 +277,7 @@
             this.labelAnimalTransfer.Location = new System.Drawing.Point(22, 221);
             this.labelAnimalTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAnimalTransfer.Name = "labelAnimalTransfer";
-            this.labelAnimalTransfer.Size = new System.Drawing.Size(61, 20);
+            this.labelAnimalTransfer.Size = new System.Drawing.Size(86, 26);
             this.labelAnimalTransfer.TabIndex = 9;
             this.labelAnimalTransfer.Text = "Animal:";
             // 
@@ -287,7 +287,7 @@
             this.labelAdressTransfer.Location = new System.Drawing.Point(22, 83);
             this.labelAdressTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAdressTransfer.Name = "labelAdressTransfer";
-            this.labelAdressTransfer.Size = new System.Drawing.Size(102, 20);
+            this.labelAdressTransfer.Size = new System.Drawing.Size(138, 26);
             this.labelAdressTransfer.TabIndex = 8;
             this.labelAdressTransfer.Text = "Zoo address:";
             // 
@@ -296,7 +296,7 @@
             this.tbxZooNameTransfer.Location = new System.Drawing.Point(156, 40);
             this.tbxZooNameTransfer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxZooNameTransfer.Name = "tbxZooNameTransfer";
-            this.tbxZooNameTransfer.Size = new System.Drawing.Size(288, 26);
+            this.tbxZooNameTransfer.Size = new System.Drawing.Size(288, 32);
             this.tbxZooNameTransfer.TabIndex = 7;
             // 
             // labelZooNameTransfer
@@ -305,7 +305,7 @@
             this.labelZooNameTransfer.Location = new System.Drawing.Point(22, 43);
             this.labelZooNameTransfer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelZooNameTransfer.Name = "labelZooNameTransfer";
-            this.labelZooNameTransfer.Size = new System.Drawing.Size(85, 20);
+            this.labelZooNameTransfer.Size = new System.Drawing.Size(116, 26);
             this.labelZooNameTransfer.TabIndex = 6;
             this.labelZooNameTransfer.Text = "Zoo name:";
             // 
@@ -333,25 +333,25 @@
             this.groupBoxSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearchAnimal.Name = "groupBoxSearchAnimal";
             this.groupBoxSearchAnimal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(478, 374);
+            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(546, 374);
             this.groupBoxSearchAnimal.TabIndex = 0;
             this.groupBoxSearchAnimal.TabStop = false;
             this.groupBoxSearchAnimal.Text = "Search by:";
             // 
             // tbxAge
             // 
-            this.tbxAge.Location = new System.Drawing.Point(156, 234);
+            this.tbxAge.Location = new System.Drawing.Point(190, 237);
             this.tbxAge.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxAge.Name = "tbxAge";
-            this.tbxAge.Size = new System.Drawing.Size(91, 26);
+            this.tbxAge.Size = new System.Drawing.Size(91, 32);
             this.tbxAge.TabIndex = 37;
             // 
             // cbTransferred
             // 
             this.cbTransferred.AutoSize = true;
-            this.cbTransferred.Location = new System.Drawing.Point(275, 199);
+            this.cbTransferred.Location = new System.Drawing.Point(337, 202);
             this.cbTransferred.Name = "cbTransferred";
-            this.cbTransferred.Size = new System.Drawing.Size(110, 24);
+            this.cbTransferred.Size = new System.Drawing.Size(141, 30);
             this.cbTransferred.TabIndex = 36;
             this.cbTransferred.Text = "Transferred";
             this.cbTransferred.UseVisualStyleBackColor = true;
@@ -359,9 +359,9 @@
             // cbAvailable
             // 
             this.cbAvailable.AutoSize = true;
-            this.cbAvailable.Location = new System.Drawing.Point(156, 199);
+            this.cbAvailable.Location = new System.Drawing.Point(190, 202);
             this.cbAvailable.Name = "cbAvailable";
-            this.cbAvailable.Size = new System.Drawing.Size(91, 24);
+            this.cbAvailable.Size = new System.Drawing.Size(120, 30);
             this.cbAvailable.TabIndex = 35;
             this.cbAvailable.Text = "Available";
             this.cbAvailable.UseVisualStyleBackColor = true;
@@ -369,9 +369,9 @@
             // rbtnMale
             // 
             this.rbtnMale.AutoSize = true;
-            this.rbtnMale.Location = new System.Drawing.Point(156, 163);
+            this.rbtnMale.Location = new System.Drawing.Point(190, 166);
             this.rbtnMale.Name = "rbtnMale";
-            this.rbtnMale.Size = new System.Drawing.Size(61, 24);
+            this.rbtnMale.Size = new System.Drawing.Size(77, 30);
             this.rbtnMale.TabIndex = 34;
             this.rbtnMale.TabStop = true;
             this.rbtnMale.Text = "Male";
@@ -380,9 +380,9 @@
             // rbtnFemale
             // 
             this.rbtnFemale.AutoSize = true;
-            this.rbtnFemale.Location = new System.Drawing.Point(275, 163);
+            this.rbtnFemale.Location = new System.Drawing.Point(337, 166);
             this.rbtnFemale.Name = "rbtnFemale";
-            this.rbtnFemale.Size = new System.Drawing.Size(80, 24);
+            this.rbtnFemale.Size = new System.Drawing.Size(103, 30);
             this.rbtnFemale.TabIndex = 33;
             this.rbtnFemale.TabStop = true;
             this.rbtnFemale.Text = "Female";
@@ -393,16 +393,16 @@
             this.labelGenderAddAnimal.AutoSize = true;
             this.labelGenderAddAnimal.Location = new System.Drawing.Point(22, 165);
             this.labelGenderAddAnimal.Name = "labelGenderAddAnimal";
-            this.labelGenderAddAnimal.Size = new System.Drawing.Size(67, 20);
+            this.labelGenderAddAnimal.Size = new System.Drawing.Size(90, 26);
             this.labelGenderAddAnimal.TabIndex = 32;
             this.labelGenderAddAnimal.Text = "Gender:";
             // 
             // btnClearAll
             // 
             this.btnClearAll.AutoSize = true;
-            this.btnClearAll.Location = new System.Drawing.Point(312, 326);
+            this.btnClearAll.Location = new System.Drawing.Point(346, 329);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(132, 35);
+            this.btnClearAll.Size = new System.Drawing.Size(132, 36);
             this.btnClearAll.TabIndex = 15;
             this.btnClearAll.Text = "Clear all";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -411,9 +411,9 @@
             // btnSearchAnimal
             // 
             this.btnSearchAnimal.AutoSize = true;
-            this.btnSearchAnimal.Location = new System.Drawing.Point(156, 326);
+            this.btnSearchAnimal.Location = new System.Drawing.Point(190, 329);
             this.btnSearchAnimal.Name = "btnSearchAnimal";
-            this.btnSearchAnimal.Size = new System.Drawing.Size(132, 35);
+            this.btnSearchAnimal.Size = new System.Drawing.Size(132, 36);
             this.btnSearchAnimal.TabIndex = 14;
             this.btnSearchAnimal.Text = "Search";
             this.btnSearchAnimal.UseVisualStyleBackColor = true;
@@ -422,17 +422,17 @@
             // cbxEndangerment
             // 
             this.cbxEndangerment.FormattingEnabled = true;
-            this.cbxEndangerment.Location = new System.Drawing.Point(156, 278);
+            this.cbxEndangerment.Location = new System.Drawing.Point(190, 281);
             this.cbxEndangerment.Name = "cbxEndangerment";
-            this.cbxEndangerment.Size = new System.Drawing.Size(288, 28);
+            this.cbxEndangerment.Size = new System.Drawing.Size(288, 33);
             this.cbxEndangerment.TabIndex = 13;
             // 
             // cbxOrigin
             // 
             this.cbxOrigin.FormattingEnabled = true;
-            this.cbxOrigin.Location = new System.Drawing.Point(156, 124);
+            this.cbxOrigin.Location = new System.Drawing.Point(190, 127);
             this.cbxOrigin.Name = "cbxOrigin";
-            this.cbxOrigin.Size = new System.Drawing.Size(288, 28);
+            this.cbxOrigin.Size = new System.Drawing.Size(288, 33);
             this.cbxOrigin.TabIndex = 9;
             // 
             // labelEndangerment
@@ -441,7 +441,7 @@
             this.labelEndangerment.Location = new System.Drawing.Point(22, 281);
             this.labelEndangerment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndangerment.Name = "labelEndangerment";
-            this.labelEndangerment.Size = new System.Drawing.Size(119, 20);
+            this.labelEndangerment.Size = new System.Drawing.Size(161, 26);
             this.labelEndangerment.TabIndex = 8;
             this.labelEndangerment.Text = "Endangerment:";
             // 
@@ -451,24 +451,24 @@
             this.labelStatus.Location = new System.Drawing.Point(22, 200);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(60, 20);
+            this.labelStatus.Size = new System.Drawing.Size(80, 26);
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "Status:";
             // 
             // tbxSpecies
             // 
-            this.tbxSpecies.Location = new System.Drawing.Point(156, 83);
+            this.tbxSpecies.Location = new System.Drawing.Point(190, 86);
             this.tbxSpecies.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxSpecies.Name = "tbxSpecies";
-            this.tbxSpecies.Size = new System.Drawing.Size(288, 26);
+            this.tbxSpecies.Size = new System.Drawing.Size(288, 32);
             this.tbxSpecies.TabIndex = 6;
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(156, 41);
+            this.tbxName.Location = new System.Drawing.Point(190, 44);
             this.tbxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(288, 26);
+            this.tbxName.Size = new System.Drawing.Size(288, 32);
             this.tbxName.TabIndex = 5;
             // 
             // labelAge
@@ -477,7 +477,7 @@
             this.labelAge.Location = new System.Drawing.Point(22, 237);
             this.labelAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAge.Name = "labelAge";
-            this.labelAge.Size = new System.Drawing.Size(42, 20);
+            this.labelAge.Size = new System.Drawing.Size(57, 26);
             this.labelAge.TabIndex = 3;
             this.labelAge.Text = "Age:";
             // 
@@ -487,7 +487,7 @@
             this.labelOrigin.Location = new System.Drawing.Point(22, 127);
             this.labelOrigin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOrigin.Name = "labelOrigin";
-            this.labelOrigin.Size = new System.Drawing.Size(82, 20);
+            this.labelOrigin.Size = new System.Drawing.Size(111, 26);
             this.labelOrigin.TabIndex = 2;
             this.labelOrigin.Text = "Continent:";
             // 
@@ -497,7 +497,7 @@
             this.labelSpecies.Location = new System.Drawing.Point(22, 86);
             this.labelSpecies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSpecies.Name = "labelSpecies";
-            this.labelSpecies.Size = new System.Drawing.Size(70, 20);
+            this.labelSpecies.Size = new System.Drawing.Size(96, 26);
             this.labelSpecies.TabIndex = 1;
             this.labelSpecies.Text = "Species:";
             // 
@@ -507,7 +507,7 @@
             this.labelName.Location = new System.Drawing.Point(22, 44);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(55, 20);
+            this.labelName.Size = new System.Drawing.Size(77, 26);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Name:";
             // 
@@ -619,11 +619,11 @@
             // labelTitleZooBazaar
             // 
             this.labelTitleZooBazaar.AutoSize = true;
-            this.labelTitleZooBazaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleZooBazaar.Location = new System.Drawing.Point(532, 9);
+            this.labelTitleZooBazaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleZooBazaar.Location = new System.Drawing.Point(643, 9);
             this.labelTitleZooBazaar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitleZooBazaar.Name = "labelTitleZooBazaar";
-            this.labelTitleZooBazaar.Size = new System.Drawing.Size(184, 37);
+            this.labelTitleZooBazaar.Size = new System.Drawing.Size(213, 44);
             this.labelTitleZooBazaar.TabIndex = 1;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
@@ -631,10 +631,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1286, 831);
+            this.ClientSize = new System.Drawing.Size(1919, 1061);
             this.Controls.Add(this.labelTitleZooBazaar);
             this.Controls.Add(this.tabControlAnimals);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAnimalAdministration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

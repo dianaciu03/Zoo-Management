@@ -20,26 +20,8 @@ namespace ZooBazaarDesktopApp
         {
             InitializeComponent();
             employeeManagement = emMng; 
-            updateEmployees();
         }
 
-        private void updateEmployees()
-        {
-            lvwEmployees.Items.Clear();
-            foreach (var employee in employeeManagement.GetEmployees())
-            {
-                ListViewItem item = new ListViewItem();
-                item.Text = employee.ID.ToString();
-                item.SubItems.Add(employee.FirstName);
-                item.SubItems.Add(employee.LastName);
-                item.SubItems.Add(employee.GetType().Name);
-                if (employee.HoursPerWeek == 40)
-                    item.SubItems.Add("Full-time");
-                else item.SubItems.Add("Part-time");
-                    lvwEmployees.Items.Add(item);
-                item.Tag= employee;
-            }
-        }
 
         private void btnEditEmployeeDeta_Click(object sender, EventArgs e)
         {
@@ -61,17 +43,49 @@ namespace ZooBazaarDesktopApp
             Employee employee = null;
             PopupEmployeeDetails popupEmployeeDetails = new PopupEmployeeDetails(employee,employeeManagement);
             popupEmployeeDetails.ShowDialog();
-            updateEmployees();
-        }
-        //needs fixing, this updates the list but doesnt work
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            updateEmployees();
         }
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
+            List<Employee> searchedEmployees = new List<Employee>();
 
+            //We implement when we have a contract class/database
+            string contractType = string.Empty;
+            /*if (rbtnFullTimeEmployee.Checked)
+                contractType = rbtnFullTimeEmployee.Text;
+            else if (rbtnPartTimeEmployee.Checked)
+                contractType = rbtnPartTimeEmployee.Text;*/
+
+            searchedEmployees = employeeManagement.GetSearchedEmployees(tbxFirstName.Text, tbxLastName.Text, contractType, cbxRole.Text);
+            updateEmployeeListview(searchedEmployees.ToArray());
+        }
+
+        private void updateEmployeeListview(Employee[] employees)
+        {
+            lvwEmployees.Items.Clear();
+            foreach (Employee employee in employees)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = employee.ID.ToString();
+                item.Tag = employee;
+                item.SubItems.Add(employee.FirstName);
+                item.SubItems.Add(employee.LastName);
+                item.SubItems.Add(employee.GetRole());
+                if (employee.HoursPerWeek == 40)
+                    item.SubItems.Add("Full-time");
+                else item.SubItems.Add("Part-time");
+                lvwEmployees.Items.Add(item);
+                item.Tag = employee;
+            }
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            tbxFirstName.Text = string.Empty;
+            tbxLastName.Text = string.Empty;
+            rbtnFullTimeEmployee.Checked = false;
+            rbtnPartTimeEmployee.Checked = false;
+            cbxRole.SelectedIndex = -1;
         }
     }
 }

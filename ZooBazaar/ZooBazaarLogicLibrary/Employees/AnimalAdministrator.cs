@@ -14,6 +14,10 @@ namespace ZooBazaarLogicLibrary
         { 
            
         }
-        
+
+        public override string GetRole()
+        {
+            return this.GetType().Name;
+        }
     }
 }

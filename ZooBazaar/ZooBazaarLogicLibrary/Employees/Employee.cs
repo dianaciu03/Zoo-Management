@@ -31,5 +31,10 @@ namespace ZooBazaarLogicLibrary
             this.Email = Email;
             this.HoursPerWeek = HoursPerWeek;
         }
+
+        public virtual string GetRole()
+        {
+            return this.GetType().Name;
+        }
     }
 }
