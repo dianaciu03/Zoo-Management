@@ -90,7 +90,7 @@
             this.btnConfirmChanges.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnConfirmChanges.Location = new System.Drawing.Point(332, 653);
             this.btnConfirmChanges.Name = "btnConfirmChanges";
-            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 42);
+            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 52);
             this.btnConfirmChanges.TabIndex = 39;
             this.btnConfirmChanges.Text = "Confirm";
             this.btnConfirmChanges.UseVisualStyleBackColor = false;
@@ -111,7 +111,7 @@
             this.btnCancelAnimalCreation.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnCancelAnimalCreation.Location = new System.Drawing.Point(21, 653);
             this.btnCancelAnimalCreation.Name = "btnCancelAnimalCreation";
-            this.btnCancelAnimalCreation.Size = new System.Drawing.Size(261, 42);
+            this.btnCancelAnimalCreation.Size = new System.Drawing.Size(261, 52);
             this.btnCancelAnimalCreation.TabIndex = 37;
             this.btnCancelAnimalCreation.Text = "Cancel";
             this.btnCancelAnimalCreation.UseVisualStyleBackColor = false;
@@ -122,7 +122,7 @@
             this.btnConfirmAnimalCreation.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnConfirmAnimalCreation.Location = new System.Drawing.Point(332, 653);
             this.btnConfirmAnimalCreation.Name = "btnConfirmAnimalCreation";
-            this.btnConfirmAnimalCreation.Size = new System.Drawing.Size(261, 42);
+            this.btnConfirmAnimalCreation.Size = new System.Drawing.Size(261, 52);
             this.btnConfirmAnimalCreation.TabIndex = 36;
             this.btnConfirmAnimalCreation.Text = "Confirm";
             this.btnConfirmAnimalCreation.UseVisualStyleBackColor = false;
@@ -134,7 +134,7 @@
             this.maskedtbxBirthDateEditAnimalForm.Mask = "00/00/0000";
             this.maskedtbxBirthDateEditAnimalForm.Name = "maskedtbxBirthDateEditAnimalForm";
             this.maskedtbxBirthDateEditAnimalForm.ResetOnSpace = false;
-            this.maskedtbxBirthDateEditAnimalForm.Size = new System.Drawing.Size(109, 32);
+            this.maskedtbxBirthDateEditAnimalForm.Size = new System.Drawing.Size(120, 32);
             this.maskedtbxBirthDateEditAnimalForm.TabIndex = 35;
             // 
             // rbtnMaleAddAnimal
@@ -172,18 +172,13 @@
             // 
             this.nudEnclosureAddAnimal.Location = new System.Drawing.Point(196, 321);
             this.nudEnclosureAddAnimal.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.nudEnclosureAddAnimal.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
             this.nudEnclosureAddAnimal.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudEnclosureAddAnimal.Name = "nudEnclosureAddAnimal";
-            this.nudEnclosureAddAnimal.Size = new System.Drawing.Size(109, 32);
+            this.nudEnclosureAddAnimal.Size = new System.Drawing.Size(120, 32);
             this.nudEnclosureAddAnimal.TabIndex = 17;
             this.nudEnclosureAddAnimal.Value = new decimal(new int[] {
             1,

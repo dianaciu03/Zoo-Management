@@ -28,6 +28,7 @@ namespace ZooBazaarDesktopApp
             cbxOrigin.DataSource = Enum.GetValues(typeof(ORIGINCONTINENT));
             btnClearAll_Click(this, EventArgs.Empty);
             this.BackgroundImageLayout = ImageLayout.Stretch;
+            updateAnimalHistoryListview(animalManagement.GetAllAnimals());
         }
 
         public void InitializeAnimalMockData()
@@ -43,7 +44,6 @@ namespace ZooBazaarDesktopApp
         {
             PopupAnimalDetails popupAnimalDetails = new PopupAnimalDetails(null, animalManagement);
             popupAnimalDetails.ShowDialog();
-            updateAnimalListview(animalManagement.GetAllAnimals());
         }
 
         private void btnEditAnimal_Click(object sender, EventArgs e)
@@ -53,10 +53,9 @@ namespace ZooBazaarDesktopApp
                 Animal selectedAnimal = (Animal)lvwAnimals.SelectedItems[0].Tag;
                 PopupAnimalDetails popupAnimalDetails = new PopupAnimalDetails(selectedAnimal, animalManagement);
                 popupAnimalDetails.ShowDialog();
-                btnSearchAnimal_Click(sender, e);
                 return;
             }
-            catch (System.ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException ex)
             {
                 MessageBox.Show("Please select an animal to edit details!\n" + ex.Message);
             }
@@ -109,6 +108,7 @@ namespace ZooBazaarDesktopApp
                 item.Tag = animal;
                 item.SubItems.Add(animal.Name);
                 item.SubItems.Add(animal.Species);
+                item.SubItems.Add(animal.Gender);
                 item.SubItems.Add(animal.OriginContinent.ToString());
                 item.SubItems.Add(animal.Enclosure.ToString());
                 item.SubItems.Add(animal.Availability.ToString());
@@ -116,16 +116,62 @@ namespace ZooBazaarDesktopApp
             }
         }
 
+        private void updateAnimalHistoryListview(Animal[] animals)
+        {
+            lvwAnimalHistory.Items.Clear();
+            foreach (Animal animal in animals)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = animal.Id.ToString();
+                item.Tag = animal;
+                item.SubItems.Add(animal.Name);
+                item.SubItems.Add(animal.Species);
+                item.SubItems.Add(animal.Gender);
+                item.SubItems.Add(animal.GetAge().ToString());
+                item.SubItems.Add(animal.OriginContinent.ToString());
+                item.SubItems.Add(animal.Enclosure.ToString());
+                item.SubItems.Add(animal.Endangerment.ToString());
+                item.SubItems.Add(animal.Availability.ToString());
+                lvwAnimalHistory.Items.Add(item);
+            }
+        }
+
         private void btnDisplayHistory_Click(object sender, EventArgs e)
         {
-
+            updateAnimalHistoryListview(animalManagement.GetAllAnimals());
         }
 
         private void btnTransferAnimal_Click(object sender, EventArgs e)
         {
-            PopupAnimalTransfer popupAnimalTransfer = new PopupAnimalTransfer();
-            popupAnimalTransfer.ShowDialog();
+            try
+            {
+                Animal selectedAnimal = (Animal)lvwAnimals.SelectedItems[0].Tag;
+                PopupAnimalTransfer popupAnimalTransfer = new PopupAnimalTransfer(selectedAnimal, animalManagement);
+                popupAnimalTransfer.ShowDialog();
+                return;
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Please select an animal to edit details!\n" + ex.Message);
+            };
+        }
+
+        private void btnDisplayAllAnimals_Click(object sender, EventArgs e)
+        {
             updateAnimalListview(animalManagement.GetAllAnimals());
+        }
+
+        private void lvwAnimals_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
+                MessageBox.Show(animal.GetAnimalDetails());
+            }
+            catch(NullReferenceException)
+            {
+                return;
+            }
         }
     }
 }

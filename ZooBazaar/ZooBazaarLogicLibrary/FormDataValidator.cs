@@ -24,18 +24,35 @@ namespace ZooBazaarLogicLibrary
         //Checks if the dob of animal is in the past(any time in the past), returns true if valid age
         public bool IsValidDateOfBirthAnimal(DateTime dateOfBirth)
         {
-            DateTime timeNow = DateTime.Now;
-            if (dateOfBirth <= timeNow)
+            if (dateOfBirth <= DateTime.Now)
             {
                 return true;
             }
             return false;
         }
+
+        public bool IsValidAnimalTransferStartDate(DateTime startDate)
+        {
+            if (startDate <= DateTime.Now)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool IsValidAnimalTransferEndDate(DateTime endDate)
+        {
+            if (endDate >= DateTime.Now)
+            {
+                return true;
+            }
+            return false;
+        }
+
         //Checks if the employee is at least 16yo, returns true if dob is 16 or older
         public bool IsValidDateOfBirthEmployee(DateTime dateOfBirth)
         {
-            DateTime timeNow = DateTime.Now;
-            if (timeNow.Year - dateOfBirth.Year >= 16)
+            if (DateTime.Now.Year - dateOfBirth.Year >= 16)
             {
                 return true;
             }
@@ -82,6 +99,14 @@ namespace ZooBazaarLogicLibrary
                 return false;*/
 
             return true;
+        }
+
+        public bool IsValidTransfer(string name, string adress, string description, DateTime startDate, DateTime endDate)
+        {
+            if (IsValidStringOnly(name) && !String.IsNullOrEmpty(adress) && !String.IsNullOrEmpty(description) && IsValidAnimalTransferStartDate(startDate) && IsValidAnimalTransferEndDate(endDate))
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZooBazaarLogicLibrary.Animals;
 
 namespace ZooBazaarLogicLibrary
 {
@@ -18,6 +19,8 @@ namespace ZooBazaarLogicLibrary
         private ENDANGERMENT endangerment;
         private int enclosure;
         private string availability;
+
+        public Transfer Transfer { get; set; }
 
         public Animal(int id, string name, string gender, string species, DateTime birthday, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure)
         {
@@ -55,13 +58,25 @@ namespace ZooBazaarLogicLibrary
 
         public int GetAge()
         {
-            int age = birthday.Year - DateTime.Now.Year;
+            int age = DateTime.Now.Year - birthday.Year;
             return age;
         }
 
         public override string ToString()
         {
             return $"{this.name} ({this.species} - {this.gender})";
+        }
+
+        public string GetAnimalDetails()
+        {
+            string info = $"{this.name} ({this.species} - {this.gender})\nAge: {GetAge()}\nBirthday: {birthday}\nOrigin continent: {origin}, enclosure: {enclosure}\nEndangerment level: {endangerment}\n\nTransfer details: ";
+            if (availability == "Available")
+            {
+                info += "Animal is currently available in the zoo";
+            }
+            else
+                info += $"Animal is currently transferred to another zoo\nZoo name: {Transfer.ZooName}\nZoo address: {Transfer.ZooAdress}\nStart date: {Transfer.StartDate}\nEnd date: {Transfer.EndDate}\nComments: {Transfer.Description}";
+            return info;
         }
 
     }

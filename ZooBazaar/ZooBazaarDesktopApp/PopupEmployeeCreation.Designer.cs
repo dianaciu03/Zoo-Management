@@ -131,7 +131,7 @@
             this.maskedtbxDoBEmployee.Location = new System.Drawing.Point(176, 388);
             this.maskedtbxDoBEmployee.Mask = "00/00/0000";
             this.maskedtbxDoBEmployee.Name = "maskedtbxDoBEmployee";
-            this.maskedtbxDoBEmployee.Size = new System.Drawing.Size(108, 32);
+            this.maskedtbxDoBEmployee.Size = new System.Drawing.Size(116, 32);
             this.maskedtbxDoBEmployee.TabIndex = 32;
             this.maskedtbxDoBEmployee.ValidatingType = typeof(System.DateTime);
             // 

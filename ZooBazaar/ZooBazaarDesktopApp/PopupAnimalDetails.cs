@@ -69,6 +69,7 @@ namespace ZooBazaarDesktopApp
 
             animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(input), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value);
             animalManagement.AddAnimal(animal);
+            MessageBox.Show($"Animal has been successfully created!\n{animal}");
             this.Close();
         }
 
