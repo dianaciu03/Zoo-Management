@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ZooBazaarDesktopApp
 {
-    public partial class PopupEmployeeDetails : Form
+    public partial class PopupContractDetails : Form
     {
-        public PopupEmployeeDetails()
+        public PopupContractDetails()
         {
             InitializeComponent();
         }

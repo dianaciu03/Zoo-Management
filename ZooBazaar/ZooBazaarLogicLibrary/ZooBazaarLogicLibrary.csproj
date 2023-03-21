@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Animals\Animal.cs" />
     <Compile Include="Animals\AnimalManagement.cs" />
+    <Compile Include="Employees\Contract.cs" />
     <Compile Include="Enums\ENDANGERMENT.cs" />
     <Compile Include="Enums\ROLE.cs" />
     <Compile Include="FormDataValidator.cs" />

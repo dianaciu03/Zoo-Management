@@ -17,7 +17,13 @@ namespace ZooBazaarDesktopApp
         public FormLogin()
         {
             InitializeComponent();
+            this.BackgroundImageLayout = ImageLayout.Stretch;
 
+            InitializeMockData();
+        }
+
+        private void InitializeMockData() 
+        {
             employeeManagement.AddEmployee(new Manager(1, "John", "Johnson", DateTime.Now, "Male", "ABCD Street 1", "+312312312", "1", "1", 40));
             employeeManagement.AddEmployee(new HRAdministrator(2, "Joana", "Johanson", DateTime.Now, "Female", "ABCD Street 2", "+312312000", "2", "2", 40));
             employeeManagement.AddEmployee(new AnimalAdministrator(3, "Patrick", "Patrickson", DateTime.Now, "Male", "ABCD Street 3", "+312312001", "3", "3", 40));

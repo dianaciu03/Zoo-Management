@@ -51,7 +51,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(87, 167);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 24);
+            this.label2.Size = new System.Drawing.Size(74, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Email:";
             // 
@@ -60,7 +60,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(52, 216);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 24);
+            this.label3.Size = new System.Drawing.Size(114, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password:";
             // 
@@ -78,28 +78,29 @@
             // 
             this.tbxLoginEmail.Location = new System.Drawing.Point(181, 164);
             this.tbxLoginEmail.Name = "tbxLoginEmail";
-            this.tbxLoginEmail.Size = new System.Drawing.Size(237, 29);
+            this.tbxLoginEmail.Size = new System.Drawing.Size(237, 32);
             this.tbxLoginEmail.TabIndex = 4;
             // 
             // tbxLoginPassword
             // 
             this.tbxLoginPassword.Location = new System.Drawing.Point(181, 213);
             this.tbxLoginPassword.Name = "tbxLoginPassword";
-            this.tbxLoginPassword.Size = new System.Drawing.Size(237, 29);
+            this.tbxLoginPassword.Size = new System.Drawing.Size(237, 32);
             this.tbxLoginPassword.TabIndex = 5;
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(491, 424);
+            this.BackgroundImage = global::ZooBazaarDesktopApp.Properties.Resources.zooimg3;
+            this.ClientSize = new System.Drawing.Size(765, 516);
             this.Controls.Add(this.tbxLoginPassword);
             this.Controls.Add(this.tbxLoginEmail);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

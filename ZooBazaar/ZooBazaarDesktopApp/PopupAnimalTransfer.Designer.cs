@@ -55,9 +55,9 @@
             this.groupBoxAnimalTransfer.Controls.Add(this.tbxZooNameTransfer);
             this.groupBoxAnimalTransfer.Controls.Add(this.labelZooNameTransfer);
             this.groupBoxAnimalTransfer.Location = new System.Drawing.Point(15, 15);
-            this.groupBoxAnimalTransfer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBoxAnimalTransfer.Margin = new System.Windows.Forms.Padding(6);
             this.groupBoxAnimalTransfer.Name = "groupBoxAnimalTransfer";
-            this.groupBoxAnimalTransfer.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBoxAnimalTransfer.Padding = new System.Windows.Forms.Padding(6);
             this.groupBoxAnimalTransfer.Size = new System.Drawing.Size(593, 439);
             this.groupBoxAnimalTransfer.TabIndex = 4;
             this.groupBoxAnimalTransfer.TabStop = false;
@@ -86,7 +86,7 @@
             // 
             this.btnCancelTransfer.AutoSize = true;
             this.btnCancelTransfer.Location = new System.Drawing.Point(379, 363);
-            this.btnCancelTransfer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancelTransfer.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancelTransfer.Name = "btnCancelTransfer";
             this.btnCancelTransfer.Size = new System.Drawing.Size(186, 50);
             this.btnCancelTransfer.TabIndex = 16;
@@ -98,7 +98,7 @@
             // 
             this.btnConfirmTransfer.AutoSize = true;
             this.btnConfirmTransfer.Location = new System.Drawing.Point(175, 363);
-            this.btnConfirmTransfer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnConfirmTransfer.Margin = new System.Windows.Forms.Padding(6);
             this.btnConfirmTransfer.Name = "btnConfirmTransfer";
             this.btnConfirmTransfer.Size = new System.Drawing.Size(186, 50);
             this.btnConfirmTransfer.TabIndex = 15;
@@ -167,8 +167,9 @@
             this.ClientSize = new System.Drawing.Size(626, 471);
             this.Controls.Add(this.groupBoxAnimalTransfer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "PopupAnimalTransfer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PopupAnimalTransfer";
             this.groupBoxAnimalTransfer.ResumeLayout(false);
             this.groupBoxAnimalTransfer.PerformLayout();

@@ -19,7 +19,8 @@ namespace ZooBazaarDesktopApp
         public FormHRAdministration(EmployeeManagement emMng)
         {
             InitializeComponent();
-            employeeManagement = emMng; 
+            employeeManagement = emMng;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
 
@@ -33,16 +34,15 @@ namespace ZooBazaarDesktopApp
             Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
             employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
             //this.Hide();
-            PopupEmployeeDetails form = new PopupEmployeeDetails(employee,employeeManagement);
-            form.ShowDialog();
+            //PopupEmployeeDetails form = new PopupEmployeeDetails(employee,employeeManagement);
+            //form.ShowDialog();
             //this.Show();
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            Employee employee = null;
-            PopupEmployeeDetails popupEmployeeDetails = new PopupEmployeeDetails(employee,employeeManagement);
-            popupEmployeeDetails.ShowDialog();
+            PopupEmployeeCreation popupEmployeeCreation = new PopupEmployeeCreation();
+            popupEmployeeCreation.ShowDialog();
         }
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)
@@ -86,6 +86,11 @@ namespace ZooBazaarDesktopApp
             rbtnFullTimeEmployee.Checked = false;
             rbtnPartTimeEmployee.Checked = false;
             cbxRole.SelectedIndex = -1;
+        }
+
+        private void btnManageContract_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
