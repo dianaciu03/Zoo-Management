@@ -36,8 +36,8 @@ namespace ZooBazaarDesktopApp
             Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
             employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
             //this.Hide();
-            //PopupEmployeeDetails form = new PopupEmployeeDetails(employee,employeeManagement);
-            //form.ShowDialog();
+            PopupEmployeeDetails form = new PopupEmployeeDetails(employee,employeeManagement);
+            form.ShowDialog();
             //this.Show();
         }
 
@@ -50,6 +50,13 @@ namespace ZooBazaarDesktopApp
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
             List<Employee> searchedEmployees = new List<Employee>();
+            if(string.IsNullOrEmpty(tbxFirstName.Text) && string.IsNullOrEmpty(tbxLastName.Text) &&
+                (rbtnFullTimeEmployee.Checked != true) && (rbtnPartTimeEmployee.Checked != true) &&
+                (cbxRole.SelectedIndex == -1))
+            {
+                MessageBox.Show("Please choose at least one field to search by!");
+                return;
+            }
 
             //We implement when we have a contract class/database
             string contractType = string.Empty;

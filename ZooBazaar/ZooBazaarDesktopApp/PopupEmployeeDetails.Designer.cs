@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBoxEmployeeDetailsPopup = new System.Windows.Forms.GroupBox();
+            this.btnCancelAnimalCreation = new System.Windows.Forms.Button();
+            this.btnConfirmContractChanges = new System.Windows.Forms.Button();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMaleEmployeeDetails = new System.Windows.Forms.RadioButton();
             this.maskedtbxDoBEmployee = new System.Windows.Forms.MaskedTextBox();
@@ -48,8 +50,6 @@
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.labelEmployeeLastName = new System.Windows.Forms.Label();
             this.labelEmployeeFirstName = new System.Windows.Forms.Label();
-            this.btnCancelAnimalCreation = new System.Windows.Forms.Button();
-            this.btnConfirmContractChanges = new System.Windows.Forms.Button();
             this.groupBoxEmployeeDetailsPopup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,28 @@
             this.groupBoxEmployeeDetailsPopup.TabIndex = 6;
             this.groupBoxEmployeeDetailsPopup.TabStop = false;
             this.groupBoxEmployeeDetailsPopup.Text = "Employee information";
+            // 
+            // btnCancelAnimalCreation
+            // 
+            this.btnCancelAnimalCreation.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnCancelAnimalCreation.Location = new System.Drawing.Point(16, 451);
+            this.btnCancelAnimalCreation.Name = "btnCancelAnimalCreation";
+            this.btnCancelAnimalCreation.Size = new System.Drawing.Size(195, 47);
+            this.btnCancelAnimalCreation.TabIndex = 43;
+            this.btnCancelAnimalCreation.Text = "Cancel";
+            this.btnCancelAnimalCreation.UseVisualStyleBackColor = false;
+            this.btnCancelAnimalCreation.Click += new System.EventHandler(this.btnCancelAnimalCreation_Click);
+            // 
+            // btnConfirmContractChanges
+            // 
+            this.btnConfirmContractChanges.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnConfirmContractChanges.Location = new System.Drawing.Point(278, 451);
+            this.btnConfirmContractChanges.Name = "btnConfirmContractChanges";
+            this.btnConfirmContractChanges.Size = new System.Drawing.Size(195, 47);
+            this.btnConfirmContractChanges.TabIndex = 42;
+            this.btnConfirmContractChanges.Text = "Confirm";
+            this.btnConfirmContractChanges.UseVisualStyleBackColor = false;
+            this.btnConfirmContractChanges.Click += new System.EventHandler(this.btnConfirmContractChanges_Click);
             // 
             // rbFemale
             // 
@@ -264,26 +286,6 @@
             this.labelEmployeeFirstName.Size = new System.Drawing.Size(121, 26);
             this.labelEmployeeFirstName.TabIndex = 0;
             this.labelEmployeeFirstName.Text = "First name:";
-            // 
-            // btnCancelAnimalCreation
-            // 
-            this.btnCancelAnimalCreation.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnCancelAnimalCreation.Location = new System.Drawing.Point(16, 451);
-            this.btnCancelAnimalCreation.Name = "btnCancelAnimalCreation";
-            this.btnCancelAnimalCreation.Size = new System.Drawing.Size(195, 47);
-            this.btnCancelAnimalCreation.TabIndex = 43;
-            this.btnCancelAnimalCreation.Text = "Cancel";
-            this.btnCancelAnimalCreation.UseVisualStyleBackColor = false;
-            // 
-            // btnConfirmContractChanges
-            // 
-            this.btnConfirmContractChanges.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnConfirmContractChanges.Location = new System.Drawing.Point(278, 451);
-            this.btnConfirmContractChanges.Name = "btnConfirmContractChanges";
-            this.btnConfirmContractChanges.Size = new System.Drawing.Size(195, 47);
-            this.btnConfirmContractChanges.TabIndex = 42;
-            this.btnConfirmContractChanges.Text = "Confirm";
-            this.btnConfirmContractChanges.UseVisualStyleBackColor = false;
             // 
             // PopupEmployeeDetails
             // 
