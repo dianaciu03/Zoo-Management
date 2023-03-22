@@ -29,17 +29,42 @@ namespace ZooBazaarDesktopApp
 
         private void btnScheduleTask_Click(object sender, EventArgs e)
         {
-            DateTime taskDateAndTime = calTaskDateSelection.SelectionRange.Start;
-            taskDateAndTime.Hour.Equals(dtpTaskTime.Value);
-
+            DateTime selectedDate = calTaskDateSelection.SelectionStart;
+            DateTime selectedTime = dtpTaskTime.Value;
+            DateTime taskDateAndTime = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, selectedTime.Hour, selectedTime.Minute, selectedTime.Second);
+            
             if (lvwAnimalSearch.SelectedIndices.Count > 0)
             {
-                Animal selectedAnimal = (Animal)lvwAnimalSearch.SelectedItems[0].Tag;
-                taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (double)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
+                try
+                {
+                    if (cbxSearchBySpecie.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("You haven't selected the animal specie");
+                        return;
+                    }
+                    Animal selectedAnimal = (Animal)lvwAnimalSearch.SelectedItems[0].Tag;
+                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (double)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
+                }
+                catch
+                {
+                    MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
+                }
             }
             else
             {
-                taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (double)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
+                try
+                {
+                    if (cbxSearchBySpecie.SelectedIndex < 0) 
+                    { 
+                        MessageBox.Show("You haven't selected the animal specie");
+                        return;
+                    }
+                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (double)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
+                }
+                catch
+                {
+                    MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
+                }
             }
             updateTasks();
         }
@@ -111,11 +136,39 @@ namespace ZooBazaarDesktopApp
 
         private void btnMoreTaskDetails_Click(object sender, EventArgs e)
         {
+            if (lvwUnassignedTasks.SelectedItems.Count > 0)
+            {
+                ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag; ;
+                PopupTaskDetails popup = new PopupTaskDetails(selectedTask);
+                popup.ShowDialog();
+                this.Show();
+            }
+            else MessageBox.Show("You haven't selected the task");
+        }
+
+        private void btnMarkTaskAsFinished_Click(object sender, EventArgs e)
+        {
             ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag;
-            if (selectedTask.Animal != null)
-                MessageBox.Show($"ID: {selectedTask.ID} | Name: {selectedTask.Name}\nSpecie: {selectedTask.Species} - Animal: {selectedTask.Animal.Name}\nDate and time: {selectedTask.TaskDateTime}\nEstimated lenght: {selectedTask.TaskDateTime}\nDescription: {selectedTask.Description}");
-            else
-                MessageBox.Show($"ID: {selectedTask.ID} | Name: {selectedTask.Name}\nSpecie: {selectedTask.Species}\nDate and time: {selectedTask.TaskDateTime}\nEstimated lenght: {selectedTask.TaskDateTime}\nDescription: {selectedTask.Description}");
+            selectedTask.Status = "Finished";
+            updateTasks();
+        }
+
+        private void btnFinishedTaskMoreDetails_Click(object sender, EventArgs e)
+        {
+            if (lvwFinishedTasks.SelectedItems.Count > 0)
+            {
+                ZooTask selectedTask = (ZooTask)lvwFinishedTasks.SelectedItems[0].Tag;
+                PopupTaskDetails popup = new PopupTaskDetails(selectedTask);
+                popup.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void btnRemoveTask_Click(object sender, EventArgs e)
+        {
+            ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag;
+            taskManagement.RemoveTaskByID(selectedTask.ID);
+            updateTasks();
         }
     }
 }
