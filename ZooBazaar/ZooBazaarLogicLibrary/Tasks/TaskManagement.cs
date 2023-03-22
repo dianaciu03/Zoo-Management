@@ -27,6 +27,17 @@ namespace ZooBazaarLogicLibrary
                 tasks.Add(new ZooTask(id, name, description, taskDateTime, taskLength, specie));
         }
 
+        public void RemoveTaskByID(int id)
+        {
+            foreach (ZooTask task in tasks)
+            {
+                if (task.ID == id && task.Status == "Not started")
+                {
+                    tasks.Remove(task);
+                }
+            }
+        }
+
         public void AssignTask(ZooTask task, CareTaker employee)
         {
             task.AssignEmployee(employee);
