@@ -21,6 +21,8 @@ namespace ZooBazaarDesktopApp
             InitializeComponent();
             employeeManagement = emMng;
             this.BackgroundImageLayout = ImageLayout.Stretch;
+            cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
+            cbxRole.SelectedIndex = -1;
         }
 
 
@@ -91,6 +93,11 @@ namespace ZooBazaarDesktopApp
         private void btnManageContract_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShowAllEmployees_Click(object sender, EventArgs e)
+        {
+            updateEmployeeListview(employeeManagement.GetEmployees());
         }
     }
 }
