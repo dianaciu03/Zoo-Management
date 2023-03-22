@@ -65,7 +65,7 @@
     <Compile Include="Animals\Relationship.cs" />
     <Compile Include="Employees\ResourcePlanner.cs" />
     <Compile Include="Employees\ScheduleMaker.cs" />
-    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\ZooTask.cs" />
     <Compile Include="Tasks\TaskManagement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

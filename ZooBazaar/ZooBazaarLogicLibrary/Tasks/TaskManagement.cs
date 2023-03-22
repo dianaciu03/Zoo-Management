@@ -8,39 +8,43 @@ namespace ZooBazaarLogicLibrary
 {
     public class TaskManagement
     {
-        private List<Task> tasks;
+        private List<ZooTask> tasks;
         public TaskManagement() 
         {
-            tasks = new List<Task>();
+            tasks = new List<ZooTask>();
         }
 
-        public void ScheduleTask(string name, string description, DateTime taskDateTime, bool status, string animal, List<CareTaker> assignedEmployees)
+        public void ScheduleTask(string name, string description, DateTime taskDateTime, double taskLength, string specie, Animal animal)
         {
             int id;
             if (tasks.Count() > 0)
                 id = tasks.Last().ID + 1;
             else id = 1;
 
-            tasks.Add(new Task(id, name, description, taskDateTime, status, animal, new List<CareTaker>()));
+            if (animal != null)
+                tasks.Add(new ZooTask(id, name, description, taskDateTime, taskLength, specie, animal));
+            else 
+                tasks.Add(new ZooTask(id, name, description, taskDateTime, taskLength, specie));
         }
-        public void AssignTask(Task task, CareTaker employee)
+
+        public void AssignTask(ZooTask task, CareTaker employee)
         {
             task.AssignEmployee(employee);
         }
         public CareTaker[] GetTaskEmployees(int taskID)
         {
-            Task task = (Task)tasks.Where(x => x.ID == taskID);
+            ZooTask task = (ZooTask)tasks.Where(x => x.ID == taskID);
             return task.GetAssignedEmployees().ToArray();
         }
 
-        public Task[] GetTasks()
+        public ZooTask[] GetTasks()
         {
             return tasks.ToArray();
         }
 
-        public void CompleteTask(Task task)
+        public void CompleteTask(ZooTask task)
         {
-            task.Status = true;
+            task.Status = "Finished";
         }
     }
 }

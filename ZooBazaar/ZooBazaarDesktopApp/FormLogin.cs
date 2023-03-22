@@ -14,6 +14,7 @@ namespace ZooBazaarDesktopApp
     public partial class FormLogin : Form
     {
         EmployeeManagement employeeManagement = new EmployeeManagement();
+        AnimalManagement animalManagement = new AnimalManagement();
         public FormLogin()
         {
             InitializeComponent();
@@ -29,6 +30,13 @@ namespace ZooBazaarDesktopApp
             employeeManagement.AddEmployee(new AnimalAdministrator(3, "Patrick", "Patrickson", DateTime.Now, "Male", "ABCD Street 3", "+312312001", "3", "3", 40));
             employeeManagement.AddEmployee(new ScheduleMaker(4, "Dennis", "Dennison", DateTime.Now, "Male", "ABCD Street 4", "+312312100", "4", "4", 40));
             employeeManagement.AddEmployee(new ResourcePlanner(5, "Olivia", "Olisson", DateTime.Now, "Female", "ABCD Street 5", "+312315102", "5", "5", 40));
+
+            animalManagement.AddAnimal(new Animal(1, "Ana", "Female", "zebra", DateTime.Now, ORIGINCONTINENT.Africa, "descriere zebra", ENDANGERMENT.LeastConcern, 1));
+            animalManagement.AddAnimal(new Animal(2, "Maria", "Female", "alpaca", DateTime.Now, ORIGINCONTINENT.Asia, "descriere alpaca", ENDANGERMENT.LeastConcern, 2));
+            animalManagement.AddAnimal(new Animal(3, "Tudor", "Male", "lion", DateTime.Now, ORIGINCONTINENT.Africa, "descriere lion", ENDANGERMENT.LeastConcern, 4));
+            animalManagement.AddAnimal(new Animal(4, "Andrei", "Male", "lion", DateTime.Now, ORIGINCONTINENT.Africa, "descriere lion", ENDANGERMENT.NotEvaluated, 4));
+            animalManagement.AddAnimal(new Animal(5, "Alex", "Male", "sloth", DateTime.Now, ORIGINCONTINENT.Africa, "descriere sloth", ENDANGERMENT.LeastConcern, 3));
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -37,7 +45,7 @@ namespace ZooBazaarDesktopApp
             {
                 case ("AnimalAdministrator"):
                     this.Hide();
-                    FormAnimalAdministration formAnimalManagement = new FormAnimalAdministration();
+                    FormAnimalAdministration formAnimalManagement = new FormAnimalAdministration(animalManagement);
                     formAnimalManagement.ShowDialog();
                     break;
                 case ("HRAdministrator"):
@@ -47,7 +55,7 @@ namespace ZooBazaarDesktopApp
                     break;
                 case ("ScheduleMaker"):
                     this.Hide();
-                    FormScheduleMaker formScheduleTask = new FormScheduleMaker();
+                    FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement);
                     formScheduleTask.ShowDialog();
                     break;
                 case ("ResourcePlanner"):

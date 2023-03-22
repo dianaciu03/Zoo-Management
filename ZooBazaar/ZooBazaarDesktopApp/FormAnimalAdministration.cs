@@ -13,13 +13,14 @@ namespace ZooBazaarDesktopApp
 {
     public partial class FormAnimalAdministration : Form
     {
-        AnimalManagement animalManagement = new AnimalManagement();
+        AnimalManagement animalManagement;
 
-        public FormAnimalAdministration()
+        public FormAnimalAdministration(AnimalManagement am)
         {
             InitializeComponent();
-            InitializeAnimalMockData();
+            animalManagement = am;
             InitializeFormElements();
+            
         }
 
         private void InitializeFormElements()
@@ -29,15 +30,6 @@ namespace ZooBazaarDesktopApp
             btnClearAll_Click(this, EventArgs.Empty);
             this.BackgroundImageLayout = ImageLayout.Stretch;
             updateAnimalHistoryListview(animalManagement.GetAllAnimals());
-        }
-
-        public void InitializeAnimalMockData()
-        {
-            animalManagement.Animals.Add(new Animal(1, "Ana", "Female", "zebra", DateTime.Now, ORIGINCONTINENT.Africa, "descriere zebra", ENDANGERMENT.LeastConcern, 1));
-            animalManagement.Animals.Add(new Animal(2, "Maria", "Female", "alpaca", DateTime.Now, ORIGINCONTINENT.Asia, "descriere alpaca", ENDANGERMENT.LeastConcern, 2));
-            animalManagement.Animals.Add(new Animal(3, "Tudor", "Male", "lion", DateTime.Now, ORIGINCONTINENT.Africa, "descriere lion", ENDANGERMENT.LeastConcern, 4));
-            animalManagement.Animals.Add(new Animal(4, "Andrei", "Male", "lion", DateTime.Now, ORIGINCONTINENT.Africa, "descriere lion", ENDANGERMENT.NotEvaluated, 4));
-            animalManagement.Animals.Add(new Animal(5, "Alex", "Male", "sloth", DateTime.Now, ORIGINCONTINENT.Africa, "descriere sloth", ENDANGERMENT.LeastConcern, 3));
         }
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
