@@ -4,18 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLogicLibrary;
+using Interfaces;
 
 namespace ZooBazaarLogicLibrary
 {
     public class AnimalManagement
     {
-        List<Animal> animalsList;
+        List<IAnimal> animalsList;
         DatabaseAnimalHelper helper = new DatabaseAnimalHelper();
 
         public AnimalManagement()
         {
-            animalsList = new List<Animal>();
+            animalsList = new List<IAnimal>();
             animalsList = helper.GetAllAnimals();
+
+           
         }
 
         public List<Animal> Animals { get { return animalsList;} }

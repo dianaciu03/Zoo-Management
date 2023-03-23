@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -6,7 +7,6 @@ using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using ZooBazaarLogicLibrary;
 
 namespace DatabaseLogicLibrary
 {
@@ -14,9 +14,9 @@ namespace DatabaseLogicLibrary
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
-        public List<Animal> GetAllAnimals() // Gets all animals in the animal database and returns them as a list of Animal Objects
+        public List<IAnimal> GetAllAnimals() // Gets all animals in the animal database and returns them as a list of Animal Objects
         {
-            List<Animal> animals = new List<Animal>();
+            List<IAnimal> animals = new List<IAnimal>();
 
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
@@ -34,7 +34,11 @@ namespace DatabaseLogicLibrary
                         return animals; 
                     }
 
-                    Animal animal = new Animal(reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                    IAnimal animal
+                    animal.AnimalID = System.AppDomain.CurrentDomain.FriendlyName;
+                    animal.AnimalID = reader.GetInt32(reader.GetOrdinal("AnimalID"));
+                        
+                    /*new IAnimal(reader.GetInt32(reader.GetOrdinal("AnimalID")),
                                                 reader.GetString(reader.GetOrdinal("Name")),
                                                 reader.GetString(reader.GetOrdinal("Gender")),
                                                 reader.GetString(reader.GetOrdinal("Species")),
@@ -44,7 +48,7 @@ namespace DatabaseLogicLibrary
                                                 (ENDANGERMENT)Enum.Parse(typeof(ENDANGERMENT), reader.GetString(reader.GetOrdinal("Endangerment"))),
                                                 reader.GetInt32(reader.GetOrdinal("Enclosure")),
                                                 reader.GetString(reader.GetOrdinal("Availability")));
-                    animals.Add(animal);
+                    animals.Add(animal);*/
                 }
             }
            return animals;
