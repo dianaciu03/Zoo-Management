@@ -43,7 +43,7 @@ namespace ZooBazaarDesktopApp
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            PopupEmployeeCreation popupEmployeeCreation = new PopupEmployeeCreation();
+            PopupEmployeeCreation popupEmployeeCreation = new PopupEmployeeCreation(employeeManagement);
             popupEmployeeCreation.ShowDialog();
         }
 

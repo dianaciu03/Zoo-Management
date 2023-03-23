@@ -17,9 +17,12 @@ namespace ZooBazaarDesktopApp
         Employee employee;
         FormDataValidator dataValidator= new FormDataValidator();
         EmployeeManagement employeeManagement;
-        public PopupEmployeeCreation()
+
+        public PopupEmployeeCreation(EmployeeManagement employeeManagement)
         {
+            
             InitializeComponent();
+            this.employeeManagement = employeeManagement;
             cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
         }
 

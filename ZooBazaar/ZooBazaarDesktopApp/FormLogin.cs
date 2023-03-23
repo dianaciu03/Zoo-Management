@@ -41,32 +41,38 @@ namespace ZooBazaarDesktopApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            switch (employeeManagement.GetEmployee(tbxLoginEmail.Text, tbxLoginPassword.Text).GetType().Name)
+            try
             {
-                case ("AnimalAdministrator"):
-                    this.Hide();
-                    FormAnimalAdministration formAnimalManagement = new FormAnimalAdministration(animalManagement);
-                    formAnimalManagement.ShowDialog();
-                    break;
-                case ("HRAdministrator"):
-                    this.Hide();
-                    FormHRAdministration formHRManagement = new FormHRAdministration(employeeManagement);
-                    formHRManagement.ShowDialog();
-                    break;
-                case ("ScheduleMaker"):
-                    this.Hide();
-                    FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement);
-                    formScheduleTask.ShowDialog();
-                    break;
-                case ("ResourcePlanner"):
-                    this.Hide();
-                    FormResourcePlanner formAssignTasks = new FormResourcePlanner();
-                    formAssignTasks.ShowDialog();
-                    break;
+                if(tbxLoginEmail.Text == "" || tbxLoginPassword.Text == "") { return; }
+                switch (employeeManagement.GetEmployee(tbxLoginEmail.Text, tbxLoginPassword.Text).GetType().Name)
+                {
+                    case ("AnimalAdministrator"):
+                        this.Hide();
+                        FormAnimalAdministration formAnimalManagement = new FormAnimalAdministration(animalManagement);
+                        formAnimalManagement.ShowDialog(); 
+                        break;
+                    case ("HRAdministrator"):
+                        this.Hide();
+                        FormHRAdministration formHRManagement = new FormHRAdministration(employeeManagement);
+                        formHRManagement.ShowDialog();
+                        break;
+                    case ("ScheduleMaker"):
+                        this.Hide();
+                        FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement);
+                        formScheduleTask.ShowDialog();
+                        break;
+                    case ("ResourcePlanner"):
+                        this.Hide();
+                        FormResourcePlanner formAssignTasks = new FormResourcePlanner();
+                        formAssignTasks.ShowDialog();
+                        break;
+                }
+                this.Show();
+                tbxLoginEmail.Clear();
+                tbxLoginPassword.Clear();
             }
-            this.Show();
-            tbxLoginEmail.Clear();
-            tbxLoginPassword.Clear();
+            catch(Exception ex) { MessageBox.Show("Credentials incorrect");  }
+
         }
     }
 }

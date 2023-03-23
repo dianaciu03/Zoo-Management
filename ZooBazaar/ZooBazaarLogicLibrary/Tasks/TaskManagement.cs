@@ -29,13 +29,14 @@ namespace ZooBazaarLogicLibrary
 
         public void RemoveTaskByID(int id)
         {
-            foreach (ZooTask task in tasks)
+            tasks.RemoveAt(tasks.FindIndex(f => f.ID == id));
+/*            foreach (ZooTask task in tasks)
             {
                 if (task.ID == id && task.Status == "Not started")
                 {
                     tasks.Remove(task);
                 }
-            }
+            }*/
         }
 
         public void AssignTask(ZooTask task, CareTaker employee)
