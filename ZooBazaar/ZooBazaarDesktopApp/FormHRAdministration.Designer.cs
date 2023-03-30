@@ -524,7 +524,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::ZooBazaarDesktopApp.Properties.Resources.zooimg5;
-            this.ClientSize = new System.Drawing.Size(2878, 1590);
+            this.ClientSize = new System.Drawing.Size(1924, 1050);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControlHRAdministration);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -532,6 +532,7 @@
             this.Name = "FormHRAdministration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormHRAdministration";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControlHRAdministration.ResumeLayout(false);
             this.tabPageAllEmployees.ResumeLayout(false);
             this.groupBoxSearchAnimal.ResumeLayout(false);
