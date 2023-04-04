@@ -33,7 +33,20 @@ namespace ZooBazaarLogicLibrary
             this.description = description;
             this.endangerment = endangerment;
             this.enclosure = enclosure;
-            this.availability = "Available";
+        }
+
+        public Animal(int id, string name, string gender, string species, DateTime birthday, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure, string availability)
+        {
+            this.id = id;
+            this.name = name;
+            this.gender = gender;
+            this.species = species;
+            this.birthday = birthday;
+            this.origin = origin;
+            this.description = description;
+            this.endangerment = endangerment;
+            this.enclosure = enclosure;
+            this.availability = availability;
         }
 
         public int Id { get { return id; } set { this.id = value; } }

@@ -3,16 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DatabaseLogicLibrary;
 
 namespace ZooBazaarLogicLibrary
 {
     public class AnimalManagement
     {
         List<Animal> animalsList;
+        DatabaseAnimalHelper helper = new DatabaseAnimalHelper();
 
         public AnimalManagement()
         {
-            animalsList = new List<Animal>();
+            List<AnimalDTO> animasDTO = helper.GetAllAnimals();
+            animalsList = DTOToAnimals(animasDTO);
+        }
+
+        private List<Animal> DTOToAnimals(List<AnimalDTO> animasDTO)
+        { 
+            List<Animal> animals = new List<Animal>();
+
+            foreach(AnimalDTO animalDTO in animasDTO)
+            {
+                Animal animal = new Animal(
+                    animalDTO.Id,
+                    animalDTO.Name,
+                    animalDTO.Gender,
+                    animalDTO.Species,
+                    animalDTO.Birthday,
+                    (ORIGINCONTINENT)Enum.Parse(typeof(ORIGINCONTINENT), animalDTO.OriginContinent),
+                    animalDTO.Description,
+                    (ENDANGERMENT)Enum.Parse(typeof(ENDANGERMENT), animalDTO.Endangerment),
+                    animalDTO.Enclosure,
+                    animalDTO.Availability);
+                animals.Add(animal);
+            }
+
+            return animals; 
         }
 
         public List<Animal> Animals { get { return animalsList;} }

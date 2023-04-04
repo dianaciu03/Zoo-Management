@@ -67,7 +67,7 @@ namespace ZooBazaarDesktopApp
             else if (rbtnFemaleAddAnimal.Checked) gender = "Female";
             else throw (new Exception("Please select a gender"));
 
-            animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(input), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value);
+            animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateEditAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value);
             animalManagement.AddAnimal(animal);
             MessageBox.Show($"Animal has been successfully created!\n{animal}");
             this.Close();
