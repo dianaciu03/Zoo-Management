@@ -1,5 +1,4 @@
-﻿using Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,9 +13,9 @@ namespace DatabaseLogicLibrary
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
-        public List<IAnimal> GetAllAnimals() // Gets all animals in the animal database and returns them as a list of Animal Objects
+        public List<AnimalDTO> GetAllAnimals() // Gets all animals in the animal database and returns them as a list of Animal Objects
         {
-            List<IAnimal> animals = new List<IAnimal>();
+            List<AnimalDTO> animals = new List<AnimalDTO>();
 
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
@@ -27,34 +26,32 @@ namespace DatabaseLogicLibrary
 
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
-                    if (!reader.Read()) 
+                    while(reader.Read()) 
                     {
+                        AnimalDTO animal = new AnimalDTO(
+                                    reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                                    reader.GetString(reader.GetOrdinal("Name")),
+                                    reader.GetString(reader.GetOrdinal("Gender")),
+                                    reader.GetString(reader.GetOrdinal("Species")),
+                                    reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                                    reader.GetString(reader.GetOrdinal("Origin")),
+                                    reader.GetString(reader.GetOrdinal("Description")),
+                                    reader.GetString(reader.GetOrdinal("Endangerment")),
+                                    reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                                    reader.GetString(reader.GetOrdinal("Availability")));
+
+                        animals.Add(animal);
+                    }
+
                         reader.Close();
                         connection.Close();
                         return animals; 
-                    }
-
-                    IAnimal animal
-                    animal.AnimalID = System.AppDomain.CurrentDomain.FriendlyName;
-                    animal.AnimalID = reader.GetInt32(reader.GetOrdinal("AnimalID"));
-                        
-                    /*new IAnimal(reader.GetInt32(reader.GetOrdinal("AnimalID")),
-                                                reader.GetString(reader.GetOrdinal("Name")),
-                                                reader.GetString(reader.GetOrdinal("Gender")),
-                                                reader.GetString(reader.GetOrdinal("Species")),
-                                                reader.GetDateTime(reader.GetOrdinal("BirthDate")),
-                                                (ORIGINCONTINENT)Enum.Parse(typeof(ORIGINCONTINENT), reader.GetString(reader.GetOrdinal("Origin"))),
-                                                reader.GetString(reader.GetOrdinal("Description")),
-                                                (ENDANGERMENT)Enum.Parse(typeof(ENDANGERMENT), reader.GetString(reader.GetOrdinal("Endangerment"))),
-                                                reader.GetInt32(reader.GetOrdinal("Enclosure")),
-                                                reader.GetString(reader.GetOrdinal("Availability")));
-                    animals.Add(animal);*/
                 }
             }
-           return animals;
+
         }
 
-        public void AddUpdateAnimal(Animal animal) //Opens connection and checks if the animal provided already exists in the database.
+        public void AddUpdateAnimal(AnimalDTO animal) //Opens connection and checks if the animal provided already exists in the database.
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
@@ -73,8 +70,8 @@ namespace DatabaseLogicLibrary
                 connection.Close();
             }
         }
-
-        private void AddNewAnimal( Animal animal , SqlConnection connection) //Inserts the new Animal into the database.
+        
+        private void AddNewAnimal(AnimalDTO animal , SqlConnection connection) //Inserts the new Animal into the database.
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Animals" +
                                                        "VALUES (@AnimalID,@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure, @Availability)", connection))
@@ -94,7 +91,7 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        private void UpdateAnimal( Animal animal, SqlConnection connection) //Updates and already existing animal from the database
+        private void UpdateAnimal(AnimalDTO animal, SqlConnection connection) //Updates and already existing animal from the database
         {
             using (SqlCommand command = new SqlCommand("UPDATE Animals " +
                                                        "SET AnimalID = @AmimalID, Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +

@@ -65,5 +65,11 @@
     <Compile Include="Tasks\Task.cs" />
     <Compile Include="Tasks\TaskManagement.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseLogicLibrary\DatabaseLogicLibrary.csproj">
+      <Project>{a9eb1b52-3f7b-4e16-82fc-efa906c0a474}</Project>
+      <Name>DatabaseLogicLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
