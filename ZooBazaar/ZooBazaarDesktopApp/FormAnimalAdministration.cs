@@ -103,7 +103,7 @@ namespace ZooBazaarDesktopApp
                 item.SubItems.Add(animal.Gender);
                 item.SubItems.Add(animal.OriginContinent.ToString());
                 item.SubItems.Add(animal.Enclosure.ToString());
-                item.SubItems.Add(animal.Availability.ToString());
+                item.SubItems.Add(animal.Availability);
                 lvwAnimals.Items.Add(item);
             }
         }
@@ -123,7 +123,7 @@ namespace ZooBazaarDesktopApp
                 item.SubItems.Add(animal.OriginContinent.ToString());
                 item.SubItems.Add(animal.Enclosure.ToString());
                 item.SubItems.Add(animal.Endangerment.ToString());
-                item.SubItems.Add(animal.Availability.ToString());
+                item.SubItems.Add(animal.Availability);
                 lvwAnimalHistory.Items.Add(item);
             }
         }
