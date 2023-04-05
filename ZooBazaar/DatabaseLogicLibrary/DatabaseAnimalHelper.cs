@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
@@ -12,6 +13,32 @@ namespace DatabaseLogicLibrary
     public class DatabaseAnimalHelper
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
+
+        public int NewAnimalID()
+        {
+            int i = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("SELECT MAX(AnimalID) FROM Animals", connection);
+
+                try
+                {
+                    connection.Open();
+                    if (query.ExecuteScalar() != DBNull.Value)
+                    {
+                        i = (Int32)query.ExecuteScalar();
+                    }
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+                return i + 1; //+1 beacuse we need a new animal id so we get the current highest in database + 1
+            }
+
+        }
 
         public List<AnimalDTO> GetAllAnimals() // Gets all animals in the animal database and returns them as a list of Animal Objects
         {
@@ -26,7 +53,7 @@ namespace DatabaseLogicLibrary
 
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
-                    while(reader.Read()) 
+                    while (reader.Read())
                     {
                         AnimalDTO animal = new AnimalDTO(
                                     reader.GetInt32(reader.GetOrdinal("AnimalID")),
@@ -43,9 +70,9 @@ namespace DatabaseLogicLibrary
                         animals.Add(animal);
                     }
 
-                        reader.Close();
-                        connection.Close();
-                        return animals; 
+                    reader.Close();
+                    connection.Close();
+                    return animals;
                 }
             }
 
@@ -56,22 +83,22 @@ namespace DatabaseLogicLibrary
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
                 try { connection.Open(); }
-                catch(SqlException) { return; }
+                catch (SqlException) { return; }
 
                 SqlCommand existsInDatabase = new SqlCommand($"SELECT COUNT(*) FROM Animals WHERE AnimalID = {animal.Id}");
-                if( (int)existsInDatabase.ExecuteScalar() > 0)
+                if (existsInDatabase.ExecuteScalar() == DBNull.Value)
                 {
-                    UpdateAnimal( animal, connection );
+                    UpdateAnimal(animal, connection);
                 }
                 else
                 {
-                    AddNewAnimal( animal, connection );
+                    AddNewAnimal(animal, connection);
                 }
                 connection.Close();
             }
         }
-        
-        private void AddNewAnimal(AnimalDTO animal , SqlConnection connection) //Inserts the new Animal into the database.
+
+        private void AddNewAnimal(AnimalDTO animal, SqlConnection connection) //Inserts the new Animal into the database.
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Animals" +
                                                        "VALUES (@AnimalID,@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure, @Availability)", connection))
@@ -113,31 +140,33 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        public int? GetAnimalCount() //Get count of how many animals total are in the database
-        {
-            int count = 0;
-            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
-            {
-                try { connection.Open(); }
-                catch (SqlException) { return null; }
-
-                SqlCommand command = new SqlCommand("SELECT COUNT(AnimalID) FROM Animals");
-                count = (Int32)command.ExecuteScalar();
-            }
-            return count;
-        }
-
         public void ChangeAvailability(int animalID, string animalAvailability)
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                try { connection.Open(); }
-                catch (SqlException) { return; }
+                SqlCommand command = new SqlCommand($"UPDATE Animals SET Availability = @Availability WHERE AnimalID = @AnimalID");
 
-                SqlCommand command = new SqlCommand($"UPDATE Animals SET Availability = { animalAvailability } WHERE AnimalID = { animalID }");
-                command.ExecuteNonQuery();
+                try
+                {
+                    connection.Open();
+
+                    command.Parameters.AddWithValue("@Availability", animalAvailability);
+                    command.Parameters.AddWithValue("@AnimalID", animalID);
+                    command.ExecuteNonQuery();
+
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
+
+        /*public List<AnimalDTO> SearchForAnimals()
+        {
+            List<AnimalDTO> animals = new List<AnimalDTO>();
+        }*/
 
 
 
@@ -148,15 +177,15 @@ namespace DatabaseLogicLibrary
         //Relationship table
 
         //TODO Add search functionality.
-/*        public List<Animal> SearchAnimals(string Species)
-        {
+        /*        public List<Animal> SearchAnimals(string Species)
+                {
 
-        }*/
+                }*/
 
         //Employee
-            //Get all
-            //Add/Update
-            //Get by role
-            //Get employee count
+        //Get all
+        //Add/Update
+        //Get by role
+        //Get employee count
     }
 }
