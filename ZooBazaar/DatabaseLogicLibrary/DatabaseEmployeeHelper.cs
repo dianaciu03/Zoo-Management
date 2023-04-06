@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,9 +12,35 @@ namespace DatabaseLogicLibrary
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
-        public List<Employee> GetEmployees() // Gets all animals in the animal database and returns them as a list of Animal Objects
+        public int NewEmployeeID()
         {
-            List<Employee> employees = new List<Employee>();
+            int i = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("SELECT MAX(EmployeeID) FROM Employees", connection);
+
+                try
+                {
+                    connection.Open();
+                    if (query.ExecuteScalar() != DBNull.Value)
+                    {
+                        i = (Int32)query.ExecuteScalar();
+                    }
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+                return i + 1; //+1 beacuse we need a new animal id so we get the current highest in database + 1
+            }
+
+        }
+
+        public List<EmployeeDTO> GetAllEmployees() // Gets all animals in the animal database and returns them as a list of Animal Objects
+        {
+            List<EmployeeDTO> employees = new List<EmployeeDTO>();
 
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
@@ -32,42 +58,18 @@ namespace DatabaseLogicLibrary
                         return employees;
                     }
 
-                    Employee employee = null;
-
-                    int employeeID = reader.GetInt32(reader.GetOrdinal("EmployeeID"));
-                    string firstName = reader.GetString(reader.GetOrdinal("FirstName"));
-                    string lastName = reader.GetString(reader.GetOrdinal("LastName"));
-                    DateTime birthdate = reader.GetDateTime(reader.GetOrdinal("Birthdate"));
-                    string gender = reader.GetString(reader.GetOrdinal("Gender"));
-                    string address = reader.GetString(reader.GetOrdinal("Address"));
-                    string phone = reader.GetString(reader.GetOrdinal("Phone"));
-                    string password = reader.GetString(reader.GetOrdinal("Password"));
-                    string email = reader.GetString(reader.GetOrdinal("Email"));
-                    int hoursPerWeek = reader.GetInt32(reader.GetOrdinal("WeeklyHours"));
-
-                    switch (reader.GetString(reader.GetOrdinal("EmployeeType")))
-                    {
-                        case "AnimalAdministrator":
-                            employee = new AnimalAdministrator(employeeID, firstName, lastName, birthdate, gender, address, phone, password, email);
-                            break;
-                        case "HRAdministrator":
-                            employee = new HRAdministrator(employeeID, firstName, lastName, birthdate, password, address, phone, email, gender);
-                            break;
-                        case "CareTaker":
-                            employee = new CareTaker(employeeID, firstName, lastName, birthdate, gender, address, phone, password, email, hoursPerWeek);
-                            break;
-                        case "Manager":
-                            employee = new Manager(employeeID, firstName, lastName, birthdate, password, address, phone, email, gender);
-                            break;
-                        case "ResourcePlanner":
-                            employee = new ResourcePlanner(employeeID, firstName, lastName, birthdate, password, address, phone, email, gender);
-                            break;
-                        case "ScheduleMaker":
-                            employee = new ScheduleMaker(employeeID, firstName, lastName, birthdate, password, address, phone, email, gender);
-                            break;
-                        default:
-                            break;
-                    }
+                    EmployeeDTO employee = new EmployeeDTO(
+                        reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                        reader.GetString(reader.GetOrdinal("FirstName")),
+                        reader.GetString(reader.GetOrdinal("LastName")),
+                        reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                        reader.GetString(reader.GetOrdinal("Gender")),
+                        reader.GetString(reader.GetOrdinal("Address")),
+                        reader.GetString(reader.GetOrdinal("Phone")),
+                        reader.GetString(reader.GetOrdinal("Password")),
+                        reader.GetString(reader.GetOrdinal("Email")),
+                        reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
+                        reader.GetString(reader.GetOrdinal("EmployeeType")));
 
                     employees.Add(employee);
                 }
@@ -75,7 +77,7 @@ namespace DatabaseLogicLibrary
             return employees;
         }
 
-        public void AddUpdateEmployee(Employee employee)
+        public void AddUpdateEmployee(EmployeeDTO employee)
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
@@ -95,7 +97,7 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        private void UpdateEmployee(Employee employee, SqlConnection connection)
+        private void UpdateEmployee(EmployeeDTO employee, SqlConnection connection)
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
                                            "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
@@ -116,7 +118,7 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        private void AddNewEmployee(Employee employee, SqlConnection connection)
+        private void AddNewEmployee(EmployeeDTO employee, SqlConnection connection)
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
                                "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
@@ -136,6 +138,57 @@ namespace DatabaseLogicLibrary
                 command.ExecuteNonQuery();
             }
         }
+
+        public List<EmployeeDTO> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeType)
+        {
+            List<EmployeeDTO> employees = new List<EmployeeDTO>();
+
+
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return employees; }
+
+
+                //Dynamic SQL query to find the festivals that the user is searching for.
+                SqlCommand query = new SqlCommand("SELECT * FROM Employees WHERE " +
+                    "(FirstName LIKE '%' + @FirstName ) AND " +
+                    "(LastName LIKE '%' @LastName) AND " +
+                    "(WeeklyHours = @WeeklyHours) AND " +
+                    "(EmployeeType = @EmployeeType) AND " +
+
+                    "ORDER BY Name;", connection);
+
+                query.Parameters.AddWithValue("@FirstName", firstName);
+                query.Parameters.AddWithValue("@LastName", lastname);
+                query.Parameters.AddWithValue("@WeeklyHours", weeklyHours);
+                query.Parameters.AddWithValue("@EmployeeType", employeeType);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        EmployeeDTO employee = new EmployeeDTO(
+                        reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                        reader.GetString(reader.GetOrdinal("FirstName")),
+                        reader.GetString(reader.GetOrdinal("LastName")),
+                        reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                        reader.GetString(reader.GetOrdinal("Gender")),
+                        reader.GetString(reader.GetOrdinal("Address")),
+                        reader.GetString(reader.GetOrdinal("Phone")),
+                        reader.GetString(reader.GetOrdinal("Password")),
+                        reader.GetString(reader.GetOrdinal("Email")),
+                        reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
+                        reader.GetString(reader.GetOrdinal("EmployeeType")));
+
+                        employees.Add(employee);
+                    }
+                    reader.Close();
+                    connection.Close();
+                    return employees;
+                }
+            }
+        }
     }
 }
-*/
