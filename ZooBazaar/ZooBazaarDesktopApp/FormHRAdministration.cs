@@ -106,5 +106,6 @@ namespace ZooBazaarDesktopApp
         {
             updateEmployeeListview(employeeManagement.GetEmployees());
         }
+
     }
 }
