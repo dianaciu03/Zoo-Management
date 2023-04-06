@@ -38,6 +38,8 @@
             this.cbxCaretakers = new System.Windows.Forms.ComboBox();
             this.btnMoreDetailsTask = new System.Windows.Forms.Button();
             this.lvwAvailableTasks = new System.Windows.Forms.ListView();
+            this.colTaskName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTaskDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelDayOfWeek = new System.Windows.Forms.Label();
             this.labelAvailableTasks = new System.Windows.Forms.Label();
             this.tabOverview = new System.Windows.Forms.TabPage();
@@ -48,6 +50,8 @@
             this.rbtnToday = new System.Windows.Forms.RadioButton();
             this.labelAllTasks = new System.Windows.Forms.Label();
             this.lvwAllTasks = new System.Windows.Forms.ListView();
+            this.colStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControlResourcePlanner.SuspendLayout();
             this.tabAssignTasks.SuspendLayout();
             this.tabOverview.SuspendLayout();
@@ -78,6 +82,7 @@
             // 
             // tabAssignTasks
             // 
+            this.tabAssignTasks.Controls.Add(this.button1);
             this.tabAssignTasks.Controls.Add(this.btnAssignEmployee);
             this.tabAssignTasks.Controls.Add(this.labelDetailsEmployee);
             this.tabAssignTasks.Controls.Add(this.labelScheduleEmployee);
@@ -97,17 +102,18 @@
             // 
             // btnAssignEmployee
             // 
-            this.btnAssignEmployee.Location = new System.Drawing.Point(684, 478);
+            this.btnAssignEmployee.Location = new System.Drawing.Point(634, 171);
             this.btnAssignEmployee.Name = "btnAssignEmployee";
             this.btnAssignEmployee.Size = new System.Drawing.Size(209, 44);
             this.btnAssignEmployee.TabIndex = 37;
             this.btnAssignEmployee.Text = "Assign employee";
             this.btnAssignEmployee.UseVisualStyleBackColor = true;
+            this.btnAssignEmployee.Click += new System.EventHandler(this.btnAssignEmployee_Click);
             // 
             // labelDetailsEmployee
             // 
             this.labelDetailsEmployee.AutoSize = true;
-            this.labelDetailsEmployee.Location = new System.Drawing.Point(630, 129);
+            this.labelDetailsEmployee.Location = new System.Drawing.Point(630, 144);
             this.labelDetailsEmployee.Name = "labelDetailsEmployee";
             this.labelDetailsEmployee.Size = new System.Drawing.Size(263, 24);
             this.labelDetailsEmployee.TabIndex = 36;
@@ -116,7 +122,7 @@
             // labelScheduleEmployee
             // 
             this.labelScheduleEmployee.AutoSize = true;
-            this.labelScheduleEmployee.Location = new System.Drawing.Point(630, 95);
+            this.labelScheduleEmployee.Location = new System.Drawing.Point(630, 120);
             this.labelScheduleEmployee.Name = "labelScheduleEmployee";
             this.labelScheduleEmployee.Size = new System.Drawing.Size(96, 24);
             this.labelScheduleEmployee.TabIndex = 35;
@@ -135,28 +141,47 @@
             // cbxCaretakers
             // 
             this.cbxCaretakers.FormattingEnabled = true;
-            this.cbxCaretakers.Location = new System.Drawing.Point(634, 46);
+            this.cbxCaretakers.Location = new System.Drawing.Point(634, 58);
             this.cbxCaretakers.Name = "cbxCaretakers";
             this.cbxCaretakers.Size = new System.Drawing.Size(303, 32);
             this.cbxCaretakers.TabIndex = 33;
             // 
             // btnMoreDetailsTask
             // 
-            this.btnMoreDetailsTask.Location = new System.Drawing.Point(148, 478);
+            this.btnMoreDetailsTask.Location = new System.Drawing.Point(14, 478);
             this.btnMoreDetailsTask.Name = "btnMoreDetailsTask";
             this.btnMoreDetailsTask.Size = new System.Drawing.Size(209, 44);
             this.btnMoreDetailsTask.TabIndex = 32;
             this.btnMoreDetailsTask.Text = "More details";
             this.btnMoreDetailsTask.UseVisualStyleBackColor = true;
+            this.btnMoreDetailsTask.Click += new System.EventHandler(this.btnMoreDetailsTask_Click);
             // 
             // lvwAvailableTasks
             // 
+            this.lvwAvailableTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colTaskName,
+            this.colTaskDate,
+            this.colStatus});
+            this.lvwAvailableTasks.FullRowSelect = true;
             this.lvwAvailableTasks.HideSelection = false;
             this.lvwAvailableTasks.Location = new System.Drawing.Point(14, 58);
+            this.lvwAvailableTasks.MultiSelect = false;
             this.lvwAvailableTasks.Name = "lvwAvailableTasks";
             this.lvwAvailableTasks.Size = new System.Drawing.Size(513, 414);
             this.lvwAvailableTasks.TabIndex = 31;
             this.lvwAvailableTasks.UseCompatibleStateImageBehavior = false;
+            this.lvwAvailableTasks.View = System.Windows.Forms.View.Details;
+            this.lvwAvailableTasks.SelectedIndexChanged += new System.EventHandler(this.lvwAvailableTasks_SelectedIndexChanged);
+            // 
+            // colTaskName
+            // 
+            this.colTaskName.Text = "Name";
+            this.colTaskName.Width = 250;
+            // 
+            // colTaskDate
+            // 
+            this.colTaskDate.Text = "Date";
+            this.colTaskDate.Width = 131;
             // 
             // labelDayOfWeek
             // 
@@ -265,6 +290,21 @@
             this.lvwAllTasks.TabIndex = 0;
             this.lvwAllTasks.UseCompatibleStateImageBehavior = false;
             // 
+            // colStatus
+            // 
+            this.colStatus.Text = "Status";
+            this.colStatus.Width = 128;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(318, 478);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(209, 44);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "More details";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormResourcePlanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -309,5 +349,9 @@
         private System.Windows.Forms.Label labelAllTasks;
         private System.Windows.Forms.ListView lvwAllTasks;
         private System.Windows.Forms.Button btnTaskMoreDetails;
+        private System.Windows.Forms.ColumnHeader colTaskName;
+        private System.Windows.Forms.ColumnHeader colTaskDate;
+        private System.Windows.Forms.ColumnHeader colStatus;
+        private System.Windows.Forms.Button button1;
     }
 }

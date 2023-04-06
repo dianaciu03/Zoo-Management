@@ -18,5 +18,9 @@ namespace ZooBazaarLogicLibrary
         {
             return this.GetType().Name;
         }
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }
