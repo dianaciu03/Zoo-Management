@@ -1,0 +1,133 @@
+﻿using DatabaseLogicLibrary.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DatabaseLogicLibrary
+{
+    public class DatabaseZooTaskHelper
+    {
+        ConnectionHelper connectionHelper = new ConnectionHelper();
+
+        public int NewZooTaskID()
+        {
+            int i = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("SELECT MAX(TaskID) FROM Tasks", connection);
+
+                try
+                { 
+                    connection.Open();
+                    if (query.ExecuteScalar() != DBNull.Value)
+                    {
+                        i = (Int32)query.ExecuteScalar();
+                    }
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+                return i + 1; //+1 beacuse we need a new task id so we get the current highest in database + 1
+            }
+
+        }
+
+        public ZooTaskDTO GetTask(int taskID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM Tasks WHERE TaskID = @TaskID", connection);
+                query.Parameters.AddWithValue("@TaskID", taskID);
+
+
+                ZooTaskDTO task;
+                try 
+                { 
+                    connection.Open();
+
+                    using (SqlDataReader reader = query.ExecuteReader())
+                    {
+                        task = new ZooTaskDTO(
+                            reader.GetInt32(reader.GetOrdinal("TaskID")),
+                            reader.GetString(reader.GetOrdinal("TaskName")),
+                            reader.GetString(reader.GetOrdinal("TaskDescription")),
+                            reader.GetDateTime(reader.GetOrdinal("TaskDate")),
+                            reader.GetInt32(reader.GetOrdinal("TaskDuration")),
+                            reader.GetString(reader.GetOrdinal("TaskSpecies")),
+                            reader.GetString(reader.GetOrdinal("TaskZone")),
+                            reader.GetInt32(reader.GetOrdinal("TaskEnclosureNumber")),
+                            reader.GetString(reader.GetOrdinal("TaskStatus")));
+                          
+                        reader.Close();
+
+                    }
+
+                }
+                catch (SqlException) { return null; }
+
+                finally
+                {
+                    connection.Close();
+                }
+            return task;
+            }
+            
+        }
+
+        public void AssignEmployee(int employeeID, string taskID)
+        {
+            int newAssigmentID = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("SELECT MAX(TaskAssignmentID) FROM Tasks", connection);
+
+                try
+                {
+                    connection.Open();
+                    if (query.ExecuteScalar() != DBNull.Value)
+                    {
+                        newAssigmentID = (Int32)query.ExecuteScalar();
+                    }
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            newAssigmentID++;
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try 
+                { 
+                    connection.Open(); 
+
+                    using (SqlCommand command = new SqlCommand("INSERT INTO Tasks " +
+                                                  "VALUES (@TaskAssignmentID,@EmployeeID,@TaskID)", connection))
+                    {
+                        command.Parameters.AddWithValue("@TaskAssignmentID", newAssigmentID);
+                        command.Parameters.AddWithValue("@EmployeeID", employeeID);
+                        command.Parameters.AddWithValue("@TaskID", taskID);
+
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException) { }
+                finally 
+                { 
+                    connection.Close(); 
+                }
+            }
+        }
+    }
+}

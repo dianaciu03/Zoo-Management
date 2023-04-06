@@ -33,12 +33,12 @@ namespace DatabaseLogicLibrary
                 {
                     connection.Close();
                 }
-                return i + 1; //+1 beacuse we need a new animal id so we get the current highest in database + 1
+                return i + 1; //+1 beacuse we need a new employee id so we get the current highest in database + 1
             }
 
         }
 
-        public List<EmployeeDTO> GetAllEmployees() // Gets all animals in the animal database and returns them as a list of Animal Objects
+        public List<EmployeeDTO> GetAllEmployees() // Gets all employees in the animal database and returns them as a list of Animal Objects
         {
             List<EmployeeDTO> employees = new List<EmployeeDTO>();
 
@@ -51,30 +51,29 @@ namespace DatabaseLogicLibrary
 
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
-                    if (!reader.Read())
+                    while (reader.Read())
                     {
-                        reader.Close();
-                        connection.Close();
-                        return employees;
+                        EmployeeDTO employee = new EmployeeDTO(
+                            reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                            reader.GetString(reader.GetOrdinal("FirstName")),
+                            reader.GetString(reader.GetOrdinal("LastName")),
+                            reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                            reader.GetString(reader.GetOrdinal("Gender")),
+                            reader.GetString(reader.GetOrdinal("Address")),
+                            reader.GetString(reader.GetOrdinal("Phone")),
+                            reader.GetString(reader.GetOrdinal("Password")),
+                            reader.GetString(reader.GetOrdinal("Email")),
+                            reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
+                            reader.GetString(reader.GetOrdinal("EmployeeType")));
+
+                        employees.Add(employee);
                     }
 
-                    EmployeeDTO employee = new EmployeeDTO(
-                        reader.GetInt32(reader.GetOrdinal("EmployeeID")),
-                        reader.GetString(reader.GetOrdinal("FirstName")),
-                        reader.GetString(reader.GetOrdinal("LastName")),
-                        reader.GetDateTime(reader.GetOrdinal("Birthdate")),
-                        reader.GetString(reader.GetOrdinal("Gender")),
-                        reader.GetString(reader.GetOrdinal("Address")),
-                        reader.GetString(reader.GetOrdinal("Phone")),
-                        reader.GetString(reader.GetOrdinal("Password")),
-                        reader.GetString(reader.GetOrdinal("Email")),
-                        reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
-                        reader.GetString(reader.GetOrdinal("EmployeeType")));
-
-                    employees.Add(employee);
+                    reader.Close();
+                    connection.Close();
+                    return employees;
                 }
             }
-            return employees;
         }
 
         public void AddUpdateEmployee(EmployeeDTO employee)
