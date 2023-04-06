@@ -163,10 +163,69 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        /*public List<AnimalDTO> SearchForAnimals()
+        public List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int age, string endangerment)
         {
             List<AnimalDTO> animals = new List<AnimalDTO>();
-        }*/
+
+
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return animals; }
+
+
+                //Dynamic SQL query to find the festivals that the user is searching for.
+                SqlCommand query = new SqlCommand("SELECT * FROM Animals WHERE " +
+                    "(Name LIKE '%' + @Name ) AND" +
+                    "(Species LIKE '%' @Species) AND" +
+                    "(Origin = @Origin) AND" +
+                    "(Gender = @Gender) AND" +
+                    "((BirthDate > @birthDateOneYear AND BirthDate < @birthDate) OR @birthDate is NULL ) AND" +
+                    "(Endangerment LIKE '%' @Endangerment)" +
+                    "ORDER BY Name;", connection);
+
+                query.Parameters.AddWithValue("@Name", name);
+                query.Parameters.AddWithValue("@Species", species);
+                query.Parameters.AddWithValue("@Origin", origin);
+                query.Parameters.AddWithValue("@Gender", gender);
+                query.Parameters.AddWithValue("@Endangerment", endangerment);
+
+                if (age >= 0)
+                {
+                    query.Parameters.AddWithValue("@birthDateOneYear", DateTime.Today.AddYears(-age - 1));
+                    query.Parameters.AddWithValue("@birthDate", DateTime.Today.AddYears(-age));
+                }
+                else
+                {
+                    query.Parameters.AddWithValue("@birthDateOneYear", DBNull.Value);
+                    query.Parameters.AddWithValue("@birthDate", DBNull.Value);
+                }
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AnimalDTO animal = new AnimalDTO(
+                            reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                            reader.GetString(reader.GetOrdinal("Name")),
+                            reader.GetString(reader.GetOrdinal("Gender")),
+                            reader.GetString(reader.GetOrdinal("Species")),
+                            reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                            reader.GetString(reader.GetOrdinal("Origin")),
+                            reader.GetString(reader.GetOrdinal("Description")),
+                            reader.GetString(reader.GetOrdinal("Endangerment")),
+                            reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                            reader.GetString(reader.GetOrdinal("Availability")));
+
+                        animals.Add(animal);
+                    }
+                reader.Close();
+                connection.Close();
+                return animals;
+                }
+            }
+        }
 
 
 
