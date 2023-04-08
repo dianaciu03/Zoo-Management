@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,6 +54,19 @@ namespace ZooBazaarLogicLibrary
         public CareTaker[] GetAssignedEmployees()
         {
             return assignedEmployees.ToArray();
+        }
+        public CareTaker GetAssignedEmployee(int id)
+        {
+            CareTaker foundCareTaker;
+            foreach (CareTaker caretaker in assignedEmployees)
+            {
+                if (caretaker.ID == id)
+                {
+                    foundCareTaker = caretaker;
+                    return foundCareTaker;
+                }
+            }
+            return null;
         }
     }
 }

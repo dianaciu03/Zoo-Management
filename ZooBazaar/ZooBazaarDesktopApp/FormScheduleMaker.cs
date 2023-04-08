@@ -17,11 +17,11 @@ namespace ZooBazaarDesktopApp
         TaskManagement taskManagement;
         AnimalManagement animalManagement;
         List<Animal> seachedAnimals;
-        public FormScheduleMaker(AnimalManagement am)
+        public FormScheduleMaker(AnimalManagement am, TaskManagement tm)
         {
             InitializeComponent();
-            taskManagement = new TaskManagement();
             animalManagement = am;
+            taskManagement = tm;
             initializeSpecieComboBox();
             updateTasks();
         }
@@ -99,9 +99,13 @@ namespace ZooBazaarDesktopApp
 
         private void tbxSearchByName_TextChanged(object sender, EventArgs e)
         {
-            seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", "", "");
-            updateSearchedAnimalListView();
-            if(tbxSearchByName.Text == "") { lvwAnimalSearch.Items.Clear(); }
+            try
+            {
+                seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", "", "");
+                updateSearchedAnimalListView();
+                if (tbxSearchByName.Text == "") { lvwAnimalSearch.Items.Clear(); }
+            }
+            catch { }
         }
 
         private void cbxSearchBySpecie_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +173,11 @@ namespace ZooBazaarDesktopApp
             ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag;
             taskManagement.RemoveTaskByID(selectedTask.ID);
             updateTasks();
+        }
+
+        private void lvwAnimalSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

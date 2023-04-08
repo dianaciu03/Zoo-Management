@@ -15,6 +15,7 @@ namespace ZooBazaarDesktopApp
     {
         EmployeeManagement employeeManagement = new EmployeeManagement();
         AnimalManagement animalManagement = new AnimalManagement();
+        TaskManagement taskManagement = new TaskManagement();
         public FormLogin()
         {
             InitializeComponent();
@@ -30,6 +31,9 @@ namespace ZooBazaarDesktopApp
             employeeManagement.AddEmployee(new AnimalAdministrator(3, "Patrick", "Patrickson", DateTime.Now, "Male", "ABCD Street 3", "+312312001", "3", "3", 40));
             employeeManagement.AddEmployee(new ScheduleMaker(4, "Dennis", "Dennison", DateTime.Now, "Male", "ABCD Street 4", "+312312100", "4", "4", 40));
             employeeManagement.AddEmployee(new ResourcePlanner(5, "Olivia", "Olisson", DateTime.Now, "Female", "ABCD Street 5", "+312315102", "5", "5", 40));
+            employeeManagement.AddEmployee(new CareTaker(6, "Frank", "Lepper", DateTime.Now, "Male", "R10 Fontys", "+31295958502", "6", "6", 40));
+            employeeManagement.AddEmployee(new CareTaker(7, "Sachin", "Djukeeper", DateTime.Now, "Male", "", "+312875732", "7", "7", 40));
+
 
         }
 
@@ -52,20 +56,21 @@ namespace ZooBazaarDesktopApp
                         break;
                     case ("ScheduleMaker"):
                         this.Hide();
-                        FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement);
+                        FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement, taskManagement);
                         formScheduleTask.ShowDialog();
                         break;
                     case ("ResourcePlanner"):
                         this.Hide();
-                        FormResourcePlanner formAssignTasks = new FormResourcePlanner();
+                        FormResourcePlanner formAssignTasks = new FormResourcePlanner(employeeManagement, taskManagement);
                         formAssignTasks.ShowDialog();
+                        this.Close();
                         break;
                 }
                 this.Show();
                 tbxLoginEmail.Clear();
                 tbxLoginPassword.Clear();
             }
-            catch(Exception ex) { MessageBox.Show("Credentials incorrect");  }
+            catch(Exception ex) { MessageBox.Show(ex.Message);  }
 
         }
     }
