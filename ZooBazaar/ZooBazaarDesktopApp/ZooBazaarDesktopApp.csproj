@@ -148,6 +148,30 @@
     <Compile Include="PopupRelationships.Designer.cs">
       <DependentUpon>PopupRelationships.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucContractDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucContractDetails.Designer.cs">
+      <DependentUpon>ucContractDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmployeeInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployeeInformation.Designer.cs">
+      <DependentUpon>ucEmployeeInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSearchFeatureEmployees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSearchFeatureEmployees.Designer.cs">
+      <DependentUpon>ucSearchFeatureEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEmergencyContact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmergencyContact.Designer.cs">
+      <DependentUpon>ucEmergencyContact.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="PopupAnimalDetails.resx">
       <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +217,18 @@
     </Compile>
     <EmbeddedResource Include="PopupRelationships.resx">
       <DependentUpon>PopupRelationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucContractDetails.resx">
+      <DependentUpon>ucContractDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmployeeInformation.resx">
+      <DependentUpon>ucEmployeeInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSearchFeatureEmployees.resx">
+      <DependentUpon>ucSearchFeatureEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEmergencyContact.resx">
+      <DependentUpon>ucEmergencyContact.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

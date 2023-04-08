@@ -16,13 +16,15 @@ namespace ZooBazaarDesktopApp
     {
         EmployeeManagement employeeManagement;
         Employee employee;
+        
         public FormHRAdministration(EmployeeManagement emMng)
         {
             InitializeComponent();
             employeeManagement = emMng;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
-            cbxRole.SelectedIndex = -1;
+            //cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
+           // cbxRole.SelectedIndex = -1;
+
         }
 
 
@@ -50,9 +52,9 @@ namespace ZooBazaarDesktopApp
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
             List<Employee> searchedEmployees = new List<Employee>();
-            if(string.IsNullOrEmpty(tbxFirstName.Text) && string.IsNullOrEmpty(tbxLastName.Text) &&
-                (rbtnFullTimeEmployee.Checked != true) && (rbtnPartTimeEmployee.Checked != true) &&
-                (cbxRole.SelectedIndex == -1))
+           // if(string.IsNullOrEmpty(tbxFirstName.Text) && string.IsNullOrEmpty(tbxLastName.Text) &&
+               // (rbtnFullTimeEmployee.Checked != true) && (rbtnPartTimeEmployee.Checked != true) &&
+                //(cbxRole.SelectedIndex == -1))
             {
                 MessageBox.Show("Please choose at least one field to search by!");
                 return;
@@ -65,7 +67,7 @@ namespace ZooBazaarDesktopApp
             else if (rbtnPartTimeEmployee.Checked)
                 contractType = rbtnPartTimeEmployee.Text;*/
 
-            searchedEmployees = employeeManagement.GetSearchedEmployees(tbxFirstName.Text, tbxLastName.Text, contractType, cbxRole.Text);
+           // searchedEmployees = employeeManagement.GetSearchedEmployees(tbxFirstName.Text, tbxLastName.Text, contractType, cbxRole.Text);
             updateEmployeeListview(searchedEmployees.ToArray());
         }
 
@@ -90,11 +92,11 @@ namespace ZooBazaarDesktopApp
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
-            tbxFirstName.Text = string.Empty;
-            tbxLastName.Text = string.Empty;
-            rbtnFullTimeEmployee.Checked = false;
-            rbtnPartTimeEmployee.Checked = false;
-            cbxRole.SelectedIndex = -1;
+           // tbxFirstName.Text = string.Empty;
+            //tbxLastName.Text = string.Empty;
+           // rbtnFullTimeEmployee.Checked = false;
+            //rbtnPartTimeEmployee.Checked = false;
+            //cbxRole.SelectedIndex = -1;
         }
 
         private void btnManageContract_Click(object sender, EventArgs e)
@@ -105,6 +107,33 @@ namespace ZooBazaarDesktopApp
         private void btnShowAllEmployees_Click(object sender, EventArgs e)
         {
             updateEmployeeListview(employeeManagement.GetEmployees());
+        }
+
+        private void btnDisplayEmployeeInformation_Click(object sender, EventArgs e)
+        {
+            panelAdministrateEmployees.Controls.Clear();
+            Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+            var uc = new ucEmployeeInformation(employeeManagement,tempEmployee) { Dock = DockStyle.Fill };
+            panelAdministrateEmployees.Controls.Add(uc);
+        }
+
+        private void btnEditEmployeeContract_Click(object sender, EventArgs e)
+        {
+            panelAdministrateEmployees.Controls.Clear();
+            Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+            //Need to add a contract obj for the employees to pass it to the Employee contract edit
+            // I guess the employees need a contract obj inserted in their class
+            //it doesn't exist atm should be added soon
+           // var uc = new ucContractDetails(employeeManagement, employeeContract) { Dock = DockStyle.Fill };
+            //panelAdministrateEmployees.Controls.Add(uc);
+        }
+
+        private void btnEditEmployeeAdditional_Click(object sender, EventArgs e)
+        {
+            panelAdministrateEmployees.Controls.Clear();
+            Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+            var uc = new ucEmergencyContact(employeeManagement, tempEmployee) { Dock = DockStyle.Fill };
+            panelAdministrateEmployees.Controls.Add(uc);
         }
 
     }

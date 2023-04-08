@@ -47,7 +47,7 @@
     <Compile Include="Animals\AnimalManagement.cs" />
     <Compile Include="Animals\Transfer.cs" />
     <Compile Include="Animals\TransferManagement.cs" />
-    <Compile Include="Employees\Contract.cs" />
+    <Compile Include="Employees\EmployeeContract.cs" />
     <Compile Include="Enums\ENDANGERMENT.cs" />
     <Compile Include="Enums\ROLE.cs" />
     <Compile Include="FormDataValidator.cs" />
