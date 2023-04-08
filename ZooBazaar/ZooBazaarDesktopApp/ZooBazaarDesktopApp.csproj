@@ -74,18 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PopupAnimalDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PopupAnimalDetails.Designer.cs">
-      <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PopupAnimalTransfer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PopupAnimalTransfer.Designer.cs">
-      <DependentUpon>PopupAnimalTransfer.cs</DependentUpon>
-    </Compile>
     <Compile Include="PopupContractDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,12 +160,6 @@
     <Compile Include="ucEmergencyContact.Designer.cs">
       <DependentUpon>ucEmergencyContact.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PopupAnimalDetails.resx">
-      <DependentUpon>PopupAnimalDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PopupAnimalTransfer.resx">
-      <DependentUpon>PopupAnimalTransfer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PopupContractDetails.resx">
       <DependentUpon>PopupContractDetails.cs</DependentUpon>
     </EmbeddedResource>

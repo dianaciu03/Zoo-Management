@@ -41,8 +41,6 @@ namespace ZooBazaarLogicLibrary
             return animals; 
         }
 
-        public List<Animal> Animals { get { return animalsList;} }
-
         public void AddAnimal(Animal animal)
         {
             animalsList.Add(animal);

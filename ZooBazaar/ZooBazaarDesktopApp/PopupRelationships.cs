@@ -16,5 +16,15 @@ namespace ZooBazaarLogicLibrary
         {
             InitializeComponent();
         }
+
+        private void groupBoxRelationships_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddRelationship_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
