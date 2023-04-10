@@ -81,6 +81,38 @@ namespace DatabaseLogicLibrary
             
         }
 
+        public void AddTask(ZooTaskDTO task)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("INSERT INTO Tasks " +
+                    "(TaskID, TaskName, TaskDescription, TaskDate, TaskDuration, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskStatus)" +
+                    "VALUES(@TaskID, @TaskName, @TaskDescription, @TaskDate, @TaskDuration, @TaskSpecies, @TaskZone, @TaskEnclosureNumber, @TaskStatus)");
+
+                query.Parameters.AddWithValue("@TaskID", task.ID);
+                query.Parameters.AddWithValue("@TaskName", task.Name);
+                query.Parameters.AddWithValue("@TaskDescription", task.Description);
+                query.Parameters.AddWithValue("@TaskDate", task.TaskDateTime);
+                query.Parameters.AddWithValue("@TaskDuration", task.EstimatedDuration);
+                query.Parameters.AddWithValue("@TaskSpecies", task.Species);
+                query.Parameters.AddWithValue("@TaskZone", task.EnclosureArea);
+                query.Parameters.AddWithValue("@TaskEnclosureNumber", task.EnclosureNumber);
+                query.Parameters.AddWithValue("@TaskStatus", task.Status);
+
+                try
+                {
+                    connection.Open();
+                    query.ExecuteNonQuery();
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+        }
+
         public void AssignEmployee(int employeeID, string taskID)
         {
             int newAssigmentID = 0;
@@ -129,5 +161,7 @@ namespace DatabaseLogicLibrary
                 }
             }
         }
+
+
     }
 }

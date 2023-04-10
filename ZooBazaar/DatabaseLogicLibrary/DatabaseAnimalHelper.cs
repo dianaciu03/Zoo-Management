@@ -234,17 +234,5 @@ namespace DatabaseLogicLibrary
         //Transfer detail table
 
         //Relationship table
-
-        //TODO Add search functionality.
-        /*        public List<Animal> SearchAnimals(string Species)
-                {
-
-                }*/
-
-        //Employee
-        //Get all
-        //Add/Update
-        //Get by role
-        //Get employee count
     }
 }
