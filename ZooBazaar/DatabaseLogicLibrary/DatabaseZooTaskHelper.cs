@@ -113,6 +113,28 @@ namespace DatabaseLogicLibrary
             }
         }
 
+        public void RemoveTask(int taskID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("DELETE FROM Tasks WHERE TaskID = @TaskID;");
+                query.Parameters.AddWithValue("@TaskID", taskID);
+
+
+                try
+                {
+                    connection.Open();
+                    query.ExecuteNonQuery();
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+        }
+
         public void AssignEmployee(int employeeID, string taskID)
         {
             int newAssigmentID = 0;
@@ -139,25 +161,47 @@ namespace DatabaseLogicLibrary
 
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
+
+                SqlCommand command = new SqlCommand("INSERT INTO TaskEmployeeRelation " +
+                    "VALUES (@TaskAssignmentID,@EmployeeID,@TaskID); ", connection);
+
+                command.Parameters.AddWithValue("@TaskAssignmentID", newAssigmentID);
+                command.Parameters.AddWithValue("@EmployeeID", employeeID);
+                command.Parameters.AddWithValue("@TaskID", taskID);
+
                 try 
                 { 
                     connection.Open(); 
-
-                    using (SqlCommand command = new SqlCommand("INSERT INTO Tasks " +
-                                                  "VALUES (@TaskAssignmentID,@EmployeeID,@TaskID)", connection))
-                    {
-                        command.Parameters.AddWithValue("@TaskAssignmentID", newAssigmentID);
-                        command.Parameters.AddWithValue("@EmployeeID", employeeID);
-                        command.Parameters.AddWithValue("@TaskID", taskID);
-
-
-                        command.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
                 catch (SqlException) { }
                 finally 
                 { 
                     connection.Close(); 
+                }
+            }
+        }
+
+        public void UnassignEmployee(int employeeID, int taskID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("REMOVE FROM TaskEmployeeRelation WHERE " +
+                    "TaskID = @TaskID AND EmployeeID = @EmployeeID", connection);
+
+                query.Parameters.AddWithValue("@TaskID", taskID);
+                query.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                try
+                {
+                    connection.Open();
+                    query.ExecuteNonQuery();
+
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
