@@ -4,9 +4,11 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DatabaseLogicLibrary
 {
@@ -275,6 +277,77 @@ namespace DatabaseLogicLibrary
                     connection.Close();
                 }
             }
+        }
+
+        public List<int> GetChildren(int animalID)
+        {
+            List<int> animalIDs = new List<int>();
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+
+
+                SqlCommand query = new SqlCommand("SELECT AnimalTwoID FROM AnimalRelationships WHERE " +
+                    "AnimalOneID = @AnimalOneID AND RelationshipType = True;", connection);
+
+                    query.Parameters.AddWithValue("@AnimalOneID", animalID);
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = query.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            animalIDs.Add(reader.GetInt32(reader.GetOrdinal("AnimalTwoID")));
+                        }
+                        reader.Close();
+                    }
+
+                }
+                catch (SqlException) { }
+                finally { connection.Close(); }
+                
+                return animalIDs;
+            }
+        }
+
+        public List<int> GetParents(int animalID)
+        {
+            List<int> animalIDs = new List<int>();
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("SELECT AnimalOneID FROM AnimalRelationships WHERE " +
+                    "AnimalTwoID = @AnimalTwoID AND RelationshipType = False;", connection);
+
+                query.Parameters.AddWithValue("@AnimalTwoID", animalID);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = query.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            animalIDs.Add(reader.GetInt32(reader.GetOrdinal("AnimalOneID")));
+                        }
+                        reader.Close();
+                    }
+
+                }
+                catch (SqlException) { }
+                finally { connection.Close(); }
+
+                return animalIDs;
+            }
+        }
+
+        public List<int> GetMates(int animalID)
+        {
+            //Get Mates
+            throw new NotImplementedException();
         }
 
 
