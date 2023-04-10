@@ -227,6 +227,56 @@ namespace DatabaseLogicLibrary
             }
         }
 
+        public void AddParentChildRelationship(int animalIDParent, int animalIDChild)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO AnimalRelationships " +
+                    $"VALUES(True, @AnimalIDParent, @AnimalIDChild)");
+                
+                command.Parameters.AddWithValue("@AnimalIDParent", animalIDParent);
+                command.Parameters.AddWithValue("@AnimalIDChild", animalIDChild);
+
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void AddMateRelationship(int animalIDMale, int animalIDFemale)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand command = new SqlCommand($"INSERT INTO AnimalRelationships " +
+                    $"VALUES(False, @AnimalIDMale, @AnimalIDFemale)");
+
+                command.Parameters.AddWithValue("@AnimalIDMale", animalIDMale);
+                command.Parameters.AddWithValue("@AnimalIDFemale", animalIDFemale);
+
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
 
 
         //TODO remove function that changes its status
