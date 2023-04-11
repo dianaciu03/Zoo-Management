@@ -40,6 +40,8 @@ namespace ZooBazaarLogicLibrary
         public Employee GetEmployeeByEmail(string email)
         {
             EmployeeDTO employeeDto = employeeRepository.GetEmployeeByEmail(email);
+            if (employeeDto == null)
+                return null;
             Employee employee = null;
             switch (employeeDto.EmployeeType) 
             {
@@ -55,6 +57,7 @@ namespace ZooBazaarLogicLibrary
                 case nameof(ResourcePlanner):
                     employee = new ResourcePlanner(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
                     break;
+                default: break;
             }
             return employee;
         }
