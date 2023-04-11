@@ -61,7 +61,7 @@ namespace ZooBazaarLogicLibrary
                 animal.Availability);
         }
             
-        public void AddAnimal(Animal animal)
+        public void AddUpdateAnimal(Animal animal)
         {
             
             helper.AddUpdateAnimal(AnimalToDTO(animal));

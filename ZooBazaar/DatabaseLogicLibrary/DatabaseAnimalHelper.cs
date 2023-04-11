@@ -89,7 +89,8 @@ namespace DatabaseLogicLibrary
 
 
                     SqlCommand existsInDatabase = new SqlCommand($"SELECT AnimalID FROM Animals WHERE AnimalID = {animal.Id}", connection);
-                    if(existsInDatabase.ExecuteScalar() == DBNull.Value)
+                    int existsInDB = Convert.ToInt32(existsInDatabase.ExecuteScalar());
+                    if (existsInDB > 0)
                     {
                         UpdateAnimal(animal, connection);
                     }
@@ -128,9 +129,9 @@ namespace DatabaseLogicLibrary
         private void UpdateAnimal(AnimalDTO animal, SqlConnection connection) //Updates and already existing animal from the database
         {
             using (SqlCommand command = new SqlCommand("UPDATE Animals " +
-                                                       "SET AnimalID = @AmimalID, Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +
+                                                       "SET AnimalID = @AnimalID, Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +
                                                        "Origin = @Origin, Description = @Description, Endangerment = @Endangerment, Enclosure = @Enclosure, Availability = @Availability " +
-                                                       "WHERE AnimalID = @AnmimalID", connection))
+                                                       "WHERE AnimalID = @AnimalID", connection))
             {
                 command.Parameters.AddWithValue("@AnimalID", animal.Id);
                 command.Parameters.AddWithValue("@Name", animal.Name);

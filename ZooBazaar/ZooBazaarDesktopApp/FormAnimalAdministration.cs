@@ -113,6 +113,9 @@ namespace ZooBazaarDesktopApp
                 else if (rbtnMaleEdit.Checked == true)
                     animal.Gender = "Male";
                 animal.Description = tbxAdditionalCommentsEdit.Text;
+
+                animalManagement.AddUpdateAnimal(animal);
+
                 MessageBox.Show("Animal has been edited successfully!");
                 //reset to initial state
                 btnCancelEditAnimalDetails_Click(this, EventArgs.Empty);
@@ -378,7 +381,7 @@ namespace ZooBazaarDesktopApp
                 else throw (new Exception("Please select a gender"));
 
                 Animal animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateAddAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
-                animalManagement.AddAnimal(animal);
+                animalManagement.AddUpdateAnimal(animal);
                 MessageBox.Show($"Animal has been successfully created!\n{animal}");
             }
             catch (Exception ex)
