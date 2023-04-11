@@ -264,7 +264,6 @@ namespace DatabaseLogicLibrary
                 command.Parameters.AddWithValue("@AnimalIDMale", animalIDMale);
                 command.Parameters.AddWithValue("@AnimalIDFemale", animalIDFemale);
 
-
                 try
                 {
                     connection.Open();
@@ -279,16 +278,17 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        public List<int> GetChildren(int animalID)
+        public List<AnimalDTO> GetChildren(int animalID)
         {
-            List<int> animalIDs = new List<int>();
+            List<AnimalDTO> animals = new List<AnimalDTO>();
 
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
 
 
-                SqlCommand query = new SqlCommand("SELECT AnimalTwoID FROM AnimalRelationships WHERE " +
-                    "AnimalOneID = @AnimalOneID AND RelationshipType = True;", connection);
+                SqlCommand query = new SqlCommand("SELECT Animals.* FROM AnimalRelationships " +
+                    "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalTwoID " +
+                    "WHERE AnimalOneID = @AnimalOneID AND RelationshipType = 1;", connection);
 
                     query.Parameters.AddWithValue("@AnimalOneID", animalID);
                 try
@@ -298,8 +298,19 @@ namespace DatabaseLogicLibrary
                     {
                         while (reader.Read())
                         {
+                            AnimalDTO animal = new AnimalDTO(
+                                reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                                reader.GetString(reader.GetOrdinal("Name")),
+                                reader.GetString(reader.GetOrdinal("Gender")),
+                                reader.GetString(reader.GetOrdinal("Species")),
+                                reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                                reader.GetString(reader.GetOrdinal("Origin")),
+                                reader.GetString(reader.GetOrdinal("Description")),
+                                reader.GetString(reader.GetOrdinal("Endangerment")),
+                                reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                                reader.GetString(reader.GetOrdinal("Availability")));
 
-                            animalIDs.Add(reader.GetInt32(reader.GetOrdinal("AnimalTwoID")));
+                            animals.Add(animal);
                         }
                         reader.Close();
                     }
@@ -308,18 +319,19 @@ namespace DatabaseLogicLibrary
                 catch (SqlException) { }
                 finally { connection.Close(); }
                 
-                return animalIDs;
+                return animals;
             }
         }
 
-        public List<int> GetParents(int animalID)
+        public List<AnimalDTO> GetParents(int animalID)
         {
-            List<int> animalIDs = new List<int>();
+            List<AnimalDTO> animals = new List<AnimalDTO>();
 
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                SqlCommand query = new SqlCommand("SELECT AnimalOneID FROM AnimalRelationships WHERE " +
-                    "AnimalTwoID = @AnimalTwoID AND RelationshipType = False;", connection);
+                SqlCommand query = new SqlCommand("SELECT Animals.* FROM AnimalRelationships " +
+                    "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalOneID " +
+                    "WHERE AnimalTwoID = @AnimalTwoID AND RelationshipType = 1;", connection);
 
                 query.Parameters.AddWithValue("@AnimalTwoID", animalID);
 
@@ -330,8 +342,19 @@ namespace DatabaseLogicLibrary
                     {
                         while (reader.Read())
                         {
+                            AnimalDTO animal = new AnimalDTO(
+                                reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                                reader.GetString(reader.GetOrdinal("Name")),
+                                reader.GetString(reader.GetOrdinal("Gender")),
+                                reader.GetString(reader.GetOrdinal("Species")),
+                                reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                                reader.GetString(reader.GetOrdinal("Origin")),
+                                reader.GetString(reader.GetOrdinal("Description")),
+                                reader.GetString(reader.GetOrdinal("Endangerment")),
+                                reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                                reader.GetString(reader.GetOrdinal("Availability")));
 
-                            animalIDs.Add(reader.GetInt32(reader.GetOrdinal("AnimalOneID")));
+                            animals.Add(animal);
                         }
                         reader.Close();
                     }
@@ -340,14 +363,64 @@ namespace DatabaseLogicLibrary
                 catch (SqlException) { }
                 finally { connection.Close(); }
 
-                return animalIDs;
+                return animals;
             }
         }
 
-        public List<int> GetMates(int animalID)
+        public List<AnimalDTO> GetMates(int animalID, string gender)
         {
-            //Get Mates
-            throw new NotImplementedException();
+            List<AnimalDTO> animals = new List<AnimalDTO>();
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+
+                SqlCommand query;
+                if(gender == "Female")
+                {
+                    query = new SqlCommand("SELECT Animals.* FROM AnimalRelationships " +
+                        "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalOneID " +
+                        "WHERE AnimalTwoID = @AnimalID AND RelationshipType = 0;", connection);
+
+                }
+                else
+                {
+                    query = new SqlCommand("SELECT Animals.* FROM AnimalRelationships " +
+                        "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalTwoID " +
+                        "WHERE AnimalOneID = @AnimalID AND RelationshipType = 0;", connection);
+                }
+                    query.Parameters.AddWithValue("@AnimalID", animalID);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = query.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AnimalDTO animal = new AnimalDTO(
+                             reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                             reader.GetString(reader.GetOrdinal("Name")),
+                             reader.GetString(reader.GetOrdinal("Gender")),
+                             reader.GetString(reader.GetOrdinal("Species")),
+                             reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                             reader.GetString(reader.GetOrdinal("Origin")),
+                             reader.GetString(reader.GetOrdinal("Description")),
+                             reader.GetString(reader.GetOrdinal("Endangerment")),
+                             reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                             reader.GetString(reader.GetOrdinal("Availability")));
+
+                            animals.Add(animal);
+
+                        }
+                        reader.Close();
+                    }
+
+                }
+                catch (SqlException) { }
+                finally { connection.Close(); }
+
+                return animals;
+            }
         }
 
 
