@@ -121,7 +121,7 @@ namespace DatabaseLogicLibrary
         private void AddNewEmployee(EmployeeDTO employee, SqlConnection connection)
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
-                               "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
+                                                        "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
             {
                 command.Parameters.AddWithValue("@EmployeeID", employee.ID);
                 command.Parameters.AddWithValue("@FirstName", employee.FirstName);

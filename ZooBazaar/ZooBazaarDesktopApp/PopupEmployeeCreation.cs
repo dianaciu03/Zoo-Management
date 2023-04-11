@@ -14,7 +14,7 @@ namespace ZooBazaarDesktopApp
 {
     public partial class PopupEmployeeCreation : Form
     {
-        Employee employee;
+        /*Employee employee;
         FormDataValidator dataValidator= new FormDataValidator();
         EmployeeManagement employeeManagement;
 
@@ -77,7 +77,7 @@ namespace ZooBazaarDesktopApp
                             case (ROLE.AnimalAdministrator):
                                 employee = new AnimalAdministrator(employeeID, tbxFirstName.Text, tbxLastName.Text,
                                                     Convert.ToDateTime(maskedtbxDoBEmployee.Text),
-                                                    gender, tbxAddress.Text, tbxPhone.Text, tbxEmployeePassword.Text, tbxEmail.Text,40);
+                                                    gender, tbxPhone.Text, tbxEmployeePassword.Text, tbxEmail.Text,40);
                                 break;
 
                             case (ROLE.CareTaker):
@@ -109,6 +109,6 @@ namespace ZooBazaarDesktopApp
         private void btnCancelEmployeeCreation_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }*/
     }
 }
