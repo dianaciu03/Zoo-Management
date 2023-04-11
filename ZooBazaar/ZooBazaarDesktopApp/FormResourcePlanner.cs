@@ -21,8 +21,6 @@ namespace ZooBazaarDesktopApp
             InitializeComponent();
             employeeManagement = new EmployeeManagement();
             taskManagement = tm;
-            employeeManagement.AddEmployee(new CareTaker(6, "Frank", "Lepper", DateTime.Now, "Male", "R10 Fontys", "+31295958502", "6", "6", 40));
-            employeeManagement.AddEmployee(new CareTaker(7, "Sachin", "Djukeeper", DateTime.Now, "Male", "", "+312875732", "7", "7", 40));
             taskManagement.ScheduleTask("Task test1", "Tesst task 1 desc", DateTime.Today.AddDays(6), 4, "Penguin", null);
             taskManagement.ScheduleTask("Task test2", "Tesst task 2 desc", DateTime.Today.AddDays(7), 4, "Zebra", null);
             updateTasksListview();

@@ -35,6 +35,7 @@ namespace ZooBazaarDesktopApp
             cbRoleEmployeeEdit.SelectedItem = selectedEmployee.GetRole();
             tbEmailEmployeeEdit.Text = selectedEmployee.Email;
             tbEmailEmployeeEdit.Text = selectedEmployee.Email;
+            maskedTbBirthdayEmployeeEdit.Text = selectedEmployee.BirthDate.ToString("MM/dd/yyyy");
             //NEED TO ADD EMPLOYEE BIRTHDATE INTO THE MASKED TEXTBOX, I DONT KNOW HOW TO PARSE IT 
             // SOMEONE PLEASE DO IT FOR ME TY :*
 

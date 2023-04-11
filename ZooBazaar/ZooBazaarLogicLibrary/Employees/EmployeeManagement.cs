@@ -20,6 +20,11 @@ namespace ZooBazaarLogicLibrary
         {
             employeeList.Add(employee);
         }
+        public void AddNewEmployee(Employee employee)
+        {
+            EmployeeDTO employeeDto = new EmployeeDTO(employee.ID, employee.FirstName, employee.LastName, employee.BirthDate, employee.PersonGender, employee.Address, employee.Phone, employee.Password, employee.Email, employee.HoursPerWeek, employee.GetType().Name);
+            employeeRepository.AddUpdateEmployee(employeeDto);
+        }
         public Employee[] GetEmployees()
         {
             return employeeList.ToArray();
@@ -46,16 +51,16 @@ namespace ZooBazaarLogicLibrary
             switch (employeeDto.EmployeeType) 
             {
                 case nameof(HRAdministrator):
-                    employee = new HRAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    employee = new HRAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
                     break;
                 case nameof(AnimalAdministrator):
-                    employee = new AnimalAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    employee = new AnimalAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender,  employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
                     break;
                 case nameof(ScheduleMaker):
-                    employee = new ScheduleMaker(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    employee = new ScheduleMaker(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
                     break;
                 case nameof(ResourcePlanner):
-                    employee = new ResourcePlanner(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    employee = new ResourcePlanner(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
                     break;
                 default: break;
             }

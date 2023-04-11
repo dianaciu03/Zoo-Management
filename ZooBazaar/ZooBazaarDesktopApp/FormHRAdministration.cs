@@ -43,12 +43,6 @@ namespace ZooBazaarDesktopApp
             //this.Show();
         }
 
-        private void btnAddEmployee_Click(object sender, EventArgs e)
-        {
-            PopupEmployeeCreation popupEmployeeCreation = new PopupEmployeeCreation(employeeManagement);
-            popupEmployeeCreation.ShowDialog();
-        }
-
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
             List<Employee> searchedEmployees = new List<Employee>();
@@ -136,5 +130,33 @@ namespace ZooBazaarDesktopApp
             panelAdministrateEmployees.Controls.Add(uc);
         }
 
+        private void btnConfirmEmployeeCreation_Click(object sender, EventArgs e)
+        {
+            string gender;
+            if (rbAddFemale.Checked == true) gender = "Female";
+            else if (rbAddMale.Checked == true) gender = "Male";
+            else return;
+            Employee employee;
+            switch (cbxNewEmpRole.SelectedItem.ToString())
+            {
+                case nameof(HRAdministrator):
+                    employee = new HRAdministrator(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text);
+                    break;
+                case nameof(AnimalAdministrator):
+                    employee = new AnimalAdministrator(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text);
+                    employeeManagement.AddNewEmployee(employee);
+                    break;
+                case nameof(ScheduleMaker):
+                    employee = new ScheduleMaker(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text);
+                    employeeManagement.AddNewEmployee(employee);
+                    break;
+
+            }
+        }
+
+        private void ucSearchFeatureEmployees1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

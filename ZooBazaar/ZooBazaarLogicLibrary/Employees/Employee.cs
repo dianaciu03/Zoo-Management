@@ -19,9 +19,21 @@ namespace ZooBazaarLogicLibrary
         public string Email { get; set; }
         public int HoursPerWeek { get; set; }
 
-        protected Employee(int ID, string FirstName, string LastName, DateTime BirthDate, string PersonGender, string Address, string Phone, string Password, string Email, int HoursPerWeek)
+        protected Employee(int ID, string FirstName, string LastName, DateTime BirthDate, string PersonGender, string Phone, string Address, string Password, string Email)
         {
             this.ID = ID;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.BirthDate = BirthDate;
+            this.PersonGender = PersonGender;
+            this.Address = Address;
+            this.Phone = Phone;
+            this.Password = Password;
+            this.Email = Email;
+            this.HoursPerWeek = HoursPerWeek;
+        }
+        protected Employee(string FirstName, string LastName, DateTime BirthDate, string PersonGender, string Phone, string Address, string Password, string Email)
+        {
             this.FirstName = FirstName;
             this.LastName = LastName;
             this.BirthDate = BirthDate;

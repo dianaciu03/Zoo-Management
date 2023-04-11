@@ -293,7 +293,7 @@
             this.btnCancelEmployeeCreation.TabIndex = 30;
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = false;
-            this.btnCancelEmployeeCreation.Click += new System.EventHandler(this.btnCancelEmployeeCreation_Click);
+           // this.btnCancelEmployeeCreation.Click += new System.EventHandler(this.btnCancelEmployeeCreation_Click);
             // 
             // btnConfirmEmployeeCreation
             // 
@@ -305,7 +305,7 @@
             this.btnConfirmEmployeeCreation.TabIndex = 29;
             this.btnConfirmEmployeeCreation.Text = "Create account";
             this.btnConfirmEmployeeCreation.UseVisualStyleBackColor = false;
-            this.btnConfirmEmployeeCreation.Click += new System.EventHandler(this.btnConfirmEmployeeCreation_Click);
+        //    this.btnConfirmEmployeeCreation.Click += new System.EventHandler(this.btnConfirmEmployeeCreation_Click);
             // 
             // groupBoxContractDetailsPopup
             // 
