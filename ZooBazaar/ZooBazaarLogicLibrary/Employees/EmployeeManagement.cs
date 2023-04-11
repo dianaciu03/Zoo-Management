@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DatabaseLogicLibrary;
 
 namespace ZooBazaarLogicLibrary
 {
     public class EmployeeManagement
     {
+        DatabaseEmployeeHelper employeeRepository = new DatabaseEmployeeHelper();
         private List<Employee> employeeList;
 
         public EmployeeManagement() 
@@ -33,6 +35,28 @@ namespace ZooBazaarLogicLibrary
                 }
             }
             return null;
+        }
+
+        public Employee GetEmployeeByEmail(string email)
+        {
+            EmployeeDTO employeeDto = employeeRepository.GetEmployeeByEmail(email);
+            Employee employee = null;
+            switch (employeeDto.EmployeeType) 
+            {
+                case nameof(HRAdministrator):
+                    employee = new HRAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    break;
+                case nameof(AnimalAdministrator):
+                    employee = new AnimalAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    break;
+                case nameof(ScheduleMaker):
+                    employee = new ScheduleMaker(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    break;
+                case nameof(ResourcePlanner):
+                    employee = new ResourcePlanner(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Address, employeeDto.Phone, employeeDto.Password, employeeDto.Email, employeeDto.HoursPerWeek);
+                    break;
+            }
+            return employee;
         }
 
         public List<Employee> GetSearchedEmployees(string firstName, string lastName, string contractType, string role)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -186,6 +187,39 @@ namespace DatabaseLogicLibrary
                     reader.Close();
                     connection.Close();
                     return employees;
+                }
+            }
+        }
+        public EmployeeDTO GetEmployeeByEmail(string email)
+        {
+            EmployeeDTO employee;
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return null; }
+
+                SqlCommand query = new SqlCommand("SELECT * FROM Employees Where Email = @email", connection);
+                query.Parameters.AddWithValue("email", email);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    if (!reader.Read())
+                        return null;
+                    employee = new EmployeeDTO(
+                        reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                        reader.GetString(reader.GetOrdinal("FirstName")),
+                        reader.GetString(reader.GetOrdinal("LastName")),
+                        reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                        reader.GetString(reader.GetOrdinal("Gender")),
+                        reader.GetString(reader.GetOrdinal("Address")),
+                        reader.GetString(reader.GetOrdinal("Phone")),
+                        reader.GetString(reader.GetOrdinal("Password")),
+                        reader.GetString(reader.GetOrdinal("Email")),
+                        reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
+                        reader.GetString(reader.GetOrdinal("EmployeeType")));
+                    reader.Close();
+                    connection.Close();
+                    return employee;
                 }
             }
         }
