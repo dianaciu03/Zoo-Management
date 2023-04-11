@@ -84,31 +84,36 @@ namespace DatabaseLogicLibrary
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                try { connection.Open(); }
-                catch (SqlException) { return; }
+                try { 
+                    connection.Open();
 
-                SqlCommand existsInDatabase = new SqlCommand($"SELECT COUNT(*) FROM Animals WHERE AnimalID = {animal.Id}");
-                if (existsInDatabase.ExecuteScalar() == DBNull.Value)
-                {
-                    UpdateAnimal(animal, connection);
+
+                    SqlCommand existsInDatabase = new SqlCommand($"SELECT AnimalID FROM Animals WHERE AnimalID = {animal.Id}", connection);
+                    if(existsInDatabase.ExecuteScalar() == DBNull.Value)
+                    {
+                        UpdateAnimal(animal, connection);
+                    }
+                    else
+                    {
+                        AddNewAnimal(animal, connection);
+                    }
                 }
-                else
-                {
-                    AddNewAnimal(animal, connection);
-                }
+                catch (SqlException) {  }
+
                 connection.Close();
             }
         }
 
         private void AddNewAnimal(AnimalDTO animal, SqlConnection connection) //Inserts the new Animal into the database.
         {
-            using (SqlCommand command = new SqlCommand("INSERT INTO Animals" +
-                                                       "VALUES (@AnimalID,@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure, @Availability)", connection))
+            using (SqlCommand command = new SqlCommand("INSERT INTO Animals " +
+                                                       "VALUES (@AnimalID,@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure,@Availability)", 
+                                                       connection))
             {
                 command.Parameters.AddWithValue("@AnimalID", animal.Id);
                 command.Parameters.AddWithValue("@Name", animal.Name);
                 command.Parameters.AddWithValue("@Gender", animal.Gender);
-                command.Parameters.AddWithValue("@Speciecs", animal.Species);
+                command.Parameters.AddWithValue("@Species", animal.Species);
                 command.Parameters.AddWithValue("@BirthDate", animal.Birthday);
                 command.Parameters.AddWithValue("@Origin", animal.OriginContinent.ToString());
                 command.Parameters.AddWithValue("@Description", animal.Description);
@@ -130,7 +135,7 @@ namespace DatabaseLogicLibrary
                 command.Parameters.AddWithValue("@AnimalID", animal.Id);
                 command.Parameters.AddWithValue("@Name", animal.Name);
                 command.Parameters.AddWithValue("@Gender", animal.Gender);
-                command.Parameters.AddWithValue("@Speciecs", animal.Species);
+                command.Parameters.AddWithValue("@Species", animal.Species);
                 command.Parameters.AddWithValue("@BirthDate", animal.Birthday);
                 command.Parameters.AddWithValue("@Origin", animal.OriginContinent.ToString());
                 command.Parameters.AddWithValue("@Description", animal.Description);

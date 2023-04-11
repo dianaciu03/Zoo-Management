@@ -18,11 +18,16 @@ namespace ZooBazaarLogicLibrary
             animalsList = DTOToAnimals(animasDTO);
         }
 
-        private List<Animal> DTOToAnimals(List<AnimalDTO> animasDTO)
+        public int NewAnimaID()
+        {
+            return helper.NewAnimalID();
+        }
+
+        private List<Animal> DTOToAnimals(List<AnimalDTO> animalsDTO)
         { 
             List<Animal> animals = new List<Animal>();
 
-            foreach(AnimalDTO animalDTO in animasDTO)
+            foreach(AnimalDTO animalDTO in animalsDTO)
             {
                 Animal animal = new Animal(
                     animalDTO.Id,
@@ -41,8 +46,26 @@ namespace ZooBazaarLogicLibrary
             return animals; 
         }
 
+        private AnimalDTO AnimalToDTO(Animal animal)
+        {
+            return new AnimalDTO(
+                animal.Id,
+                animal.Name,
+                animal.Gender,
+                animal.Species,
+                animal.Birthday,
+                animal.OriginContinent.ToString(),
+                animal.Description,
+                animal.Endangerment.ToString(),
+                animal.Enclosure,
+                animal.Availability);
+        }
+            
         public void AddAnimal(Animal animal)
         {
+            
+            helper.AddUpdateAnimal(AnimalToDTO(animal));
+
             animalsList.Add(animal);
         }
 

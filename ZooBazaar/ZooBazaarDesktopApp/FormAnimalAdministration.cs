@@ -369,27 +369,23 @@ namespace ZooBazaarDesktopApp
                     maskedtbxBirthDateAddAnimalForm.SelectionStart = maskedtbxBirthDateAddAnimalForm.Text.Length;
                 }
 
-                int animalID;
-                if (animalManagement.GetAllAnimals().Length > 0)
-                {
-                    animalID = animalManagement.GetAllAnimals().Last().Id + 1;
-                }
-                else animalID = 1;
+                int animalID = animalManagement.NewAnimaID();
+
 
                 string gender;
                 if (rbtnMaleAddAnimal.Checked) gender = "Male";
                 else if (rbtnFemaleAddAnimal.Checked) gender = "Female";
                 else throw (new Exception("Please select a gender"));
 
-                Animal animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateAddAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value);
+                Animal animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateAddAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
                 animalManagement.AddAnimal(animal);
                 MessageBox.Show($"Animal has been successfully created!\n{animal}");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
 
