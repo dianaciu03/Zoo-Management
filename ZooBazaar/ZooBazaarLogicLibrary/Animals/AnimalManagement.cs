@@ -9,13 +9,41 @@ namespace ZooBazaarLogicLibrary
 {
     public class AnimalManagement
     {
-        List<Animal> animalsList;
-        DatabaseAnimalHelper helper = new DatabaseAnimalHelper();
+        DatabaseAnimalHelper helper;
 
         public AnimalManagement()
         {
-            List<AnimalDTO> animasDTO = helper.GetAllAnimals();
-            animalsList = DTOToAnimals(animasDTO);
+            helper = new DatabaseAnimalHelper();
+        }
+
+        public Animal DTOToAnimal(AnimalDTO animalDTO)
+        {
+            return new Animal(
+                    animalDTO.Id,
+                    animalDTO.Name,
+                    animalDTO.Gender,
+                    animalDTO.Species,
+                    animalDTO.Birthday,
+                    (ORIGINCONTINENT)Enum.Parse(typeof(ORIGINCONTINENT), animalDTO.OriginContinent),
+                    animalDTO.Description,
+                    (ENDANGERMENT)Enum.Parse(typeof(ENDANGERMENT), animalDTO.Endangerment),
+                    animalDTO.Enclosure,
+                    animalDTO.Availability);
+        }
+
+        public AnimalDTO AnimalToDTO(Animal animal)
+        {
+            return new AnimalDTO(
+                    animal.Id,
+                    animal.Name,
+                    animal.Gender,
+                    animal.Species,
+                    animal.Birthday,
+                    animal.OriginContinent.ToString(),
+                    animal.Description,
+                    animal.Endangerment.ToString(),
+                    animal.Enclosure,
+                    animal.Availability);
         }
 
         public int NewAnimaID()
@@ -46,19 +74,9 @@ namespace ZooBazaarLogicLibrary
             return animals; 
         }
 
-        private AnimalDTO AnimalToDTO(Animal animal)
+        public List<Animal> GetAnimals()
         {
-            return new AnimalDTO(
-                animal.Id,
-                animal.Name,
-                animal.Gender,
-                animal.Species,
-                animal.Birthday,
-                animal.OriginContinent.ToString(),
-                animal.Description,
-                animal.Endangerment.ToString(),
-                animal.Enclosure,
-                animal.Availability);
+            return DTOToAnimals(helper.GetAllAnimals());
         }
             
         public void AddAnimal(Animal animal)
@@ -66,13 +84,13 @@ namespace ZooBazaarLogicLibrary
             
             helper.AddUpdateAnimal(AnimalToDTO(animal));
 
-            animalsList.Add(animal);
+            GetAnimals().Add(animal);
         }
 
         public List<Animal> GetSearchedAnimals(string name, string species, string origin, string gender, string availability, string age, string endangerment)
         {
             List<Animal> searchedAnimals = new List<Animal>();
-            foreach (Animal animal in animalsList)
+            foreach (Animal animal in GetAnimals())
             {
                 if(availability == string.Empty)
                 {
@@ -105,7 +123,7 @@ namespace ZooBazaarLogicLibrary
 
         public Animal[] GetAllAnimals()
         {
-            return animalsList.ToArray();
+            return GetAnimals().ToArray();
         }
 
     }

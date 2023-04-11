@@ -176,12 +176,10 @@ namespace ZooBazaarDesktopApp
                 string phone = tbxAnimalTransferPhone.Text;
                 DateTime startDate = dtpStartDate.Value;
                 DateTime endDate = dtpEndDate.Value;
-                if (formDataValidator.IsValidTransfer(name, address, description, startDate, endDate))
+                if (formDataValidator.IsValidTransfer(name, address, description, phone))
                 {
-                    Transfer transfer = new Transfer(name, address, description, startDate, endDate, animal);
-                    animal.Availability = "Transferred";
-                    animal.Transfer = transfer;
-                    transferManagement.AddTransferToList(transfer);
+                    Transfer transfer = new Transfer(name, address, description, startDate, endDate, animal, phone);
+                    transferManagement.SaveTransfer(transfer);
                     MessageBox.Show("Transfer has been successfully created!");
                     //resets to original state
                     btnCancelTransfer_Click(this, EventArgs.Empty);
@@ -314,7 +312,7 @@ namespace ZooBazaarDesktopApp
             try
             {
                 Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
-                MessageBox.Show(animal.GetAnimalDetails());
+                MessageBox.Show(animal.GetAnimalDetails(animal));
             }
             catch(NullReferenceException)
             {

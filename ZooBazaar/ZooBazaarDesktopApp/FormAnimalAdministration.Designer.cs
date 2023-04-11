@@ -199,9 +199,9 @@
             // 
             // tabSearchAnimals
             // 
+            this.tabSearchAnimals.Controls.Add(this.groupBoxEditAnimal);
             this.tabSearchAnimals.Controls.Add(this.groupBoxRelationship);
             this.tabSearchAnimals.Controls.Add(this.groupBoxAnimalTransfer);
-            this.tabSearchAnimals.Controls.Add(this.groupBoxEditAnimal);
             this.tabSearchAnimals.Controls.Add(this.groupBoxSearchAnimal);
             this.tabSearchAnimals.Controls.Add(this.btnTransferAnimal);
             this.tabSearchAnimals.Controls.Add(this.lvwAnimals);
@@ -539,6 +539,7 @@
             // 
             // groupBoxEditAnimal
             // 
+            this.groupBoxEditAnimal.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxEditAnimal.Controls.Add(this.btnConfirmChanges);
             this.groupBoxEditAnimal.Controls.Add(this.labelDateFormatEdit);
             this.groupBoxEditAnimal.Controls.Add(this.labelDateofBirth);

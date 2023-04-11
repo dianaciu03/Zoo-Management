@@ -42,12 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseTransferHelper.cs" />
     <Compile Include="DatabaseZooTaskHelper.cs" />
     <Compile Include="DTOs\AnimalDTO.cs" />
     <Compile Include="ConnectionHelper.cs" />
     <Compile Include="DatabaseAnimalHelper.cs" />
     <Compile Include="DatabaseEmployeeHelper.cs" />
     <Compile Include="DTOs\EmployeeDTO.cs" />
+    <Compile Include="DTOs\TransferDTO.cs" />
     <Compile Include="DTOs\ZooTaskDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

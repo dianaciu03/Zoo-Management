@@ -31,24 +31,6 @@ namespace ZooBazaarLogicLibrary
             return false;
         }
 
-        public bool IsValidAnimalTransferStartDate(DateTime startDate)
-        {
-            if (startDate <= DateTime.Now)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public bool IsValidAnimalTransferEndDate(DateTime endDate)
-        {
-            if (endDate >= DateTime.Now)
-            {
-                return true;
-            }
-            return false;
-        }
-
         //Checks if the employee is at least 16yo, returns true if dob is 16 or older
         public bool IsValidDateOfBirthEmployee(DateTime dateOfBirth)
         {
@@ -101,9 +83,9 @@ namespace ZooBazaarLogicLibrary
             return true;
         }
 
-        public bool IsValidTransfer(string name, string adress, string description, DateTime startDate, DateTime endDate)
+        public bool IsValidTransfer(string name, string adress, string description, string phone)
         {
-            if (IsValidStringOnly(name) && !String.IsNullOrEmpty(adress) && !String.IsNullOrEmpty(description) && IsValidAnimalTransferStartDate(startDate) && IsValidAnimalTransferEndDate(endDate))
+            if (IsValidStringOnly(name) && !String.IsNullOrEmpty(adress) && !String.IsNullOrEmpty(description) && !String.IsNullOrEmpty(phone))
                 return true;
             else
                 return false;

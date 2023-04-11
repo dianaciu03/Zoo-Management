@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseLogicLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,6 @@ namespace ZooBazaarLogicLibrary
         private ENDANGERMENT endangerment;
         private int enclosure;
         private string availability;
-
-        public Transfer Transfer { get; set; }
 
         public Animal(int id, string name, string gender, string species, DateTime birthday, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure)
         {
@@ -80,15 +79,39 @@ namespace ZooBazaarLogicLibrary
             return $"{this.name} ({this.species} - {this.gender})";
         }
 
-        public string GetAnimalDetails()
+        public string GetAnimalDetails(Animal animal)
         {
-            string info = $"{this.name} ({this.species} - {this.gender})\nAge: {GetAge()}\nBirthday: {birthday}\nOrigin continent: {origin}, enclosure: {enclosure}\nEndangerment level: {endangerment}\n\nTransfer details: ";
-            if (availability == "Available")
+            TransferManagement tm = new TransferManagement();
+            List<Transfer> transfers = tm.GetAllTransfersById(animal.Id);
+            string info = $"{this.name} ({this.species} - {this.gender})\nAge: {GetAge()}\nBirthday: {birthday}\nOrigin continent: {origin}, enclosure: {enclosure}\nEndangerment level: {endangerment}\n\nCurrent status:\n";
+           
+            string currentTransferInfo = "";
+            string pastTransferInfo = "";
+            string futureTransferInfo = "";
+            foreach (Transfer transfer in transfers)
             {
-                info += "Animal is currently available in the zoo";
+                if(transfer.StartDate <= DateTime.Now && transfer.EndDate >= DateTime.Now)
+                {
+                    currentTransferInfo = $"Animal is currently transferred to another zoo\nZoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.Date}\nEnd date: {transfer.EndDate.Date}\nComments: {transfer.Description}\n";
+                }
+                else if (transfer.EndDate < DateTime.Now)
+                {
+                    pastTransferInfo += $"~ Zoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.Date}\nEnd date: {transfer.EndDate.Date}\nComments: {transfer.Description}\n";
+                }
+                else if (transfer.StartDate > DateTime.Now)
+                {
+                    futureTransferInfo += $"~ Zoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.Date}\nEnd date: {transfer.EndDate.Date}\nComments: {transfer.Description}\n";
+                }
+            }
+            if (String.IsNullOrEmpty(currentTransferInfo))
+            {
+                info += "Animal is currently available in the zoo\n";
             }
             else
-                info += $"Animal is currently transferred to another zoo\nZoo name: {Transfer.ZooName}\nZoo address: {Transfer.ZooAdress}\nStart date: {Transfer.StartDate}\nEnd date: {Transfer.EndDate}\nComments: {Transfer.Description}";
+            {
+                info += currentTransferInfo;
+            }
+            info += "\nTransfer history:\n" + pastTransferInfo + "\nFuture transfers:\n" + futureTransferInfo;
             return info;
         }
 
