@@ -1629,7 +1629,12 @@
             // 
             // cbRelationShipType
             // 
+            this.cbRelationShipType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRelationShipType.FormattingEnabled = true;
+            this.cbRelationShipType.Items.AddRange(new object[] {
+            "Parent of",
+            "Child of",
+            "Mate of"});
             this.cbRelationShipType.Location = new System.Drawing.Point(34, 101);
             this.cbRelationShipType.Margin = new System.Windows.Forms.Padding(2);
             this.cbRelationShipType.Name = "cbRelationShipType";
