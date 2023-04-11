@@ -22,6 +22,7 @@ namespace ZooBazaarDesktopApp
             InitializeComponent();
             employeeManagement = emMng;
             this.BackgroundImageLayout = ImageLayout.Stretch;
+            updateEmployeeListview(employeeManagement.GetEmployees());
             //cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
            // cbxRole.SelectedIndex = -1;
 

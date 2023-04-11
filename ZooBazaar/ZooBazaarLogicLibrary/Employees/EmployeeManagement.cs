@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLogicLibrary;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ZooBazaarLogicLibrary
 {
@@ -26,8 +27,35 @@ namespace ZooBazaarLogicLibrary
             employeeRepository.AddUpdateEmployee(employeeDto);
         }
         public Employee[] GetEmployees()
-        {
-            return employeeList.ToArray();
+        { 
+            List<Employee> employees = new List<Employee>();
+            foreach (EmployeeDTO employeeDto in employeeRepository.GetAllEmployees())
+            {
+                if (employeeDto == null)
+                    return null;
+                Employee employee = null;
+                switch (employeeDto.EmployeeType)
+                {
+                    case nameof(HRAdministrator):
+                        employee = new HRAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
+                        employees.Add(employee);
+                        break;
+                    case nameof(AnimalAdministrator):
+                        employee = new AnimalAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
+                        employees.Add(employee);
+                        break;
+                    case nameof(ScheduleMaker):
+                        employee = new ScheduleMaker(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
+                        employees.Add(employee);
+                        break;
+                    case nameof(ResourcePlanner):
+                        employee = new ResourcePlanner(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
+                        employees.Add(employee);
+                        break;
+                    default: break;
+                }
+            }
+            return employees.ToArray();
         }
 
         public Employee GetEmployee(string email, string password)
