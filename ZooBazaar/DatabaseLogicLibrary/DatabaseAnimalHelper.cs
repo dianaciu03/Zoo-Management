@@ -172,7 +172,7 @@ namespace DatabaseLogicLibrary
             }
         }
 
-        public List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int age, string endangerment)
+        public List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int? age, string endangerment, string availability)
         {
             List<AnimalDTO> animals = new List<AnimalDTO>();
 
@@ -186,12 +186,13 @@ namespace DatabaseLogicLibrary
 
                 //Dynamic SQL query to find the festivals that the user is searching for.
                 SqlCommand query = new SqlCommand("SELECT * FROM Animals WHERE " +
-                    "(Name LIKE '%' + @Name ) AND" +
-                    "(Species LIKE '%' @Species) AND" +
-                    "(Origin = @Origin) AND" +
-                    "(Gender = @Gender) AND" +
-                    "((BirthDate > @birthDateOneYear AND BirthDate < @birthDate) OR @birthDate is NULL ) AND" +
-                    "(Endangerment LIKE '%' @Endangerment)" +
+                    "(Name LIKE '%' + @Name + '%') AND " +
+                    "(Species LIKE '%' + @Species + '%') AND " +
+                    "(Origin = @Origin OR @Origin = '')  AND " +
+                    "(Gender = @Gender OR @Gender = '') AND " +
+                    "((BirthDate > @birthDateOneYear AND BirthDate < @birthDate) OR @birthDate is NULL ) AND " +
+                    "(Endangerment = @Endangerment OR @Endangerment = '') AND " +
+                    "(Availability = @Availability OR @Availability = '') " +
                     "ORDER BY Name;", connection);
 
                 query.Parameters.AddWithValue("@Name", name);
@@ -199,11 +200,12 @@ namespace DatabaseLogicLibrary
                 query.Parameters.AddWithValue("@Origin", origin);
                 query.Parameters.AddWithValue("@Gender", gender);
                 query.Parameters.AddWithValue("@Endangerment", endangerment);
+                query.Parameters.AddWithValue("@Availability", availability);
 
-                if (age >= 0)
+                if (age != null)
                 {
-                    query.Parameters.AddWithValue("@birthDateOneYear", DateTime.Today.AddYears(-age - 1));
-                    query.Parameters.AddWithValue("@birthDate", DateTime.Today.AddYears(-age));
+                    query.Parameters.AddWithValue("@birthDateOneYear", DateTime.Today.AddYears(-Convert.ToInt32(age) - 1));
+                    query.Parameters.AddWithValue("@birthDate", DateTime.Today.AddYears(-Convert.ToInt32(age)));
                 }
                 else
                 {

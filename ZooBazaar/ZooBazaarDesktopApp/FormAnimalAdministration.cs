@@ -244,7 +244,7 @@ namespace ZooBazaarDesktopApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please select an animal to add relationship!\n" + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
         private void btnAddNewRelationship_Click(object sender, EventArgs e)
@@ -344,7 +344,14 @@ namespace ZooBazaarDesktopApp
             else if (cbAvailable.Checked == false && cbTransferred.Checked == false || cbAvailable.Checked == false && cbTransferred.Checked == false)
                 availability = string.Empty;
 
-            searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, tbxSpecies.Text, cbxOrigin.Text, gender, availability, tbxAge.Text, cbxEndangerment.Text);
+            int? age = null;
+            if (tbxAge.Text != "")
+            {
+                age = Convert.ToInt32(tbxAge.Text);
+            }
+
+
+            searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, tbxSpecies.Text, cbxOrigin.Text, gender, availability, age, cbxEndangerment.Text);
             updateAnimalListview(searchedAnimals.ToArray());
         }
 

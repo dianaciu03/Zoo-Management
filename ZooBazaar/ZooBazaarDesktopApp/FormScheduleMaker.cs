@@ -101,7 +101,7 @@ namespace ZooBazaarDesktopApp
         {
             try
             {
-                seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", "", "");
+                seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", 0, "");
                 updateSearchedAnimalListView();
                 if (tbxSearchByName.Text == "") { lvwAnimalSearch.Items.Clear(); }
             }
@@ -110,7 +110,7 @@ namespace ZooBazaarDesktopApp
 
         private void cbxSearchBySpecie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", "", "");
+            seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", 0, "");
             updateSearchedAnimalListView();
             if (cbxSearchBySpecie.SelectedIndex == 0)
             {
