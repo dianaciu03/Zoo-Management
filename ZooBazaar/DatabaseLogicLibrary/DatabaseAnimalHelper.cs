@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -240,7 +241,7 @@ namespace DatabaseLogicLibrary
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO AnimalRelationships " +
-                    $"VALUES(True, @AnimalIDParent, @AnimalIDChild)");
+                    $"VALUES(1, @AnimalIDParent, @AnimalIDChild)", connection);
                 
                 command.Parameters.AddWithValue("@AnimalIDParent", animalIDParent);
                 command.Parameters.AddWithValue("@AnimalIDChild", animalIDChild);
@@ -265,7 +266,7 @@ namespace DatabaseLogicLibrary
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO AnimalRelationships " +
-                    $"VALUES(False, @AnimalIDMale, @AnimalIDFemale)");
+                    $"VALUES(0, @AnimalIDMale, @AnimalIDFemale)", connection);
 
                 command.Parameters.AddWithValue("@AnimalIDMale", animalIDMale);
                 command.Parameters.AddWithValue("@AnimalIDFemale", animalIDFemale);
@@ -426,6 +427,47 @@ namespace DatabaseLogicLibrary
                 finally { connection.Close(); }
 
                 return animals;
+            }
+        }
+
+        public List<AnimalDTO> OtherInSpeciesSearch(int animalID, string species)
+        {
+            List<AnimalDTO> animals = new List<AnimalDTO>();
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return animals; }
+
+                SqlCommand query = new SqlCommand("SELECT * FROM Animals " +
+                    "WHERE Species = @Species AND AnimalID != @AnimalID;", connection);
+
+                query.Parameters.AddWithValue("@Species", species);
+                query.Parameters.AddWithValue("@AnimalID", animalID);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AnimalDTO animal = new AnimalDTO(
+                                    reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                                    reader.GetString(reader.GetOrdinal("Name")),
+                                    reader.GetString(reader.GetOrdinal("Gender")),
+                                    reader.GetString(reader.GetOrdinal("Species")),
+                                    reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                                    reader.GetString(reader.GetOrdinal("Origin")),
+                                    reader.GetString(reader.GetOrdinal("Description")),
+                                    reader.GetString(reader.GetOrdinal("Endangerment")),
+                                    reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                                    reader.GetString(reader.GetOrdinal("Availability")));
+
+                        animals.Add(animal);
+                    }
+
+                    reader.Close();
+                    connection.Close();
+                    return animals;
+                }
             }
         }
 

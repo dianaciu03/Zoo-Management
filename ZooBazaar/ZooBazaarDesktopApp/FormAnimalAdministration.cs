@@ -210,9 +210,15 @@ namespace ZooBazaarDesktopApp
         //button that makes the group box for adding a relationship to an animal visible (step 1 relationship)
         private void btnAddRelationship_Click(object sender, EventArgs e)
         {
+
+
+            cbxRelationshipType.SelectedIndex = 0;
             try
             {
                 Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
+
+                cbxOtherAnimalRelationship.DataSource = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
+
                 groupBoxSearchAnimal.Visible = false;
                 groupBoxRelationship.Visible = true;
                 lvwAnimals.Enabled = false;
@@ -225,11 +231,59 @@ namespace ZooBazaarDesktopApp
         }
         private void btnAddNewRelationship_Click(object sender, EventArgs e)
         {
-            //NEEDS IMPLEMENTATION
-
-            MessageBox.Show("Relationship has been added successfully!");
-            //reset to original state
-            btnCancelRelationship_Click(this, EventArgs.Empty);
+            switch (cbxRelationshipType.SelectedIndex)
+            {
+                case 0:
+                    {
+                        animalManagement.AddParentChildRelationship(
+                            ((Animal)lvwAnimals.SelectedItems[0].Tag).Id,
+                            ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id);
+                        MessageBox.Show("Relationship has been added successfully!");
+                        btnCancelRelationship_Click(this, EventArgs.Empty);
+                        break;
+                    }
+                case 1:
+                    {
+                        animalManagement.AddParentChildRelationship(
+                            ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id,
+                            ((Animal)lvwAnimals.SelectedItems[0].Tag).Id);
+                        MessageBox.Show("Relationship has been added successfully!");
+                        btnCancelRelationship_Click(this, EventArgs.Empty);
+                        break;
+                    }
+                case 2:
+                    {
+                        if(((Animal)cbxOtherAnimalRelationship.SelectedItem).Gender == "Male" &&
+                            ((Animal)lvwAnimals.SelectedItems[0].Tag).Gender == "Female")
+                        {
+                            animalManagement.AddMateRelationship(
+                                ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id,
+                                ((Animal)lvwAnimals.SelectedItems[0].Tag).Id);
+                            MessageBox.Show("Relationship has been added successfully!");
+                            btnCancelRelationship_Click(this, EventArgs.Empty);
+                        }
+                        else if (((Animal)cbxOtherAnimalRelationship.SelectedItem).Gender == "Female" &&
+                            ((Animal)lvwAnimals.SelectedItems[0].Tag).Gender == "Male")
+                        {
+                            animalManagement.AddMateRelationship(
+                                ((Animal)lvwAnimals.SelectedItems[0].Tag).Id,
+                                ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id);
+                            MessageBox.Show("Relationship has been added successfully!");
+                            btnCancelRelationship_Click(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The mates must not be of the same gender.");
+                        }
+                        break;
+                    }
+                default:
+                    {
+                        MessageBox.Show("Please select a realationship type.");
+                        break;
+                    }
+            }
+    
         }
 
         private void btnCancelRelationship_Click(object sender, EventArgs e)

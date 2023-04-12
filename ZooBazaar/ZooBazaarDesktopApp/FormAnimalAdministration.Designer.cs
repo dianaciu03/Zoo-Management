@@ -30,6 +30,27 @@
         {
             this.tabControlAnimals = new System.Windows.Forms.TabControl();
             this.tabSearchAnimals = new System.Windows.Forms.TabPage();
+            this.groupBoxEditAnimal = new System.Windows.Forms.GroupBox();
+            this.btnConfirmChanges = new System.Windows.Forms.Button();
+            this.labelDateFormatEdit = new System.Windows.Forms.Label();
+            this.labelDateofBirth = new System.Windows.Forms.Label();
+            this.btnCancelEditAnimalDetails = new System.Windows.Forms.Button();
+            this.maskedtbxDateOfBirthEdit = new System.Windows.Forms.MaskedTextBox();
+            this.rbtnMaleEdit = new System.Windows.Forms.RadioButton();
+            this.rbtnFemaleEdit = new System.Windows.Forms.RadioButton();
+            this.labelGenderEdit = new System.Windows.Forms.Label();
+            this.numudEnclosureEdit = new System.Windows.Forms.NumericUpDown();
+            this.labelEnclosureNrEdit = new System.Windows.Forms.Label();
+            this.tbxAdditionalCommentsEdit = new System.Windows.Forms.TextBox();
+            this.labelAdditionalCommentsEdit = new System.Windows.Forms.Label();
+            this.cbxEndangermentEdit = new System.Windows.Forms.ComboBox();
+            this.cbxContinentEdit = new System.Windows.Forms.ComboBox();
+            this.labelEndangerEdit = new System.Windows.Forms.Label();
+            this.tbxSpeciesEdit = new System.Windows.Forms.TextBox();
+            this.tbxNameEdit = new System.Windows.Forms.TextBox();
+            this.labelContinentEdit = new System.Windows.Forms.Label();
+            this.labelSpeciesEdit = new System.Windows.Forms.Label();
+            this.labelNameEdit = new System.Windows.Forms.Label();
             this.groupBoxRelationship = new System.Windows.Forms.GroupBox();
             this.btnRemoveRelationship = new System.Windows.Forms.Button();
             this.btnCancelRelationship = new System.Windows.Forms.Button();
@@ -59,27 +80,6 @@
             this.labelAdressTransfer = new System.Windows.Forms.Label();
             this.tbxZooNameTransfer = new System.Windows.Forms.TextBox();
             this.labelZooNameTransfer = new System.Windows.Forms.Label();
-            this.groupBoxEditAnimal = new System.Windows.Forms.GroupBox();
-            this.btnConfirmChanges = new System.Windows.Forms.Button();
-            this.labelDateFormatEdit = new System.Windows.Forms.Label();
-            this.labelDateofBirth = new System.Windows.Forms.Label();
-            this.btnCancelEditAnimalDetails = new System.Windows.Forms.Button();
-            this.maskedtbxDateOfBirthEdit = new System.Windows.Forms.MaskedTextBox();
-            this.rbtnMaleEdit = new System.Windows.Forms.RadioButton();
-            this.rbtnFemaleEdit = new System.Windows.Forms.RadioButton();
-            this.labelGenderEdit = new System.Windows.Forms.Label();
-            this.numudEnclosureEdit = new System.Windows.Forms.NumericUpDown();
-            this.labelEnclosureNrEdit = new System.Windows.Forms.Label();
-            this.tbxAdditionalCommentsEdit = new System.Windows.Forms.TextBox();
-            this.labelAdditionalCommentsEdit = new System.Windows.Forms.Label();
-            this.cbxEndangermentEdit = new System.Windows.Forms.ComboBox();
-            this.cbxContinentEdit = new System.Windows.Forms.ComboBox();
-            this.labelEndangerEdit = new System.Windows.Forms.Label();
-            this.tbxSpeciesEdit = new System.Windows.Forms.TextBox();
-            this.tbxNameEdit = new System.Windows.Forms.TextBox();
-            this.labelContinentEdit = new System.Windows.Forms.Label();
-            this.labelSpeciesEdit = new System.Windows.Forms.Label();
-            this.labelNameEdit = new System.Windows.Forms.Label();
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
             this.tbxAge = new System.Windows.Forms.TextBox();
             this.labelAgeSearch = new System.Windows.Forms.Label();
@@ -172,10 +172,10 @@
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
             this.tabControlAnimals.SuspendLayout();
             this.tabSearchAnimals.SuspendLayout();
-            this.groupBoxRelationship.SuspendLayout();
-            this.groupBoxAnimalTransfer.SuspendLayout();
             this.groupBoxEditAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).BeginInit();
+            this.groupBoxRelationship.SuspendLayout();
+            this.groupBoxAnimalTransfer.SuspendLayout();
             this.groupBoxSearchAnimal.SuspendLayout();
             this.tabAnimalHistory.SuspendLayout();
             this.tabPageAddAnimal.SuspendLayout();
@@ -215,6 +215,243 @@
             this.tabSearchAnimals.TabIndex = 0;
             this.tabSearchAnimals.Text = "Search animals";
             this.tabSearchAnimals.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxEditAnimal
+            // 
+            this.groupBoxEditAnimal.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxEditAnimal.Controls.Add(this.btnConfirmChanges);
+            this.groupBoxEditAnimal.Controls.Add(this.labelDateFormatEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelDateofBirth);
+            this.groupBoxEditAnimal.Controls.Add(this.btnCancelEditAnimalDetails);
+            this.groupBoxEditAnimal.Controls.Add(this.maskedtbxDateOfBirthEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.rbtnMaleEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.rbtnFemaleEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelGenderEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.numudEnclosureEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelEnclosureNrEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.tbxAdditionalCommentsEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelAdditionalCommentsEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.cbxEndangermentEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.cbxContinentEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelEndangerEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.tbxSpeciesEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.tbxNameEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelContinentEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelSpeciesEdit);
+            this.groupBoxEditAnimal.Controls.Add(this.labelNameEdit);
+            this.groupBoxEditAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxEditAnimal.Location = new System.Drawing.Point(18, 236);
+            this.groupBoxEditAnimal.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.groupBoxEditAnimal.Name = "groupBoxEditAnimal";
+            this.groupBoxEditAnimal.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.groupBoxEditAnimal.Size = new System.Drawing.Size(630, 850);
+            this.groupBoxEditAnimal.TabIndex = 43;
+            this.groupBoxEditAnimal.TabStop = false;
+            this.groupBoxEditAnimal.Text = "Animal details:";
+            // 
+            // btnConfirmChanges
+            // 
+            this.btnConfirmChanges.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnConfirmChanges.Location = new System.Drawing.Point(21, 740);
+            this.btnConfirmChanges.Name = "btnConfirmChanges";
+            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 52);
+            this.btnConfirmChanges.TabIndex = 42;
+            this.btnConfirmChanges.Text = "Confirm";
+            this.btnConfirmChanges.UseVisualStyleBackColor = false;
+            this.btnConfirmChanges.Click += new System.EventHandler(this.btnConfirmChanges_Click);
+            // 
+            // labelDateFormatEdit
+            // 
+            this.labelDateFormatEdit.AutoSize = true;
+            this.labelDateFormatEdit.Location = new System.Drawing.Point(359, 269);
+            this.labelDateFormatEdit.Name = "labelDateFormatEdit";
+            this.labelDateFormatEdit.Size = new System.Drawing.Size(155, 29);
+            this.labelDateFormatEdit.TabIndex = 39;
+            this.labelDateFormatEdit.Text = "(mm/dd/yyyy)";
+            // 
+            // labelDateofBirth
+            // 
+            this.labelDateofBirth.AutoSize = true;
+            this.labelDateofBirth.Location = new System.Drawing.Point(17, 269);
+            this.labelDateofBirth.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelDateofBirth.Name = "labelDateofBirth";
+            this.labelDateofBirth.Size = new System.Drawing.Size(148, 29);
+            this.labelDateofBirth.TabIndex = 38;
+            this.labelDateofBirth.Text = "Date of birth:";
+            // 
+            // btnCancelEditAnimalDetails
+            // 
+            this.btnCancelEditAnimalDetails.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnCancelEditAnimalDetails.Location = new System.Drawing.Point(334, 740);
+            this.btnCancelEditAnimalDetails.Name = "btnCancelEditAnimalDetails";
+            this.btnCancelEditAnimalDetails.Size = new System.Drawing.Size(261, 52);
+            this.btnCancelEditAnimalDetails.TabIndex = 41;
+            this.btnCancelEditAnimalDetails.Text = "Cancel";
+            this.btnCancelEditAnimalDetails.UseVisualStyleBackColor = false;
+            this.btnCancelEditAnimalDetails.Click += new System.EventHandler(this.btnCancelEditAnimalDetails_Click);
+            // 
+            // maskedtbxDateOfBirthEdit
+            // 
+            this.maskedtbxDateOfBirthEdit.Location = new System.Drawing.Point(205, 266);
+            this.maskedtbxDateOfBirthEdit.Mask = "00/00/0000";
+            this.maskedtbxDateOfBirthEdit.Name = "maskedtbxDateOfBirthEdit";
+            this.maskedtbxDateOfBirthEdit.ResetOnSpace = false;
+            this.maskedtbxDateOfBirthEdit.Size = new System.Drawing.Size(129, 35);
+            this.maskedtbxDateOfBirthEdit.TabIndex = 35;
+            // 
+            // rbtnMaleEdit
+            // 
+            this.rbtnMaleEdit.AutoSize = true;
+            this.rbtnMaleEdit.Location = new System.Drawing.Point(205, 218);
+            this.rbtnMaleEdit.Name = "rbtnMaleEdit";
+            this.rbtnMaleEdit.Size = new System.Drawing.Size(84, 33);
+            this.rbtnMaleEdit.TabIndex = 31;
+            this.rbtnMaleEdit.TabStop = true;
+            this.rbtnMaleEdit.Text = "Male";
+            this.rbtnMaleEdit.UseVisualStyleBackColor = true;
+            // 
+            // rbtnFemaleEdit
+            // 
+            this.rbtnFemaleEdit.AutoSize = true;
+            this.rbtnFemaleEdit.Location = new System.Drawing.Point(315, 218);
+            this.rbtnFemaleEdit.Name = "rbtnFemaleEdit";
+            this.rbtnFemaleEdit.Size = new System.Drawing.Size(113, 33);
+            this.rbtnFemaleEdit.TabIndex = 30;
+            this.rbtnFemaleEdit.TabStop = true;
+            this.rbtnFemaleEdit.Text = "Female";
+            this.rbtnFemaleEdit.UseVisualStyleBackColor = true;
+            // 
+            // labelGenderEdit
+            // 
+            this.labelGenderEdit.AutoSize = true;
+            this.labelGenderEdit.Location = new System.Drawing.Point(16, 220);
+            this.labelGenderEdit.Name = "labelGenderEdit";
+            this.labelGenderEdit.Size = new System.Drawing.Size(100, 29);
+            this.labelGenderEdit.TabIndex = 29;
+            this.labelGenderEdit.Text = "Gender:";
+            // 
+            // numudEnclosureEdit
+            // 
+            this.numudEnclosureEdit.Location = new System.Drawing.Point(205, 378);
+            this.numudEnclosureEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.numudEnclosureEdit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numudEnclosureEdit.Name = "numudEnclosureEdit";
+            this.numudEnclosureEdit.Size = new System.Drawing.Size(129, 35);
+            this.numudEnclosureEdit.TabIndex = 17;
+            this.numudEnclosureEdit.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // labelEnclosureNrEdit
+            // 
+            this.labelEnclosureNrEdit.AutoSize = true;
+            this.labelEnclosureNrEdit.Location = new System.Drawing.Point(16, 380);
+            this.labelEnclosureNrEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEnclosureNrEdit.Name = "labelEnclosureNrEdit";
+            this.labelEnclosureNrEdit.Size = new System.Drawing.Size(154, 29);
+            this.labelEnclosureNrEdit.TabIndex = 16;
+            this.labelEnclosureNrEdit.Text = "Enclosure nr:";
+            // 
+            // tbxAdditionalCommentsEdit
+            // 
+            this.tbxAdditionalCommentsEdit.Location = new System.Drawing.Point(21, 483);
+            this.tbxAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.tbxAdditionalCommentsEdit.Multiline = true;
+            this.tbxAdditionalCommentsEdit.Name = "tbxAdditionalCommentsEdit";
+            this.tbxAdditionalCommentsEdit.Size = new System.Drawing.Size(581, 226);
+            this.tbxAdditionalCommentsEdit.TabIndex = 15;
+            // 
+            // labelAdditionalCommentsEdit
+            // 
+            this.labelAdditionalCommentsEdit.AutoSize = true;
+            this.labelAdditionalCommentsEdit.Location = new System.Drawing.Point(16, 439);
+            this.labelAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAdditionalCommentsEdit.Name = "labelAdditionalCommentsEdit";
+            this.labelAdditionalCommentsEdit.Size = new System.Drawing.Size(243, 29);
+            this.labelAdditionalCommentsEdit.TabIndex = 14;
+            this.labelAdditionalCommentsEdit.Text = "Additional comments:";
+            // 
+            // cbxEndangermentEdit
+            // 
+            this.cbxEndangermentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEndangermentEdit.FormattingEnabled = true;
+            this.cbxEndangermentEdit.Location = new System.Drawing.Point(205, 320);
+            this.cbxEndangermentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cbxEndangermentEdit.Name = "cbxEndangermentEdit";
+            this.cbxEndangermentEdit.Size = new System.Drawing.Size(397, 37);
+            this.cbxEndangermentEdit.TabIndex = 13;
+            // 
+            // cbxContinentEdit
+            // 
+            this.cbxContinentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxContinentEdit.FormattingEnabled = true;
+            this.cbxContinentEdit.Location = new System.Drawing.Point(205, 163);
+            this.cbxContinentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cbxContinentEdit.Name = "cbxContinentEdit";
+            this.cbxContinentEdit.Size = new System.Drawing.Size(397, 37);
+            this.cbxContinentEdit.TabIndex = 9;
+            // 
+            // labelEndangerEdit
+            // 
+            this.labelEndangerEdit.AutoSize = true;
+            this.labelEndangerEdit.Location = new System.Drawing.Point(16, 323);
+            this.labelEndangerEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelEndangerEdit.Name = "labelEndangerEdit";
+            this.labelEndangerEdit.Size = new System.Drawing.Size(177, 29);
+            this.labelEndangerEdit.TabIndex = 8;
+            this.labelEndangerEdit.Text = "Endangerment:";
+            // 
+            // tbxSpeciesEdit
+            // 
+            this.tbxSpeciesEdit.Location = new System.Drawing.Point(205, 106);
+            this.tbxSpeciesEdit.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxSpeciesEdit.Name = "tbxSpeciesEdit";
+            this.tbxSpeciesEdit.Size = new System.Drawing.Size(397, 35);
+            this.tbxSpeciesEdit.TabIndex = 6;
+            // 
+            // tbxNameEdit
+            // 
+            this.tbxNameEdit.Location = new System.Drawing.Point(205, 48);
+            this.tbxNameEdit.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxNameEdit.Name = "tbxNameEdit";
+            this.tbxNameEdit.Size = new System.Drawing.Size(397, 35);
+            this.tbxNameEdit.TabIndex = 5;
+            // 
+            // labelContinentEdit
+            // 
+            this.labelContinentEdit.AutoSize = true;
+            this.labelContinentEdit.Location = new System.Drawing.Point(16, 166);
+            this.labelContinentEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelContinentEdit.Name = "labelContinentEdit";
+            this.labelContinentEdit.Size = new System.Drawing.Size(121, 29);
+            this.labelContinentEdit.TabIndex = 2;
+            this.labelContinentEdit.Text = "Continent:";
+            // 
+            // labelSpeciesEdit
+            // 
+            this.labelSpeciesEdit.AutoSize = true;
+            this.labelSpeciesEdit.Location = new System.Drawing.Point(16, 109);
+            this.labelSpeciesEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelSpeciesEdit.Name = "labelSpeciesEdit";
+            this.labelSpeciesEdit.Size = new System.Drawing.Size(107, 29);
+            this.labelSpeciesEdit.TabIndex = 1;
+            this.labelSpeciesEdit.Text = "Species:";
+            // 
+            // labelNameEdit
+            // 
+            this.labelNameEdit.AutoSize = true;
+            this.labelNameEdit.Location = new System.Drawing.Point(16, 51);
+            this.labelNameEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelNameEdit.Name = "labelNameEdit";
+            this.labelNameEdit.Size = new System.Drawing.Size(84, 29);
+            this.labelNameEdit.TabIndex = 0;
+            this.labelNameEdit.Text = "Name:";
             // 
             // groupBoxRelationship
             // 
@@ -310,7 +547,12 @@
             // 
             // cbxRelationshipType
             // 
+            this.cbxRelationshipType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRelationshipType.FormattingEnabled = true;
+            this.cbxRelationshipType.Items.AddRange(new object[] {
+            "Parent of",
+            "Child of",
+            "Mate of"});
             this.cbxRelationshipType.Location = new System.Drawing.Point(33, 139);
             this.cbxRelationshipType.Margin = new System.Windows.Forms.Padding(2);
             this.cbxRelationshipType.Name = "cbxRelationshipType";
@@ -536,243 +778,6 @@
             this.labelZooNameTransfer.Size = new System.Drawing.Size(127, 29);
             this.labelZooNameTransfer.TabIndex = 6;
             this.labelZooNameTransfer.Text = "Zoo name:";
-            // 
-            // groupBoxEditAnimal
-            // 
-            this.groupBoxEditAnimal.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxEditAnimal.Controls.Add(this.btnConfirmChanges);
-            this.groupBoxEditAnimal.Controls.Add(this.labelDateFormatEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelDateofBirth);
-            this.groupBoxEditAnimal.Controls.Add(this.btnCancelEditAnimalDetails);
-            this.groupBoxEditAnimal.Controls.Add(this.maskedtbxDateOfBirthEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.rbtnMaleEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.rbtnFemaleEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelGenderEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.numudEnclosureEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelEnclosureNrEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.tbxAdditionalCommentsEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelAdditionalCommentsEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.cbxEndangermentEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.cbxContinentEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelEndangerEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.tbxSpeciesEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.tbxNameEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelContinentEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelSpeciesEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.labelNameEdit);
-            this.groupBoxEditAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxEditAnimal.Location = new System.Drawing.Point(29, 18);
-            this.groupBoxEditAnimal.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.groupBoxEditAnimal.Name = "groupBoxEditAnimal";
-            this.groupBoxEditAnimal.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.groupBoxEditAnimal.Size = new System.Drawing.Size(630, 850);
-            this.groupBoxEditAnimal.TabIndex = 43;
-            this.groupBoxEditAnimal.TabStop = false;
-            this.groupBoxEditAnimal.Text = "Animal details:";
-            // 
-            // btnConfirmChanges
-            // 
-            this.btnConfirmChanges.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnConfirmChanges.Location = new System.Drawing.Point(21, 740);
-            this.btnConfirmChanges.Name = "btnConfirmChanges";
-            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 52);
-            this.btnConfirmChanges.TabIndex = 42;
-            this.btnConfirmChanges.Text = "Confirm";
-            this.btnConfirmChanges.UseVisualStyleBackColor = false;
-            this.btnConfirmChanges.Click += new System.EventHandler(this.btnConfirmChanges_Click);
-            // 
-            // labelDateFormatEdit
-            // 
-            this.labelDateFormatEdit.AutoSize = true;
-            this.labelDateFormatEdit.Location = new System.Drawing.Point(359, 269);
-            this.labelDateFormatEdit.Name = "labelDateFormatEdit";
-            this.labelDateFormatEdit.Size = new System.Drawing.Size(155, 29);
-            this.labelDateFormatEdit.TabIndex = 39;
-            this.labelDateFormatEdit.Text = "(mm/dd/yyyy)";
-            // 
-            // labelDateofBirth
-            // 
-            this.labelDateofBirth.AutoSize = true;
-            this.labelDateofBirth.Location = new System.Drawing.Point(17, 269);
-            this.labelDateofBirth.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelDateofBirth.Name = "labelDateofBirth";
-            this.labelDateofBirth.Size = new System.Drawing.Size(148, 29);
-            this.labelDateofBirth.TabIndex = 38;
-            this.labelDateofBirth.Text = "Date of birth:";
-            // 
-            // btnCancelEditAnimalDetails
-            // 
-            this.btnCancelEditAnimalDetails.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnCancelEditAnimalDetails.Location = new System.Drawing.Point(334, 740);
-            this.btnCancelEditAnimalDetails.Name = "btnCancelEditAnimalDetails";
-            this.btnCancelEditAnimalDetails.Size = new System.Drawing.Size(261, 52);
-            this.btnCancelEditAnimalDetails.TabIndex = 41;
-            this.btnCancelEditAnimalDetails.Text = "Cancel";
-            this.btnCancelEditAnimalDetails.UseVisualStyleBackColor = false;
-            this.btnCancelEditAnimalDetails.Click += new System.EventHandler(this.btnCancelEditAnimalDetails_Click);
-            // 
-            // maskedtbxDateOfBirthEdit
-            // 
-            this.maskedtbxDateOfBirthEdit.Location = new System.Drawing.Point(205, 266);
-            this.maskedtbxDateOfBirthEdit.Mask = "00/00/0000";
-            this.maskedtbxDateOfBirthEdit.Name = "maskedtbxDateOfBirthEdit";
-            this.maskedtbxDateOfBirthEdit.ResetOnSpace = false;
-            this.maskedtbxDateOfBirthEdit.Size = new System.Drawing.Size(129, 35);
-            this.maskedtbxDateOfBirthEdit.TabIndex = 35;
-            // 
-            // rbtnMaleEdit
-            // 
-            this.rbtnMaleEdit.AutoSize = true;
-            this.rbtnMaleEdit.Location = new System.Drawing.Point(205, 218);
-            this.rbtnMaleEdit.Name = "rbtnMaleEdit";
-            this.rbtnMaleEdit.Size = new System.Drawing.Size(84, 33);
-            this.rbtnMaleEdit.TabIndex = 31;
-            this.rbtnMaleEdit.TabStop = true;
-            this.rbtnMaleEdit.Text = "Male";
-            this.rbtnMaleEdit.UseVisualStyleBackColor = true;
-            // 
-            // rbtnFemaleEdit
-            // 
-            this.rbtnFemaleEdit.AutoSize = true;
-            this.rbtnFemaleEdit.Location = new System.Drawing.Point(315, 218);
-            this.rbtnFemaleEdit.Name = "rbtnFemaleEdit";
-            this.rbtnFemaleEdit.Size = new System.Drawing.Size(113, 33);
-            this.rbtnFemaleEdit.TabIndex = 30;
-            this.rbtnFemaleEdit.TabStop = true;
-            this.rbtnFemaleEdit.Text = "Female";
-            this.rbtnFemaleEdit.UseVisualStyleBackColor = true;
-            // 
-            // labelGenderEdit
-            // 
-            this.labelGenderEdit.AutoSize = true;
-            this.labelGenderEdit.Location = new System.Drawing.Point(16, 220);
-            this.labelGenderEdit.Name = "labelGenderEdit";
-            this.labelGenderEdit.Size = new System.Drawing.Size(100, 29);
-            this.labelGenderEdit.TabIndex = 29;
-            this.labelGenderEdit.Text = "Gender:";
-            // 
-            // numudEnclosureEdit
-            // 
-            this.numudEnclosureEdit.Location = new System.Drawing.Point(205, 378);
-            this.numudEnclosureEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.numudEnclosureEdit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numudEnclosureEdit.Name = "numudEnclosureEdit";
-            this.numudEnclosureEdit.Size = new System.Drawing.Size(129, 35);
-            this.numudEnclosureEdit.TabIndex = 17;
-            this.numudEnclosureEdit.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // labelEnclosureNrEdit
-            // 
-            this.labelEnclosureNrEdit.AutoSize = true;
-            this.labelEnclosureNrEdit.Location = new System.Drawing.Point(16, 380);
-            this.labelEnclosureNrEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelEnclosureNrEdit.Name = "labelEnclosureNrEdit";
-            this.labelEnclosureNrEdit.Size = new System.Drawing.Size(154, 29);
-            this.labelEnclosureNrEdit.TabIndex = 16;
-            this.labelEnclosureNrEdit.Text = "Enclosure nr:";
-            // 
-            // tbxAdditionalCommentsEdit
-            // 
-            this.tbxAdditionalCommentsEdit.Location = new System.Drawing.Point(21, 483);
-            this.tbxAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tbxAdditionalCommentsEdit.Multiline = true;
-            this.tbxAdditionalCommentsEdit.Name = "tbxAdditionalCommentsEdit";
-            this.tbxAdditionalCommentsEdit.Size = new System.Drawing.Size(581, 226);
-            this.tbxAdditionalCommentsEdit.TabIndex = 15;
-            // 
-            // labelAdditionalCommentsEdit
-            // 
-            this.labelAdditionalCommentsEdit.AutoSize = true;
-            this.labelAdditionalCommentsEdit.Location = new System.Drawing.Point(16, 439);
-            this.labelAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAdditionalCommentsEdit.Name = "labelAdditionalCommentsEdit";
-            this.labelAdditionalCommentsEdit.Size = new System.Drawing.Size(243, 29);
-            this.labelAdditionalCommentsEdit.TabIndex = 14;
-            this.labelAdditionalCommentsEdit.Text = "Additional comments:";
-            // 
-            // cbxEndangermentEdit
-            // 
-            this.cbxEndangermentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEndangermentEdit.FormattingEnabled = true;
-            this.cbxEndangermentEdit.Location = new System.Drawing.Point(205, 320);
-            this.cbxEndangermentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cbxEndangermentEdit.Name = "cbxEndangermentEdit";
-            this.cbxEndangermentEdit.Size = new System.Drawing.Size(397, 37);
-            this.cbxEndangermentEdit.TabIndex = 13;
-            // 
-            // cbxContinentEdit
-            // 
-            this.cbxContinentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxContinentEdit.FormattingEnabled = true;
-            this.cbxContinentEdit.Location = new System.Drawing.Point(205, 163);
-            this.cbxContinentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cbxContinentEdit.Name = "cbxContinentEdit";
-            this.cbxContinentEdit.Size = new System.Drawing.Size(397, 37);
-            this.cbxContinentEdit.TabIndex = 9;
-            // 
-            // labelEndangerEdit
-            // 
-            this.labelEndangerEdit.AutoSize = true;
-            this.labelEndangerEdit.Location = new System.Drawing.Point(16, 323);
-            this.labelEndangerEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelEndangerEdit.Name = "labelEndangerEdit";
-            this.labelEndangerEdit.Size = new System.Drawing.Size(177, 29);
-            this.labelEndangerEdit.TabIndex = 8;
-            this.labelEndangerEdit.Text = "Endangerment:";
-            // 
-            // tbxSpeciesEdit
-            // 
-            this.tbxSpeciesEdit.Location = new System.Drawing.Point(205, 106);
-            this.tbxSpeciesEdit.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxSpeciesEdit.Name = "tbxSpeciesEdit";
-            this.tbxSpeciesEdit.Size = new System.Drawing.Size(397, 35);
-            this.tbxSpeciesEdit.TabIndex = 6;
-            // 
-            // tbxNameEdit
-            // 
-            this.tbxNameEdit.Location = new System.Drawing.Point(205, 48);
-            this.tbxNameEdit.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxNameEdit.Name = "tbxNameEdit";
-            this.tbxNameEdit.Size = new System.Drawing.Size(397, 35);
-            this.tbxNameEdit.TabIndex = 5;
-            // 
-            // labelContinentEdit
-            // 
-            this.labelContinentEdit.AutoSize = true;
-            this.labelContinentEdit.Location = new System.Drawing.Point(16, 166);
-            this.labelContinentEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelContinentEdit.Name = "labelContinentEdit";
-            this.labelContinentEdit.Size = new System.Drawing.Size(121, 29);
-            this.labelContinentEdit.TabIndex = 2;
-            this.labelContinentEdit.Text = "Continent:";
-            // 
-            // labelSpeciesEdit
-            // 
-            this.labelSpeciesEdit.AutoSize = true;
-            this.labelSpeciesEdit.Location = new System.Drawing.Point(16, 109);
-            this.labelSpeciesEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelSpeciesEdit.Name = "labelSpeciesEdit";
-            this.labelSpeciesEdit.Size = new System.Drawing.Size(107, 29);
-            this.labelSpeciesEdit.TabIndex = 1;
-            this.labelSpeciesEdit.Text = "Species:";
-            // 
-            // labelNameEdit
-            // 
-            this.labelNameEdit.AutoSize = true;
-            this.labelNameEdit.Location = new System.Drawing.Point(16, 51);
-            this.labelNameEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelNameEdit.Name = "labelNameEdit";
-            this.labelNameEdit.Size = new System.Drawing.Size(84, 29);
-            this.labelNameEdit.TabIndex = 0;
-            this.labelNameEdit.Text = "Name:";
             // 
             // groupBoxSearchAnimal
             // 
@@ -1712,13 +1717,13 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControlAnimals.ResumeLayout(false);
             this.tabSearchAnimals.ResumeLayout(false);
+            this.groupBoxEditAnimal.ResumeLayout(false);
+            this.groupBoxEditAnimal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).EndInit();
             this.groupBoxRelationship.ResumeLayout(false);
             this.groupBoxRelationship.PerformLayout();
             this.groupBoxAnimalTransfer.ResumeLayout(false);
             this.groupBoxAnimalTransfer.PerformLayout();
-            this.groupBoxEditAnimal.ResumeLayout(false);
-            this.groupBoxEditAnimal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).EndInit();
             this.groupBoxSearchAnimal.ResumeLayout(false);
             this.groupBoxSearchAnimal.PerformLayout();
             this.tabAnimalHistory.ResumeLayout(false);

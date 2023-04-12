@@ -9,11 +9,11 @@ namespace ZooBazaarLogicLibrary
 {
     public class AnimalManagement
     {
-        DatabaseAnimalHelper helper;
+        DatabaseAnimalHelper animalHelper;
 
         public AnimalManagement()
         {
-            helper = new DatabaseAnimalHelper();
+            animalHelper = new DatabaseAnimalHelper();
         }
 
         public Animal DTOToAnimal(AnimalDTO animalDTO)
@@ -48,7 +48,7 @@ namespace ZooBazaarLogicLibrary
 
         public int NewAnimaID()
         {
-            return helper.NewAnimalID();
+            return animalHelper.NewAnimalID();
         }
 
         private List<Animal> DTOToAnimals(List<AnimalDTO> animalsDTO)
@@ -76,13 +76,13 @@ namespace ZooBazaarLogicLibrary
 
         public List<Animal> GetAnimals()
         {
-            return DTOToAnimals(helper.GetAllAnimals());
+            return DTOToAnimals(animalHelper.GetAllAnimals());
         }
             
         public void AddUpdateAnimal(Animal animal)
         {
             
-            helper.AddUpdateAnimal(AnimalToDTO(animal));
+            animalHelper.AddUpdateAnimal(AnimalToDTO(animal));
 
             GetAnimals().Add(animal);
         }
@@ -126,5 +126,19 @@ namespace ZooBazaarLogicLibrary
             return GetAnimals().ToArray();
         }
 
+        public List<Animal> OtherInSpeciesSearch(int id, string species)
+        {
+            return DTOToAnimals(animalHelper.OtherInSpeciesSearch(id, species));
+        }
+
+        public void AddParentChildRelationship(int animalIDParent, int animalIDChild)
+        {
+            animalHelper.AddParentChildRelationship(animalIDParent, animalIDChild);
+        }
+
+        public void AddMateRelationship(int animalIDMale, int animalIDFemale)
+        {
+            animalHelper.AddMateRelationship(animalIDMale, animalIDFemale);
+        }
     }
 }
