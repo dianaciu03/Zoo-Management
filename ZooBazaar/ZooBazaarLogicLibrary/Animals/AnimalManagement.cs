@@ -140,5 +140,20 @@ namespace ZooBazaarLogicLibrary
         {
             animalHelper.AddMateRelationship(animalIDMale, animalIDFemale);
         }
+
+        public List<Animal> GetParents(int animalID)
+        {
+            return DTOToAnimals(animalHelper.GetParents(animalID));
+        }
+
+        public List<Animal> GetChildren(int animalID)
+        {
+            return DTOToAnimals(animalHelper.GetChildren(animalID));
+        }
+
+        public List<Animal> GetMates(int animalID, string gender)
+        {
+            return DTOToAnimals(animalHelper.GetMates(animalID, gender));
+        }
     }
 }

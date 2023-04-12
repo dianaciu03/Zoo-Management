@@ -240,7 +240,7 @@
             this.groupBoxEditAnimal.Controls.Add(this.labelSpeciesEdit);
             this.groupBoxEditAnimal.Controls.Add(this.labelNameEdit);
             this.groupBoxEditAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxEditAnimal.Location = new System.Drawing.Point(18, 236);
+            this.groupBoxEditAnimal.Location = new System.Drawing.Point(29, 18);
             this.groupBoxEditAnimal.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.groupBoxEditAnimal.Name = "groupBoxEditAnimal";
             this.groupBoxEditAnimal.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);

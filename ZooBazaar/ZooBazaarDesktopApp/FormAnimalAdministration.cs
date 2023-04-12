@@ -213,9 +213,27 @@ namespace ZooBazaarDesktopApp
 
 
             cbxRelationshipType.SelectedIndex = 0;
+            
+            
+
             try
             {
                 Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
+
+                lbxRelationshipsMain.Items.Clear();
+
+                foreach(Animal animaltemp in animalManagement.GetParents(animal.Id))
+                {
+                    lbxRelationshipsMain.Items.Add($"Parent - {animaltemp}");
+                }
+                foreach(Animal animaltemp in animalManagement.GetMates(animal.Id, animal.Gender))
+                {
+                    lbxRelationshipsMain.Items.Add($"Mate - {animaltemp}");
+                }
+                foreach (Animal animaltemp in animalManagement.GetChildren(animal.Id))
+                {
+                    lbxRelationshipsMain.Items.Add($"Child - {animaltemp} ");
+                }
 
                 cbxOtherAnimalRelationship.DataSource = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
 
@@ -296,7 +314,7 @@ namespace ZooBazaarDesktopApp
 
         private void btnRemoveRelationship_Click(object sender, EventArgs e)
         {
-
+            //DO SOMTHING HERE AHHH
         }
 
         private void ClearRelationshipFields()
