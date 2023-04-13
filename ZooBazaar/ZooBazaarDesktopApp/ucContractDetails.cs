@@ -17,7 +17,7 @@ namespace ZooBazaarDesktopApp
     {
         EmployeeManagement employeeManagement;
         EmployeeContract employeeContract;
-        public ucContractDetails(EmployeeManagement em, EmployeeContract employeeContract)
+        public ucContractDetails(EmployeeManagement em)
         {
             InitializeComponent();
             employeeManagement = em;

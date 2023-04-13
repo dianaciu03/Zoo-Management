@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLogicLibrary;
+using ZooBazaarLogicLibrary.Employees;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ZooBazaarLogicLibrary
 {
-    public class EmployeeManagement
+    public class EmployeeManagement : IEmployeeManagement
     {
-        DatabaseEmployeeHelper employeeRepository = new DatabaseEmployeeHelper();
+        EmployeeRepository employeeRepository = new EmployeeRepository();
         private List<Employee> employeeList;
 
         public EmployeeManagement() 
@@ -23,7 +24,19 @@ namespace ZooBazaarLogicLibrary
         }
         public void AddNewEmployee(Employee employee)
         {
-            EmployeeDTO employeeDto = new EmployeeDTO(employee.ID, employee.FirstName, employee.LastName, employee.BirthDate, employee.PersonGender, employee.Address, employee.Phone, employee.Password, employee.Email, employee.HoursPerWeek, employee.GetType().Name);
+            EmployeeDTO employeeDto = new EmployeeDTO
+            {
+                id = employee.ID,
+                firstName = employee.FirstName,
+                lastName = employee.LastName,
+                birthDate = employee.BirthDate,
+                gender = employee.PersonGender,
+                address = employee.Address,
+                phone = employee.Phone,
+                password = employee.Password,
+                email = employee.Email,
+                role = employee.Role.ToString()
+            };
             employeeRepository.AddUpdateEmployee(employeeDto);
         }
         public Employee[] GetEmployees()
@@ -31,67 +44,21 @@ namespace ZooBazaarLogicLibrary
             List<Employee> employees = new List<Employee>();
             foreach (EmployeeDTO employeeDto in employeeRepository.GetAllEmployees())
             {
-                if (employeeDto == null)
-                    return null;
-                Employee employee = null;
-                switch (employeeDto.EmployeeType)
-                {
-                    case nameof(HRAdministrator):
-                        employee = new HRAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                        employees.Add(employee);
-                        break;
-                    case nameof(AnimalAdministrator):
-                        employee = new AnimalAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                        employees.Add(employee);
-                        break;
-                    case nameof(ScheduleMaker):
-                        employee = new ScheduleMaker(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                        employees.Add(employee);
-                        break;
-                    case nameof(ResourcePlanner):
-                        employee = new ResourcePlanner(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                        employees.Add(employee);
-                        break;
-                    default: break;
-                }
+                Employee employee = employeeDto.ToEmployee();
+                employees.Add(employee);
             }
             return employees.ToArray();
         }
 
-        public Employee GetEmployee(string email, string password)
-        {
-            foreach (Employee employee in employeeList)
-            {
-                if (employee.Email == email && employee.Password == password)
-                {
-                    return employee;
-                }
-            }
-            return null;
-        }
-
         public Employee GetEmployeeByEmail(string email)
         {
-            EmployeeDTO employeeDto = employeeRepository.GetEmployeeByEmail(email);
+            EmployeeDTO? employeeDto = null;
+            if (employeeRepository.GetEmployeeByEmail(email) != null)
+                employeeDto = employeeRepository.GetEmployeeByEmail(email);
             if (employeeDto == null)
                 return null;
-            Employee employee = null;
-            switch (employeeDto.EmployeeType) 
-            {
-                case nameof(HRAdministrator):
-                    employee = new HRAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                    break;
-                case nameof(AnimalAdministrator):
-                    employee = new AnimalAdministrator(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender,  employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                    break;
-                case nameof(ScheduleMaker):
-                    employee = new ScheduleMaker(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                    break;
-                case nameof(ResourcePlanner):
-                    employee = new ResourcePlanner(employeeDto.ID, employeeDto.FirstName, employeeDto.LastName, employeeDto.BirthDate, employeeDto.PersonGender, employeeDto.Phone, employeeDto.Address, employeeDto.Password, employeeDto.Email);
-                    break;
-                default: break;
-            }
+            Employee employee = ((EmployeeDTO)employeeDto).ToEmployee();
+            
             return employee;
         }
 

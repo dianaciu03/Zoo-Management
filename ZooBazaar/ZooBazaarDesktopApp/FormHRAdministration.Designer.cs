@@ -30,11 +30,23 @@
         {
             this.tabControlHRAdministration = new System.Windows.Forms.TabControl();
             this.tabPageAllEmployees = new System.Windows.Forms.TabPage();
+            this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
+            this.btnShowAllEmployees = new System.Windows.Forms.Button();
+            this.labelEmployeeContractType = new System.Windows.Forms.Label();
+            this.rbtnFullTimeEmployeeSearchFeature = new System.Windows.Forms.RadioButton();
+            this.rbtnPartTimeEmployeeSearchFeature = new System.Windows.Forms.RadioButton();
+            this.cbxRoleSearchFeature = new System.Windows.Forms.ComboBox();
+            this.btnSearchEmployee = new System.Windows.Forms.Button();
+            this.btnClearAll = new System.Windows.Forms.Button();
+            this.labelEmployeeRole = new System.Windows.Forms.Label();
+            this.tbxLastNameEmployeeSearch = new System.Windows.Forms.TextBox();
+            this.tbxFirstNameSearchFeature = new System.Windows.Forms.TextBox();
+            this.labelEmployeeLastName = new System.Windows.Forms.Label();
+            this.labelEmployeeFirstName = new System.Windows.Forms.Label();
             this.panelAdministrateEmployees = new System.Windows.Forms.Panel();
             this.btnEditEmployeeAdditional = new System.Windows.Forms.Button();
             this.btnEditEmployeeContract = new System.Windows.Forms.Button();
             this.btnDisplayEmployeeInformation = new System.Windows.Forms.Button();
-            this.ucSearchFeatureEmployees1 = new ZooBazaarDesktopApp.ucSearchFeatureEmployees();
             this.lvwEmployees = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -124,6 +136,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlHRAdministration.SuspendLayout();
             this.tabPageAllEmployees.SuspendLayout();
+            this.groupBoxSearchAnimal.SuspendLayout();
             this.tabPageEmployeeHistory.SuspendLayout();
             this.groupBoxSearchEmployeeHistoryTab.SuspendLayout();
             this.tabCreateEmployee.SuspendLayout();
@@ -149,19 +162,164 @@
             // 
             // tabPageAllEmployees
             // 
+            this.tabPageAllEmployees.Controls.Add(this.groupBoxSearchAnimal);
             this.tabPageAllEmployees.Controls.Add(this.panelAdministrateEmployees);
             this.tabPageAllEmployees.Controls.Add(this.btnEditEmployeeAdditional);
             this.tabPageAllEmployees.Controls.Add(this.btnEditEmployeeContract);
             this.tabPageAllEmployees.Controls.Add(this.btnDisplayEmployeeInformation);
-            this.tabPageAllEmployees.Controls.Add(this.ucSearchFeatureEmployees1);
             this.tabPageAllEmployees.Controls.Add(this.lvwEmployees);
             this.tabPageAllEmployees.Location = new System.Drawing.Point(4, 46);
             this.tabPageAllEmployees.Name = "tabPageAllEmployees";
-            this.tabPageAllEmployees.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageAllEmployees.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageAllEmployees.Size = new System.Drawing.Size(1775, 895);
             this.tabPageAllEmployees.TabIndex = 0;
             this.tabPageAllEmployees.Text = "Administrate employees";
             this.tabPageAllEmployees.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxSearchAnimal
+            // 
+            this.groupBoxSearchAnimal.Controls.Add(this.btnShowAllEmployees);
+            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeContractType);
+            this.groupBoxSearchAnimal.Controls.Add(this.rbtnFullTimeEmployeeSearchFeature);
+            this.groupBoxSearchAnimal.Controls.Add(this.rbtnPartTimeEmployeeSearchFeature);
+            this.groupBoxSearchAnimal.Controls.Add(this.cbxRoleSearchFeature);
+            this.groupBoxSearchAnimal.Controls.Add(this.btnSearchEmployee);
+            this.groupBoxSearchAnimal.Controls.Add(this.btnClearAll);
+            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeRole);
+            this.groupBoxSearchAnimal.Controls.Add(this.tbxLastNameEmployeeSearch);
+            this.groupBoxSearchAnimal.Controls.Add(this.tbxFirstNameSearchFeature);
+            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeLastName);
+            this.groupBoxSearchAnimal.Controls.Add(this.labelEmployeeFirstName);
+            this.groupBoxSearchAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.groupBoxSearchAnimal.Location = new System.Drawing.Point(13, 6);
+            this.groupBoxSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxSearchAnimal.Name = "groupBoxSearchAnimal";
+            this.groupBoxSearchAnimal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(550, 360);
+            this.groupBoxSearchAnimal.TabIndex = 15;
+            this.groupBoxSearchAnimal.TabStop = false;
+            this.groupBoxSearchAnimal.Text = "Search by:";
+            // 
+            // btnShowAllEmployees
+            // 
+            this.btnShowAllEmployees.AutoSize = true;
+            this.btnShowAllEmployees.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnShowAllEmployees.Location = new System.Drawing.Point(96, 283);
+            this.btnShowAllEmployees.Name = "btnShowAllEmployees";
+            this.btnShowAllEmployees.Size = new System.Drawing.Size(355, 47);
+            this.btnShowAllEmployees.TabIndex = 24;
+            this.btnShowAllEmployees.Text = "Display all employees";
+            this.btnShowAllEmployees.UseVisualStyleBackColor = false;
+            this.btnShowAllEmployees.Click += new System.EventHandler(this.btnShowAllEmployees_Click_1);
+            // 
+            // labelEmployeeContractType
+            // 
+            this.labelEmployeeContractType.AutoSize = true;
+            this.labelEmployeeContractType.Location = new System.Drawing.Point(27, 137);
+            this.labelEmployeeContractType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEmployeeContractType.Name = "labelEmployeeContractType";
+            this.labelEmployeeContractType.Size = new System.Drawing.Size(147, 26);
+            this.labelEmployeeContractType.TabIndex = 23;
+            this.labelEmployeeContractType.Text = "Contract type:";
+            // 
+            // rbtnFullTimeEmployeeSearchFeature
+            // 
+            this.rbtnFullTimeEmployeeSearchFeature.AutoSize = true;
+            this.rbtnFullTimeEmployeeSearchFeature.Location = new System.Drawing.Point(193, 134);
+            this.rbtnFullTimeEmployeeSearchFeature.Name = "rbtnFullTimeEmployeeSearchFeature";
+            this.rbtnFullTimeEmployeeSearchFeature.Size = new System.Drawing.Size(114, 30);
+            this.rbtnFullTimeEmployeeSearchFeature.TabIndex = 22;
+            this.rbtnFullTimeEmployeeSearchFeature.TabStop = true;
+            this.rbtnFullTimeEmployeeSearchFeature.Text = "Full-time";
+            this.rbtnFullTimeEmployeeSearchFeature.UseVisualStyleBackColor = true;
+            // 
+            // rbtnPartTimeEmployeeSearchFeature
+            // 
+            this.rbtnPartTimeEmployeeSearchFeature.AutoSize = true;
+            this.rbtnPartTimeEmployeeSearchFeature.Location = new System.Drawing.Point(393, 134);
+            this.rbtnPartTimeEmployeeSearchFeature.Name = "rbtnPartTimeEmployeeSearchFeature";
+            this.rbtnPartTimeEmployeeSearchFeature.Size = new System.Drawing.Size(119, 30);
+            this.rbtnPartTimeEmployeeSearchFeature.TabIndex = 21;
+            this.rbtnPartTimeEmployeeSearchFeature.TabStop = true;
+            this.rbtnPartTimeEmployeeSearchFeature.Text = "Part-time";
+            this.rbtnPartTimeEmployeeSearchFeature.UseVisualStyleBackColor = true;
+            // 
+            // cbxRoleSearchFeature
+            // 
+            this.cbxRoleSearchFeature.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRoleSearchFeature.FormattingEnabled = true;
+            this.cbxRoleSearchFeature.Location = new System.Drawing.Point(193, 180);
+            this.cbxRoleSearchFeature.Name = "cbxRoleSearchFeature";
+            this.cbxRoleSearchFeature.Size = new System.Drawing.Size(319, 33);
+            this.cbxRoleSearchFeature.TabIndex = 9;
+            // 
+            // btnSearchEmployee
+            // 
+            this.btnSearchEmployee.AutoSize = true;
+            this.btnSearchEmployee.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnSearchEmployee.Location = new System.Drawing.Point(32, 230);
+            this.btnSearchEmployee.Name = "btnSearchEmployee";
+            this.btnSearchEmployee.Size = new System.Drawing.Size(220, 47);
+            this.btnSearchEmployee.TabIndex = 14;
+            this.btnSearchEmployee.Text = "Search";
+            this.btnSearchEmployee.UseVisualStyleBackColor = false;
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.AutoSize = true;
+            this.btnClearAll.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnClearAll.Location = new System.Drawing.Point(295, 230);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(217, 47);
+            this.btnClearAll.TabIndex = 15;
+            this.btnClearAll.Text = "Clear fields";
+            this.btnClearAll.UseVisualStyleBackColor = false;
+            // 
+            // labelEmployeeRole
+            // 
+            this.labelEmployeeRole.AutoSize = true;
+            this.labelEmployeeRole.Location = new System.Drawing.Point(27, 183);
+            this.labelEmployeeRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEmployeeRole.Name = "labelEmployeeRole";
+            this.labelEmployeeRole.Size = new System.Drawing.Size(63, 26);
+            this.labelEmployeeRole.TabIndex = 16;
+            this.labelEmployeeRole.Text = "Role:";
+            // 
+            // tbxLastNameEmployeeSearch
+            // 
+            this.tbxLastNameEmployeeSearch.Location = new System.Drawing.Point(193, 86);
+            this.tbxLastNameEmployeeSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxLastNameEmployeeSearch.Name = "tbxLastNameEmployeeSearch";
+            this.tbxLastNameEmployeeSearch.Size = new System.Drawing.Size(319, 32);
+            this.tbxLastNameEmployeeSearch.TabIndex = 6;
+            // 
+            // tbxFirstNameSearchFeature
+            // 
+            this.tbxFirstNameSearchFeature.Location = new System.Drawing.Point(193, 38);
+            this.tbxFirstNameSearchFeature.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxFirstNameSearchFeature.Name = "tbxFirstNameSearchFeature";
+            this.tbxFirstNameSearchFeature.Size = new System.Drawing.Size(319, 32);
+            this.tbxFirstNameSearchFeature.TabIndex = 5;
+            // 
+            // labelEmployeeLastName
+            // 
+            this.labelEmployeeLastName.AutoSize = true;
+            this.labelEmployeeLastName.Location = new System.Drawing.Point(27, 89);
+            this.labelEmployeeLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEmployeeLastName.Name = "labelEmployeeLastName";
+            this.labelEmployeeLastName.Size = new System.Drawing.Size(120, 26);
+            this.labelEmployeeLastName.TabIndex = 1;
+            this.labelEmployeeLastName.Text = "Last name:";
+            // 
+            // labelEmployeeFirstName
+            // 
+            this.labelEmployeeFirstName.AutoSize = true;
+            this.labelEmployeeFirstName.Location = new System.Drawing.Point(26, 42);
+            this.labelEmployeeFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEmployeeFirstName.Name = "labelEmployeeFirstName";
+            this.labelEmployeeFirstName.Size = new System.Drawing.Size(121, 26);
+            this.labelEmployeeFirstName.TabIndex = 0;
+            this.labelEmployeeFirstName.Text = "First name:";
             // 
             // panelAdministrateEmployees
             // 
@@ -205,17 +363,6 @@
             this.btnDisplayEmployeeInformation.Text = "Edit employee information";
             this.btnDisplayEmployeeInformation.UseVisualStyleBackColor = false;
             this.btnDisplayEmployeeInformation.Click += new System.EventHandler(this.btnDisplayEmployeeInformation_Click);
-            // 
-            // ucSearchFeatureEmployees1
-            // 
-            this.ucSearchFeatureEmployees1.Location = new System.Drawing.Point(13, 15);
-            this.ucSearchFeatureEmployees1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ucSearchFeatureEmployees1.MaximumSize = new System.Drawing.Size(569, 374);
-            this.ucSearchFeatureEmployees1.MinimumSize = new System.Drawing.Size(569, 374);
-            this.ucSearchFeatureEmployees1.Name = "ucSearchFeatureEmployees1";
-            this.ucSearchFeatureEmployees1.Size = new System.Drawing.Size(569, 374);
-            this.ucSearchFeatureEmployees1.TabIndex = 16;
-            this.ucSearchFeatureEmployees1.Load += new System.EventHandler(this.ucSearchFeatureEmployees1_Load);
             // 
             // lvwEmployees
             // 
@@ -274,7 +421,7 @@
             this.tabPageEmployeeHistory.Controls.Add(this.labelAllAnimals);
             this.tabPageEmployeeHistory.Location = new System.Drawing.Point(4, 46);
             this.tabPageEmployeeHistory.Name = "tabPageEmployeeHistory";
-            this.tabPageEmployeeHistory.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageEmployeeHistory.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageEmployeeHistory.Size = new System.Drawing.Size(1775, 895);
             this.tabPageEmployeeHistory.TabIndex = 1;
             this.tabPageEmployeeHistory.Text = "Employee history";
@@ -570,7 +717,7 @@
             this.tabCreateEmployee.Controls.Add(this.groupBoxEmployeeDetailsPopup);
             this.tabCreateEmployee.Location = new System.Drawing.Point(4, 46);
             this.tabCreateEmployee.Name = "tabCreateEmployee";
-            this.tabCreateEmployee.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabCreateEmployee.Padding = new System.Windows.Forms.Padding(3);
             this.tabCreateEmployee.Size = new System.Drawing.Size(1775, 895);
             this.tabCreateEmployee.TabIndex = 2;
             this.tabCreateEmployee.Text = "Create employee";
@@ -759,7 +906,7 @@
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
             this.dateTimePicker1.Location = new System.Drawing.Point(208, 159);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(375, 33);
             this.dateTimePicker1.TabIndex = 30;
@@ -779,7 +926,7 @@
             this.dtmContractStartDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.dtmContractStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
             this.dtmContractStartDate.Location = new System.Drawing.Point(208, 104);
-            this.dtmContractStartDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtmContractStartDate.Margin = new System.Windows.Forms.Padding(6);
             this.dtmContractStartDate.Name = "dtmContractStartDate";
             this.dtmContractStartDate.Size = new System.Drawing.Size(375, 33);
             this.dtmContractStartDate.TabIndex = 28;
@@ -808,7 +955,7 @@
             // 
             this.nudContractLenght.Enabled = false;
             this.nudContractLenght.Location = new System.Drawing.Point(269, 372);
-            this.nudContractLenght.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nudContractLenght.Margin = new System.Windows.Forms.Padding(6);
             this.nudContractLenght.Name = "nudContractLenght";
             this.nudContractLenght.Size = new System.Drawing.Size(104, 35);
             this.nudContractLenght.TabIndex = 27;
@@ -817,7 +964,7 @@
             // 
             this.cbxFixedTermContract.AutoSize = true;
             this.cbxFixedTermContract.Location = new System.Drawing.Point(24, 373);
-            this.cbxFixedTermContract.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbxFixedTermContract.Margin = new System.Windows.Forms.Padding(6);
             this.cbxFixedTermContract.Name = "cbxFixedTermContract";
             this.cbxFixedTermContract.Size = new System.Drawing.Size(238, 33);
             this.cbxFixedTermContract.TabIndex = 26;
@@ -827,7 +974,7 @@
             // nudWeeklyHours
             // 
             this.nudWeeklyHours.Location = new System.Drawing.Point(208, 252);
-            this.nudWeeklyHours.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nudWeeklyHours.Margin = new System.Windows.Forms.Padding(6);
             this.nudWeeklyHours.Name = "nudWeeklyHours";
             this.nudWeeklyHours.Size = new System.Drawing.Size(165, 35);
             this.nudWeeklyHours.TabIndex = 25;
@@ -846,7 +993,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(208, 53);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(125, 33);
             this.radioButton1.TabIndex = 22;
@@ -858,7 +1005,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(363, 53);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(128, 33);
             this.radioButton2.TabIndex = 21;
@@ -1116,7 +1263,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::ZooBazaarDesktopApp.Properties.Resources.zooimg5;
-            this.ClientSize = new System.Drawing.Size(1705, 870);
+            this.ClientSize = new System.Drawing.Size(1828, 975);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControlHRAdministration);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1127,6 +1274,8 @@
             this.tabControlHRAdministration.ResumeLayout(false);
             this.tabPageAllEmployees.ResumeLayout(false);
             this.tabPageAllEmployees.PerformLayout();
+            this.groupBoxSearchAnimal.ResumeLayout(false);
+            this.groupBoxSearchAnimal.PerformLayout();
             this.tabPageEmployeeHistory.ResumeLayout(false);
             this.tabPageEmployeeHistory.PerformLayout();
             this.groupBoxSearchEmployeeHistoryTab.ResumeLayout(false);
@@ -1237,10 +1386,22 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label labelNote;
-        private ucSearchFeatureEmployees ucSearchFeatureEmployees1;
         private System.Windows.Forms.Button btnEditEmployeeAdditional;
         private System.Windows.Forms.Button btnEditEmployeeContract;
         private System.Windows.Forms.Button btnDisplayEmployeeInformation;
         private System.Windows.Forms.Panel panelAdministrateEmployees;
+        private System.Windows.Forms.GroupBox groupBoxSearchAnimal;
+        private System.Windows.Forms.Button btnShowAllEmployees;
+        private System.Windows.Forms.Label labelEmployeeContractType;
+        private System.Windows.Forms.RadioButton rbtnFullTimeEmployeeSearchFeature;
+        private System.Windows.Forms.RadioButton rbtnPartTimeEmployeeSearchFeature;
+        private System.Windows.Forms.ComboBox cbxRoleSearchFeature;
+        private System.Windows.Forms.Button btnSearchEmployee;
+        private System.Windows.Forms.Button btnClearAll;
+        private System.Windows.Forms.Label labelEmployeeRole;
+        private System.Windows.Forms.TextBox tbxLastNameEmployeeSearch;
+        private System.Windows.Forms.TextBox tbxFirstNameSearchFeature;
+        private System.Windows.Forms.Label labelEmployeeLastName;
+        private System.Windows.Forms.Label labelEmployeeFirstName;
     }
 }

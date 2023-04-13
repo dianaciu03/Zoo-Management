@@ -22,7 +22,6 @@ namespace ZooBazaarDesktopApp
             InitializeComponent();
             employeeManagement = emMng;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            updateEmployeeListview(employeeManagement.GetEmployees());
             //cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
            // cbxRole.SelectedIndex = -1;
 
@@ -116,6 +115,8 @@ namespace ZooBazaarDesktopApp
         {
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+            var uc = new ucContractDetails(employeeManagement);
+            panelAdministrateEmployees.Controls.Add(uc);
             //Need to add a contract obj for the employees to pass it to the Employee contract edit
             // I guess the employees need a contract obj inserted in their class
             //it doesn't exist atm should be added soon
@@ -157,6 +158,12 @@ namespace ZooBazaarDesktopApp
 
         private void ucSearchFeatureEmployees1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnShowAllEmployees_Click_1(object sender, EventArgs e)
+        {
+            updateEmployeeListview(employeeManagement.GetEmployees());
 
         }
     }

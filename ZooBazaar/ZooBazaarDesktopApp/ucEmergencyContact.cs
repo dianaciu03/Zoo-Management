@@ -13,19 +13,17 @@ namespace ZooBazaarDesktopApp
 {
     public partial class ucEmergencyContact : UserControl
     {
-        EmployeeManagement employeeManagement;
         Employee selectedEmployee;
 
-        public ucEmergencyContact(EmployeeManagement em, Employee empl)
+        public ucEmergencyContact(Employee empl)
         {
             InitializeComponent();
-            employeeManagement = em;
             selectedEmployee = empl;
         }
 
         private void ucEmergencyContact_Load(object sender, EventArgs e)
         {
-            tbAddressAdditionalInformation.Text = selectedEmployee.Address;
+            //tbAddressAdditionalInformation.Text = selectedEmployee.Address;
             //Employees dont have a postal code field,or emergency contact fields lol
             //tbPostalCodeAdditionalInformation.Text = 
             //tbFirstNameAdditionalInformation.Text =

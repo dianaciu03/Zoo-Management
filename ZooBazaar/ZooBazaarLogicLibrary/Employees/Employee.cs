@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZooBazaarLogicLibrary
 {
-    public abstract class Employee
+    public class Employee
     {
         public int ID { get; set; }
         public string FirstName { get; set; }
@@ -17,37 +17,39 @@ namespace ZooBazaarLogicLibrary
         public string Phone { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public int HoursPerWeek { get; set; }
+        public ROLE Role { get; set; }
 
-        protected Employee(int ID, string FirstName, string LastName, DateTime BirthDate, string PersonGender, string Phone, string Address, string Password, string Email)
+        public Employee()
         {
-            this.ID = ID;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.BirthDate = BirthDate;
-            this.PersonGender = PersonGender;
-            this.Address = Address;
-            this.Phone = Phone;
-            this.Password = Password;
-            this.Email = Email;
-            this.HoursPerWeek = HoursPerWeek;
-        }
-        protected Employee(string FirstName, string LastName, DateTime BirthDate, string PersonGender, string Phone, string Address, string Password, string Email)
-        {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.BirthDate = BirthDate;
-            this.PersonGender = PersonGender;
-            this.Address = Address;
-            this.Phone = Phone;
-            this.Password = Password;
-            this.Email = Email;
-            this.HoursPerWeek = HoursPerWeek;
+
         }
 
-        public virtual string GetRole()
+        //read from database
+        public Employee(int id, string firstName, string lastName, DateTime birthDate, string personGender, string phone, string address, string password, string email, ROLE role)
         {
-            return this.GetType().Name;
+            ID = id;
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            PersonGender = personGender;
+            Address = address;
+            Phone = phone;
+            Password = password;
+            Email = email;
+            Role = role;
+        }
+        //write to database
+        public Employee(string firstName, string lastName, DateTime birthDate, string personGender, string phone, string address, string password, string email, ROLE role)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            PersonGender = personGender;
+            Address = address;
+            Phone = phone;
+            Password = password;
+            Email = email;
+            Role = role;
         }
     }
 }

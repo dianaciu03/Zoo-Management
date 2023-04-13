@@ -47,11 +47,19 @@
     <Compile Include="DTOs\AnimalDTO.cs" />
     <Compile Include="ConnectionHelper.cs" />
     <Compile Include="DatabaseAnimalHelper.cs" />
-    <Compile Include="DatabaseEmployeeHelper.cs" />
-    <Compile Include="DTOs\EmployeeDTO.cs" />
+    <Compile Include="EmployeeInterfaces\IContractRepository.cs" />
+    <Compile Include="EmployeeInterfaces\IEmergencyContactRepository.cs" />
+    <Compile Include="EmployeeRepositories\ContractRepository.cs" />
+    <Compile Include="EmployeeRepositories\EmergencyContractRepository.cs" />
+    <Compile Include="EmployeeRepositories\EmployeeRepository.cs" />
+    <Compile Include="EmployeeDTOs\ContractDTO.cs" />
+    <Compile Include="EmployeeDTOs\EmergencyContactDTO.cs" />
+    <Compile Include="EmployeeDTOs\EmployeeDTO.cs" />
     <Compile Include="DTOs\TransferDTO.cs" />
     <Compile Include="DTOs\ZooTaskDTO.cs" />
+    <Compile Include="EmployeeInterfaces\IEmployeeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

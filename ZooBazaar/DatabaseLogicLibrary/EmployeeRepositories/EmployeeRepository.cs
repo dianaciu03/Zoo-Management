@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseLogicLibrary
 {
-    public class DatabaseEmployeeHelper
+    public class EmployeeRepository
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
@@ -39,7 +39,7 @@ namespace DatabaseLogicLibrary
 
         }
 
-        public List<EmployeeDTO> GetAllEmployees() // Gets all employees in the animal database and returns them as a list of Animal Objects
+        public List<EmployeeDTO> GetAllEmployees() // Gets all employees in the employee database and returns them as a list of employeeDTO Objects
         {
             List<EmployeeDTO> employees = new List<EmployeeDTO>();
 
@@ -54,19 +54,19 @@ namespace DatabaseLogicLibrary
                 {
                     while (reader.Read())
                     {
-                        EmployeeDTO employee = new EmployeeDTO(
-                            reader.GetInt32(reader.GetOrdinal("EmployeeID")),
-                            reader.GetString(reader.GetOrdinal("FirstName")),
-                            reader.GetString(reader.GetOrdinal("LastName")),
-                            reader.GetDateTime(reader.GetOrdinal("Birthdate")),
-                            reader.GetString(reader.GetOrdinal("Gender")),
-                            reader.GetString(reader.GetOrdinal("Address")),
-                            reader.GetString(reader.GetOrdinal("Phone")),
-                            reader.GetString(reader.GetOrdinal("Password")),
-                            reader.GetString(reader.GetOrdinal("Email")),
-                            reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
-                            reader.GetString(reader.GetOrdinal("EmployeeType")));
-
+                        EmployeeDTO employee = new EmployeeDTO()
+                        {
+                            id = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                            firstName = reader.GetString(reader.GetOrdinal("FirstName")),
+                            lastName = reader.GetString(reader.GetOrdinal("LastName")),
+                            birthDate = reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                            gender = reader.GetString(reader.GetOrdinal("Gender")),
+                            address = reader.GetString(reader.GetOrdinal("Address")),
+                            phone = reader.GetString(reader.GetOrdinal("Phone")),
+                            role = reader.GetString(reader.GetOrdinal("EmployeeType")),
+                            password = reader.GetString(reader.GetOrdinal("Password")),
+                            email = reader.GetString(reader.GetOrdinal("Email"))
+                        };
                         employees.Add(employee);
                     }
 
@@ -84,7 +84,7 @@ namespace DatabaseLogicLibrary
                 try { connection.Open(); }
                 catch (SqlException) { return; }
 
-                SqlCommand existsInDatabase = new SqlCommand($"SELECT COUNT(*) FROM Employees WHERE EmployeeID = {employee.ID}");
+                SqlCommand existsInDatabase = new SqlCommand($"SELECT COUNT(*) FROM Employees WHERE EmployeeID = {employee.id}");
                 if ((int)existsInDatabase.ExecuteScalar() > 0)
                 {
                     UpdateEmployee(employee, connection);
@@ -102,17 +102,16 @@ namespace DatabaseLogicLibrary
             using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
                                            "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
             {
-                command.Parameters.AddWithValue("@EmployeeID", employee.ID);
-                command.Parameters.AddWithValue("@FirstName", employee.FirstName);
-                command.Parameters.AddWithValue("@LastName", employee.LastName);
-                command.Parameters.AddWithValue("@Birthdate", employee.BirthDate.ToString());
-                command.Parameters.AddWithValue("@Gender", employee.PersonGender);
-                command.Parameters.AddWithValue("@Address", employee.Address);
-                command.Parameters.AddWithValue("@Phone", employee.Phone);
-                command.Parameters.AddWithValue("@Password", employee.Password);
-                command.Parameters.AddWithValue("@Email", employee.Email);
-                command.Parameters.AddWithValue("@EmployeeType", employee.GetType().ToString());
-                command.Parameters.AddWithValue("@WeeklyHours", employee.HoursPerWeek.ToString());
+                command.Parameters.AddWithValue("@EmployeeID", employee.id);
+                command.Parameters.AddWithValue("@FirstName", employee.firstName);
+                command.Parameters.AddWithValue("@LastName", employee.lastName);
+                command.Parameters.AddWithValue("@Birthdate", employee.birthDate);
+                command.Parameters.AddWithValue("@Gender", employee.gender);
+                command.Parameters.AddWithValue("@Address", employee.address);
+                command.Parameters.AddWithValue("@Phone", employee.phone);
+                command.Parameters.AddWithValue("@Password", employee.password);
+                command.Parameters.AddWithValue("@Email", employee.email);
+                command.Parameters.AddWithValue("@EmployeeType", employee.role);
 
                 command.ExecuteNonQuery();
             }
@@ -123,17 +122,16 @@ namespace DatabaseLogicLibrary
             using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
                                                         "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
             {
-                command.Parameters.AddWithValue("@EmployeeID", employee.ID);
-                command.Parameters.AddWithValue("@FirstName", employee.FirstName);
-                command.Parameters.AddWithValue("@LastName", employee.LastName);
-                command.Parameters.AddWithValue("@Birthdate", employee.BirthDate.ToString());
-                command.Parameters.AddWithValue("@Gender", employee.PersonGender);
-                command.Parameters.AddWithValue("@Address", employee.Address);
-                command.Parameters.AddWithValue("@Phone", employee.Phone);
-                command.Parameters.AddWithValue("@Password", employee.Password);
-                command.Parameters.AddWithValue("@Email", employee.Email);
-                command.Parameters.AddWithValue("@EmployeeType", employee.GetType().ToString());
-                command.Parameters.AddWithValue("@WeeklyHours", employee.HoursPerWeek.ToString());
+                command.Parameters.AddWithValue("@EmployeeID", employee.id);
+                command.Parameters.AddWithValue("@FirstName", employee.firstName);
+                command.Parameters.AddWithValue("@LastName", employee.lastName);
+                command.Parameters.AddWithValue("@Birthdate", employee.birthDate);
+                command.Parameters.AddWithValue("@Gender", employee.gender);
+                command.Parameters.AddWithValue("@Address", employee.address);
+                command.Parameters.AddWithValue("@Phone", employee.phone);
+                command.Parameters.AddWithValue("@Password", employee.password);
+                command.Parameters.AddWithValue("@Email", employee.email);
+                command.Parameters.AddWithValue("@EmployeeType", employee.role);
 
                 command.ExecuteNonQuery();
             }
@@ -169,18 +167,19 @@ namespace DatabaseLogicLibrary
                 {
                     while (reader.Read())
                     {
-                        EmployeeDTO employee = new EmployeeDTO(
-                        reader.GetInt32(reader.GetOrdinal("EmployeeID")),
-                        reader.GetString(reader.GetOrdinal("FirstName")),
-                        reader.GetString(reader.GetOrdinal("LastName")),
-                        reader.GetDateTime(reader.GetOrdinal("Birthdate")),
-                        reader.GetString(reader.GetOrdinal("Gender")),
-                        reader.GetString(reader.GetOrdinal("Address")),
-                        reader.GetString(reader.GetOrdinal("Phone")),
-                        reader.GetString(reader.GetOrdinal("Password")),
-                        reader.GetString(reader.GetOrdinal("Email")),
-                        reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
-                        reader.GetString(reader.GetOrdinal("EmployeeType")));
+                        EmployeeDTO employee = new EmployeeDTO
+                        {
+                            id = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                            firstName = reader.GetString(reader.GetOrdinal("FirstName")),
+                            lastName = reader.GetString(reader.GetOrdinal("LastName")),
+                            birthDate = reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                            gender = reader.GetString(reader.GetOrdinal("Gender")),
+                            address = reader.GetString(reader.GetOrdinal("Address")),
+                            phone = reader.GetString(reader.GetOrdinal("Phone")),
+                            role = reader.GetString(reader.GetOrdinal("EmployeeType")),
+                            password = reader.GetString(reader.GetOrdinal("Password")),
+                            email = reader.GetString(reader.GetOrdinal("Email"))
+                        };
 
                         employees.Add(employee);
                     }
@@ -190,14 +189,11 @@ namespace DatabaseLogicLibrary
                 }
             }
         }
-        public EmployeeDTO GetEmployeeByEmail(string email)
+        public EmployeeDTO? GetEmployeeByEmail(string email)
         {
             EmployeeDTO employee;
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                try { connection.Open(); }
-                catch (SqlException) { return null; }
-
                 SqlCommand query = new SqlCommand("SELECT * FROM Employees Where Email = @email", connection);
                 query.Parameters.AddWithValue("email", email);
 
@@ -205,18 +201,19 @@ namespace DatabaseLogicLibrary
                 {
                     if (!reader.Read())
                         return null;
-                    employee = new EmployeeDTO(
-                        reader.GetInt32(reader.GetOrdinal("EmployeeID")),
-                        reader.GetString(reader.GetOrdinal("FirstName")),
-                        reader.GetString(reader.GetOrdinal("LastName")),
-                        reader.GetDateTime(reader.GetOrdinal("Birthdate")),
-                        reader.GetString(reader.GetOrdinal("Gender")),
-                        reader.GetString(reader.GetOrdinal("Address")),
-                        reader.GetString(reader.GetOrdinal("Phone")),
-                        reader.GetString(reader.GetOrdinal("Password")),
-                        reader.GetString(reader.GetOrdinal("Email")),
-                        reader.GetInt32(reader.GetOrdinal("WeeklyHours")),
-                        reader.GetString(reader.GetOrdinal("EmployeeType")));
+                    employee = new EmployeeDTO
+                    {
+                        id = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                        firstName = reader.GetString(reader.GetOrdinal("FirstName")),
+                        lastName = reader.GetString(reader.GetOrdinal("LastName")),
+                        birthDate = reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                        gender = reader.GetString(reader.GetOrdinal("Gender")),
+                        address = reader.GetString(reader.GetOrdinal("Address")),
+                        phone = reader.GetString(reader.GetOrdinal("Phone")),
+                        role = reader.GetString(reader.GetOrdinal("EmployeeType")),
+                        password = reader.GetString(reader.GetOrdinal("Password")),
+                        email = reader.GetString(reader.GetOrdinal("Email"))
+                    };
                     reader.Close();
                     connection.Close();
                     return employee;

@@ -8,19 +8,23 @@ namespace ZooBazaarLogicLibrary.Employees
 {
     public class EmployeeContract
     {
-        string contractType;
-        DateTime contractStartDate;
-        DateTime? contractEndDate;
-        int hoursPerWeek;
-        float salary;
+        public string ContractType { get; set; }
+        public DateTime ContractStartDate { get; set; }
+        public DateTime? ContractEndDate { get; set; }
+        public int HoursPerWeek { get; set; }
+        public double Salary { get; set; }
 
-        public EmployeeContract(string contractType,DateTime contractStartDate,DateTime? contractEndDate, int hoursPerWeek, float salary)    
+        public EmployeeContract(DateTime contractStartDate,DateTime? contractEndDate, int hoursPerWeek, float salary)    
         {
-            this.contractStartDate = contractStartDate;
-            this.contractEndDate = contractEndDate;
-            this.contractType= contractType;
-            this.hoursPerWeek = hoursPerWeek;
-            this.salary = salary;
+            this.ContractStartDate = contractStartDate;
+            this.ContractEndDate = contractEndDate;
+            this.HoursPerWeek = hoursPerWeek;
+            if (hoursPerWeek == 40)
+            {
+                ContractType = "Full-time";
+            }
+            else ContractType = "Part-time";
+            this.Salary = salary;
         }
 
     }
