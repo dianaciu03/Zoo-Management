@@ -12,11 +12,9 @@ namespace ZooBazaarLogicLibrary
     public class EmployeeManagement : IEmployeeManagement
     {
         EmployeeRepository employeeRepository = new EmployeeRepository();
-        private List<Employee> employeeList;
 
-        public EmployeeManagement() 
+        public EmployeeManagement()
         {
-            this.employeeList = new List<Employee>();
         }
         public void AddNewEmployee(Employee employee)
         {
@@ -36,7 +34,7 @@ namespace ZooBazaarLogicLibrary
             employeeRepository.AddUpdateEmployee(employeeDto);
         }
         public Employee[] GetEmployees()
-        { 
+        {
             List<Employee> employees = new List<Employee>();
             foreach (EmployeeDTO employeeDto in employeeRepository.GetAllEmployees())
             {
@@ -54,7 +52,7 @@ namespace ZooBazaarLogicLibrary
             if (employeeDto == null)
                 return null;
             Employee employee = ((EmployeeDTO)employeeDto).ToEmployee();
-            
+
             return employee;
         }
 

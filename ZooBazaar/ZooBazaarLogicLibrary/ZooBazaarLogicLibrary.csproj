@@ -48,13 +48,13 @@
     <Compile Include="Animals\Transfer.cs" />
     <Compile Include="Animals\TransferManagement.cs" />
     <Compile Include="EmployeeInterfaces\IContractManagement.cs" />
-    <Compile Include="EmployeeInterfaces\IEmergencyContactManagement.cs" />
-    <Compile Include="EmployeeInterfaces\IEmployeeManagement.cs" />
     <Compile Include="Employees\ContractManagement.cs" />
     <Compile Include="Employees\EmergencyContact.cs" />
     <Compile Include="Employees\EmergencyContactManagement.cs" />
     <Compile Include="Employees\EmployeeContract.cs" />
     <Compile Include="Employees\EmployeeEntityMapping.cs" />
+    <Compile Include="EmployeeInterfaces\IEmployeeManagement.cs" />
+    <Compile Include="EmployeeInterfaces\IEmergencyContactManagement.cs" />
     <Compile Include="Enums\ENDANGERMENT.cs" />
     <Compile Include="Enums\ROLE.cs" />
     <Compile Include="FormDataValidator.cs" />

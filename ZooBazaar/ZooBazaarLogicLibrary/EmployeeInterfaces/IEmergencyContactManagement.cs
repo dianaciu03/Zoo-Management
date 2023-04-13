@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DatabaseLogicLibrary
+﻿namespace ZooBazaarLogicLibrary.Employees
 {
     public interface IEmergencyContactManagement
     {
+        void AddEmergencyContact(int employeeId);
+        EmergencyContact GetContactByEmployee(int employeeId);
     }
 }

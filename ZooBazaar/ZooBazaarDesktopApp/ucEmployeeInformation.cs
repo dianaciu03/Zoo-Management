@@ -13,12 +13,10 @@ namespace ZooBazaarDesktopApp
 {
     public partial class ucEmployeeInformation : UserControl
     {
-        EmployeeManagement employeeManagement;
         Employee selectedEmployee;
-        public ucEmployeeInformation(EmployeeManagement em, Employee selectedEmployee)
+        public ucEmployeeInformation(Employee selectedEmployee)
         {
             InitializeComponent();
-            employeeManagement = em;
             this.selectedEmployee = selectedEmployee;
             
         }
@@ -32,7 +30,7 @@ namespace ZooBazaarDesktopApp
             else
                 rbFemaleEmployeeEdit.Checked = true;
             cbRoleEmployeeEdit.DataSource = Enum.GetValues(typeof(ROLE));
-            cbRoleEmployeeEdit.SelectedItem = selectedEmployee.Role;
+            cbRoleEmployeeEdit.SelectedItem = selectedEmployee;
             tbEmailEmployeeEdit.Text = selectedEmployee.Email;
             tbEmailEmployeeEdit.Text = selectedEmployee.Email;
             maskedTbBirthdayEmployeeEdit.Text = selectedEmployee.BirthDate.ToString("MM/dd/yyyy");

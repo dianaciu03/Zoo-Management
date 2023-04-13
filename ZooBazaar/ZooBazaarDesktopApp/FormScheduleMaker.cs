@@ -17,11 +17,11 @@ namespace ZooBazaarDesktopApp
         TaskManagement taskManagement;
         AnimalManagement animalManagement;
         List<Animal> seachedAnimals;
-        public FormScheduleMaker(AnimalManagement am, TaskManagement tm)
+        public FormScheduleMaker(AnimalManagement am)
         {
             InitializeComponent();
             animalManagement = am;
-            taskManagement = tm;
+            taskManagement = new TaskManagement();
             initializeSpecieComboBox();
             updateTasks();
         }

@@ -14,55 +14,14 @@ namespace ZooBazaarDesktopApp
 {
     public partial class FormHRAdministration : Form
     {
-        EmployeeManagement employeeManagement;
-        Employee employee;
-        
-        public FormHRAdministration(EmployeeManagement emMng)
+        IEmployeeManagement employeeManagement;        
+        public FormHRAdministration(IEmployeeManagement emMng)
         {
             InitializeComponent();
             employeeManagement = emMng;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             //cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
            // cbxRole.SelectedIndex = -1;
-
-        }
-
-
-        private void btnEditEmployeeDeta_Click(object sender, EventArgs e)
-        {
-            if (lvwEmployees.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("You have not selected an employee");
-                return;
-            }
-            Debug.WriteLine(lvwEmployees.SelectedItems[0].Tag.GetType());
-            employee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            //this.Hide();
-            PopupEmployeeDetails form = new PopupEmployeeDetails(employee,employeeManagement);
-            form.ShowDialog();
-            //this.Show();
-        }
-
-        private void btnSearchEmployee_Click(object sender, EventArgs e)
-        {
-            List<Employee> searchedEmployees = new List<Employee>();
-           // if(string.IsNullOrEmpty(tbxFirstName.Text) && string.IsNullOrEmpty(tbxLastName.Text) &&
-               // (rbtnFullTimeEmployee.Checked != true) && (rbtnPartTimeEmployee.Checked != true) &&
-                //(cbxRole.SelectedIndex == -1))
-            {
-                MessageBox.Show("Please choose at least one field to search by!");
-                return;
-            }
-
-            //We implement when we have a contract class/database
-            string contractType = string.Empty;
-            /*if (rbtnFullTimeEmployee.Checked)
-                contractType = rbtnFullTimeEmployee.Text;
-            else if (rbtnPartTimeEmployee.Checked)
-                contractType = rbtnPartTimeEmployee.Text;*/
-
-           // searchedEmployees = employeeManagement.GetSearchedEmployees(tbxFirstName.Text, tbxLastName.Text, contractType, cbxRole.Text);
-            updateEmployeeListview(searchedEmployees.ToArray());
         }
 
         private void updateEmployeeListview(Employee[] employees)
@@ -84,30 +43,11 @@ namespace ZooBazaarDesktopApp
             }
         }
 
-        private void btnClearAll_Click(object sender, EventArgs e)
-        {
-           // tbxFirstName.Text = string.Empty;
-            //tbxLastName.Text = string.Empty;
-           // rbtnFullTimeEmployee.Checked = false;
-            //rbtnPartTimeEmployee.Checked = false;
-            //cbxRole.SelectedIndex = -1;
-        }
-
-        private void btnManageContract_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnShowAllEmployees_Click(object sender, EventArgs e)
-        {
-            updateEmployeeListview(employeeManagement.GetEmployees());
-        }
-
         private void btnDisplayEmployeeInformation_Click(object sender, EventArgs e)
         {
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            var uc = new ucEmployeeInformation(employeeManagement,tempEmployee) { Dock = DockStyle.Fill };
+            var uc = new ucEmployeeInformation(tempEmployee) { Dock = DockStyle.Fill };
             panelAdministrateEmployees.Controls.Add(uc);
         }
 
@@ -115,7 +55,7 @@ namespace ZooBazaarDesktopApp
         {
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            var uc = new ucContractDetails(employeeManagement);
+            var uc = new ucContractDetails();
             panelAdministrateEmployees.Controls.Add(uc);
             //Need to add a contract obj for the employees to pass it to the Employee contract edit
             // I guess the employees need a contract obj inserted in their class

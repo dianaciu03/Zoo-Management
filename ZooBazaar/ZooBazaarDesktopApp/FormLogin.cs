@@ -13,9 +13,8 @@ namespace ZooBazaarDesktopApp
 {
     public partial class FormLogin : Form
     {
-        EmployeeManagement employeeManagement = new EmployeeManagement();
+        IEmployeeManagement employeeManagement = new EmployeeManagement();
         AnimalManagement animalManagement = new AnimalManagement();
-        TaskManagement taskManagement = new TaskManagement();
         public FormLogin()
         {
             InitializeComponent();
@@ -51,14 +50,13 @@ namespace ZooBazaarDesktopApp
                     break;
                 case ROLE.ScheduleMaker:
                     this.Hide();
-                    FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement, taskManagement);
+                    FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement);
                     formScheduleTask.ShowDialog();
                     break;
                 case ROLE.ResourcePlanner:
                     this.Hide();
-                    FormResourcePlanner formAssignTasks = new FormResourcePlanner(employeeManagement, taskManagement);
+                    FormResourcePlanner formAssignTasks = new FormResourcePlanner();
                     formAssignTasks.ShowDialog();
-                    this.Close();
                     break;
             }
             this.Show();

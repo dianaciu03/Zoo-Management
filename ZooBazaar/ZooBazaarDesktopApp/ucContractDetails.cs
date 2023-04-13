@@ -15,13 +15,11 @@ namespace ZooBazaarDesktopApp
 {
     public partial class ucContractDetails : UserControl
     {
-        EmployeeManagement employeeManagement;
         EmployeeContract employeeContract;
-        public ucContractDetails(EmployeeManagement em)
+        public ucContractDetails()
         {
             InitializeComponent();
-            employeeManagement = em;
-            this.employeeContract = employeeContract;
+            //employeeContract = ec;
         }
 
 

@@ -51,5 +51,10 @@ namespace ZooBazaarLogicLibrary
             Email = email;
             Role = role;
         }
+
+        public override string ToString()
+        {
+            return $"{FirstName + " " + LastName}";
+        }
     }
 }

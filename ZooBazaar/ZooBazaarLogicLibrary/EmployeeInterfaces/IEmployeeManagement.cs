@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ZooBazaarLogicLibrary
+﻿namespace ZooBazaarLogicLibrary
 {
-    internal interface IEmployeeManagement
+    public interface IEmployeeManagement
     {
+        void AddNewEmployee(Employee employee);
+        Employee GetEmployeeByEmail(string email);
+        Employee[] GetEmployees();
     }
 }

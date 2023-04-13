@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,16 +14,15 @@ namespace ZooBazaarDesktopApp
 {
     public partial class FormResourcePlanner : Form
     {
-        EmployeeManagement employeeManagement;
+        IEmployeeManagement employeeManagement;
         TaskManagement taskManagement;
         ZooTask selectedTask;
-        public FormResourcePlanner(EmployeeManagement em, TaskManagement tm)
+        public FormResourcePlanner()
         {
             InitializeComponent();
             employeeManagement = new EmployeeManagement();
-            taskManagement = tm;
-            taskManagement.ScheduleTask("Task test1", "Tesst task 1 desc", DateTime.Today.AddDays(6), 4, "Penguin", null);
-            taskManagement.ScheduleTask("Task test2", "Tesst task 2 desc", DateTime.Today.AddDays(7), 4, "Zebra", null);
+            taskManagement = new TaskManagement();
+            taskManagement.ScheduleTask("Penguin clean", "Clean the penguin good", DateTime.Today, 2, "Penguin", null);
             updateTasksListview();
         }
         private void updateTasksListview()
