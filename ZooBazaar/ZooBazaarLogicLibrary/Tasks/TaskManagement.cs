@@ -41,7 +41,7 @@ namespace ZooBazaarLogicLibrary
         }
 
         
-        public CareTaker[] GetTaskEmployees(int taskID)
+        public Employee[] GetTaskEmployees(int taskID)
         {
             ZooTask task = (ZooTask)tasks.Where(x => x.ID == taskID);
             return task.GetAssignedEmployees().ToArray();
@@ -76,7 +76,7 @@ namespace ZooBazaarLogicLibrary
             }
             return foundTasks.ToArray();
         }
-        public bool CheckEmployeeAvailability(ZooTask task, CareTaker employee)
+        public bool CheckEmployeeAvailability(ZooTask task, Employee employee)
         {
             // New/existing which does not have caretakers assigned.
             int taskStartHour = task.TaskDateTime.Hour;

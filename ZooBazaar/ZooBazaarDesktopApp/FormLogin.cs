@@ -37,24 +37,24 @@ namespace ZooBazaarDesktopApp
                 return;
             }
  
-            switch (logEmployee.GetType().Name)
+            switch (logEmployee.Role)
             {
-                case ("AnimalAdministrator"):
+                case ROLE.AnimalAdministrator:
                     this.Hide();
                     FormAnimalAdministration formAnimalManagement = new FormAnimalAdministration(animalManagement);
                     formAnimalManagement.ShowDialog(); 
                     break;
-                case ("HRAdministrator"):
+                case ROLE.HRAdministrator:
                     this.Hide();
                     FormHRAdministration formHRManagement = new FormHRAdministration(employeeManagement);
                     formHRManagement.ShowDialog();
                     break;
-                case ("ScheduleMaker"):
+                case ROLE.ScheduleMaker:
                     this.Hide();
                     FormScheduleMaker formScheduleTask = new FormScheduleMaker(animalManagement, taskManagement);
                     formScheduleTask.ShowDialog();
                     break;
-                case ("ResourcePlanner"):
+                case ROLE.ResourcePlanner:
                     this.Hide();
                     FormResourcePlanner formAssignTasks = new FormResourcePlanner(employeeManagement, taskManagement);
                     formAssignTasks.ShowDialog();

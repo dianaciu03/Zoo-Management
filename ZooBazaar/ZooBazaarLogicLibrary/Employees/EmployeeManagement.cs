@@ -18,10 +18,6 @@ namespace ZooBazaarLogicLibrary
         {
             this.employeeList = new List<Employee>();
         }
-        public void AddEmployee(Employee employee)
-        {
-            employeeList.Add(employee);
-        }
         public void AddNewEmployee(Employee employee)
         {
             EmployeeDTO employeeDto = new EmployeeDTO
@@ -62,7 +58,7 @@ namespace ZooBazaarLogicLibrary
             return employee;
         }
 
-        public List<Employee> GetSearchedEmployees(string firstName, string lastName, string contractType, string role)
+        /*public List<Employee> GetSearchedEmployees(string firstName, string lastName, string contractType, string role)
         {
             List<Employee> searchedEmployees = new List<Employee>();
             foreach (Employee employee in employeeList)
@@ -88,6 +84,6 @@ namespace ZooBazaarLogicLibrary
                 }
             }
             return searchedEmployees;
-        }
+        }*/
     }
 }

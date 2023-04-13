@@ -32,7 +32,7 @@ namespace ZooBazaarDesktopApp
             else
                 rbFemaleEmployeeEdit.Checked = true;
             cbRoleEmployeeEdit.DataSource = Enum.GetValues(typeof(ROLE));
-            cbRoleEmployeeEdit.SelectedItem = selectedEmployee.GetRole();
+            cbRoleEmployeeEdit.SelectedItem = selectedEmployee.Role;
             tbEmailEmployeeEdit.Text = selectedEmployee.Email;
             tbEmailEmployeeEdit.Text = selectedEmployee.Email;
             maskedTbBirthdayEmployeeEdit.Text = selectedEmployee.BirthDate.ToString("MM/dd/yyyy");

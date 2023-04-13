@@ -17,7 +17,7 @@ namespace ZooBazaarLogicLibrary
         public string Status { get; set; }
         public string Species { get; set; }
         public Animal Animal { get; set; }
-        private List<CareTaker> assignedEmployees;
+        private List<Employee> assignedEmployees;
 
         //task where animal is specified
         public ZooTask(int ID, string Name, string Description, DateTime TaskDateTime, double EstimatedDuration, string Species, Animal Animal) 
@@ -30,7 +30,7 @@ namespace ZooBazaarLogicLibrary
             this.Status = "Not started";
             this.Species = Species;
             this.Animal = Animal;
-            this.assignedEmployees = new List<CareTaker>();
+            this.assignedEmployees = new List<Employee>();
         }
 
         //task where only specie is specified, no specific animal selected
@@ -43,22 +43,22 @@ namespace ZooBazaarLogicLibrary
             this.EstimatedDuration = EstimatedDuration;
             this.Status = "Not started";
             this.Species = Species;
-            this.assignedEmployees = new List<CareTaker>();
+            this.assignedEmployees = new List<Employee>();
         }
 
-        public void AssignEmployee(CareTaker employee)
+        public void AssignEmployee(Employee employee)
         {
             assignedEmployees.Add(employee);
         }
 
-        public CareTaker[] GetAssignedEmployees()
+        public Employee[] GetAssignedEmployees()
         {
             return assignedEmployees.ToArray();
         }
-        public CareTaker GetAssignedEmployee(int id)
+        public Employee GetAssignedEmployee(int id)
         {
-            CareTaker foundCareTaker;
-            foreach (CareTaker caretaker in assignedEmployees)
+            Employee foundCareTaker;
+            foreach (Employee caretaker in assignedEmployees)
             {
                 if (caretaker.ID == id)
                 {

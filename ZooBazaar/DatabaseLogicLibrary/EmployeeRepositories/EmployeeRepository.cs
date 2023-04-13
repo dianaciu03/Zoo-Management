@@ -194,6 +194,7 @@ namespace DatabaseLogicLibrary
             EmployeeDTO employee;
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
+                connection.Open();
                 SqlCommand query = new SqlCommand("SELECT * FROM Employees Where Email = @email", connection);
                 query.Parameters.AddWithValue("email", email);
 

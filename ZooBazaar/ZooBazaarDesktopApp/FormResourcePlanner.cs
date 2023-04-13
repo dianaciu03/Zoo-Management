@@ -45,13 +45,15 @@ namespace ZooBazaarDesktopApp
         private void updateEmployeeCombobox(ZooTask task)
         {
             cbxCaretakers.Items.Clear();
-            List<CareTaker> availableCareTakers = new List<CareTaker>();
-            foreach (CareTaker careTaker in employeeManagement.GetEmployees())
+            List<Employee> availableCareTakers = new List<Employee>();
+            foreach (Employee employee in employeeManagement.GetEmployees())
             {
-                if (taskManagement.CheckEmployeeAvailability(task, careTaker))
+                if (taskManagement.CheckEmployeeAvailability(task, employee))
                 {
-                    cbxCaretakers.Items.Add(careTaker);
+                    if (employee.Role == ROLE.CareTaker)
+                        cbxCaretakers.Items.Add(employee);
                 }
+                availableCareTakers.Add(employee);
             }
         }
 
@@ -72,10 +74,10 @@ namespace ZooBazaarDesktopApp
 
         private void btnAssignEmployee_Click(object sender, EventArgs e)
         {
-            Employee selectedCaretaker = (CareTaker)cbxCaretakers.SelectedItem;
+            Employee selectedCaretaker = (Employee)cbxCaretakers.SelectedItem;
             ZooTask selectedTask = (ZooTask)lvwAvailableTasks.SelectedItems[0].Tag;
             if (selectedTask != null && selectedCaretaker != null)
-                selectedTask.AssignEmployee((CareTaker)selectedCaretaker);
+                selectedTask.AssignEmployee(selectedCaretaker);
             updateTasksListview();
         }
 
@@ -88,7 +90,7 @@ namespace ZooBazaarDesktopApp
         private void btnMoreDetailsTask_Click(object sender, EventArgs e)
         {
             string message = string.Empty;
-            foreach (CareTaker careTaker in selectedTask.GetAssignedEmployees())
+            foreach (Employee careTaker in selectedTask.GetAssignedEmployees())
             {
                 message += $"{careTaker.FirstName} {careTaker.LastName}";
             }

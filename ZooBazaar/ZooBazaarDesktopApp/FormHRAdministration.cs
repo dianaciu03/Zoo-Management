@@ -75,10 +75,10 @@ namespace ZooBazaarDesktopApp
                 item.Tag = employee;
                 item.SubItems.Add(employee.FirstName);
                 item.SubItems.Add(employee.LastName);
-                item.SubItems.Add(employee.GetRole());
-                if (employee.HoursPerWeek == 40)
+                item.SubItems.Add(employee.Role.ToString());
+                /*if (employee.HoursPerWeek == 40)
                     item.SubItems.Add("Full-time");
-                else item.SubItems.Add("Part-time");
+                else item.SubItems.Add("Part-time");*/
                 lvwEmployees.Items.Add(item);
                 item.Tag = employee;
             }
@@ -128,7 +128,7 @@ namespace ZooBazaarDesktopApp
         {
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            var uc = new ucEmergencyContact(employeeManagement, tempEmployee) { Dock = DockStyle.Fill };
+            var uc = new ucEmergencyContact(tempEmployee) { Dock = DockStyle.Fill };
             panelAdministrateEmployees.Controls.Add(uc);
         }
 
@@ -138,22 +138,8 @@ namespace ZooBazaarDesktopApp
             if (rbAddFemale.Checked == true) gender = "Female";
             else if (rbAddMale.Checked == true) gender = "Male";
             else return;
-            Employee employee;
-            switch (cbxNewEmpRole.SelectedItem.ToString())
-            {
-                case nameof(HRAdministrator):
-                    employee = new HRAdministrator(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text);
-                    break;
-                case nameof(AnimalAdministrator):
-                    employee = new AnimalAdministrator(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text);
-                    employeeManagement.AddNewEmployee(employee);
-                    break;
-                case nameof(ScheduleMaker):
-                    employee = new ScheduleMaker(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text);
-                    employeeManagement.AddNewEmployee(employee);
-                    break;
-
-            }
+            Employee employee = new Employee(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, tbxPhone.Text, gender, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text, (ROLE)cbxNewEmpRole.SelectedItem);
+            employeeManagement.AddNewEmployee(employee);
         }
 
         private void ucSearchFeatureEmployees1_Load(object sender, EventArgs e)
