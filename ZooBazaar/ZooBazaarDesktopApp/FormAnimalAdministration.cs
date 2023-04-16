@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using ZooBazaarLogicLibrary;
 using ZooBazaarLogicLibrary.Animals;
 
@@ -393,6 +394,7 @@ namespace ZooBazaarDesktopApp
         {
             updateAnimalListview(animalManagement.GetAllAnimals());
         }
+
         private void lvwAnimals_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
@@ -440,6 +442,9 @@ namespace ZooBazaarDesktopApp
         //
         private void btnConfirmAnimalCreation_Click(object sender, EventArgs e)
         {
+            tbxAnimalForRelationship.DataBindings.Clear();
+            //tbxAnimalForRelationship.Clear();
+            Animal animal;
             try
             {
                 string input = maskedtbxBirthDateAddAnimalForm.Text;
@@ -461,17 +466,86 @@ namespace ZooBazaarDesktopApp
                 else if (rbtnFemaleAddAnimal.Checked) gender = "Female";
                 else throw (new Exception("Please select a gender"));
 
-                Animal animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateAddAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
+                animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateAddAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
                 animalManagement.AddUpdateAnimal(animal);
                 MessageBox.Show($"Animal has been successfully created!\n{animal}");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return;
             }
+
+            tbxAnimalForRelationship.DataBindings.Add("Text", animal, "Name");
+
+            cbOtherAnimal.DataSource = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
+
+
 
         }
 
+        private void buttonAddRelationshipAddAnimal_Click(object sender, EventArgs e)
+        {
+            Binding binding = tbxAnimalForRelationship.DataBindings["Text"] ;
 
+
+
+            Animal animal = (Animal)binding.DataSource;
+            
+                
+
+            switch (cbRelationShipType.SelectedIndex)
+            {
+                case 0:
+                    {
+                        animalManagement.AddParentChildRelationship(
+                            animal.Id,
+                            ((Animal)cbOtherAnimal.SelectedItem).Id);
+                        MessageBox.Show("Relationship has been added successfully!");
+                        btnCancelRelationship_Click(this, EventArgs.Empty);
+                        break;
+                    }
+                case 1:
+                    {
+                        animalManagement.AddParentChildRelationship(
+                            ((Animal)cbOtherAnimal.SelectedItem).Id,
+                            animal.Id);
+                        MessageBox.Show("Relationship has been added successfully!");
+                        btnCancelRelationship_Click(this, EventArgs.Empty);
+                        break;
+                    }
+                case 2:
+                    {
+                        if (((Animal)cbOtherAnimal.SelectedItem).Gender == "Male" &&
+                            animal.Gender == "Female")
+                        {
+                            animalManagement.AddMateRelationship(
+                                ((Animal)cbOtherAnimal.SelectedItem).Id,
+                                animal.Id);
+                            MessageBox.Show("Relationship has been added successfully!");
+                            btnCancelRelationship_Click(this, EventArgs.Empty);
+                        }
+                        else if (((Animal)cbOtherAnimal.SelectedItem).Gender == "Female" &&
+                            animal.Gender == "Male")
+                        {
+                            animalManagement.AddMateRelationship(
+                                animal.Id,
+                                ((Animal)cbOtherAnimal.SelectedItem).Id);
+                            MessageBox.Show("Relationship has been added successfully!");
+                            btnCancelRelationship_Click(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The mates must not be of the same gender.");
+                        }
+                        break;
+                    }
+                default:
+                    {
+                        MessageBox.Show("Please select a realationship type.");
+                        break;
+                    }
+            }
+        }
     }
 }

@@ -1562,6 +1562,7 @@
             this.buttonAddRelationshipAddAnimal.TabIndex = 1;
             this.buttonAddRelationshipAddAnimal.Text = "Add relationship";
             this.buttonAddRelationshipAddAnimal.UseVisualStyleBackColor = false;
+            this.buttonAddRelationshipAddAnimal.Click += new System.EventHandler(this.buttonAddRelationshipAddAnimal_Click);
             // 
             // labelSelectedAnimal
             // 
