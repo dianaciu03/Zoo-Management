@@ -234,6 +234,10 @@ namespace ZooBazaarDesktopApp
                 {
                     lbxRelationshipsMain.Items.Add($"Child - {animaltemp} ");
                 }
+                foreach (Animal animaltemp in animalManagement.GetSiblings(animal.Id))
+                {
+                    lbxRelationshipsMain.Items.Add($"Sibling - {animaltemp} ");
+                }
 
                 cbxOtherAnimalRelationship.DataSource = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
 

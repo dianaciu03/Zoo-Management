@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -109,10 +110,10 @@ namespace DatabaseLogicLibrary
         private void AddNewAnimal(AnimalDTO animal, SqlConnection connection) //Inserts the new Animal into the database.
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Animals " +
-                                                       "VALUES (@AnimalID,@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure,@Availability)", 
+                                                       "VALUES (@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure,@Availability)", 
                                                        connection))
             {
-                command.Parameters.AddWithValue("@AnimalID", animal.Id);
+                //command.Parameters.AddWithValue("@AnimalID", animal.Id);
                 command.Parameters.AddWithValue("@Name", animal.Name);
                 command.Parameters.AddWithValue("@Gender", animal.Gender);
                 command.Parameters.AddWithValue("@Species", animal.Species);
@@ -130,7 +131,7 @@ namespace DatabaseLogicLibrary
         private void UpdateAnimal(AnimalDTO animal, SqlConnection connection) //Updates and already existing animal from the database
         {
             using (SqlCommand command = new SqlCommand("UPDATE Animals " +
-                                                       "SET AnimalID = @AnimalID, Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +
+                                                       "SET Name = @Name, Gender = @Gender, Species = @Species, BirthDate = @BirthDate," +
                                                        "Origin = @Origin, Description = @Description, Endangerment = @Endangerment, Enclosure = @Enclosure, Availability = @Availability " +
                                                        "WHERE AnimalID = @AnimalID", connection))
             {
@@ -398,6 +399,76 @@ namespace DatabaseLogicLibrary
                         "WHERE AnimalOneID = @AnimalID AND RelationshipType = 0;", connection);
                 }
                     query.Parameters.AddWithValue("@AnimalID", animalID);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = query.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            AnimalDTO animal = new AnimalDTO(
+                             reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                             reader.GetString(reader.GetOrdinal("Name")),
+                             reader.GetString(reader.GetOrdinal("Gender")),
+                             reader.GetString(reader.GetOrdinal("Species")),
+                             reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                             reader.GetString(reader.GetOrdinal("Origin")),
+                             reader.GetString(reader.GetOrdinal("Description")),
+                             reader.GetString(reader.GetOrdinal("Endangerment")),
+                             reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                             reader.GetString(reader.GetOrdinal("Availability")));
+
+                            animals.Add(animal);
+
+                        }
+                        reader.Close();
+                    }
+
+                }
+                catch (SqlException) { }
+                finally { connection.Close(); }
+
+                return animals;
+            }
+        }
+
+        public List<AnimalDTO> GetSiblings(int animalID)
+        {
+            List<AnimalDTO> animals = new List<AnimalDTO>();
+
+            List<AnimalDTO> parents = GetParents(animalID);
+
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+
+                SqlCommand query;
+
+                query = new SqlCommand("SELECT DISTINCT Animals.* FROM AnimalRelationships " +
+                    "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalTwoID " +
+                    "WHERE (AnimalOneID = @ParentOneID OR AnimalOneID = @ParentTwoID) AND RelationshipType = 1" +
+                    "AND AnimalTwoID != @AnimalID;", connection);
+
+                if (parents.Count <= 0)
+                {
+                    return animals;
+                }
+
+                if (parents[0] != null)
+                {
+                    query.Parameters.AddWithValue("@ParentOneID", parents[0].Id);
+                }
+                if (parents[1] != null)
+                {
+                    query.Parameters.AddWithValue("@ParentTwoID", parents[1].Id);
+                }
+                else
+                {
+                    query.Parameters.AddWithValue("@ParentTwoID", "");
+                }
+
+                query.Parameters.AddWithValue("@AnimalID", animalID);
 
                 try
                 {

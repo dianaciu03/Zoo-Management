@@ -126,5 +126,10 @@ namespace ZooBazaarLogicLibrary
         {
             return DTOToAnimals(animalHelper.GetMates(animalID, gender));
         }
+
+        public List<Animal> GetSiblings(int animalID)
+        {
+            return DTOToAnimals(animalHelper.GetSiblings(animalID));
+        }
     }
 }
