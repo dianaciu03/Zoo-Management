@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using BusinessLogic;
+
+namespace DesktopApplication
+{
+    public partial class ucEmployeeInformation : UserControl
+    {
+        Employee selectedEmployee;
+        public ucEmployeeInformation(Employee selectedEmployee)
+        {
+            InitializeComponent();
+            this.selectedEmployee = selectedEmployee;
+            
+        }
+
+        private void ucEmployeeInformation_Load(object sender, EventArgs e)
+        {
+            tbFirstNameEmployeeEdit.Text = selectedEmployee.FirstName;
+            tbLastNameEmployeeEdit.Text = selectedEmployee.LastName;
+            if(selectedEmployee.PersonGender == "Male")
+                rbMaleEmployeeEdit.Checked = true;
+            else
+                rbFemaleEmployeeEdit.Checked = true;
+            cbRoleEmployeeEdit.DataSource = Enum.GetValues(typeof(ROLE));
+            cbRoleEmployeeEdit.SelectedItem = selectedEmployee;
+            tbEmailEmployeeEdit.Text = selectedEmployee.Email;
+            tbEmailEmployeeEdit.Text = selectedEmployee.Email;
+            maskedTbBirthdayEmployeeEdit.Text = selectedEmployee.BirthDate.ToString("MM/dd/yyyy");
+            //NEED TO ADD EMPLOYEE BIRTHDATE INTO THE MASKED TEXTBOX, I DONT KNOW HOW TO PARSE IT 
+            // SOMEONE PLEASE DO IT FOR ME TY :*
+
+        }
+
+        private void btnCancelEmployeeEdit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnSaveEmployeeEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
