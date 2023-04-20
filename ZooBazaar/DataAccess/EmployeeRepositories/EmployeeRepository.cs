@@ -77,7 +77,6 @@ namespace DataAccess
                 }
             }
         }
-
         public void AddUpdateEmployee(EmployeeDTO employee, ContractDTO contract, EmergencyContactDTO emergencyContact)
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
