@@ -6,6 +6,6 @@ namespace BusinessLogic
     {
         void AddNewEmployee(Employee employee, EmployeeContract contract, EmergencyContact contact);
         Employee GetEmployeeByEmail(string email);
-        Employee[] GetEmployees();
+        Employee[] GetEmployees(out int[] ints);
     }
 }

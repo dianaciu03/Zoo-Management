@@ -10,46 +10,23 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class EmployeeRepository
+    public class EmployeeRepository:IEmployeeRepository
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
-
-        public int NewEmployeeID()
+        
+        public EmployeeRepository()
         {
-            int i = 0;
-
-            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
-            {
-                SqlCommand query = new SqlCommand("SELECT MAX(EmployeeID) FROM Employees", connection);
-
-                try
-                {
-                    connection.Open();
-                    if (query.ExecuteScalar() != DBNull.Value)
-                    {
-                        i = (Int32)query.ExecuteScalar();
-                    }
-                }
-                catch (SqlException) { }
-                finally
-                {
-                    connection.Close();
-                }
-                return i + 1; //+1 beacuse we need a new employee id so we get the current highest in database + 1
-            }
-
-        }
-
+            
+        } 
         public List<EmployeeDTO> GetAllEmployees() // Gets all employees in the employee database and returns them as a list of employeeDTO Objects
         {
             List<EmployeeDTO> employees = new List<EmployeeDTO>();
-
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
                 try { connection.Open(); }
                 catch (SqlException) { return employees; }
 
-                SqlCommand query = new SqlCommand("SELECT * FROM Employees", connection);
+                SqlCommand query = new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID", connection);
 
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
@@ -66,7 +43,8 @@ namespace DataAccess
                             phone = reader.GetString(reader.GetOrdinal("Phone")),
                             role = reader.GetString(reader.GetOrdinal("EmployeeType")),
                             password = reader.GetString(reader.GetOrdinal("Password")),
-                            email = reader.GetString(reader.GetOrdinal("Email"))
+                            email = reader.GetString(reader.GetOrdinal("Email")),
+                            hoursPerWeek = reader.GetInt32(reader.GetOrdinal("WeeklyHours"))
                         };
                         employees.Add(employee);
                     }
@@ -106,8 +84,8 @@ namespace DataAccess
 
         private void UpdateEmployee(EmployeeDTO employee, SqlConnection connection)
         {
-            using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
-                                           "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
+            using (SqlCommand command = new SqlCommand(@"UPDATE Employees" +
+                                           " SET (FirstName,LastName,BirthDate,Gender,Address,Phone,Password,Email,EmployeeType) VALUES (@FirstName,@LastName,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType)", connection))
             {
                 command.Parameters.AddWithValue("@EmployeeID", employee.id);
                 command.Parameters.AddWithValue("@FirstName", employee.firstName);
@@ -160,19 +138,14 @@ namespace DataAccess
             }
         }
 
-        public List<EmployeeDTO> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeType)
+        public List<EmployeeDTO> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeRole)
         {
             List<EmployeeDTO> employees = new List<EmployeeDTO>();
-
-
-
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
                 try { connection.Open(); }
                 catch (SqlException) { return employees; }
 
-
-                //Dynamic SQL query to find the festivals that the user is searching for.
                 SqlCommand query = new SqlCommand("SELECT * FROM Employees WHERE " +
                     "(FirstName LIKE '%' + @FirstName ) AND " +
                     "(LastName LIKE '%' @LastName) AND " +
@@ -184,7 +157,7 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@FirstName", firstName);
                 query.Parameters.AddWithValue("@LastName", lastname);
                 query.Parameters.AddWithValue("@WeeklyHours", weeklyHours);
-                query.Parameters.AddWithValue("@EmployeeType", employeeType);
+                query.Parameters.AddWithValue("@EmployeeType", employeeRole);
 
                 using (SqlDataReader reader = query.ExecuteReader())
                 {

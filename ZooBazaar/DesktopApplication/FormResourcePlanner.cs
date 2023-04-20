@@ -17,10 +17,10 @@ namespace DesktopApplication
         IEmployeeManagement employeeManagement;
         TaskManagement taskManagement;
         ZooTask selectedTask;
-        public FormResourcePlanner()
+        public FormResourcePlanner(IEmployeeManagement emMng)
         {
             InitializeComponent();
-            employeeManagement = new EmployeeManagement();
+            employeeManagement = emMng;
             taskManagement = new TaskManagement();
             taskManagement.ScheduleTask("Penguin clean", "Clean the penguin good", DateTime.Today, 2, "Penguin", null);
             updateTasksListview();
@@ -46,7 +46,7 @@ namespace DesktopApplication
         {
             cbxCaretakers.Items.Clear();
             List<Employee> availableCareTakers = new List<Employee>();
-            foreach (Employee employee in employeeManagement.GetEmployees())
+            foreach (Employee employee in employeeManagement.GetEmployees(out int[] ints))
             {
                 if (taskManagement.CheckEmployeeAvailability(task, employee))
                 {

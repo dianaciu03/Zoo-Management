@@ -58,9 +58,6 @@
     <Compile Update="ucEmployeeInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="ucSearchFeatureEmployees.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>

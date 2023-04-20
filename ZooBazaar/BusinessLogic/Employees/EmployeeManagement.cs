@@ -11,10 +11,11 @@ namespace BusinessLogic
 {
     public class EmployeeManagement : IEmployeeManagement
     {
-        EmployeeRepository employeeRepository = new EmployeeRepository();
+        private readonly IEmployeeRepository _employeeRepository;
 
-        public EmployeeManagement()
+        public EmployeeManagement(IEmployeeRepository employeeRepository)
         {
+            _employeeRepository= employeeRepository;
         }
         public void AddNewEmployee(Employee employee, EmployeeContract contract, EmergencyContact emergencyContact)
         {
@@ -47,24 +48,27 @@ namespace BusinessLogic
                 phone = emergencyContact.Phone,
             };
 
-            employeeRepository.AddUpdateEmployee(employeeDto, contractDto, contactDto);
+            _employeeRepository.AddUpdateEmployee(employeeDto, contractDto, contactDto);
         }
-        public Employee[] GetEmployees()
+        public Employee[] GetEmployees(out int[] ints)
         {
             List<Employee> employees = new List<Employee>();
-            foreach (EmployeeDTO employeeDto in employeeRepository.GetAllEmployees())
+            List<int> weeklyHours = new List<int>();
+            foreach (EmployeeDTO employeeDto in _employeeRepository.GetAllEmployees())
             {
+                weeklyHours.Add(employeeDto.hoursPerWeek);
                 Employee employee = employeeDto.ToEmployee();
                 employees.Add(employee);
             }
+            ints = weeklyHours.ToArray();
             return employees.ToArray();
         }
 
         public Employee GetEmployeeByEmail(string email)
         {
             EmployeeDTO? employeeDto = null;
-            if (employeeRepository.GetEmployeeByEmail(email) != null)
-                employeeDto = employeeRepository.GetEmployeeByEmail(email);
+            if (_employeeRepository.GetEmployeeByEmail(email) != null)
+                employeeDto = _employeeRepository.GetEmployeeByEmail(email);
             if (employeeDto == null)
                 return null;
             Employee employee = ((EmployeeDTO)employeeDto).ToEmployee();

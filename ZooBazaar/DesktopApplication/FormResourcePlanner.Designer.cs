@@ -317,6 +317,7 @@
             this.Name = "FormResourcePlanner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormResourcePlanner";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControlResourcePlanner.ResumeLayout(false);
             this.tabAssignTasks.ResumeLayout(false);
             this.tabAssignTasks.PerformLayout();

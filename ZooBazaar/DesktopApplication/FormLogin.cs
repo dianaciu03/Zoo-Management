@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using DataAccess;
 
 namespace DesktopApplication
 {
     public partial class FormLogin : Form
     {
-        IEmployeeManagement employeeManagement = new EmployeeManagement();
+        IEmployeeManagement employeeManagement = new EmployeeManagement(new EmployeeRepository());
         AnimalManagement animalManagement = new AnimalManagement();
         public FormLogin()
         {
@@ -55,7 +56,7 @@ namespace DesktopApplication
                     break;
                 case ROLE.ResourcePlanner:
                     this.Hide();
-                    FormResourcePlanner formAssignTasks = new FormResourcePlanner();
+                    FormResourcePlanner formAssignTasks = new FormResourcePlanner(employeeManagement);
                     formAssignTasks.ShowDialog();
                     break;
             }

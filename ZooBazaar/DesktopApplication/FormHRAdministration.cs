@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +23,16 @@ namespace DesktopApplication
             InitializeComponent();
             employeeManagement = emMng;
             this.BackgroundImageLayout = ImageLayout.Stretch;
+            cbxRoleSearchFeature.DataSource = Enum.GetValues(typeof(ROLE));
+            cbxRoleSearchFeature.SelectedIndex = -1;
             cbxNewEmpRole.DataSource = Enum.GetValues(typeof(ROLE));
-           // cbxRole.SelectedIndex = -1;
+            cbxNewEmpRole.SelectedIndex = -1;
         }
 
-        private void updateEmployeeListview(Employee[] employees)
+        private void updateEmployeeListview(Employee[] employees, int[] hoursWorked)
         {
             lvwEmployees.Items.Clear();
+            int index = 0;
             foreach (Employee employee in employees)
             {
                 ListViewItem item = new ListViewItem();
@@ -36,11 +41,13 @@ namespace DesktopApplication
                 item.SubItems.Add(employee.FirstName);
                 item.SubItems.Add(employee.LastName);
                 item.SubItems.Add(employee.Role.ToString());
-                /*if (employee.HoursPerWeek == 40)
+                if (hoursWorked[index] == 40)
                     item.SubItems.Add("Full-time");
-                else item.SubItems.Add("Part-time");*/
+                else 
+                    item.SubItems.Add("Part-time");
                 lvwEmployees.Items.Add(item);
                 item.Tag = employee;
+                index++;
             }
         }
 
@@ -81,7 +88,17 @@ namespace DesktopApplication
                 if (rbAddFemale.Checked == true) gender = "Female";
                 else if (rbAddMale.Checked == true) gender = "Male";
                 else return;
-                Employee employee = new Employee(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dtmContractEndDate.Value, tbxPhone.Text, gender, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text, (ROLE)cbxNewEmpRole.SelectedItem);
+                string input = maskedtbxDoBEmployee.Text;
+                DateTime date;
+
+                // Try to parse the input string as a date
+                if (DateTime.TryParseExact(input, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+                {
+                    // If the parsing is successful, format the date and update the text box
+                    maskedtbxDoBEmployee.Text = date.ToString("MM/dd/yyyy");
+                    maskedtbxDoBEmployee.SelectionStart = maskedtbxDoBEmployee.Text.Length;
+                }
+                Employee employee = new Employee(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, date, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text, (ROLE)cbxNewEmpRole.SelectedItem);
 
                 DateTime? contractEndDate;
                 if (cbNotMentioned.Checked == true)
@@ -99,17 +116,6 @@ namespace DesktopApplication
             }
         }
 
-        private void btnShowAllEmployees_Click_1(object sender, EventArgs e)
-        {
-            updateEmployeeListview(employeeManagement.GetEmployees());
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbNotMentioned_CheckedChanged(object sender, EventArgs e)
         {
             if (cbNotMentioned.Checked == true)
@@ -122,22 +128,35 @@ namespace DesktopApplication
 
         private void rbtnContractTypeFulltime_CheckedChanged(object sender, EventArgs e)
         {
+            nudWeeklyHours.Maximum = 40;
             nudWeeklyHours.Value = 40;
-            nudWeeklyHours.ReadOnly = true;
+            nudWeeklyHours.Enabled = false;
         }
 
         private void rbtnContractTypeParttime_CheckedChanged(object sender, EventArgs e)
         {
             nudWeeklyHours.Value = 0;
-            nudWeeklyHours.ReadOnly = false;
+            nudWeeklyHours.Enabled = true;
+            nudWeeklyHours.Maximum = 39;
         }
 
-        private void cbxNewEmpRole_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void btnClearAll_Click(object sender, EventArgs e)
         {
-
+            tbxFirstNameSearchFeature.Text = string.Empty;
+            tbxLastNameEmployeeSearch.Text = string.Empty;
+            rbtnFullTimeEmployeeSearchFeature.Checked = false;
+            rbtnPartTimeEmployeeSearchFeature.Checked = false;
+            cbxRoleSearchFeature.SelectedIndex = -1;
         }
 
-        private void btnCancelEmployeeCreation_Click(object sender, EventArgs e)
+        private void btnShowAllEmployees_Click(object sender, EventArgs e)
+        {
+            Employee[] employees = employeeManagement.GetEmployees(out int[] ints);
+            updateEmployeeListview(employees, ints);
+        }
+
+        private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
 
         }

@@ -206,7 +206,7 @@
             this.btnShowAllEmployees.TabIndex = 24;
             this.btnShowAllEmployees.Text = "Display all employees";
             this.btnShowAllEmployees.UseVisualStyleBackColor = false;
-            this.btnShowAllEmployees.Click += new System.EventHandler(this.btnShowAllEmployees_Click_1);
+            this.btnShowAllEmployees.Click += new System.EventHandler(this.btnShowAllEmployees_Click);
             // 
             // labelEmployeeContractType
             // 
@@ -259,6 +259,7 @@
             this.btnSearchEmployee.TabIndex = 14;
             this.btnSearchEmployee.Text = "Search";
             this.btnSearchEmployee.UseVisualStyleBackColor = false;
+            this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
             // 
             // btnClearAll
             // 
@@ -270,6 +271,7 @@
             this.btnClearAll.TabIndex = 15;
             this.btnClearAll.Text = "Clear fields";
             this.btnClearAll.UseVisualStyleBackColor = false;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // labelEmployeeRole
             // 
@@ -829,7 +831,6 @@
             this.btnCancelEmployeeCreation.TabIndex = 33;
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = false;
-            this.btnCancelEmployeeCreation.Click += new System.EventHandler(this.btnCancelEmployeeCreation_Click);
             // 
             // groupBoxContractDetailsPopup
             // 
@@ -903,7 +904,6 @@
             this.dtmContractEndDate.Name = "dtmContractEndDate";
             this.dtmContractEndDate.Size = new System.Drawing.Size(375, 33);
             this.dtmContractEndDate.TabIndex = 30;
-            this.dtmContractEndDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // labelEndDate
             // 
@@ -939,6 +939,11 @@
             // 
             this.nudWeeklyHours.Location = new System.Drawing.Point(208, 252);
             this.nudWeeklyHours.Margin = new System.Windows.Forms.Padding(6);
+            this.nudWeeklyHours.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
             this.nudWeeklyHours.Name = "nudWeeklyHours";
             this.nudWeeklyHours.Size = new System.Drawing.Size(165, 35);
             this.nudWeeklyHours.TabIndex = 25;
@@ -1175,7 +1180,6 @@
             this.cbxNewEmpRole.Name = "cbxNewEmpRole";
             this.cbxNewEmpRole.Size = new System.Drawing.Size(295, 37);
             this.cbxNewEmpRole.TabIndex = 9;
-            this.cbxNewEmpRole.SelectedIndexChanged += new System.EventHandler(this.cbxNewEmpRole_SelectedIndexChanged);
             // 
             // tbxNewEmpLastName
             // 

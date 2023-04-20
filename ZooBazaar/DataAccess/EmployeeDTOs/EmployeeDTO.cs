@@ -18,5 +18,6 @@ namespace DataAccess
         public string role;
         public string password;
         public string email;
+        public int hoursPerWeek;
     }
 }
