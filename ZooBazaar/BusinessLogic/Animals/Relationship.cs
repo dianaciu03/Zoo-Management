@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    abstract class Relationship
+    public abstract class Relationship
     {
         Animal animal1;
         Animal animal2;

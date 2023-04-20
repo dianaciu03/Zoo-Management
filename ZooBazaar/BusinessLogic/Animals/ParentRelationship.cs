@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class ParentRelationship:Relationship
+    public class ParentRelationship : Relationship
     {
-        public ParentRelationship( Animal animal1, Animal animal2)
-            : base(animal1,animal2)
+        public ParentRelationship( Animal animalParent, Animal animalChild)
+            : base(animalParent, animalChild)
         {
         
         }

@@ -258,20 +258,34 @@ namespace DesktopApplication
             {
                 case 0:
                     {
-                        animalManagement.AddParentChildRelationship(
-                            ((Animal)lvwAnimals.SelectedItems[0].Tag).Id,
-                            ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id);
+                        Result<ParentRelationship> result = animalManagement.AddParentChildRelationship(
+                            ((Animal)lvwAnimals.SelectedItems[0].Tag),
+                            ((Animal)cbxOtherAnimalRelationship.SelectedItem));
+                        if (result.Success)
+                        {
                         MessageBox.Show("Relationship has been added successfully!");
                         btnCancelRelationship_Click(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{result._message}");
+                        }
                         break;
                     }
                 case 1:
                     {
-                        animalManagement.AddParentChildRelationship(
-                            ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id,
-                            ((Animal)lvwAnimals.SelectedItems[0].Tag).Id);
-                        MessageBox.Show("Relationship has been added successfully!");
-                        btnCancelRelationship_Click(this, EventArgs.Empty);
+                        Result<ParentRelationship> result = animalManagement.AddParentChildRelationship(
+                            ((Animal)cbxOtherAnimalRelationship.SelectedItem),
+                            ((Animal)lvwAnimals.SelectedItems[0].Tag));
+                        if (result.Success)
+                        {
+                            MessageBox.Show("Relationship has been added successfully!");
+                            btnCancelRelationship_Click(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{result._message}");
+                        }
                         break;
                     }
                 case 2:
@@ -499,8 +513,8 @@ namespace DesktopApplication
                 case 0:
                     {
                         animalManagement.AddParentChildRelationship(
-                            animal.Id,
-                            ((Animal)cbOtherAnimal.SelectedItem).Id);
+                            animal,
+                            ((Animal)cbOtherAnimal.SelectedItem));
                         MessageBox.Show("Relationship has been added successfully!");
                         btnCancelRelationship_Click(this, EventArgs.Empty);
                         break;
@@ -508,8 +522,8 @@ namespace DesktopApplication
                 case 1:
                     {
                         animalManagement.AddParentChildRelationship(
-                            ((Animal)cbOtherAnimal.SelectedItem).Id,
-                            animal.Id);
+                            ((Animal)cbOtherAnimal.SelectedItem),
+                            animal);
                         MessageBox.Show("Relationship has been added successfully!");
                         btnCancelRelationship_Click(this, EventArgs.Empty);
                         break;

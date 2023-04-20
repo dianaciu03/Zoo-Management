@@ -102,9 +102,12 @@ namespace BusinessLogic
             return DTOToAnimals(animalHelper.OtherInSpeciesSearch(id, species));
         }
 
-        public void AddParentChildRelationship(int animalIDParent, int animalIDChild)
+        public Result<ParentRelationship> AddParentChildRelationship(Animal animalParent, Animal animalChild)
         {
-            animalHelper.AddParentChildRelationship(animalIDParent, animalIDChild);
+            if (DateTime.Compare(animalChild.Birthday, animalParent.Birthday) < 0) { return Result<ParentRelationship>.Fail("A child cant be older than its parent"); }
+            if (GetParents(animalParent.Id).Count >= 2) { return Result<ParentRelationship>.Fail("The child animal already has 2 parents"); }
+            animalHelper.AddParentChildRelationship(animalParent.Id, animalChild.Id);
+            return Result<ParentRelationship>.Ok(new ParentRelationship(animalParent ,animalChild));
         }
 
         public void AddMateRelationship(int animalIDMale, int animalIDFemale)
