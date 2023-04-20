@@ -87,30 +87,27 @@
             this.labelNote = new System.Windows.Forms.Label();
             this.groupBoxEmergencyContact = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbxContactRelationship = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tbxContactPhone = new System.Windows.Forms.TextBox();
+            this.tbxContactLastName = new System.Windows.Forms.TextBox();
+            this.tbxContactFirstName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btnCancelEmployeeCreation = new System.Windows.Forms.Button();
             this.groupBoxContractDetailsPopup = new System.Windows.Forms.GroupBox();
             this.cbNotMentioned = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbxEmpSalary = new System.Windows.Forms.TextBox();
             this.labelSalary = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtmContractEndDate = new System.Windows.Forms.DateTimePicker();
             this.labelEndDate = new System.Windows.Forms.Label();
             this.dtmContractStartDate = new System.Windows.Forms.DateTimePicker();
             this.labelContractStartDate = new System.Windows.Forms.Label();
-            this.labelContractMonths = new System.Windows.Forms.Label();
-            this.nudContractLenght = new System.Windows.Forms.NumericUpDown();
-            this.cbxFixedTermContract = new System.Windows.Forms.CheckBox();
             this.nudWeeklyHours = new System.Windows.Forms.NumericUpDown();
             this.lblHoursPerWeek = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbtnContractTypeFulltime = new System.Windows.Forms.RadioButton();
+            this.rbtnContractTypeParttime = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.btnConfirmEmployeeCreation = new System.Windows.Forms.Button();
             this.groupBoxEmployeeDetailsPopup = new System.Windows.Forms.GroupBox();
@@ -142,7 +139,6 @@
             this.tabCreateEmployee.SuspendLayout();
             this.groupBoxEmergencyContact.SuspendLayout();
             this.groupBoxContractDetailsPopup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudContractLenght)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeeklyHours)).BeginInit();
             this.groupBoxEmployeeDetailsPopup.SuspendLayout();
             this.SuspendLayout();
@@ -725,7 +721,7 @@
             // 
             this.labelNote.AutoSize = true;
             this.labelNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelNote.Location = new System.Drawing.Point(535, 594);
+            this.labelNote.Location = new System.Drawing.Point(551, 616);
             this.labelNote.Name = "labelNote";
             this.labelNote.Size = new System.Drawing.Size(697, 29);
             this.labelNote.TabIndex = 35;
@@ -734,11 +730,11 @@
             // groupBoxEmergencyContact
             // 
             this.groupBoxEmergencyContact.Controls.Add(this.label8);
-            this.groupBoxEmergencyContact.Controls.Add(this.textBox6);
+            this.groupBoxEmergencyContact.Controls.Add(this.tbxContactRelationship);
             this.groupBoxEmergencyContact.Controls.Add(this.label12);
-            this.groupBoxEmergencyContact.Controls.Add(this.textBox9);
-            this.groupBoxEmergencyContact.Controls.Add(this.textBox10);
-            this.groupBoxEmergencyContact.Controls.Add(this.textBox11);
+            this.groupBoxEmergencyContact.Controls.Add(this.tbxContactPhone);
+            this.groupBoxEmergencyContact.Controls.Add(this.tbxContactLastName);
+            this.groupBoxEmergencyContact.Controls.Add(this.tbxContactFirstName);
             this.groupBoxEmergencyContact.Controls.Add(this.label14);
             this.groupBoxEmergencyContact.Controls.Add(this.label15);
             this.groupBoxEmergencyContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -761,13 +757,13 @@
             this.label8.TabIndex = 29;
             this.label8.Text = "Relationship:";
             // 
-            // textBox6
+            // tbxContactRelationship
             // 
-            this.textBox6.Location = new System.Drawing.Point(221, 210);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(295, 35);
-            this.textBox6.TabIndex = 28;
+            this.tbxContactRelationship.Location = new System.Drawing.Point(221, 210);
+            this.tbxContactRelationship.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxContactRelationship.Name = "tbxContactRelationship";
+            this.tbxContactRelationship.Size = new System.Drawing.Size(295, 35);
+            this.tbxContactRelationship.TabIndex = 28;
             // 
             // label12
             // 
@@ -779,29 +775,29 @@
             this.label12.TabIndex = 18;
             this.label12.Text = "Phone number:";
             // 
-            // textBox9
+            // tbxContactPhone
             // 
-            this.textBox9.Location = new System.Drawing.Point(221, 157);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(295, 35);
-            this.textBox9.TabIndex = 17;
+            this.tbxContactPhone.Location = new System.Drawing.Point(221, 157);
+            this.tbxContactPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxContactPhone.Name = "tbxContactPhone";
+            this.tbxContactPhone.Size = new System.Drawing.Size(295, 35);
+            this.tbxContactPhone.TabIndex = 17;
             // 
-            // textBox10
+            // tbxContactLastName
             // 
-            this.textBox10.Location = new System.Drawing.Point(221, 105);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(295, 35);
-            this.textBox10.TabIndex = 6;
+            this.tbxContactLastName.Location = new System.Drawing.Point(221, 105);
+            this.tbxContactLastName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxContactLastName.Name = "tbxContactLastName";
+            this.tbxContactLastName.Size = new System.Drawing.Size(295, 35);
+            this.tbxContactLastName.TabIndex = 6;
             // 
-            // textBox11
+            // tbxContactFirstName
             // 
-            this.textBox11.Location = new System.Drawing.Point(221, 54);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(295, 35);
-            this.textBox11.TabIndex = 5;
+            this.tbxContactFirstName.Location = new System.Drawing.Point(221, 54);
+            this.tbxContactFirstName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxContactFirstName.Name = "tbxContactFirstName";
+            this.tbxContactFirstName.Size = new System.Drawing.Size(295, 35);
+            this.tbxContactFirstName.TabIndex = 5;
             // 
             // label14
             // 
@@ -833,31 +829,29 @@
             this.btnCancelEmployeeCreation.TabIndex = 33;
             this.btnCancelEmployeeCreation.Text = "Cancel";
             this.btnCancelEmployeeCreation.UseVisualStyleBackColor = false;
+            this.btnCancelEmployeeCreation.Click += new System.EventHandler(this.btnCancelEmployeeCreation_Click);
             // 
             // groupBoxContractDetailsPopup
             // 
             this.groupBoxContractDetailsPopup.Controls.Add(this.cbNotMentioned);
             this.groupBoxContractDetailsPopup.Controls.Add(this.label6);
-            this.groupBoxContractDetailsPopup.Controls.Add(this.textBox3);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.tbxEmpSalary);
             this.groupBoxContractDetailsPopup.Controls.Add(this.labelSalary);
-            this.groupBoxContractDetailsPopup.Controls.Add(this.dateTimePicker1);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.dtmContractEndDate);
             this.groupBoxContractDetailsPopup.Controls.Add(this.labelEndDate);
             this.groupBoxContractDetailsPopup.Controls.Add(this.dtmContractStartDate);
             this.groupBoxContractDetailsPopup.Controls.Add(this.labelContractStartDate);
-            this.groupBoxContractDetailsPopup.Controls.Add(this.labelContractMonths);
-            this.groupBoxContractDetailsPopup.Controls.Add(this.nudContractLenght);
-            this.groupBoxContractDetailsPopup.Controls.Add(this.cbxFixedTermContract);
             this.groupBoxContractDetailsPopup.Controls.Add(this.nudWeeklyHours);
             this.groupBoxContractDetailsPopup.Controls.Add(this.lblHoursPerWeek);
-            this.groupBoxContractDetailsPopup.Controls.Add(this.radioButton1);
-            this.groupBoxContractDetailsPopup.Controls.Add(this.radioButton2);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.rbtnContractTypeFulltime);
+            this.groupBoxContractDetailsPopup.Controls.Add(this.rbtnContractTypeParttime);
             this.groupBoxContractDetailsPopup.Controls.Add(this.label4);
             this.groupBoxContractDetailsPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxContractDetailsPopup.Location = new System.Drawing.Point(586, 41);
             this.groupBoxContractDetailsPopup.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.groupBoxContractDetailsPopup.Name = "groupBoxContractDetailsPopup";
             this.groupBoxContractDetailsPopup.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.groupBoxContractDetailsPopup.Size = new System.Drawing.Size(607, 504);
+            this.groupBoxContractDetailsPopup.Size = new System.Drawing.Size(607, 383);
             this.groupBoxContractDetailsPopup.TabIndex = 34;
             this.groupBoxContractDetailsPopup.TabStop = false;
             this.groupBoxContractDetailsPopup.Text = "Contract details";
@@ -871,6 +865,7 @@
             this.cbNotMentioned.TabIndex = 48;
             this.cbNotMentioned.Text = "not mentioned";
             this.cbNotMentioned.UseVisualStyleBackColor = true;
+            this.cbNotMentioned.CheckedChanged += new System.EventHandler(this.cbNotMentioned_CheckedChanged);
             // 
             // label6
             // 
@@ -882,12 +877,12 @@
             this.label6.TabIndex = 47;
             this.label6.Text = "euros per month";
             // 
-            // textBox3
+            // tbxEmpSalary
             // 
-            this.textBox3.Location = new System.Drawing.Point(208, 304);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 35);
-            this.textBox3.TabIndex = 46;
+            this.tbxEmpSalary.Location = new System.Drawing.Point(208, 304);
+            this.tbxEmpSalary.Name = "tbxEmpSalary";
+            this.tbxEmpSalary.Size = new System.Drawing.Size(165, 35);
+            this.tbxEmpSalary.TabIndex = 46;
             // 
             // labelSalary
             // 
@@ -899,15 +894,16 @@
             this.labelSalary.TabIndex = 45;
             this.labelSalary.Text = "Salary:";
             // 
-            // dateTimePicker1
+            // dtmContractEndDate
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(208, 159);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(375, 33);
-            this.dateTimePicker1.TabIndex = 30;
+            this.dtmContractEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtmContractEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtmContractEndDate.Location = new System.Drawing.Point(208, 159);
+            this.dtmContractEndDate.Margin = new System.Windows.Forms.Padding(6);
+            this.dtmContractEndDate.Name = "dtmContractEndDate";
+            this.dtmContractEndDate.Size = new System.Drawing.Size(375, 33);
+            this.dtmContractEndDate.TabIndex = 30;
+            this.dtmContractEndDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // labelEndDate
             // 
@@ -939,36 +935,6 @@
             this.labelContractStartDate.TabIndex = 29;
             this.labelContractStartDate.Text = "Start date:";
             // 
-            // labelContractMonths
-            // 
-            this.labelContractMonths.AutoSize = true;
-            this.labelContractMonths.Location = new System.Drawing.Point(387, 374);
-            this.labelContractMonths.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelContractMonths.Name = "labelContractMonths";
-            this.labelContractMonths.Size = new System.Drawing.Size(107, 29);
-            this.labelContractMonths.TabIndex = 28;
-            this.labelContractMonths.Text = "Month(s)";
-            // 
-            // nudContractLenght
-            // 
-            this.nudContractLenght.Enabled = false;
-            this.nudContractLenght.Location = new System.Drawing.Point(269, 372);
-            this.nudContractLenght.Margin = new System.Windows.Forms.Padding(6);
-            this.nudContractLenght.Name = "nudContractLenght";
-            this.nudContractLenght.Size = new System.Drawing.Size(104, 35);
-            this.nudContractLenght.TabIndex = 27;
-            // 
-            // cbxFixedTermContract
-            // 
-            this.cbxFixedTermContract.AutoSize = true;
-            this.cbxFixedTermContract.Location = new System.Drawing.Point(24, 373);
-            this.cbxFixedTermContract.Margin = new System.Windows.Forms.Padding(6);
-            this.cbxFixedTermContract.Name = "cbxFixedTermContract";
-            this.cbxFixedTermContract.Size = new System.Drawing.Size(238, 33);
-            this.cbxFixedTermContract.TabIndex = 26;
-            this.cbxFixedTermContract.Text = "Fixed-term contract";
-            this.cbxFixedTermContract.UseVisualStyleBackColor = true;
-            // 
             // nudWeeklyHours
             // 
             this.nudWeeklyHours.Location = new System.Drawing.Point(208, 252);
@@ -987,29 +953,31 @@
             this.lblHoursPerWeek.TabIndex = 24;
             this.lblHoursPerWeek.Text = "Weekly hours:";
             // 
-            // radioButton1
+            // rbtnContractTypeFulltime
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(208, 53);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(6);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(125, 33);
-            this.radioButton1.TabIndex = 22;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Full-time";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtnContractTypeFulltime.AutoSize = true;
+            this.rbtnContractTypeFulltime.Location = new System.Drawing.Point(208, 53);
+            this.rbtnContractTypeFulltime.Margin = new System.Windows.Forms.Padding(6);
+            this.rbtnContractTypeFulltime.Name = "rbtnContractTypeFulltime";
+            this.rbtnContractTypeFulltime.Size = new System.Drawing.Size(125, 33);
+            this.rbtnContractTypeFulltime.TabIndex = 22;
+            this.rbtnContractTypeFulltime.TabStop = true;
+            this.rbtnContractTypeFulltime.Text = "Full-time";
+            this.rbtnContractTypeFulltime.UseVisualStyleBackColor = true;
+            this.rbtnContractTypeFulltime.CheckedChanged += new System.EventHandler(this.rbtnContractTypeFulltime_CheckedChanged);
             // 
-            // radioButton2
+            // rbtnContractTypeParttime
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(363, 53);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(6);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(128, 33);
-            this.radioButton2.TabIndex = 21;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Part-time";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtnContractTypeParttime.AutoSize = true;
+            this.rbtnContractTypeParttime.Location = new System.Drawing.Point(363, 53);
+            this.rbtnContractTypeParttime.Margin = new System.Windows.Forms.Padding(6);
+            this.rbtnContractTypeParttime.Name = "rbtnContractTypeParttime";
+            this.rbtnContractTypeParttime.Size = new System.Drawing.Size(128, 33);
+            this.rbtnContractTypeParttime.TabIndex = 21;
+            this.rbtnContractTypeParttime.TabStop = true;
+            this.rbtnContractTypeParttime.Text = "Part-time";
+            this.rbtnContractTypeParttime.UseVisualStyleBackColor = true;
+            this.rbtnContractTypeParttime.CheckedChanged += new System.EventHandler(this.rbtnContractTypeParttime_CheckedChanged);
             // 
             // label4
             // 
@@ -1207,6 +1175,7 @@
             this.cbxNewEmpRole.Name = "cbxNewEmpRole";
             this.cbxNewEmpRole.Size = new System.Drawing.Size(295, 37);
             this.cbxNewEmpRole.TabIndex = 9;
+            this.cbxNewEmpRole.SelectedIndexChanged += new System.EventHandler(this.cbxNewEmpRole_SelectedIndexChanged);
             // 
             // tbxNewEmpLastName
             // 
@@ -1285,7 +1254,6 @@
             this.groupBoxEmergencyContact.PerformLayout();
             this.groupBoxContractDetailsPopup.ResumeLayout(false);
             this.groupBoxContractDetailsPopup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudContractLenght)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeeklyHours)).EndInit();
             this.groupBoxEmployeeDetailsPopup.ResumeLayout(false);
             this.groupBoxEmployeeDetailsPopup.PerformLayout();
@@ -1327,19 +1295,16 @@
         private System.Windows.Forms.GroupBox groupBoxContractDetailsPopup;
         private System.Windows.Forms.CheckBox cbNotMentioned;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbxEmpSalary;
         private System.Windows.Forms.Label labelSalary;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtmContractEndDate;
         private System.Windows.Forms.Label labelEndDate;
         private System.Windows.Forms.DateTimePicker dtmContractStartDate;
         private System.Windows.Forms.Label labelContractStartDate;
-        private System.Windows.Forms.Label labelContractMonths;
-        private System.Windows.Forms.NumericUpDown nudContractLenght;
-        private System.Windows.Forms.CheckBox cbxFixedTermContract;
         private System.Windows.Forms.NumericUpDown nudWeeklyHours;
         private System.Windows.Forms.Label lblHoursPerWeek;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbtnContractTypeFulltime;
+        private System.Windows.Forms.RadioButton rbtnContractTypeParttime;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnConfirmEmployeeCreation;
         private System.Windows.Forms.GroupBox groupBoxEmployeeDetailsPopup;
@@ -1375,13 +1340,13 @@
         private System.Windows.Forms.Label labelFNEmployeeHistory;
         private System.Windows.Forms.GroupBox groupBoxEmergencyContact;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbxContactRelationship;
         private System.Windows.Forms.TextBox tbxNewEmpAddress;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox tbxContactPhone;
+        private System.Windows.Forms.TextBox tbxContactLastName;
+        private System.Windows.Forms.TextBox tbxContactFirstName;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label labelNote;

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using BusinessLogic.Employees;
 
 namespace DesktopApplication
 {
@@ -20,7 +21,7 @@ namespace DesktopApplication
             InitializeComponent();
             employeeManagement = emMng;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            //cbxRole.DataSource = Enum.GetValues(typeof(ROLE));
+            cbxNewEmpRole.DataSource = Enum.GetValues(typeof(ROLE));
            // cbxRole.SelectedIndex = -1;
         }
 
@@ -74,22 +75,70 @@ namespace DesktopApplication
 
         private void btnConfirmEmployeeCreation_Click(object sender, EventArgs e)
         {
-            string gender;
-            if (rbAddFemale.Checked == true) gender = "Female";
-            else if (rbAddMale.Checked == true) gender = "Male";
-            else return;
-            Employee employee = new Employee(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dateTimePicker1.Value, tbxPhone.Text, gender, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text, (ROLE)cbxNewEmpRole.SelectedItem);
-            employeeManagement.AddNewEmployee(employee);
-        }
+            try
+            {
+                string gender;
+                if (rbAddFemale.Checked == true) gender = "Female";
+                else if (rbAddMale.Checked == true) gender = "Male";
+                else return;
+                Employee employee = new Employee(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, dtmContractEndDate.Value, tbxPhone.Text, gender, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text, (ROLE)cbxNewEmpRole.SelectedItem);
 
-        private void ucSearchFeatureEmployees1_Load(object sender, EventArgs e)
-        {
+                DateTime? contractEndDate;
+                if (cbNotMentioned.Checked == true)
+                    contractEndDate = null;
+                else contractEndDate = dtmContractEndDate.Value;
 
+                EmployeeContract contract = new EmployeeContract(dtmContractStartDate.Value, contractEndDate, (int)nudWeeklyHours.Value, Convert.ToDouble(tbxEmpSalary.Text));
+                EmergencyContact contact = new EmergencyContact(tbxContactFirstName.Text, tbxContactLastName.Text, tbxContactPhone.Text, tbxContactRelationship.Text);
+                employeeManagement.AddNewEmployee(employee, contract, contact);
+                tabPageAllEmployees.Show();
+            }
+            catch
+            {
+                MessageBox.Show("All the fields must be entered");
+            }
         }
 
         private void btnShowAllEmployees_Click_1(object sender, EventArgs e)
         {
             updateEmployeeListview(employeeManagement.GetEmployees());
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbNotMentioned_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbNotMentioned.Checked == true)
+            {
+                dtmContractEndDate.Enabled = false;
+            }
+            else
+                dtmContractStartDate.Enabled = true;
+        }
+
+        private void rbtnContractTypeFulltime_CheckedChanged(object sender, EventArgs e)
+        {
+            nudWeeklyHours.Value = 40;
+            nudWeeklyHours.ReadOnly = true;
+        }
+
+        private void rbtnContractTypeParttime_CheckedChanged(object sender, EventArgs e)
+        {
+            nudWeeklyHours.Value = 0;
+            nudWeeklyHours.ReadOnly = false;
+        }
+
+        private void cbxNewEmpRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelEmployeeCreation_Click(object sender, EventArgs e)
+        {
 
         }
     }

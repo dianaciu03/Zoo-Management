@@ -14,7 +14,7 @@ namespace BusinessLogic.Employees
         public int HoursPerWeek { get; set; }
         public double Salary { get; set; }
 
-        public EmployeeContract(DateTime contractStartDate,DateTime? contractEndDate, int hoursPerWeek, float salary)    
+        public EmployeeContract(DateTime contractStartDate,DateTime? contractEndDate, int hoursPerWeek, double salary)    
         {
             this.ContractStartDate = contractStartDate;
             this.ContractEndDate = contractEndDate;

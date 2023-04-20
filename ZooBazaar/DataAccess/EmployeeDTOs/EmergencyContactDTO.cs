@@ -8,6 +8,7 @@ namespace DataAccess.DTOs
 {
     public struct EmergencyContactDTO
     {
+        public int Id;
         public string firstName;
         public string lastName;
         public string relationship;

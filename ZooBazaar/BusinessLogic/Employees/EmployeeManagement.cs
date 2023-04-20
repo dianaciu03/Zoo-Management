@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using BusinessLogic.Employees;
+using DataAccess.DTOs;
 
 namespace BusinessLogic
 {
@@ -15,11 +16,10 @@ namespace BusinessLogic
         public EmployeeManagement()
         {
         }
-        public void AddNewEmployee(Employee employee)
+        public void AddNewEmployee(Employee employee, EmployeeContract contract, EmergencyContact emergencyContact)
         {
             EmployeeDTO employeeDto = new EmployeeDTO
             {
-                id = employee.ID,
                 firstName = employee.FirstName,
                 lastName = employee.LastName,
                 birthDate = employee.BirthDate,
@@ -30,7 +30,24 @@ namespace BusinessLogic
                 email = employee.Email,
                 role = employee.Role.ToString()
             };
-            employeeRepository.AddUpdateEmployee(employeeDto);
+
+            ContractDTO contractDto = new ContractDTO
+            {
+                startDate = contract.ContractStartDate,
+                endDate = contract.ContractEndDate,
+                hoursPerWeek = contract.HoursPerWeek,
+                salary = contract.Salary
+            };
+
+            EmergencyContactDTO contactDto = new EmergencyContactDTO
+            {
+                firstName = emergencyContact.FirstName,
+                lastName = emergencyContact.LastName,
+                relationship = emergencyContact.Relationship,
+                phone = emergencyContact.Phone,
+            };
+
+            employeeRepository.AddUpdateEmployee(employeeDto, contractDto, contactDto);
         }
         public Employee[] GetEmployees()
         {

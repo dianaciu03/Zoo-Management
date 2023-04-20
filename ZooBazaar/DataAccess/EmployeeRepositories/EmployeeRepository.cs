@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using DataAccess.DTOs;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -77,22 +78,29 @@ namespace DataAccess
             }
         }
 
-        public void AddUpdateEmployee(EmployeeDTO employee)
+        public void AddUpdateEmployee(EmployeeDTO employee, ContractDTO contract, EmergencyContactDTO emergencyContact)
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                try { connection.Open(); }
-                catch (SqlException) { return; }
+                //try
+                {
+                    connection.Open();
 
-                SqlCommand existsInDatabase = new SqlCommand($"SELECT COUNT(*) FROM Employees WHERE EmployeeID = {employee.id}");
-                if ((int)existsInDatabase.ExecuteScalar() > 0)
-                {
-                    UpdateEmployee(employee, connection);
+
+                    SqlCommand existsInDatabase = new SqlCommand($"SELECT EmployeeID FROM Employees WHERE EmployeeID = @EmployeeId", connection);
+                    existsInDatabase.Parameters.AddWithValue("@EmployeeID", employee.id);
+                    int existsInDB = Convert.ToInt32(existsInDatabase.ExecuteScalar());
+                    if (existsInDB > 0)
+                    {
+                        UpdateEmployee(employee, connection);
+                    }
+                    else
+                    {
+                        AddNewEmployee(employee, contract, emergencyContact, connection);
+                    }
                 }
-                else
-                {
-                    AddNewEmployee(employee, connection);
-                }
+                //catch (SqlException) { }
+
                 connection.Close();
             }
         }
@@ -117,12 +125,16 @@ namespace DataAccess
             }
         }
 
-        private void AddNewEmployee(EmployeeDTO employee, SqlConnection connection)
+        private void AddNewEmployee(EmployeeDTO employee, ContractDTO contract, EmergencyContactDTO emergencyContact, SqlConnection connection)
         {
-            using (SqlCommand command = new SqlCommand("INSERT INTO Employees" +
-                                                        "VALUES (@EmployeeID,@FirstaName,@LastName,@Birthdate,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType, @WeeklyHours)", connection))
+            using (SqlCommand command = new SqlCommand(
+                " DECLARE @employeeIdentity INT" +
+                " INSERT INTO Employees" +
+                " VALUES (@FirstName, @LastName, @Birthdate, @Gender, @Address, @Phone, @Password, @Email, @EmployeeType)" +
+                " SET @employeeIdentity = @@IDENTITY" +
+                " INSERT INTO Contracts Values (@employeeIdentity, @StartDate, @EndDate, @WeeklyHours, @Salary)" +
+                " INSERT INTO EmergencyContacts Values (@ContactFirstName, @ContactLastName, @Relationship, @ContactPhone, @employeeIdentity)", connection))
             {
-                command.Parameters.AddWithValue("@EmployeeID", employee.id);
                 command.Parameters.AddWithValue("@FirstName", employee.firstName);
                 command.Parameters.AddWithValue("@LastName", employee.lastName);
                 command.Parameters.AddWithValue("@Birthdate", employee.birthDate);
@@ -131,8 +143,20 @@ namespace DataAccess
                 command.Parameters.AddWithValue("@Phone", employee.phone);
                 command.Parameters.AddWithValue("@Password", employee.password);
                 command.Parameters.AddWithValue("@Email", employee.email);
-                command.Parameters.AddWithValue("@EmployeeType", employee.role);
+                command.Parameters.AddWithValue("@EmployeeType", employee.role.ToString());
 
+                command.Parameters.AddWithValue("@StartDate", contract.startDate);
+                if (contract.endDate != null)
+                    command.Parameters.AddWithValue("@EndDate", contract.endDate);
+                else
+                    command.Parameters.AddWithValue("@EndDate", DBNull.Value);
+                command.Parameters.AddWithValue("@WeeklyHours", contract.hoursPerWeek);
+                command.Parameters.AddWithValue("@Salary", contract.salary);
+
+                command.Parameters.AddWithValue("@ContactFirstName", emergencyContact.firstName);
+                command.Parameters.AddWithValue("@ContactLastName", emergencyContact.lastName);
+                command.Parameters.AddWithValue("@Relationship", emergencyContact.relationship);
+                command.Parameters.AddWithValue("@ContactPhone", emergencyContact.phone);
                 command.ExecuteNonQuery();
             }
         }
