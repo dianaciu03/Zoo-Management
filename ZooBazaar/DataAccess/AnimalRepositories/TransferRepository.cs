@@ -1,4 +1,5 @@
-﻿using DataAccess.DTOs;
+﻿using DataAccess.AnimalInterfaces;
+using DataAccess.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DataAccess
+namespace DataAccess.AnimalRepositories
 {
-    public class DatabaseTransferHelper
+    public class TransferRepository : ITransferRepository
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 

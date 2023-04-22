@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogic.AnimalInterfaces;
 using DataAccess;
+using DataAccess.AnimalInterfaces;
+using DataAccess.AnimalRepositories;
 
 namespace BusinessLogic
 {
-    public class AnimalManagement
+    public class AnimalManagement : IAnimalManagement
     {
-        DatabaseAnimalHelper animalHelper;
+        private readonly IAnimalRepository animalHelper;
 
-        public AnimalManagement()
+        public AnimalManagement(IAnimalRepository animalRepository)
         {
-            animalHelper = new DatabaseAnimalHelper();
+            animalHelper = animalRepository;
         }
 
         public Animal DTOToAnimal(AnimalDTO animalDTO)
@@ -52,10 +55,10 @@ namespace BusinessLogic
         }
 
         private List<Animal> DTOToAnimals(List<AnimalDTO> animalsDTO)
-        { 
+        {
             List<Animal> animals = new List<Animal>();
 
-            foreach(AnimalDTO animalDTO in animalsDTO)
+            foreach (AnimalDTO animalDTO in animalsDTO)
             {
                 Animal animal = new Animal(
                     animalDTO.Id,
@@ -71,17 +74,17 @@ namespace BusinessLogic
                 animals.Add(animal);
             }
 
-            return animals; 
+            return animals;
         }
 
         public List<Animal> GetAnimals()
         {
             return DTOToAnimals(animalHelper.GetAllAnimals());
         }
-            
+
         public void AddUpdateAnimal(Animal animal)
         {
-            
+
             animalHelper.AddUpdateAnimal(AnimalToDTO(animal));
 
             GetAnimals().Add(animal);
@@ -107,7 +110,7 @@ namespace BusinessLogic
             if (DateTime.Compare(animalChild.Birthday, animalParent.Birthday) < 0) { return Result<ParentRelationship>.Fail("A child cant be older than its parent"); }
             if (GetParents(animalParent.Id).Count >= 2) { return Result<ParentRelationship>.Fail("The child animal already has 2 parents"); }
             animalHelper.AddParentChildRelationship(animalParent.Id, animalChild.Id);
-            return Result<ParentRelationship>.Ok(new ParentRelationship(animalParent ,animalChild));
+            return Result<ParentRelationship>.Ok(new ParentRelationship(animalParent, animalChild));
         }
 
         public void AddMateRelationship(int animalIDMale, int animalIDFemale)

@@ -1,4 +1,7 @@
-﻿using DataAccess;
+﻿using BusinessLogic.AnimalInterfaces;
+using DataAccess;
+using DataAccess.AnimalInterfaces;
+using DataAccess.AnimalRepositories;
 using DataAccess.DTOs;
 using System;
 using System.Collections.Generic;
@@ -8,19 +11,19 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Animals
 {
-    public class TransferManagement
+    public class TransferManagement : ITransferManagement
     {
-        DatabaseTransferHelper dth;
+        private readonly ITransferRepository dth;
 
-        public TransferManagement()
+        public TransferManagement(ITransferRepository transferRepository)
         {
-            dth = new DatabaseTransferHelper();
+            dth = transferRepository;
         }
 
         public void SaveTransfer(Transfer transfer)
         {
             TransferDTO transferDTO = FromTransferToDTO(transfer);
-            dth.AddNewTransfer(transferDTO); 
+            dth.AddNewTransfer(transferDTO);
         }
 
         public List<Transfer> GetAllTransfers()
@@ -30,7 +33,7 @@ namespace BusinessLogic.Animals
 
         public List<Transfer> GetAllTransfersById(int id)
         {
-            DatabaseTransferHelper dth = new DatabaseTransferHelper();
+            TransferRepository dth = new TransferRepository();
             List<Transfer> transfers = new List<Transfer>();
             foreach (TransferDTO transferDTO in dth.GetTransferByAnimalId(id))
             {

@@ -10,10 +10,11 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using DataAccess.AnimalInterfaces;
 
-namespace DataAccess
+namespace DataAccess.AnimalRepositories
 {
-    public class DatabaseAnimalHelper
+    public class AnimalRepository : IAnimalRepository
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
@@ -30,7 +31,7 @@ namespace DataAccess
                     connection.Open();
                     if (query.ExecuteScalar() != DBNull.Value)
                     {
-                        i = (Int32)query.ExecuteScalar();
+                        i = (int)query.ExecuteScalar();
                     }
                 }
                 catch (SqlException) { }
@@ -85,7 +86,8 @@ namespace DataAccess
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                try { 
+                try
+                {
                     connection.Open();
 
 
@@ -100,7 +102,7 @@ namespace DataAccess
                         AddNewAnimal(animal, connection);
                     }
                 }
-                catch (SqlException) {  }
+                catch (SqlException) { }
 
                 connection.Close();
             }
@@ -109,7 +111,7 @@ namespace DataAccess
         private void AddNewAnimal(AnimalDTO animal, SqlConnection connection) //Inserts the new Animal into the database.
         {
             using (SqlCommand command = new SqlCommand("INSERT INTO Animals " +
-                                                       "VALUES (@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure,@Availability)", 
+                                                       "VALUES (@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure,@Availability)",
                                                        connection))
             {
                 //command.Parameters.AddWithValue("@AnimalID", animal.Id);
@@ -231,9 +233,9 @@ namespace DataAccess
 
                         animals.Add(animal);
                     }
-                reader.Close();
-                connection.Close();
-                return animals;
+                    reader.Close();
+                    connection.Close();
+                    return animals;
                 }
             }
         }
@@ -244,7 +246,7 @@ namespace DataAccess
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO AnimalRelationships " +
                     $"VALUES(1, @AnimalIDParent, @AnimalIDChild)", connection);
-                
+
                 command.Parameters.AddWithValue("@AnimalIDParent", animalIDParent);
                 command.Parameters.AddWithValue("@AnimalIDChild", animalIDChild);
 
@@ -299,7 +301,7 @@ namespace DataAccess
                     "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalTwoID " +
                     "WHERE AnimalOneID = @AnimalOneID AND RelationshipType = 1;", connection);
 
-                    query.Parameters.AddWithValue("@AnimalOneID", animalID);
+                query.Parameters.AddWithValue("@AnimalOneID", animalID);
                 try
                 {
                     connection.Open();
@@ -327,7 +329,7 @@ namespace DataAccess
                 }
                 catch (SqlException) { }
                 finally { connection.Close(); }
-                
+
                 return animals;
             }
         }
@@ -384,7 +386,7 @@ namespace DataAccess
             {
 
                 SqlCommand query;
-                if(gender == "Female")
+                if (gender == "Female")
                 {
                     query = new SqlCommand("SELECT Animals.* FROM AnimalRelationships " +
                         "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalOneID " +
@@ -397,7 +399,7 @@ namespace DataAccess
                         "INNER JOIN Animals ON Animals.AnimalID = AnimalRelationships.AnimalTwoID " +
                         "WHERE AnimalOneID = @AnimalID AND RelationshipType = 0;", connection);
                 }
-                    query.Parameters.AddWithValue("@AnimalID", animalID);
+                query.Parameters.AddWithValue("@AnimalID", animalID);
 
                 try
                 {
