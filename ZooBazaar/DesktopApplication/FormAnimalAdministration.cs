@@ -21,7 +21,7 @@ namespace DesktopApplication
         FormDataValidator formDataValidator;
         private readonly IAnimalManagement animalManagement;
         private readonly ITransferManagement transferManagement;
-
+        List<RadioButton> animalHistoryOrderBy;
         public FormAnimalAdministration(IAnimalManagement am)
         {
             InitializeComponent();
@@ -42,10 +42,13 @@ namespace DesktopApplication
 
             btnClearAll_Click(this, EventArgs.Empty);
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            updateAnimalHistoryListview(animalManagement.GetAllAnimals());
+            updateAnimalHistoryListview(animalManagement.GetAllAnimals("AnimalId"));
             groupBoxEditAnimal.Visible = false;
             groupBoxAnimalTransfer.Visible = false;
             groupBoxRelationship.Visible = false;
+            animalHistoryOrderBy = new List<RadioButton>
+            { rbtnName, rbtnSpecies, rbtnContinent, rbtnAge };
+            rbtnName.Checked = false;
         }
 
         //button that makes the group box for editing animal visible (step 1 editing)
@@ -213,12 +216,7 @@ namespace DesktopApplication
         //button that makes the group box for adding a relationship to an animal visible (step 1 relationship)
         private void btnAddRelationship_Click(object sender, EventArgs e)
         {
-
-
             cbxRelationshipType.SelectedIndex = 0;
-            
-            
-
             try
             {
                 Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
@@ -408,7 +406,7 @@ namespace DesktopApplication
         }
         private void btnDisplayAllAnimals_Click(object sender, EventArgs e)
         {
-            updateAnimalListview(animalManagement.GetAllAnimals());
+            updateAnimalListview(animalManagement.GetAllAnimals("AnimalId"));
         }
 
         private void lvwAnimals_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -430,7 +428,13 @@ namespace DesktopApplication
         //
         private void btnDisplayHistory_Click(object sender, EventArgs e)
         {
-            updateAnimalHistoryListview(animalManagement.GetAllAnimals());
+            string option = "AnimalId";
+            foreach (RadioButton rbtn in animalHistoryOrderBy)
+            {
+                if (rbtn.Checked)
+                    option = rbtn.Text;
+            }
+            updateAnimalHistoryListview(animalManagement.GetAllAnimals(option));
         }
         private void updateAnimalHistoryListview(Animal[] animals)
         {

@@ -44,7 +44,7 @@ namespace DataAccess.AnimalRepositories
 
         }
 
-        public List<AnimalDTO> GetAllAnimals() // Gets all animals in the animal database and returns them as a list of Animal Objects
+        public List<AnimalDTO> GetAllAnimals(string sortBy) // Gets all animals in the animal database and returns them as a list of Animal Objects
         {
             List<AnimalDTO> animals = new List<AnimalDTO>();
 
@@ -53,7 +53,7 @@ namespace DataAccess.AnimalRepositories
                 try { connection.Open(); }
                 catch (SqlException) { return animals; }
 
-                SqlCommand query = new SqlCommand("SELECT * FROM Animals", connection);
+                SqlCommand query = new SqlCommand($"SELECT * FROM Animals ORDER BY {sortBy} ASC", connection);
 
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
@@ -73,13 +73,11 @@ namespace DataAccess.AnimalRepositories
 
                         animals.Add(animal);
                     }
-
                     reader.Close();
                     connection.Close();
                     return animals;
                 }
             }
-
         }
 
         public void AddUpdateAnimal(AnimalDTO animal) //Opens connection and checks if the animal provided already exists in the database.

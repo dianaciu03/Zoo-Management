@@ -74,7 +74,7 @@ namespace DesktopApplication
         {
             cbxSearchBySpecie.Items.Clear();
             cbxSearchBySpecie.Items.Add("");
-            foreach (Animal animal in animalManagement.GetAllAnimals())
+            foreach (Animal animal in animalManagement.GetAllAnimals("AnimalId"))
             {
                 if (cbxSearchBySpecie.Items.Contains(animal.Species))
                     return;

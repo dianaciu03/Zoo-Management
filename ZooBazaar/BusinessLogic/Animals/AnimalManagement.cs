@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,15 +26,15 @@ namespace BusinessLogic
             return animalHelper.NewAnimalID();
         }
 
-        public List<Animal> GetAnimals()
+        public List<Animal> GetAnimals(string sortBy)
         {
-            return AnimalEntityMapping.DTOToAnimals(animalHelper.GetAllAnimals());
+            return AnimalEntityMapping.DTOToAnimals(animalHelper.GetAllAnimals(sortBy));
         }
 
         public void AddUpdateAnimal(Animal animal)
         {
             animalHelper.AddUpdateAnimal(AnimalEntityMapping.AnimalToDTO(animal));
-            GetAnimals().Add(animal);
+            GetAnimals("AnimalId").Add(animal);
         }
 
         public List<Animal> GetSearchedAnimals(string name, string species, string origin, string gender, string availability, int? age, string endangerment)
@@ -41,9 +42,9 @@ namespace BusinessLogic
             return AnimalEntityMapping.DTOToAnimals(animalHelper.SearchForAnimals(name, species, origin, gender, age, endangerment, availability));
         }
 
-        public Animal[] GetAllAnimals()
+        public Animal[] GetAllAnimals(string sortBy)
         {
-            return GetAnimals().ToArray();
+            return GetAnimals(sortBy).ToArray();
         }
 
         public List<Animal> OtherInSpeciesSearch(int id, string species)

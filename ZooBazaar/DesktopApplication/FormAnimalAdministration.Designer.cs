@@ -1099,10 +1099,10 @@
             this.tabAnimalHistory.Controls.Add(this.rbtnName);
             this.tabAnimalHistory.Controls.Add(this.labelSortBy);
             this.tabAnimalHistory.Controls.Add(this.labelAllAnimals);
-            this.tabAnimalHistory.Location = new System.Drawing.Point(4, 36);
+            this.tabAnimalHistory.Location = new System.Drawing.Point(4, 46);
             this.tabAnimalHistory.Name = "tabAnimalHistory";
             this.tabAnimalHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAnimalHistory.Size = new System.Drawing.Size(1793, 907);
+            this.tabAnimalHistory.Size = new System.Drawing.Size(1793, 897);
             this.tabAnimalHistory.TabIndex = 1;
             this.tabAnimalHistory.Text = "Animal history";
             this.tabAnimalHistory.UseVisualStyleBackColor = true;
@@ -1189,11 +1189,11 @@
             // 
             this.rbtnAge.AutoSize = true;
             this.rbtnAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtnAge.Location = new System.Drawing.Point(1525, 25);
+            this.rbtnAge.Location = new System.Drawing.Point(1481, 24);
             this.rbtnAge.Name = "rbtnAge";
-            this.rbtnAge.Size = new System.Drawing.Size(69, 30);
+            this.rbtnAge.Size = new System.Drawing.Size(121, 30);
             this.rbtnAge.TabIndex = 41;
-            this.rbtnAge.Text = "Age";
+            this.rbtnAge.Text = "BirthDate";
             this.rbtnAge.UseVisualStyleBackColor = true;
             // 
             // rbtnContinent
@@ -1202,9 +1202,9 @@
             this.rbtnContinent.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtnContinent.Location = new System.Drawing.Point(1387, 25);
             this.rbtnContinent.Name = "rbtnContinent";
-            this.rbtnContinent.Size = new System.Drawing.Size(123, 30);
+            this.rbtnContinent.Size = new System.Drawing.Size(88, 30);
             this.rbtnContinent.TabIndex = 40;
-            this.rbtnContinent.Text = "Continent";
+            this.rbtnContinent.Text = "Origin";
             this.rbtnContinent.UseVisualStyleBackColor = true;
             // 
             // rbtnSpecies

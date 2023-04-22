@@ -6,7 +6,7 @@
         void AddParentChildRelationship(int animalIDParent, int animalIDChild);
         void AddUpdateAnimal(AnimalDTO animal);
         void ChangeAvailability(int animalID, string animalAvailability);
-        List<AnimalDTO> GetAllAnimals();
+        List<AnimalDTO> GetAllAnimals(string sortBy);
         List<AnimalDTO> GetChildren(int animalID);
         List<AnimalDTO> GetMates(int animalID, string gender);
         List<AnimalDTO> GetParents(int animalID);
