@@ -7,8 +7,6 @@ namespace BusinessLogic.AnimalInterfaces
         void AddMateRelationship(int animalIDMale, int animalIDFemale);
         Result<ParentRelationship> AddParentChildRelationship(Animal animalParent, Animal animalChild);
         void AddUpdateAnimal(Animal animal);
-        AnimalDTO AnimalToDTO(Animal animal);
-        Animal DTOToAnimal(AnimalDTO animalDTO);
         Animal[] GetAllAnimals();
         List<Animal> GetAnimals();
         List<Animal> GetChildren(int animalID);
