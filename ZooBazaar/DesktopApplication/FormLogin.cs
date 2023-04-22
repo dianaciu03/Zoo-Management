@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using BusinessLogic.AnimalInterfaces;
 using DataAccess;
+using DataAccess.AnimalRepositories;
 
 namespace DesktopApplication
 {
     public partial class FormLogin : Form
     {
         IEmployeeManagement employeeManagement = new EmployeeManagement(new EmployeeRepository());
-        AnimalManagement animalManagement = new AnimalManagement();
+        IAnimalManagement animalManagement = new AnimalManagement(new AnimalRepository());
         public FormLogin()
         {
             InitializeComponent();

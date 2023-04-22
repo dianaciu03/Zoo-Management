@@ -10,22 +10,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using BusinessLogic;
+using BusinessLogic.AnimalInterfaces;
 using BusinessLogic.Animals;
+using DataAccess.AnimalRepositories;
 
 namespace DesktopApplication
 {
     public partial class FormAnimalAdministration : Form
     {
         FormDataValidator formDataValidator;
-        AnimalManagement animalManagement;
-        TransferManagement transferManagement;
+        private readonly IAnimalManagement animalManagement;
+        private readonly ITransferManagement transferManagement;
 
-        public FormAnimalAdministration(AnimalManagement am)
+        public FormAnimalAdministration(IAnimalManagement am)
         {
             InitializeComponent();
             animalManagement = am;
             formDataValidator = new FormDataValidator();
-            transferManagement = new TransferManagement();
+            transferManagement = new TransferManagement(new TransferRepository());
             InitializeFormElements();
         }
 

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic.Animals;
+using BusinessLogic.AnimalInterfaces;
+using DataAccess.AnimalRepositories;
 
 namespace BusinessLogic
 {
@@ -81,7 +83,7 @@ namespace BusinessLogic
 
         public string GetAnimalDetails(Animal animal)
         {
-            TransferManagement tm = new TransferManagement();
+            ITransferManagement tm = new TransferManagement(new TransferRepository());
             List<Transfer> transfers = tm.GetAllTransfersById(animal.Id);
             string info = $"{this.name} ({this.species} - {this.gender})\nAge: {GetAge()}\nBirthday: {birthday}\nOrigin continent: {origin}, enclosure: {enclosure}\nEndangerment level: {endangerment}\n\nCurrent status:\n";
            

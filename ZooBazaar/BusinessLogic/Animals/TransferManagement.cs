@@ -45,7 +45,7 @@ namespace BusinessLogic.Animals
 
         public Transfer FromDTOToTransfer(TransferDTO transferDTO, AnimalDTO animalDTO)
         {
-            AnimalManagement animalManagement = new AnimalManagement();
+            IAnimalManagement animalManagement = new AnimalManagement(new AnimalRepository());
             Animal animal = animalManagement.DTOToAnimal(animalDTO);
 
             return new Transfer(
@@ -61,7 +61,7 @@ namespace BusinessLogic.Animals
 
         public TransferDTO FromTransferToDTO(Transfer transfer)
         {
-            AnimalManagement animalManagement = new AnimalManagement();
+            IAnimalManagement animalManagement = new AnimalManagement(new AnimalRepository());
             AnimalDTO animalDTO = animalManagement.AnimalToDTO(transfer.Animal);
             return new TransferDTO(
                 transfer.TransferId,

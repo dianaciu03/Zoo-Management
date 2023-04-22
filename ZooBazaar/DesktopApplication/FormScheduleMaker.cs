@@ -9,15 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using BusinessLogic.AnimalInterfaces;
 
 namespace DesktopApplication
 {
     public partial class FormScheduleMaker : Form
     {
         TaskManagement taskManagement;
-        AnimalManagement animalManagement;
+        private readonly IAnimalManagement animalManagement;
         List<Animal> seachedAnimals;
-        public FormScheduleMaker(AnimalManagement am)
+        public FormScheduleMaker(IAnimalManagement am)
         {
             InitializeComponent();
             animalManagement = am;
