@@ -21,11 +21,6 @@ namespace BusinessLogic
             animalHelper = animalRepository;
         }
 
-        public int NewAnimaID()
-        {
-            return animalHelper.NewAnimalID();
-        }
-
         public List<Animal> GetAnimals(string sortBy)
         {
             return AnimalEntityMapping.DTOToAnimals(animalHelper.GetAllAnimals(sortBy));

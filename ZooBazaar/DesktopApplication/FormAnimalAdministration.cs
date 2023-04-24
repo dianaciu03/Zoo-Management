@@ -62,6 +62,7 @@ namespace DesktopApplication
                 groupBoxEditAnimal.Visible = true;
                 lvwAnimals.Enabled = false;
             }
+            
             catch (Exception ex)
             {
                 MessageBox.Show("Please select an animal to edit details!\n" + ex.Message);
@@ -110,7 +111,7 @@ namespace DesktopApplication
 
                 animal.Name = tbxNameEdit.Text;
                 animal.Species = tbxSpeciesEdit.Text;
-                animal.Birthday = DateTime.Parse(input);
+                animal.Birthday = date;
                 animal.Enclosure = (int)numudEnclosureEdit.Value;
                 animal.OriginContinent = (ORIGINCONTINENT)cbxContinentEdit.SelectedItem;
                 animal.Endangerment = (ENDANGERMENT)cbxEndangermentEdit.SelectedItem;
@@ -471,14 +472,13 @@ namespace DesktopApplication
                 DateTime date;
 
                 // Try to parse the input string as a date
-                if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+                if (DateTime.TryParseExact(input, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
                     // If the parsing is successful, format the date and update the text box
-                    maskedtbxBirthDateAddAnimalForm.Text = date.ToString("dd/MM/yyyy");
+                    maskedtbxBirthDateAddAnimalForm.Text = date.ToString("MM/dd/yyyy");
                     maskedtbxBirthDateAddAnimalForm.SelectionStart = maskedtbxBirthDateAddAnimalForm.Text.Length;
                 }
 
-                int animalID = animalManagement.NewAnimaID();
 
 
                 string gender;
@@ -486,7 +486,7 @@ namespace DesktopApplication
                 else if (rbtnFemaleAddAnimal.Checked) gender = "Female";
                 else throw (new Exception("Please select a gender"));
 
-                animal = new Animal(animalID, tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, DateTime.Parse(maskedtbxBirthDateAddAnimalForm.Text), (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
+                animal = new Animal(tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, date, (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
                 animalManagement.AddUpdateAnimal(animal);
                 MessageBox.Show($"Animal has been successfully created!\n{animal}");
             }
