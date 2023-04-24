@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -145,14 +146,17 @@ namespace DataAccess
             {
                 try { connection.Open(); }
                 catch (SqlException) { return employees; }
-
-                SqlCommand query = new SqlCommand("SELECT * FROM Employees WHERE " +
-                    "(FirstName LIKE '%' + @FirstName ) AND " +
-                    "(LastName LIKE '%' @LastName) AND " +
-                    "(WeeklyHours = @WeeklyHours) AND " +
-                    "(EmployeeType = @EmployeeType) AND " +
-
-                    "ORDER BY Name;", connection);
+                SqlCommand query;
+                if (weeklyHours == 40)
+                {
+                     query= new SqlCommand("SELECT e.*, c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (FirstName LIKE '%' + @FirstName + '%') AND(LastName LIKE '%' + @LastName + '%') AND (WeeklyHours = @WeeklyHours) AND(EmployeeType LIKE '%' + @EmployeeType + '%')"
+                         , connection);
+                }
+                else
+                {
+                    query= new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (FirstName LIKE '%' + @FirstName + '%') AND (LastName LIKE '%' + @LastName + '%') AND (WeeklyHours <= @WeeklyHours) AND (EmployeeType LIKE '%' + @EmployeeType + '%')"
+                        , connection);
+                }
 
                 query.Parameters.AddWithValue("@FirstName", firstName);
                 query.Parameters.AddWithValue("@LastName", lastname);
@@ -174,7 +178,8 @@ namespace DataAccess
                             phone = reader.GetString(reader.GetOrdinal("Phone")),
                             role = reader.GetString(reader.GetOrdinal("EmployeeType")),
                             password = reader.GetString(reader.GetOrdinal("Password")),
-                            email = reader.GetString(reader.GetOrdinal("Email"))
+                            email = reader.GetString(reader.GetOrdinal("Email")),
+                            hoursPerWeek = reader.GetInt32(reader.GetOrdinal("WeeklyHours"))
                         };
 
                         employees.Add(employee);

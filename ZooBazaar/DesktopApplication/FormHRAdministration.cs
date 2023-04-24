@@ -158,7 +158,28 @@ namespace DesktopApplication
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
-
+            if(string.IsNullOrEmpty(tbxFirstNameSearchFeature.Text) && string.IsNullOrEmpty(tbxLastNameEmployeeSearch.Text)&&
+               cbxRoleSearchFeature.SelectedIndex==-1 && rbtnFullTimeEmployeeSearchFeature.Checked==false 
+               && rbtnPartTimeEmployeeSearchFeature.Checked == false)
+            {
+                MessageBox.Show("Please select at least one field to search by!");
+                return;
+            }
+            int weeklyHours;
+            if (rbtnPartTimeEmployeeSearchFeature.Checked==true)
+            { 
+                weeklyHours = 39; 
+            }
+            else if (rbtnFullTimeEmployeeSearchFeature.Checked == true)
+            {
+                weeklyHours = 40;
+            }
+            else
+            {
+                weeklyHours = 41;
+            }
+            List<Employee> employees = employeeManagement.SearchForEmployee(tbxFirstNameSearchFeature.Text, tbxLastNameEmployeeSearch.Text, weeklyHours, cbxRoleSearchFeature.Text, out int[] ints);
+            updateEmployeeListview(employees.ToArray(), ints);
         }
     }
 }

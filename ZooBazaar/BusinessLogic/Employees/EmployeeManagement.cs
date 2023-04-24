@@ -76,32 +76,18 @@ namespace BusinessLogic
             return employee;
         }
 
-        /*public List<Employee> GetSearchedEmployees(string firstName, string lastName, string contractType, string role)
+        public List<Employee> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeType, out int[] ints)
         {
-            List<Employee> searchedEmployees = new List<Employee>();
-            foreach (Employee employee in employeeList)
+            List<Employee> employees = new List<Employee>();
+            List<int> hoursPerWeek = new List<int>();
+            foreach (EmployeeDTO employeeDto in _employeeRepository.SearchForEmployee(firstName,lastname,weeklyHours,employeeType))
             {
-                if (contractType == string.Empty)
-                {
-                    if ((employee.FirstName.ToLower().Contains(firstName.ToLower()) || String.IsNullOrEmpty(firstName)) &&
-                        (employee.LastName.ToLower().Contains(lastName.ToLower()) || String.IsNullOrEmpty(lastName)) &&
-                        (employee.GetRole() == role || String.IsNullOrEmpty(role.ToString())))
-                    {
-                        searchedEmployees.Add(employee);
-                    }
-                }
-                else
-                {
-                    if ((employee.FirstName.ToLower().Contains(firstName.ToLower()) || String.IsNullOrEmpty(firstName)) &&
-                        (employee.LastName.ToLower().Contains(lastName.ToLower()) || String.IsNullOrEmpty(lastName)) &&
-                        (employee.GetRole() == role.ToString() || String.IsNullOrEmpty(role.ToString())) &&
-                        (employee.HoursPerWeek == 40)) //needs fixing when we add contracts
-                    {
-                        searchedEmployees.Add(employee);
-                    }
-                }
+                hoursPerWeek.Add(employeeDto.hoursPerWeek);
+                Employee employee = employeeDto.ToEmployee();
+                employees.Add(employee);
             }
-            return searchedEmployees;
-        }*/
+            ints = hoursPerWeek.ToArray();
+            return employees;
+        }
     }
 }
