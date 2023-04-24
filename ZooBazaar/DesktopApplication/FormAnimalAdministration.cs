@@ -370,8 +370,14 @@ namespace DesktopApplication
                 age = Convert.ToInt32(tbxAge.Text);
             }
 
+            int? birthYear = null;
+            if (age != null)
+            {
+                birthYear = DateTime.Now.AddYears((int)age * (-1)).Year;
+            }
+            
 
-            searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, tbxSpecies.Text, cbxOrigin.Text, gender, availability, age, cbxEndangerment.Text);
+            searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, tbxSpecies.Text, cbxOrigin.Text, gender, availability, birthYear, cbxEndangerment.Text);
             updateAnimalListview(searchedAnimals.ToArray());
         }
 

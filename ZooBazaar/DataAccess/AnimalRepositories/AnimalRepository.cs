@@ -145,46 +145,38 @@ namespace DataAccess.AnimalRepositories
             }
         }
 
-        public List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int? age, string endangerment, string availability)
+        public List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int? birthYear, string endangerment, string availability)
         {
             List<AnimalDTO> animals = new List<AnimalDTO>();
-
-
 
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
                 try { connection.Open(); }
                 catch (SqlException) { return animals; }
 
-
                 //Dynamic SQL query to find the festivals that the user is searching for.
-                SqlCommand query = new SqlCommand("SELECT * FROM Animals WHERE " +
-                    "(Name LIKE '%' + @Name + '%') AND " +
-                    "(Species LIKE '%' + @Species + '%') AND " +
-                    "(Origin = @Origin OR @Origin = '')  AND " +
-                    "(Gender = @Gender OR @Gender = '') AND " +
-                    "((BirthDate > @birthDateOneYear AND BirthDate < @birthDate) OR @birthDate is NULL ) AND " +
-                    "(Endangerment = @Endangerment OR @Endangerment = '') AND " +
-                    "(Availability = @Availability OR @Availability = '') " +
-                    "ORDER BY Name;", connection);
+                SqlCommand query = new SqlCommand("SELECT * FROM Animals" +
+                    " WHERE " +
+                    "   Name like '%'+@Name+'%' AND" +
+                    "   Gender like '%'+@Gender+'%' AND" +
+                    "   Species like '%'+@Species+'%' AND" +
+                    "   Origin like '%'+@Origin+'%' AND" +
+                    "   BirthDate like '%'+@BirthYear+'%' AND" +
+                    "   Endangerment like '%'+@Endangerment+'%' AND" +
+                    "   Availability like '%'+@Availability+'%' " +
+                    " ORDER BY Name;", connection);
 
                 query.Parameters.AddWithValue("@Name", name);
                 query.Parameters.AddWithValue("@Species", species);
-                query.Parameters.AddWithValue("@Origin", origin);
                 query.Parameters.AddWithValue("@Gender", gender);
+                query.Parameters.AddWithValue("@Origin", origin);
+                if (birthYear != null)
+                    query.Parameters.AddWithValue("@BirthYear", birthYear);
+                else
+                    query.Parameters.AddWithValue("@BirthYear", "");
+
                 query.Parameters.AddWithValue("@Endangerment", endangerment);
                 query.Parameters.AddWithValue("@Availability", availability);
-
-                if (age != null)
-                {
-                    query.Parameters.AddWithValue("@birthDateOneYear", DateTime.Today.AddYears(-Convert.ToInt32(age) - 1));
-                    query.Parameters.AddWithValue("@birthDate", DateTime.Today.AddYears(-Convert.ToInt32(age)));
-                }
-                else
-                {
-                    query.Parameters.AddWithValue("@birthDateOneYear", DBNull.Value);
-                    query.Parameters.AddWithValue("@birthDate", DBNull.Value);
-                }
 
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
@@ -514,6 +506,31 @@ namespace DataAccess.AnimalRepositories
                     return animals;
                 }
             }
+        }
+
+        public string[] GetAllSpecies()
+        {
+            List<string> species = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return species.ToArray(); }
+
+                SqlCommand query = new SqlCommand("SELECT DISTINCT Species FROM Animals ", connection);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        species.Add(reader.GetString(reader.GetOrdinal("Species")));
+                    }
+
+                    reader.Close();
+                    connection.Close();
+                }
+            }
+            return species.ToArray();
         }
 
 

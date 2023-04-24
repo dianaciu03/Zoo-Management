@@ -32,9 +32,9 @@ namespace BusinessLogic
             GetAnimals("AnimalId").Add(animal);
         }
 
-        public List<Animal> GetSearchedAnimals(string name, string species, string origin, string gender, string availability, int? age, string endangerment)
+        public List<Animal> GetSearchedAnimals(string name, string species, string origin, string gender, string availability, int? birthYear, string endangerment)
         {
-            return AnimalEntityMapping.DTOToAnimals(animalHelper.SearchForAnimals(name, species, origin, gender, age, endangerment, availability));
+            return AnimalEntityMapping.DTOToAnimals(animalHelper.SearchForAnimals(name, species, origin, gender, birthYear, endangerment, availability));
         }
 
         public Animal[] GetAllAnimals(string sortBy)
@@ -78,6 +78,11 @@ namespace BusinessLogic
         public List<Animal> GetSiblings(int animalID)
         {
             return AnimalEntityMapping.DTOToAnimals(animalHelper.GetSiblings(animalID));
+        }
+
+        public string[] GetAllSpecies()
+        {
+            return animalHelper.GetAllSpecies();
         }
     }
 }

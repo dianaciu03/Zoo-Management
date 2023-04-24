@@ -69,6 +69,9 @@
             this.colFinishedTaskName = new System.Windows.Forms.ColumnHeader();
             this.colFinishedTaskDate = new System.Windows.Forms.ColumnHeader();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,11 +91,14 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(70, 9);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1539, 922);
+            this.tabControl1.Size = new System.Drawing.Size(1539, 973);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.tbxTaskName);
             this.tabPage1.Controls.Add(this.lblTaskName);
@@ -102,7 +108,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 45);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1531, 873);
+            this.tabPage1.Size = new System.Drawing.Size(1531, 924);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Schedule task";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -118,7 +124,7 @@
             this.groupBox1.Controls.Add(this.labelTaskDescription);
             this.groupBox1.Controls.Add(this.tbxTaskDescription);
             this.groupBox1.Controls.Add(this.labelHours);
-            this.groupBox1.Location = new System.Drawing.Point(50, 370);
+            this.groupBox1.Location = new System.Drawing.Point(50, 421);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(700, 497);
             this.groupBox1.TabIndex = 33;
@@ -205,15 +211,15 @@
             // 
             // tbxTaskName
             // 
-            this.tbxTaskName.Location = new System.Drawing.Point(184, 49);
+            this.tbxTaskName.Location = new System.Drawing.Point(188, 32);
             this.tbxTaskName.Name = "tbxTaskName";
-            this.tbxTaskName.Size = new System.Drawing.Size(566, 29);
+            this.tbxTaskName.Size = new System.Drawing.Size(562, 29);
             this.tbxTaskName.TabIndex = 32;
             // 
             // lblTaskName
             // 
             this.lblTaskName.AutoSize = true;
-            this.lblTaskName.Location = new System.Drawing.Point(46, 52);
+            this.lblTaskName.Location = new System.Drawing.Point(50, 35);
             this.lblTaskName.Name = "lblTaskName";
             this.lblTaskName.Size = new System.Drawing.Size(108, 24);
             this.lblTaskName.TabIndex = 31;
@@ -226,7 +232,7 @@
             this.groupBoxAnimalSearch.Controls.Add(this.labelSpecies);
             this.groupBoxAnimalSearch.Controls.Add(this.tbxSearchByName);
             this.groupBoxAnimalSearch.Controls.Add(this.cbxSearchBySpecie);
-            this.groupBoxAnimalSearch.Location = new System.Drawing.Point(50, 96);
+            this.groupBoxAnimalSearch.Location = new System.Drawing.Point(50, 147);
             this.groupBoxAnimalSearch.Name = "groupBoxAnimalSearch";
             this.groupBoxAnimalSearch.Size = new System.Drawing.Size(700, 268);
             this.groupBoxAnimalSearch.TabIndex = 29;
@@ -472,6 +478,32 @@
             this.labelTitleZooBazaar.TabIndex = 11;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(50, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 24);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Enclosure area:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(199, 75);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(283, 32);
+            this.comboBox1.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(501, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(172, 24);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Enclosure number:";
+            // 
             // FormScheduleMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -547,5 +579,8 @@
         private System.Windows.Forms.ColumnHeader colFinishedTaskName;
         private System.Windows.Forms.ColumnHeader colFinishedTaskDate;
         private System.Windows.Forms.GroupBox groupBox1;
+        private Label label2;
+        private ComboBox comboBox1;
+        private Label label1;
     }
 }

@@ -12,6 +12,7 @@
         List<AnimalDTO> GetParents(int animalID);
         List<AnimalDTO> GetSiblings(int animalID);
         List<AnimalDTO> OtherInSpeciesSearch(int animalID, string species);
-        List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int? age, string endangerment, string availability);
+        List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int? birthYear, string endangerment, string availability);
+        string[] GetAllSpecies();
     }
 }

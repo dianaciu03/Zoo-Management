@@ -15,7 +15,7 @@ namespace BusinessLogic
             tasks = new List<ZooTask>();
         }
 
-        public void ScheduleTask(string name, string description, DateTime taskDateTime, double taskLength, string specie, Animal animal)
+        public void ScheduleTask(string name, string description, DateTime taskDateTime, int taskLength, string specie, Animal animal)
         {
             int id;
             if (tasks.Count() > 0)
@@ -78,22 +78,26 @@ namespace BusinessLogic
         }
         public bool CheckEmployeeAvailability(ZooTask task, Employee employee)
         {
-            // New/existing which does not have caretakers assigned.
-            int taskStartHour = task.TaskDateTime.Hour;
-            int taskEndHour = taskStartHour + (int)task.EstimatedDuration;
+            // taskStartHour, taskEndHour is task times that New/existing which does not have caretakers assigned.
+            int newTaskStartHour = task.TaskDateTime.Hour;
+            int newTaskEndHour = newTaskStartHour + (int)task.EstimatedDuration;
 
             ZooTask[] employeeTasks = GetTasksByCaretaker(employee.ID, task.TaskDateTime);
             foreach (ZooTask empTask in employeeTasks)
             {
-                int empTaskStartHour = empTask.TaskDateTime.Hour;
-                int empTaskEndHour = empTask.TaskDateTime.Hour + (int)empTask.EstimatedDuration;
-
-                if (empTaskStartHour < taskStartHour)
+                if (empTask.TaskDateTime.Hour < newTaskStartHour)
                 {
-                    if (empTaskEndHour > taskStartHour)
+                    if (empTask.TaskDateTime.Hour + empTask.EstimatedDuration > newTaskStartHour)
                         return false;
                 }
-                else if (empTaskStartHour >= taskEndHour)
+                else if (empTask.TaskDateTime.Hour == newTaskEndHour)
+                {
+                    if (empTask.TaskDateTime.Minute + empTask.EstimatedDuration <= newTaskStartHour * 60)
+                    {
+                        return false;
+                    }
+                }
+                else if (empTask.TaskDateTime.Hour >= newTaskEndHour)
                 {
                     continue;
                 }

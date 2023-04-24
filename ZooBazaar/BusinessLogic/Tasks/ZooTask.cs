@@ -13,14 +13,14 @@ namespace BusinessLogic
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime TaskDateTime { get; set; }
-        public double EstimatedDuration { get; set; }
+        public int EstimatedDuration { get; set; } //minutes
         public string Status { get; set; }
         public string Species { get; set; }
         public Animal Animal { get; set; }
         private List<Employee> assignedEmployees;
 
         //task where animal is specified
-        public ZooTask(int ID, string Name, string Description, DateTime TaskDateTime, double EstimatedDuration, string Species, Animal Animal) 
+        public ZooTask(int ID, string Name, string Description, DateTime TaskDateTime, int EstimatedDuration, string Species, Animal Animal) 
         {
             this.ID = ID;
             this.Name = Name;
@@ -34,7 +34,7 @@ namespace BusinessLogic
         }
 
         //task where only specie is specified, no specific animal selected
-        public ZooTask(int ID, string Name, string Description, DateTime TaskDateTime, double EstimatedDuration, string Species) 
+        public ZooTask(int ID, string Name, string Description, DateTime TaskDateTime, int EstimatedDuration, string Species) 
         {
             this.ID = ID;
             this.Name = Name;

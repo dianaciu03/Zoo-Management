@@ -17,7 +17,7 @@ namespace DesktopApplication
     {
         TaskManagement taskManagement;
         private readonly IAnimalManagement animalManagement;
-        List<Animal> seachedAnimals;
+        List<Animal> searchedAnimals;
         public FormScheduleMaker(IAnimalManagement am)
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace DesktopApplication
                         return;
                     }
                     Animal selectedAnimal = (Animal)lvwAnimalSearch.SelectedItems[0].Tag;
-                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (double)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
+                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
                 }
                 catch
                 {
@@ -60,7 +60,7 @@ namespace DesktopApplication
                         MessageBox.Show("You haven't selected the animal specie");
                         return;
                     }
-                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (double)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
+                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
                 }
                 catch
                 {
@@ -73,13 +73,9 @@ namespace DesktopApplication
         private void initializeSpecieComboBox() 
         {
             cbxSearchBySpecie.Items.Clear();
-            cbxSearchBySpecie.Items.Add("");
-            foreach (Animal animal in animalManagement.GetAllAnimals("AnimalId"))
+            foreach (string s in animalManagement.GetAllSpecies())
             {
-                if (cbxSearchBySpecie.Items.Contains(animal.Species))
-                    return;
-                else
-                    cbxSearchBySpecie.Items.Add(animal.Species);
+                cbxSearchBySpecie.Items.Add(s);
             }
         }
 
@@ -87,7 +83,7 @@ namespace DesktopApplication
         {
 
             lvwAnimalSearch.Items.Clear();
-            foreach (Animal animal in seachedAnimals)
+            foreach (Animal animal in searchedAnimals)
             {
                 ListViewItem item = new ListViewItem();
                 item.Tag = animal;
@@ -100,23 +96,23 @@ namespace DesktopApplication
 
         private void tbxSearchByName_TextChanged(object sender, EventArgs e)
         {
-            try
+            //try
             {
-                seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", 0, "");
+                searchedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), string.Empty, string.Empty, string.Empty, null, string.Empty);
                 updateSearchedAnimalListView();
                 if (tbxSearchByName.Text == "") { lvwAnimalSearch.Items.Clear(); }
             }
-            catch { }
+           // catch { }
         }
 
         private void cbxSearchBySpecie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            seachedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), "", "", "", 0, "");
+            searchedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), string.Empty, string.Empty, string.Empty, null, string.Empty);
             updateSearchedAnimalListView();
-            if (cbxSearchBySpecie.SelectedIndex == 0)
-            {
-                lvwAnimalSearch.Items.Clear();
-            }
+            //if (cbxSearchBySpecie.SelectedIndex == 0)
+            //{
+            //    lvwAnimalSearch.Items.Clear();
+            //}
         }
 
         private void updateTasks()
@@ -178,7 +174,7 @@ namespace DesktopApplication
 
         private void lvwAnimalSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -22,6 +22,7 @@ namespace DesktopApplication
         {
             InitializeComponent();
             this.BackgroundImageLayout = ImageLayout.Stretch;
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
