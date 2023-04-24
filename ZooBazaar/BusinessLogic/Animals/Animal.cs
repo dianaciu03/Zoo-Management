@@ -23,9 +23,9 @@ namespace BusinessLogic
         private int enclosure;
         private string availability;
 
-        public Animal(int id, string name, string gender, string species, DateTime birthday, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure)
+
+        public Animal(string name, string gender, string species, DateTime birthday, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure, string availability)
         {
-            this.id = id;
             this.name = name;
             this.gender = gender;
             this.species = species;
@@ -34,6 +34,7 @@ namespace BusinessLogic
             this.description = description;
             this.endangerment = endangerment;
             this.enclosure = enclosure;
+            this.availability = availability;
         }
 
         public Animal(int id, string name, string gender, string species, DateTime birthday, ORIGINCONTINENT origin, string description, ENDANGERMENT endangerment, int enclosure, string availability)

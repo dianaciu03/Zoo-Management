@@ -18,32 +18,6 @@ namespace DataAccess.AnimalRepositories
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
-        public int NewAnimalID()
-        {
-            int i = 0;
-
-            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
-            {
-                SqlCommand query = new SqlCommand("SELECT MAX(AnimalID) FROM Animals", connection);
-
-                try
-                {
-                    connection.Open();
-                    if (query.ExecuteScalar() != DBNull.Value)
-                    {
-                        i = (int)query.ExecuteScalar();
-                    }
-                }
-                catch (SqlException) { }
-                finally
-                {
-                    connection.Close();
-                }
-                return i + 1; //+1 beacuse we need a new animal id so we get the current highest in database + 1
-            }
-
-        }
-
         public List<AnimalDTO> GetAllAnimals(string sortBy) // Gets all animals in the animal database and returns them as a list of Animal Objects
         {
             List<AnimalDTO> animals = new List<AnimalDTO>();
@@ -112,7 +86,6 @@ namespace DataAccess.AnimalRepositories
                                                        "VALUES (@Name,@Gender,@Species,@BirthDate,@Origin,@Description,@Endangerment,@Enclosure,@Availability)",
                                                        connection))
             {
-                //command.Parameters.AddWithValue("@AnimalID", animal.Id);
                 command.Parameters.AddWithValue("@Name", animal.Name);
                 command.Parameters.AddWithValue("@Gender", animal.Gender);
                 command.Parameters.AddWithValue("@Species", animal.Species);
