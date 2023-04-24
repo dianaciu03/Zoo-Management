@@ -171,7 +171,7 @@ namespace DataAccess.AnimalRepositories
                 query.Parameters.AddWithValue("@Gender", gender);
                 query.Parameters.AddWithValue("@Origin", origin);
                 if (birthYear != null)
-                    query.Parameters.AddWithValue("@BirthYear", birthYear);
+                    query.Parameters.AddWithValue("@BirthYear", birthYear.ToString());
                 else
                     query.Parameters.AddWithValue("@BirthYear", "");
 
