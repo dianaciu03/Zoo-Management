@@ -51,6 +51,31 @@ namespace DesktopApplication
             }
         }
 
+        private void updateEmployeeHistoryListview(Employee[] employees, int[] hoursWorked)
+        {
+            listViewEmployeeHistoryTab.Items.Clear();
+            int index = 0;
+            foreach (Employee employee in employees)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = employee.ID.ToString();
+                item.Tag = employee;
+                item.SubItems.Add(employee.FirstName);
+                item.SubItems.Add(employee.LastName);
+                item.SubItems.Add(employee.Role.ToString());
+                item.SubItems.Add(employee.Email);
+                item.SubItems.Add(employee.Phone);
+                item.SubItems.Add(employee.Address);
+                item.SubItems.Add(employee.BirthDate.ToShortDateString());
+                if (hoursWorked[index] == 40)
+                    item.SubItems.Add("Full-time");
+                else
+                    item.SubItems.Add("Part-time");
+                listViewEmployeeHistoryTab.Items.Add(item);
+                index++;
+            }
+        }
+
         private void btnDisplayEmployeeInformation_Click(object sender, EventArgs e)
         {
             panelAdministrateEmployees.Controls.Clear();
@@ -180,6 +205,48 @@ namespace DesktopApplication
             }
             List<Employee> employees = employeeManagement.SearchForEmployee(tbxFirstNameSearchFeature.Text, tbxLastNameEmployeeSearch.Text, weeklyHours, cbxRoleSearchFeature.Text, out int[] ints);
             updateEmployeeListview(employees.ToArray(), ints);
+        }
+
+        private void btnClearFieldsEmployeeHistoryTab_Click(object sender, EventArgs e)
+        {
+            tbxFirstNameEmployeeHistoryTab.Text = string.Empty;
+            tbxLastNameEmployeeHistoryTab.Text = string.Empty;
+            rbFullTimeEmployeeHistoryTab.Checked = false;
+            rbPartTimeEmployeeHistoryTab.Checked = false;
+            cbRoleEmployeeHistory.SelectedIndex = -1;
+        }
+
+        private void btnDisplayEmployeeHistoryTab_Click(object sender, EventArgs e)
+        {
+            Employee[] employees = employeeManagement.GetEmployees(out int[] ints);
+            updateEmployeeHistoryListview(employees, ints);
+        }
+
+        private void btnSearchEmployeeHistoryTab_Click(object sender, EventArgs e)
+        {
+            //dont touch it!!! it works if you want info ask me lolll
+            if (string.IsNullOrEmpty(tbxFirstNameEmployeeHistoryTab.Text) && string.IsNullOrEmpty(tbxLastNameEmployeeHistoryTab.Text) &&
+                cbRoleEmployeeHistory.SelectedIndex == -1 && rbFullTimeEmployeeHistoryTab.Checked == false
+               && rbPartTimeEmployeeHistoryTab.Checked == false)
+            {
+                MessageBox.Show("Please select at least one field to search by!");
+                return;
+            }
+            int weeklyHours;
+            if (rbPartTimeEmployeeHistoryTab.Checked == true)
+            {
+                weeklyHours = 39;
+            }
+            else if (rbFullTimeEmployeeHistoryTab.Checked == true)
+            {
+                weeklyHours = 40;
+            }
+            else
+            {
+                weeklyHours = 41;
+            }
+            List<Employee> employees = employeeManagement.SearchForEmployee(tbxFirstNameEmployeeHistoryTab.Text, tbxLastNameEmployeeHistoryTab.Text, weeklyHours, cbRoleEmployeeHistory.Text, out int[] ints);
+            updateEmployeeHistoryListview(employees.ToArray(), ints);
         }
     }
 }

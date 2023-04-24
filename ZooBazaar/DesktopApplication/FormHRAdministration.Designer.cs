@@ -63,8 +63,8 @@
             this.btnSearchEmployeeHistoryTab = new System.Windows.Forms.Button();
             this.btnClearFieldsEmployeeHistoryTab = new System.Windows.Forms.Button();
             this.labelRoleEmployeeTab = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbxLastNameEmployeeHistoryTab = new System.Windows.Forms.TextBox();
+            this.tbxFirstNameEmployeeHistoryTab = new System.Windows.Forms.TextBox();
             this.labelLastNameEmployeeHistory = new System.Windows.Forms.Label();
             this.labelFNEmployeeHistory = new System.Windows.Forms.Label();
             this.listViewEmployeeHistoryTab = new System.Windows.Forms.ListView();
@@ -74,8 +74,9 @@
             this.columnRole = new System.Windows.Forms.ColumnHeader();
             this.columnEmail = new System.Windows.Forms.ColumnHeader();
             this.columnPhone = new System.Windows.Forms.ColumnHeader();
+            this.columnAddress = new System.Windows.Forms.ColumnHeader();
+            this.columnBirthday = new System.Windows.Forms.ColumnHeader();
             this.columnContractType = new System.Windows.Forms.ColumnHeader();
-            this.columnContractStatus = new System.Windows.Forms.ColumnHeader();
             this.btnSearchHistory = new System.Windows.Forms.Button();
             this.rbtnSortByContract = new System.Windows.Forms.RadioButton();
             this.rbtnSortByRole = new System.Windows.Forms.RadioButton();
@@ -434,8 +435,8 @@
             this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.btnSearchEmployeeHistoryTab);
             this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.btnClearFieldsEmployeeHistoryTab);
             this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.labelRoleEmployeeTab);
-            this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.textBox4);
-            this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.textBox5);
+            this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.tbxLastNameEmployeeHistoryTab);
+            this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.tbxFirstNameEmployeeHistoryTab);
             this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.labelLastNameEmployeeHistory);
             this.groupBoxSearchEmployeeHistoryTab.Controls.Add(this.labelFNEmployeeHistory);
             this.groupBoxSearchEmployeeHistoryTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -458,6 +459,7 @@
             this.btnDisplayEmployeeHistoryTab.TabIndex = 24;
             this.btnDisplayEmployeeHistoryTab.Text = "Display all employees";
             this.btnDisplayEmployeeHistoryTab.UseVisualStyleBackColor = false;
+            this.btnDisplayEmployeeHistoryTab.Click += new System.EventHandler(this.btnDisplayEmployeeHistoryTab_Click);
             // 
             // labelContractTypeEmployeeHistoryTab
             // 
@@ -510,6 +512,7 @@
             this.btnSearchEmployeeHistoryTab.TabIndex = 14;
             this.btnSearchEmployeeHistoryTab.Text = "Search";
             this.btnSearchEmployeeHistoryTab.UseVisualStyleBackColor = false;
+            this.btnSearchEmployeeHistoryTab.Click += new System.EventHandler(this.btnSearchEmployeeHistoryTab_Click);
             // 
             // btnClearFieldsEmployeeHistoryTab
             // 
@@ -521,6 +524,7 @@
             this.btnClearFieldsEmployeeHistoryTab.TabIndex = 15;
             this.btnClearFieldsEmployeeHistoryTab.Text = "Clear fields";
             this.btnClearFieldsEmployeeHistoryTab.UseVisualStyleBackColor = false;
+            this.btnClearFieldsEmployeeHistoryTab.Click += new System.EventHandler(this.btnClearFieldsEmployeeHistoryTab_Click);
             // 
             // labelRoleEmployeeTab
             // 
@@ -532,21 +536,21 @@
             this.labelRoleEmployeeTab.TabIndex = 16;
             this.labelRoleEmployeeTab.Text = "Role:";
             // 
-            // textBox4
+            // tbxLastNameEmployeeHistoryTab
             // 
-            this.textBox4.Location = new System.Drawing.Point(193, 86);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(319, 32);
-            this.textBox4.TabIndex = 6;
+            this.tbxLastNameEmployeeHistoryTab.Location = new System.Drawing.Point(193, 86);
+            this.tbxLastNameEmployeeHistoryTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxLastNameEmployeeHistoryTab.Name = "tbxLastNameEmployeeHistoryTab";
+            this.tbxLastNameEmployeeHistoryTab.Size = new System.Drawing.Size(319, 32);
+            this.tbxLastNameEmployeeHistoryTab.TabIndex = 6;
             // 
-            // textBox5
+            // tbxFirstNameEmployeeHistoryTab
             // 
-            this.textBox5.Location = new System.Drawing.Point(193, 38);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(319, 32);
-            this.textBox5.TabIndex = 5;
+            this.tbxFirstNameEmployeeHistoryTab.Location = new System.Drawing.Point(193, 38);
+            this.tbxFirstNameEmployeeHistoryTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxFirstNameEmployeeHistoryTab.Name = "tbxFirstNameEmployeeHistoryTab";
+            this.tbxFirstNameEmployeeHistoryTab.Size = new System.Drawing.Size(319, 32);
+            this.tbxFirstNameEmployeeHistoryTab.TabIndex = 5;
             // 
             // labelLastNameEmployeeHistory
             // 
@@ -577,8 +581,9 @@
             this.columnRole,
             this.columnEmail,
             this.columnPhone,
-            this.columnContractType,
-            this.columnContractStatus});
+            this.columnAddress,
+            this.columnBirthday,
+            this.columnContractType});
             this.listViewEmployeeHistoryTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listViewEmployeeHistoryTab.FullRowSelect = true;
             this.listViewEmployeeHistoryTab.Location = new System.Drawing.Point(561, 68);
@@ -619,15 +624,20 @@
             this.columnPhone.Text = "Phone";
             this.columnPhone.Width = 263;
             // 
+            // columnAddress
+            // 
+            this.columnAddress.Text = "Address";
+            this.columnAddress.Width = 235;
+            // 
+            // columnBirthday
+            // 
+            this.columnBirthday.Text = "Birth date";
+            this.columnBirthday.Width = 256;
+            // 
             // columnContractType
             // 
-            this.columnContractType.Text = "ContractType";
-            this.columnContractType.Width = 235;
-            // 
-            // columnContractStatus
-            // 
-            this.columnContractStatus.Text = "Contract status";
-            this.columnContractStatus.Width = 256;
+            this.columnContractType.Text = "Contract Type";
+            this.columnContractType.Width = 250;
             // 
             // btnSearchHistory
             // 
@@ -1292,8 +1302,8 @@
         private System.Windows.Forms.ColumnHeader columnRole;
         private System.Windows.Forms.ColumnHeader columnEmail;
         private System.Windows.Forms.ColumnHeader columnPhone;
-        private System.Windows.Forms.ColumnHeader columnContractType;
-        private System.Windows.Forms.ColumnHeader columnContractStatus;
+        private System.Windows.Forms.ColumnHeader columnAddress;
+        private System.Windows.Forms.ColumnHeader columnBirthday;
         private System.Windows.Forms.TabPage tabCreateEmployee;
         private System.Windows.Forms.Button btnCancelEmployeeCreation;
         private System.Windows.Forms.GroupBox groupBoxContractDetailsPopup;
@@ -1338,8 +1348,8 @@
         private System.Windows.Forms.Button btnSearchEmployeeHistoryTab;
         private System.Windows.Forms.Button btnClearFieldsEmployeeHistoryTab;
         private System.Windows.Forms.Label labelRoleEmployeeTab;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbxLastNameEmployeeHistoryTab;
+        private System.Windows.Forms.TextBox tbxFirstNameEmployeeHistoryTab;
         private System.Windows.Forms.Label labelLastNameEmployeeHistory;
         private System.Windows.Forms.Label labelFNEmployeeHistory;
         private System.Windows.Forms.GroupBox groupBoxEmergencyContact;
@@ -1371,5 +1381,6 @@
         private System.Windows.Forms.TextBox tbxFirstNameSearchFeature;
         private System.Windows.Forms.Label labelEmployeeLastName;
         private System.Windows.Forms.Label labelEmployeeFirstName;
+        private ColumnHeader columnContractType;
     }
 }

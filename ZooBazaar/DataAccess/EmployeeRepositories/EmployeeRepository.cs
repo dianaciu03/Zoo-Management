@@ -26,9 +26,9 @@ namespace DataAccess
             {
                 try { connection.Open(); }
                 catch (SqlException) { return employees; }
-
-                SqlCommand query = new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID", connection);
-
+                DateTime dateTime= DateTime.Now;
+                SqlCommand query = new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE c.EndDate > @dateTime OR c.EndDate IS NULL", connection);
+                query.Parameters.AddWithValue("@dateTime",dateTime);
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
                     while (reader.Read())
@@ -63,8 +63,6 @@ namespace DataAccess
                 //try
                 {
                     connection.Open();
-
-
                     SqlCommand existsInDatabase = new SqlCommand($"SELECT EmployeeID FROM Employees WHERE EmployeeID = @EmployeeId", connection);
                     existsInDatabase.Parameters.AddWithValue("@EmployeeID", employee.id);
                     int existsInDB = Convert.ToInt32(existsInDatabase.ExecuteScalar());
@@ -147,17 +145,18 @@ namespace DataAccess
                 try { connection.Open(); }
                 catch (SqlException) { return employees; }
                 SqlCommand query;
+                DateTime dateTime = DateTime.Now;
                 if (weeklyHours == 40)
                 {
-                     query= new SqlCommand("SELECT e.*, c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (FirstName LIKE '%' + @FirstName + '%') AND(LastName LIKE '%' + @LastName + '%') AND (WeeklyHours = @WeeklyHours) AND(EmployeeType LIKE '%' + @EmployeeType + '%')"
+                     query= new SqlCommand("SELECT e.*, c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (FirstName LIKE '%' + @FirstName + '%') AND(LastName LIKE '%' + @LastName + '%') AND (WeeklyHours = @WeeklyHours) AND (EmployeeType LIKE '%' + @EmployeeType + '%') AND (c.EndDate > @dateTime OR c.EndDate IS NULL)"
                          , connection);
                 }
                 else
                 {
-                    query= new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (FirstName LIKE '%' + @FirstName + '%') AND (LastName LIKE '%' + @LastName + '%') AND (WeeklyHours <= @WeeklyHours) AND (EmployeeType LIKE '%' + @EmployeeType + '%')"
+                    query= new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (FirstName LIKE '%' + @FirstName + '%') AND (LastName LIKE '%' + @LastName + '%') AND (WeeklyHours <= @WeeklyHours) AND (EmployeeType LIKE '%' + @EmployeeType + '%') AND (c.EndDate > @dateTime OR c.EndDate IS NULL)"
                         , connection);
                 }
-
+                query.Parameters.AddWithValue("@dateTime", dateTime);
                 query.Parameters.AddWithValue("@FirstName", firstName);
                 query.Parameters.AddWithValue("@LastName", lastname);
                 query.Parameters.AddWithValue("@WeeklyHours", weeklyHours);
