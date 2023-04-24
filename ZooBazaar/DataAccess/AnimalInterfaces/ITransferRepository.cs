@@ -6,5 +6,7 @@ namespace DataAccess.AnimalInterfaces
     {
         void AddNewTransfer(TransferDTO transfer);
         List<TransferDTO> GetTransferByAnimalId(int id);
+        List<TransferDTO> GetAllTransfers();
+        void ChangeAnimalAvailability(int transferId, string option);
     }
 }

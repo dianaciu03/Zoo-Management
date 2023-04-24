@@ -84,5 +84,10 @@ namespace BusinessLogic
         {
             return animalHelper.GetAllSpecies();
         }
+
+        public void ChangeAnimalAvailability(int animalId, string option)
+        {
+            animalHelper.ChangeAnimalAvailability(animalId, option);
+        }
     }
 }

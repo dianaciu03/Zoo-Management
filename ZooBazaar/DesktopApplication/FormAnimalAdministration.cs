@@ -173,23 +173,47 @@ namespace DesktopApplication
         }
 
         //confirms transfer and reverts back to original search function (step 2 transfer)
-        //ADDED PHONE - REQUIRES CHANGES
         private void btnConfirmTransfer_Click(object sender, EventArgs e)
         {
             try
             {
                 Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
-
+                List<Transfer> transfers = transferManagement.GetAllTransfersById(animal.Id);
                 string name = tbxZooNameTransfer.Text;
                 string address = tbxAddressTransfer.Text;
                 string description = tbxComments.Text;
                 string phone = tbxAnimalTransferPhone.Text;
                 DateTime startDate = dtpStartDate.Value;
                 DateTime endDate = dtpEndDate.Value;
-                if (formDataValidator.IsValidTransfer(name, address, description, phone))
+                if (formDataValidator.IsValidTransfer(name, address, description, phone) && (startDate < endDate))
                 {
-                    Transfer transfer = new Transfer(name, address, description, startDate, endDate, animal, phone);
-                    transferManagement.SaveTransfer(transfer);
+                    if(transfers.Count > 0)
+                    {
+                        foreach (Transfer transfer in transfers)
+                        {
+                            if (transfer.StartDate < startDate.Date) 
+                            { 
+                                if (transfer.EndDate >= startDate.Date)
+                                    throw new Exception("Animal is not available at the specified date!\nPlease check the transfer schedule again!");
+                            }
+                            else if (transfer.StartDate > endDate.Date)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                throw new Exception("Animal is not available at the specified date!\nPlease check the transfer schedule again!");
+                            }
+                        }
+                    }
+                    Transfer transferNew = new Transfer(name, address, phone, description, startDate, endDate);
+                    transferNew.Animal = animal;
+
+                    transferManagement.SaveTransfer(transferNew);
+                    if (transferNew.StartDate <= DateTime.Now && transferNew.EndDate >= DateTime.Now)
+                    {
+                        animalManagement.ChangeAnimalAvailability(animal.Id, "Transfered");
+                    }
                     MessageBox.Show("Transfer has been successfully created!");
                     //resets to original state
                     btnCancelTransfer_Click(this, EventArgs.Empty);

@@ -81,11 +81,11 @@ namespace DataAccess.AnimalRepositories
                             reader.GetInt32(reader.GetOrdinal("TransferId")),
                             reader.GetString(reader.GetOrdinal("ZooName")),
                             reader.GetString(reader.GetOrdinal("ZooAddress")),
+                            reader.GetString(reader.GetOrdinal("ZooPhone")),
                             reader.GetString(reader.GetOrdinal("Description")),
                             reader.GetDateTime(reader.GetOrdinal("StartDate")),
-                            reader.GetDateTime(reader.GetOrdinal("EndDate")),
-                            reader.GetString(reader.GetOrdinal("ZooPhone")),
-                            animal);
+                            reader.GetDateTime(reader.GetOrdinal("EndDate")));
+                            transfer.Animal = animal;
 
                             transfersDTO.Add(transfer);
                         }
@@ -103,6 +103,71 @@ namespace DataAccess.AnimalRepositories
                 throw new Exception("There were issues while trying to retrieve the anime!");
             }
             return transfersDTO;
+        }
+
+        public List<TransferDTO> GetAllTransfers()
+        {
+            List<TransferDTO> transfersDTO = new List<TransferDTO>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionHelper.ConnectionValue()))
+                {
+                    conn.Open();
+                    string query = @"SELECT * FROM Transfer";
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            TransferDTO transfer = new TransferDTO(
+                            reader.GetInt32(reader.GetOrdinal("TransferId")),
+                            reader.GetString(reader.GetOrdinal("ZooName")),
+                            reader.GetString(reader.GetOrdinal("ZooAddress")),
+                            reader.GetString(reader.GetOrdinal("ZooPhone")),
+                            reader.GetString(reader.GetOrdinal("Description")),
+                            reader.GetDateTime(reader.GetOrdinal("StartDate")),
+                            reader.GetDateTime(reader.GetOrdinal("EndDate")));
+                            transfer.AnimalId = reader.GetInt32(reader.GetOrdinal("AnimalId"));
+                            transfersDTO.Add(transfer);
+                        }
+                        reader.Close();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                return transfersDTO;
+            }
+            catch (Exception)
+            {
+                throw new Exception("There were issues while trying to retrieve the transfers!");
+            }
+            return transfersDTO;
+        }
+
+        public void ChangeAnimalAvailability(int transferId, string option)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionHelper.ConnectionValue()))
+                {
+                    conn.Open();
+                    string query = @"UPDATE Animals SET Availability=@Availability WHERE AnimalID IN (SELECT AnimalId FROM Transfer WHERE TransferId=@TransferId)";
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@Availability", option);
+                        command.Parameters.AddWithValue("@TransferId", transferId);
+                        command.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

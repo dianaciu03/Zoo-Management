@@ -93,17 +93,17 @@ namespace BusinessLogic
             string futureTransferInfo = "";
             foreach (Transfer transfer in transfers)
             {
-                if(transfer.StartDate <= DateTime.Now && transfer.EndDate >= DateTime.Now)
+                if(transfer.StartDate <= DateTime.Now.Date && transfer.EndDate >= DateTime.Now.Date)
                 {
-                    currentTransferInfo = $"Animal is currently transferred to another zoo\nZoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.Date}\nEnd date: {transfer.EndDate.Date}\nComments: {transfer.Description}\n";
+                    currentTransferInfo = $"Animal is currently transferred to another zoo\nZoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.ToShortDateString()}\nEnd date: {transfer.EndDate.ToShortDateString()}\nComments: {transfer.Description}\n";
                 }
-                else if (transfer.EndDate < DateTime.Now)
+                else if (transfer.EndDate < DateTime.Now.Date)
                 {
-                    pastTransferInfo += $"~ Zoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.Date}\nEnd date: {transfer.EndDate.Date}\nComments: {transfer.Description}\n";
+                    pastTransferInfo += $"~ Zoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.ToShortDateString()}\nEnd date: {transfer.EndDate.ToShortDateString()}\nComments: {transfer.Description}\n";
                 }
-                else if (transfer.StartDate > DateTime.Now)
+                else if (transfer.StartDate > DateTime.Now.Date)
                 {
-                    futureTransferInfo += $"~ Zoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.Date}\nEnd date: {transfer.EndDate.Date}\nComments: {transfer.Description}\n";
+                    futureTransferInfo += $"~ Zoo name: {transfer.ZooName}\nZoo address: {transfer.ZooAddress}\nStart date: {transfer.StartDate.ToShortDateString()}\nEnd date: {transfer.EndDate.ToShortDateString()}\nComments: {transfer.Description}\n";
                 }
             }
             if (String.IsNullOrEmpty(currentTransferInfo))

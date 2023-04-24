@@ -26,14 +26,18 @@ namespace BusinessLogic.Animals
             dth.AddNewTransfer(transferDTO);
         }
 
-        public List<Transfer> GetAllTransfers()
+        public List<Transfer> GetAllTransfersNoAnimal()
         {
-            return new List<Transfer>();
+            List <Transfer> transfers = new List<Transfer>();
+            foreach (TransferDTO transferDTO in dth.GetAllTransfers())
+            {
+                transfers.Add(AnimalEntityMapping.FromDTOToTransferNoAnimal(transferDTO));
+            }
+            return transfers;
         }
 
         public List<Transfer> GetAllTransfersById(int id)
         {
-            TransferRepository dth = new TransferRepository();
             List<Transfer> transfers = new List<Transfer>();
             foreach (TransferDTO transferDTO in dth.GetTransferByAnimalId(id))
             {
@@ -43,6 +47,12 @@ namespace BusinessLogic.Animals
             return transfers;
         }
 
-        
+        public void ChangeAnimalAvailability(int transferId, string option)
+        {
+            dth.ChangeAnimalAvailability(transferId, option);
+        }
+
+
+
     }
 }

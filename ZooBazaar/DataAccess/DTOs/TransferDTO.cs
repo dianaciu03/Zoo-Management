@@ -24,16 +24,17 @@ namespace DataAccess.DTOs
 
         public AnimalDTO Animal { get; set; }
 
-        public TransferDTO(int id, string zooName, string zooAddress, string description, DateTime startDate, DateTime endDate, string zooPhone, AnimalDTO animal)
+        public int AnimalId { get; set; }
+
+        public TransferDTO(int id, string zooName, string zooAddress, string zooPhone, string description, DateTime startDate, DateTime endDate)
         {
             this.TransferId = id;
             this.ZooName = zooName;
             this.ZooAddress = zooAddress;
+            this.ZooPhone = zooPhone;
             this.Description = description;
             this.StartDate = startDate;
             this.EndDate = endDate;
-            this.ZooPhone = zooPhone;
-            this.Animal = animal;
         }
     }
 }

@@ -14,5 +14,6 @@
         List<AnimalDTO> OtherInSpeciesSearch(int animalID, string species);
         List<AnimalDTO> SearchForAnimals(string name, string species, string origin, string gender, int? birthYear, string endangerment, string availability);
         string[] GetAllSpecies();
+        void ChangeAnimalAvailability(int animalId, string option);
     }
 }

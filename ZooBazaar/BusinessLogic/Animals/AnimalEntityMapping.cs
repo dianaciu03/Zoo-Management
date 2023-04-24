@@ -65,29 +65,45 @@ namespace BusinessLogic.Animals
         public static Transfer FromDTOToTransfer(TransferDTO transferDTO, AnimalDTO animalDTO)
         {
             Animal animal = DTOToAnimal(animalDTO);
-            return new Transfer(
+            Transfer transfer = new Transfer(
                 transferDTO.TransferId,
                 transferDTO.ZooName,
                 transferDTO.ZooAddress,
+                transferDTO.ZooPhone,
                 transferDTO.Description,
                 transferDTO.StartDate,
-                transferDTO.EndDate,
-                animal,
-                transferDTO.ZooPhone);
+                transferDTO.EndDate);
+            transfer.Animal = animal;
+            return transfer;
+        }
+
+        public static Transfer FromDTOToTransferNoAnimal(TransferDTO transferDTO)
+        {
+            Transfer transfer = new Transfer(
+                transferDTO.TransferId,
+                transferDTO.ZooName,
+                transferDTO.ZooAddress,
+                transferDTO.ZooPhone,
+                transferDTO.Description,
+                transferDTO.StartDate,
+                transferDTO.EndDate);
+            transfer.AnimalId = transferDTO.AnimalId;
+            return transfer;
         }
 
         public static TransferDTO FromTransferToDTO(Transfer transfer)
         {
             AnimalDTO animalDTO = AnimalToDTO(transfer.Animal);
-            return new TransferDTO(
+            TransferDTO transferDTO = new TransferDTO(
                 transfer.TransferId,
                 transfer.ZooName,
                 transfer.ZooAddress,
+                transfer.ZooPhone,
                 transfer.Description,
                 transfer.StartDate,
-                transfer.EndDate,
-                transfer.ZooPhone,
-                animalDTO);
+                transfer.EndDate);
+            transferDTO.Animal = animalDTO;
+            return transferDTO;
         }
     }
 }

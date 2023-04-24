@@ -16,5 +16,6 @@ namespace BusinessLogic.AnimalInterfaces
         List<Animal> GetSiblings(int animalID);
         List<Animal> OtherInSpeciesSearch(int id, string species);
         string[] GetAllSpecies();
+        void ChangeAnimalAvailability(int animalId, string option);
     }
 }

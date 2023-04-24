@@ -6,8 +6,9 @@ namespace BusinessLogic.AnimalInterfaces
 {
     public interface ITransferManagement
     {
-        List<Transfer> GetAllTransfers();
+        List<Transfer> GetAllTransfersNoAnimal();
         List<Transfer> GetAllTransfersById(int id);
         void SaveTransfer(Transfer transfer);
+        void ChangeAnimalAvailability(int transferId, string option);
     }
 }

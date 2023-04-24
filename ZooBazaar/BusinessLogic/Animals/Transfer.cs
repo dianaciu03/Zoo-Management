@@ -23,9 +23,21 @@ namespace BusinessLogic.Animals
         public DateTime EndDate { get; set; }
 
         public Animal Animal { get; set; }
+        public int AnimalId { get; set; }
 
-        public Transfer(string zooName, string zooAddress, string description, DateTime startDate, DateTime endDate, Animal animal, string zooPhone)
+        public Transfer(string zooName, string zooAddress, string zooPhone, string description, DateTime startDate, DateTime endDate)
         {
+            this.ZooName = zooName;
+            this.ZooAddress = zooAddress;
+            this.ZooPhone = zooPhone;
+            this.Description = description;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+        }
+
+        public Transfer(int id, string zooName, string zooAddress, string zooPhone, string description, DateTime startDate, DateTime endDate, Animal animal)
+        {
+            this.TransferId = id;
             this.ZooName = zooName;
             this.ZooAddress = zooAddress;
             this.Description = description;
@@ -35,7 +47,7 @@ namespace BusinessLogic.Animals
             this.ZooPhone = zooPhone;
         }
 
-        public Transfer(int id, string zooName, string zooAddress, string description, DateTime startDate, DateTime endDate, Animal animal, string zooPhone)
+        public Transfer(int id, string zooName, string zooAddress, string zooPhone, string description, DateTime startDate, DateTime endDate)
         {
             this.TransferId = id;
             this.ZooName = zooName;
@@ -43,7 +55,6 @@ namespace BusinessLogic.Animals
             this.Description = description;
             this.StartDate = startDate;
             this.EndDate = endDate;
-            this.Animal = animal;
             this.ZooPhone = zooPhone;
         }
     }

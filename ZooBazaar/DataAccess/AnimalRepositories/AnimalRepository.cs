@@ -533,7 +533,28 @@ namespace DataAccess.AnimalRepositories
             return species.ToArray();
         }
 
-
+        public void ChangeAnimalAvailability(int animalId, string option)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionHelper.ConnectionValue()))
+                {
+                    conn.Open();
+                    string query = @"UPDATE Animals SET Availability=@Availability WHERE AnimalID=@AnimalID";
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@Availability", option);
+                        command.Parameters.AddWithValue("@AnimalID", animalId);
+                        command.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
 
         //TODO remove function that changes its status
 
