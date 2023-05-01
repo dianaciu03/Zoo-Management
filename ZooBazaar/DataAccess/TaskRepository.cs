@@ -1,5 +1,6 @@
 ﻿using DataAccess.DTOs;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class DatabaseZooTaskHelper
+    public class TaskRepository
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
@@ -37,6 +38,40 @@ namespace DataAccess
             }
 
         }
+        public ZooTaskDTO[] GetAllTasks()
+        {
+            List<ZooTaskDTO> tasks = new List<ZooTaskDTO>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return tasks.ToArray(); }
+                DateTime dateTime = DateTime.Now;
+                SqlCommand query = new SqlCommand("SELECT * FROM Tasks", connection);
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ZooTaskDTO task = new ZooTaskDTO(
+                            Convert.ToInt32(reader["TaskID"].ToString()),
+                            reader["TaskName"].ToString(),
+                            reader["TaskDescription"].ToString(),
+                            Convert.ToDateTime(reader["TaskDate"].ToString()),
+                            Convert.ToInt32(reader["TaskDuration"].ToString()),
+                            reader["TaskSpecies"].ToString(),
+                            reader["TaskZone"].ToString(),
+                            Convert.ToInt32(reader["TaskEnclosureNumber"]),
+                            reader["TaskStatus"].ToString(),
+                            Convert.IsDBNull(reader["TaskAnimalID"]) ? null : (int?)Convert.ToInt32(reader["TaskAnimalID"])
+                        );
+                        tasks.Add(task);
+                    }
+                    reader.Close();
+                    connection.Close();
+                    return tasks.ToArray();
+                }
+            }
+        }
+
 
         public ZooTaskDTO GetTask(int taskID)
         {
@@ -141,35 +176,12 @@ namespace DataAccess
 
         public void AssignEmployee(int employeeID, string taskID)
         {
-            int newAssigmentID = 0;
-
-            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
-            {
-                SqlCommand query = new SqlCommand("SELECT MAX(TaskAssignmentID) FROM Tasks", connection);
-
-                try
-                {
-                    connection.Open();
-                    if (query.ExecuteScalar() != DBNull.Value)
-                    {
-                        newAssigmentID = (Int32)query.ExecuteScalar();
-                    }
-                }
-                catch (SqlException) { }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-            newAssigmentID++;
-
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
 
                 SqlCommand command = new SqlCommand("INSERT INTO TaskEmployeeRelation " +
-                    "VALUES (@TaskAssignmentID,@EmployeeID,@TaskID); ", connection);
+                    "VALUES (@EmployeeID,@TaskID); ", connection);
 
-                command.Parameters.AddWithValue("@TaskAssignmentID", newAssigmentID);
                 command.Parameters.AddWithValue("@EmployeeID", employeeID);
                 command.Parameters.AddWithValue("@TaskID", taskID);
 
@@ -209,7 +221,5 @@ namespace DataAccess
                 }
             }
         }
-
-
     }
 }

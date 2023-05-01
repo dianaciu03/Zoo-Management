@@ -34,10 +34,7 @@ namespace DesktopApplication
                 item.Text = task.Name.ToString();
                 item.Tag = task;
                 item.SubItems.Add(task.TaskDateTime.ToString());
-                if (task.GetAssignedEmployees().Count() > 0)
-                    item.SubItems.Add("Assigned");
-                else
-                    item.SubItems.Add("Not-assigned");
+                item.SubItems.Add(task.Status);
                 lvwAvailableTasks.Items.Add(item);
             }
         }

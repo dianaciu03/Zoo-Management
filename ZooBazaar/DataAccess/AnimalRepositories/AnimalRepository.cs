@@ -53,6 +53,41 @@ namespace DataAccess.AnimalRepositories
                 }
             }
         }
+        public AnimalDTO? GetAnimalByID(int id) // Gets specific animal by its ID
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return null; }
+
+                SqlCommand query = new SqlCommand($"SELECT * FROM Animals Where AnimalID = @AnimalID", connection);
+                query.Parameters.AddWithValue("@AnimalID", id);
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    if (!reader.Read())
+                    {
+                        return null;
+                    }
+                    AnimalDTO animal = new AnimalDTO(
+                        reader.GetInt32(reader.GetOrdinal("AnimalID")),
+                        reader.GetString(reader.GetOrdinal("Name")),
+                        reader.GetString(reader.GetOrdinal("Gender")),
+                        reader.GetString(reader.GetOrdinal("Species")),
+                        reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                        reader.GetString(reader.GetOrdinal("Origin")),
+                        reader.GetString(reader.GetOrdinal("Description")),
+                        reader.GetString(reader.GetOrdinal("Endangerment")),
+                        reader.GetInt32(reader.GetOrdinal("Enclosure")),
+                        reader.GetString(reader.GetOrdinal("Availability"))
+                    );
+
+                    reader.Close();
+                    connection.Close();
+                    return animal;
+                }
+            }
+        }
 
         public void AddUpdateAnimal(AnimalDTO animal) //Opens connection and checks if the animal provided already exists in the database.
         {

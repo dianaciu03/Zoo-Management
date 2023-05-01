@@ -25,6 +25,7 @@ namespace DesktopApplication
             taskManagement = new TaskManagement();
             initializeSpecieComboBox();
             updateTasks();
+           
             cbxTaskEncArea.SelectedText = "";
         }
 

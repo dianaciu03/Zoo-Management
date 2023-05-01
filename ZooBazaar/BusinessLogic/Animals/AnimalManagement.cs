@@ -42,6 +42,11 @@ namespace BusinessLogic
             return GetAnimals(sortBy).ToArray();
         }
 
+        public Animal? GetAnimalByID(int id)
+        {
+            return AnimalEntityMapping.DTOToAnimal(animalHelper.GetAnimalByID(id));
+        }
+
         public List<Animal> OtherInSpeciesSearch(int id, string species)
         {
             return AnimalEntityMapping.DTOToAnimals(animalHelper.OtherInSpeciesSearch(id, species));

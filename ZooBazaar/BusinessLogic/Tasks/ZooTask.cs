@@ -18,7 +18,7 @@ namespace BusinessLogic
         public int EstimatedDuration { get; set; } //minutes
         public string Status { get; set; }
         public string Species { get; set; }
-        public Animal Animal { get; set; }
+        public Animal? Animal { get; set; }
         private List<Employee> assignedEmployees;
 
         public ZooTask()
@@ -27,11 +27,12 @@ namespace BusinessLogic
         }
 
         //task where animal is specified
-        public ZooTask(int ID, string Name, string Description, int EnclosureNumber, DateTime TaskDateTime, int EstimatedDuration, string Species, Animal Animal) 
+        public ZooTask(int ID, string Name, string Description, string EnclosureArea, int EnclosureNumber, DateTime TaskDateTime, int EstimatedDuration, string Species, Animal? Animal) 
         {
             this.ID = ID;
             this.Name = Name;
             this.Description = Description;
+            this.EnclosureArea = EnclosureArea;
             this.EnclosureNumber = EnclosureNumber;
             this.TaskDateTime = TaskDateTime;
             this.EstimatedDuration = EstimatedDuration;

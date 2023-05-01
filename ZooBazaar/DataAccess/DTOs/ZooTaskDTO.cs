@@ -12,16 +12,12 @@ namespace DataAccess.DTOs
         public string Name { get; private set; }
         public string Description { get; private set; }
         public DateTime TaskDateTime { get; private set; }
-        public double EstimatedDuration { get; private set; }
+        public int EstimatedDuration { get; private set; }
         public string Status { get; private set; }
         public string Species { get; private set; }
         public string EnclosureArea { get; private set; }
         public int EnclosureNumber { get; private set; }
         public int? AnimalID { get; set; }
-        public ZooTaskDTO()
-        {
-
-        }
 
         public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status)
         {
@@ -48,7 +44,7 @@ namespace DataAccess.DTOs
             this.EnclosureNumber = enclosureNumber;
             this.Status = status;
         }
-        public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int AnimalID)
+        public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int? AnimalID)
         {
             this.ID = iD;
             this.Name = name;
@@ -62,7 +58,7 @@ namespace DataAccess.DTOs
             this.Status = status;
             this.AnimalID = AnimalID;
         }
-        public ZooTaskDTO(string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int AnimalID)
+        public ZooTaskDTO(string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int? AnimalID)
         { 
             this.Name = name;
             this.Description = description;

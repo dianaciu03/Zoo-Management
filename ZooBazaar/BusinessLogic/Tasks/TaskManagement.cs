@@ -1,4 +1,7 @@
-﻿using DataAccess;
+﻿using BusinessLogic.Animals;
+using DataAccess;
+using DataAccess.AnimalInterfaces;
+using DataAccess.AnimalRepositories;
 using DataAccess.DTOs;
 using System;
 using System.Collections.Generic;
@@ -12,7 +15,8 @@ namespace BusinessLogic
     public class TaskManagement
     {
         private List<ZooTask> tasks;
-        DatabaseZooTaskHelper taskRepository = new DatabaseZooTaskHelper();
+        TaskRepository taskRepository = new TaskRepository();
+        AnimalRepository animalRepository = new AnimalRepository();
         public TaskManagement() 
         {
             tasks = new List<ZooTask>();
@@ -66,7 +70,42 @@ namespace BusinessLogic
 
         public ZooTask[] GetTasks()
         {
-            return tasks.ToArray();
+            List<ZooTask> foundTasks = new List<ZooTask>();
+            foreach(ZooTaskDTO taskDto in taskRepository.GetAllTasks())
+            {
+                if (taskDto.AnimalID == null)
+                {
+                    ZooTask task = new ZooTask(
+                        taskDto.ID,
+                        taskDto.Name,
+                        taskDto.Description,
+                        taskDto.EnclosureArea,
+                        taskDto.EnclosureNumber,
+                        taskDto.TaskDateTime,
+                        taskDto.EstimatedDuration,
+                        taskDto.Species,
+                        null
+                    );
+                    foundTasks.Add(task);
+                }
+                else
+                {
+                    ZooTask task = new ZooTask(
+                        taskDto.ID,
+                        taskDto.Name,
+                        taskDto.Description,
+                        taskDto.EnclosureArea,
+                        taskDto.EnclosureNumber,
+                        taskDto.TaskDateTime,
+                        taskDto.EstimatedDuration,
+                        taskDto.Species,
+                        AnimalEntityMapping.DTOToAnimal(animalRepository.GetAnimalByID((int)taskDto.AnimalID)!)
+                    );
+                    foundTasks.Add(task );
+                }
+            }
+
+            return foundTasks.ToArray();
         }
 
         public ZooTask[] GetTasksByCaretaker(int employeeID)

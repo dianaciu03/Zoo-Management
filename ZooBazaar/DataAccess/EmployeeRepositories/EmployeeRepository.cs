@@ -221,5 +221,44 @@ namespace DataAccess
                 }
             }
         }
+        public EmployeeDTO[] GetEmployeesByTask(int taskId)
+        {
+            List<EmployeeDTO> employees = new List<EmployeeDTO>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                connection.Open();
+                SqlCommand query = new SqlCommand(
+                    "SELECT * FROM Employees e" +
+                    "Inner join TaskEmployeeRelation tr on e.EmployeeID = tr.EmployeeID" +
+                    "Where tr.TaskID = @taskId", 
+                    connection);
+                query.Parameters.AddWithValue("@taskId", taskId);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        EmployeeDTO employee = new EmployeeDTO
+                        {
+                            id = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                            firstName = reader.GetString(reader.GetOrdinal("FirstName")),
+                            lastName = reader.GetString(reader.GetOrdinal("LastName")),
+                            birthDate = reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                            gender = reader.GetString(reader.GetOrdinal("Gender")),
+                            address = reader.GetString(reader.GetOrdinal("Address")),
+                            phone = reader.GetString(reader.GetOrdinal("Phone")),
+                            role = reader.GetString(reader.GetOrdinal("EmployeeType")),
+                            password = reader.GetString(reader.GetOrdinal("Password")),
+                            email = reader.GetString(reader.GetOrdinal("Email"))
+                        };
+                        employees.Add(employee);
+                    }
+                    
+                    reader.Close();
+                    connection.Close();
+                    return employees.ToArray();
+                }
+            }
+        }
     }
 }
