@@ -25,6 +25,7 @@ namespace DesktopApplication
             taskManagement = new TaskManagement();
             initializeSpecieComboBox();
             updateTasks();
+            cbxTaskEncArea.SelectedText = "";
         }
 
 
@@ -44,11 +45,12 @@ namespace DesktopApplication
                         return;
                     }
                     Animal selectedAnimal = (Animal)lvwAnimalSearch.SelectedItems[0].Tag;
-                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
+                    cbxTaskEncArea.SelectedItem = selectedAnimal.OriginContinent;
+                    taskManagement.ScheduleTask(tbxTaskName.Text, selectedAnimal.OriginContinent.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
+                   MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
                 }
             }
             else
@@ -60,9 +62,9 @@ namespace DesktopApplication
                         MessageBox.Show("You haven't selected the animal specie");
                         return;
                     }
-                    taskManagement.ScheduleTask(tbxTaskName.Text, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
+                    taskManagement.ScheduleTask(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
                 }
-                catch
+                catch (Exception ex)
                 {
                     MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
                 }
@@ -77,6 +79,17 @@ namespace DesktopApplication
             {
                 cbxSearchBySpecie.Items.Add(s);
             }
+        }
+        private void initializeAreaComboBox()
+        {
+            cbxTaskEncArea.Items.Clear();
+            cbxTaskEncArea.Items.Add("Africa");
+            cbxTaskEncArea.Items.Add("Europe");
+            cbxTaskEncArea.Items.Add("Asia");
+            cbxTaskEncArea.Items.Add("North America");
+            cbxTaskEncArea.Items.Add("South America");
+            cbxTaskEncArea.Items.Add("Australia");
+            cbxTaskEncArea.Items.Add("Antarctica");
         }
 
         private void updateSearchedAnimalListView()
@@ -174,6 +187,18 @@ namespace DesktopApplication
 
         private void lvwAnimalSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbxTaskEncArea.Text = string.Empty;
+            if (lvwAnimalSearch.SelectedItems.Count > 0)
+            {
+                Animal selectedAnimal = (Animal)lvwAnimalSearch.SelectedItems[0].Tag;
+                cbxTaskEncArea.SelectedText = selectedAnimal.OriginContinent.ToString();
+                cbxTaskEncArea.Enabled = false;
+            }
+            else
+            {
+                cbxTaskEncArea.Enabled = true;
+                initializeAreaComboBox();
+            }
             
         }
     }

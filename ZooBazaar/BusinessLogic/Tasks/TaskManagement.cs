@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess;
+using DataAccess.DTOs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,22 +12,37 @@ namespace BusinessLogic
     public class TaskManagement
     {
         private List<ZooTask> tasks;
+        DatabaseZooTaskHelper taskRepository = new DatabaseZooTaskHelper();
         public TaskManagement() 
         {
             tasks = new List<ZooTask>();
         }
 
-        public void ScheduleTask(string name, string description, DateTime taskDateTime, int taskLength, string specie, Animal animal)
+        public void ScheduleTask(string name, string enclosureArea, int enclosureNo, string description, DateTime taskDateTime, int taskLength, string specie, Animal? animal)
         {
-            int id;
-            if (tasks.Count() > 0)
-                id = tasks.Last().ID + 1;
-            else id = 1;
 
+            ZooTask newTask = new ZooTask()
+            {
+                Name = name,
+                Description = description,
+                EnclosureArea = enclosureArea,
+                EnclosureNumber = enclosureNo,
+                Status = "Not started",
+                TaskDateTime = taskDateTime,
+                EstimatedDuration = taskLength,
+                Species= specie,
+                Animal = animal
+            };
             if (animal != null)
-                tasks.Add(new ZooTask(id, name, description, taskDateTime, taskLength, specie, animal));
-            else 
-                tasks.Add(new ZooTask(id, name, description, taskDateTime, taskLength, specie));
+            {
+                ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, newTask.Animal.Id);
+                taskRepository.AddTask(zooTaskDTO);
+            }
+            else
+            {
+                ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status);
+                taskRepository.AddTask(zooTaskDTO);
+            }
         }
 
         public void RemoveTaskByID(int id)

@@ -17,6 +17,11 @@ namespace DataAccess.DTOs
         public string Species { get; private set; }
         public string EnclosureArea { get; private set; }
         public int EnclosureNumber { get; private set; }
+        public int? AnimalID { get; set; }
+        public ZooTaskDTO()
+        {
+
+        }
 
         public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status)
         {
@@ -30,6 +35,45 @@ namespace DataAccess.DTOs
             this.EnclosureArea = enclosureArea;
             this.EnclosureNumber = enclosureNumber;
             this.Status = status;
+        }
+        public ZooTaskDTO(string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status)
+        {
+            this.Name = name;
+            this.Description = description;
+            this.TaskDateTime = taskDateTime;
+            this.EstimatedDuration = estimatedDuration;
+            this.Status = "Not started";
+            this.Species = species;
+            this.EnclosureArea = enclosureArea;
+            this.EnclosureNumber = enclosureNumber;
+            this.Status = status;
+        }
+        public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int AnimalID)
+        {
+            this.ID = iD;
+            this.Name = name;
+            this.Description = description;
+            this.TaskDateTime = taskDateTime;
+            this.EstimatedDuration = estimatedDuration;
+            this.Status = "Not started";
+            this.Species = species;
+            this.EnclosureArea = enclosureArea;
+            this.EnclosureNumber = enclosureNumber;
+            this.Status = status;
+            this.AnimalID = AnimalID;
+        }
+        public ZooTaskDTO(string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int AnimalID)
+        { 
+            this.Name = name;
+            this.Description = description;
+            this.TaskDateTime = taskDateTime;
+            this.EstimatedDuration = estimatedDuration;
+            this.Status = "Not started";
+            this.Species = species;
+            this.EnclosureArea = enclosureArea;
+            this.EnclosureNumber = enclosureNumber;
+            this.Status = status;
+            this.AnimalID = AnimalID;
         }
 
     }

@@ -39,7 +39,7 @@ namespace DesktopApplication
             //    else 
             //        transferManagement.ChangeAnimalAvailability(transfer.TransferId, "Available");                 
             //}
-            for (int i = 0; i < transfers.Count(); i++)
+            for (int i = 1; i < transfers.Count(); i++)
             {
                 if (transfers[i].StartDate <= DateTime.Now && transfers[i].EndDate >= DateTime.Now)
                 {

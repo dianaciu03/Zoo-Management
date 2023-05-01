@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.nudTaskEncNumber = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbxTaskEncArea = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.calTaskDateSelection = new System.Windows.Forms.MonthCalendar();
             this.dtpTaskTime = new System.Windows.Forms.DateTimePicker();
@@ -69,11 +73,9 @@
             this.colFinishedTaskName = new System.Windows.Forms.ColumnHeader();
             this.colFinishedTaskDate = new System.Windows.Forms.ColumnHeader();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTaskEncNumber)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEstimatedTaskTime)).BeginInit();
             this.groupBoxAnimalSearch.SuspendLayout();
@@ -96,8 +98,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.nudTaskEncNumber);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.cbxTaskEncArea);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.tbxTaskName);
@@ -112,6 +115,40 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Schedule task";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // nudTaskEncNumber
+            // 
+            this.nudTaskEncNumber.Location = new System.Drawing.Point(679, 76);
+            this.nudTaskEncNumber.Name = "nudTaskEncNumber";
+            this.nudTaskEncNumber.Size = new System.Drawing.Size(71, 29);
+            this.nudTaskEncNumber.TabIndex = 36;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(501, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(172, 24);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Enclosure number:";
+            // 
+            // cbxTaskEncArea
+            // 
+            this.cbxTaskEncArea.Enabled = false;
+            this.cbxTaskEncArea.FormattingEnabled = true;
+            this.cbxTaskEncArea.Location = new System.Drawing.Point(199, 75);
+            this.cbxTaskEncArea.Name = "cbxTaskEncArea";
+            this.cbxTaskEncArea.Size = new System.Drawing.Size(283, 32);
+            this.cbxTaskEncArea.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(50, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 24);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Enclosure area:";
             // 
             // groupBox1
             // 
@@ -247,6 +284,7 @@
             this.colName});
             this.lvwAnimalSearch.FullRowSelect = true;
             this.lvwAnimalSearch.Location = new System.Drawing.Point(15, 117);
+            this.lvwAnimalSearch.MultiSelect = false;
             this.lvwAnimalSearch.Name = "lvwAnimalSearch";
             this.lvwAnimalSearch.Size = new System.Drawing.Size(679, 141);
             this.lvwAnimalSearch.TabIndex = 15;
@@ -478,32 +516,6 @@
             this.labelTitleZooBazaar.TabIndex = 11;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 24);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Enclosure area:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(199, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(283, 32);
-            this.comboBox1.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(501, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 24);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Enclosure number:";
-            // 
             // FormScheduleMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -522,6 +534,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTaskEncNumber)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEstimatedTaskTime)).EndInit();
@@ -580,7 +593,8 @@
         private System.Windows.Forms.ColumnHeader colFinishedTaskDate;
         private System.Windows.Forms.GroupBox groupBox1;
         private Label label2;
-        private ComboBox comboBox1;
+        private NumericUpDown nudTaskEncNumber;
+        private ComboBox cbxTaskEncArea;
         private Label label1;
     }
 }

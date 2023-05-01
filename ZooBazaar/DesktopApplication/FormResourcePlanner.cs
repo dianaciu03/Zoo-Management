@@ -22,7 +22,7 @@ namespace DesktopApplication
             InitializeComponent();
             employeeManagement = emMng;
             taskManagement = new TaskManagement();
-            taskManagement.ScheduleTask("Penguin clean", "Clean the penguin good", DateTime.Today, 2, "Penguin", null);
+            //taskManagement.ScheduleTask("Penguin clean", "Clean the penguin good", DateTime.Today, 2, "Penguin", null);
             updateTasksListview();
         }
         private void updateTasksListview()

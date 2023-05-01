@@ -82,13 +82,14 @@ namespace DataAccess
 
         public void AddTask(ZooTaskDTO task)
         {
-            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
+            using (connection)
             {
+                connection.Open();
                 SqlCommand query = new SqlCommand("INSERT INTO Tasks " +
-                    "(TaskID, TaskName, TaskDescription, TaskDate, TaskDuration, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskStatus)" +
-                    "VALUES(@TaskID, @TaskName, @TaskDescription, @TaskDate, @TaskDuration, @TaskSpecies, @TaskZone, @TaskEnclosureNumber, @TaskStatus)");
+                    "(TaskName, TaskDescription, TaskDate, TaskDuration, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskStatus, TaskAnimalID)" +
+                    "VALUES(@TaskName, @TaskDescription, @TaskDate, @TaskDuration, @TaskSpecies, @TaskZone, @TaskEnclosureNumber, @TaskStatus, @TaskAnimalID)", connection);
 
-                query.Parameters.AddWithValue("@TaskID", task.ID);
                 query.Parameters.AddWithValue("@TaskName", task.Name);
                 query.Parameters.AddWithValue("@TaskDescription", task.Description);
                 query.Parameters.AddWithValue("@TaskDate", task.TaskDateTime);
@@ -97,8 +98,12 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@TaskZone", task.EnclosureArea);
                 query.Parameters.AddWithValue("@TaskEnclosureNumber", task.EnclosureNumber);
                 query.Parameters.AddWithValue("@TaskStatus", task.Status);
-
-                try
+                if (task.AnimalID != null)
+                    query.Parameters.AddWithValue("@TaskAnimalID", task.AnimalID);
+                else
+                    query.Parameters.AddWithValue("@TaskAnimalID", DBNull.Value);
+                query.ExecuteNonQuery();
+                /*try
                 {
                     connection.Open();
                     query.ExecuteNonQuery();
@@ -107,7 +112,7 @@ namespace DataAccess
                 finally
                 {
                     connection.Close();
-                }
+                }*/
 
             }
         }
