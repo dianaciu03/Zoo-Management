@@ -228,9 +228,9 @@ namespace DataAccess
             {
                 connection.Open();
                 SqlCommand query = new SqlCommand(
-                    "SELECT * FROM Employees e" +
-                    "Inner join TaskEmployeeRelation tr on e.EmployeeID = tr.EmployeeID" +
-                    "Where tr.TaskID = @taskId", 
+                    "SELECT * FROM Employees e " +
+                    "Inner join TaskEmployeeRelation tr on e.EmployeeID = tr.EmployeeID " +
+                    "Where tr.TaskID = @taskId ", 
                     connection);
                 query.Parameters.AddWithValue("@taskId", taskId);
 

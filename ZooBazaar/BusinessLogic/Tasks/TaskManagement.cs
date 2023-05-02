@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Animals;
+using BusinessLogic.Employees;
 using DataAccess;
 using DataAccess.AnimalInterfaces;
 using DataAccess.AnimalRepositories;
@@ -17,6 +18,7 @@ namespace BusinessLogic
         private List<ZooTask> tasks;
         TaskRepository taskRepository = new TaskRepository();
         AnimalRepository animalRepository = new AnimalRepository();
+        EmployeeRepository employeeRepository = new EmployeeRepository();
         public TaskManagement() 
         {
             tasks = new List<ZooTask>();
@@ -64,8 +66,13 @@ namespace BusinessLogic
         
         public Employee[] GetTaskEmployees(int taskID)
         {
-            ZooTask task = (ZooTask)tasks.Where(x => x.ID == taskID);
-            return task.GetAssignedEmployees().ToArray();
+            List<Employee> employees = new List<Employee>();
+            foreach (EmployeeDTO employeeDTO in employeeRepository.GetEmployeesByTask(taskID))
+            {
+                Employee employee = EmployeeEntityMapping.ToEmployee(employeeDTO);
+                employees.Add(employee);
+            }
+            return employees.ToArray();
         }
 
         public ZooTask[] GetTasks()
@@ -83,6 +90,7 @@ namespace BusinessLogic
                         taskDto.EnclosureNumber,
                         taskDto.TaskDateTime,
                         taskDto.EstimatedDuration,
+                        taskDto.Status,
                         taskDto.Species,
                         null
                     );
@@ -98,6 +106,7 @@ namespace BusinessLogic
                         taskDto.EnclosureNumber,
                         taskDto.TaskDateTime,
                         taskDto.EstimatedDuration,
+                        taskDto.Status,
                         taskDto.Species,
                         AnimalEntityMapping.DTOToAnimal(animalRepository.GetAnimalByID((int)taskDto.AnimalID)!)
                     );
@@ -108,7 +117,7 @@ namespace BusinessLogic
             return foundTasks.ToArray();
         }
 
-        public ZooTask[] GetTasksByCaretaker(int employeeID)
+        /*public ZooTask[] GetTasksByCaretaker(int employeeID)
         {
             List<ZooTask> foundTasks = new List<ZooTask>();
             foreach (ZooTask task in tasks)
@@ -119,7 +128,7 @@ namespace BusinessLogic
                 }
             }
             return foundTasks.ToArray();
-        }
+        }*/
         public ZooTask[] GetTasksByCaretaker(int employeeID, DateTime taskDate)
         {
             List<ZooTask> foundTasks = new List<ZooTask>();
@@ -132,13 +141,31 @@ namespace BusinessLogic
             }
             return foundTasks.ToArray();
         }
+
+        public ZooTask[] GetTasksByCaretaker(int employeeID)
+        {
+            List<ZooTask> foundTasks = new List<ZooTask>();
+            foreach (ZooTaskDTO taskDto in taskRepository.GetTasksByCaretaker(employeeID))
+            {
+                Animal? animal;
+                if (taskDto.AnimalID == null)
+                    animal = null;
+                else
+                    animal = AnimalEntityMapping.DTOToAnimal(animalRepository.GetAnimalByID((int)taskDto.AnimalID));
+
+                ZooTask task = new ZooTask(taskDto.ID, taskDto.Name, taskDto.Description, taskDto.EnclosureArea, taskDto.EnclosureNumber, taskDto.TaskDateTime, taskDto.EstimatedDuration, taskDto.Status, taskDto.Species, animal); 
+
+                foundTasks.Add(task);
+            }
+            return foundTasks.ToArray();
+        }
         public bool CheckEmployeeAvailability(ZooTask task, Employee employee)
         {
             // taskStartHour, taskEndHour is task times that New/existing which does not have caretakers assigned.
             int newTaskStartHour = task.TaskDateTime.Hour;
             int newTaskEndHour = newTaskStartHour + (int)task.EstimatedDuration;
 
-            ZooTask[] employeeTasks = GetTasksByCaretaker(employee.ID, task.TaskDateTime);
+            ZooTask[] employeeTasks = GetTasksByCaretaker(employee.ID);
             foreach (ZooTask empTask in employeeTasks)
             {
                 if (empTask.TaskDateTime.Hour < newTaskStartHour)
@@ -160,6 +187,11 @@ namespace BusinessLogic
                 else return false;
             }
             return true;
+        }
+
+        public void AssignEmployee(ZooTask task, Employee employee)
+        {
+            taskRepository.AssignEmployee(employee.ID, task.ID);
         }
 
         public void CompleteTask(ZooTask task)

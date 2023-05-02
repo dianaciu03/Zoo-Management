@@ -66,28 +66,29 @@ namespace DesktopApplication
             {
                 MessageBox.Show(ex.ToString());
             }
+            updateEmployeeCombobox(selectedTask);
+
         }
-        
+
 
         private void btnAssignEmployee_Click(object sender, EventArgs e)
         {
             Employee selectedCaretaker = (Employee)cbxCaretakers.SelectedItem;
             ZooTask selectedTask = (ZooTask)lvwAvailableTasks.SelectedItems[0].Tag;
             if (selectedTask != null && selectedCaretaker != null)
-                selectedTask.AssignEmployee(selectedCaretaker);
+                taskManagement.AssignEmployee(selectedTask, selectedCaretaker);
             updateTasksListview();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            updateEmployeeCombobox(selectedTask);
 
         }
 
         private void btnMoreDetailsTask_Click(object sender, EventArgs e)
         {
             string message = string.Empty;
-            foreach (Employee careTaker in selectedTask.GetAssignedEmployees())
+            foreach (Employee careTaker in taskManagement.GetTaskEmployees(selectedTask.ID))
             {
                 message += $"{careTaker.FirstName} {careTaker.LastName}";
             }

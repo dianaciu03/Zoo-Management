@@ -144,7 +144,7 @@ namespace DesktopApplication
                     lvwUnassignedTasks.Items.Add(item);
                 else if (task.Status == "Finished")
                     lvwFinishedTasks.Items.Add(item);
-                else if (task.Status == "In progress")
+                else if (task.Status == "Assigned")
                     lvwTasksInProgress.Items.Add(item);
             }
         }

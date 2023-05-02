@@ -27,7 +27,7 @@ namespace BusinessLogic
         }
 
         //task where animal is specified
-        public ZooTask(int ID, string Name, string Description, string EnclosureArea, int EnclosureNumber, DateTime TaskDateTime, int EstimatedDuration, string Species, Animal? Animal) 
+        public ZooTask(int ID, string Name, string Description, string EnclosureArea, int EnclosureNumber, DateTime TaskDateTime, int EstimatedDuration, string Status, string Species, Animal? Animal) 
         {
             this.ID = ID;
             this.Name = Name;
@@ -36,7 +36,7 @@ namespace BusinessLogic
             this.EnclosureNumber = EnclosureNumber;
             this.TaskDateTime = TaskDateTime;
             this.EstimatedDuration = EstimatedDuration;
-            this.Status = "Not started";
+            this.Status = Status;
             this.Species = Species;
             this.Animal = Animal;
             this.assignedEmployees = new List<Employee>();

@@ -115,6 +115,41 @@ namespace DataAccess
             
         }
 
+        public ZooTaskDTO[] GetTasksByCaretaker(int employeeId)
+        {
+            List<ZooTaskDTO> foundTasks = new List<ZooTaskDTO>();
+            SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
+            using (connection)
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand
+                (
+                    "Select * From Tasks t " +
+                    "Inner Join TaskEmployeeRelation tr on t.TaskID = tr.TaskID " +
+                    "Where tr.EmployeeID = @EmployeeID "
+                , connection);
+                command.Parameters.AddWithValue("@EmployeeID", employeeId);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    ZooTaskDTO task = new ZooTaskDTO(
+                        reader.GetInt32(reader.GetOrdinal("TaskID")),
+                        reader.GetString(reader.GetOrdinal("TaskName")),
+                        reader.GetString(reader.GetOrdinal("TaskDescription")),
+                        reader.GetDateTime(reader.GetOrdinal("TaskDate")),
+                        reader.GetInt32(reader.GetOrdinal("TaskDuration")),
+                        reader.GetString(reader.GetOrdinal("TaskSpecies")),
+                        reader.GetString(reader.GetOrdinal("TaskZone")),
+                        reader.GetInt32(reader.GetOrdinal("TaskEnclosureNumber")),
+                        reader.GetString(reader.GetOrdinal("TaskStatus"))
+                    );
+                    foundTasks.Add(task);
+                }
+                reader.Close();
+            }
+            return foundTasks.ToArray();
+        }
+
         public void AddTask(ZooTaskDTO task)
         {
             SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
@@ -174,7 +209,7 @@ namespace DataAccess
             }
         }
 
-        public void AssignEmployee(int employeeID, string taskID)
+        public void AssignEmployee(int employeeID, int taskID)
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
