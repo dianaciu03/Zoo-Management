@@ -67,11 +67,13 @@ namespace BusinessLogic
         public Employee[] GetTaskEmployees(int taskID)
         {
             List<Employee> employees = new List<Employee>();
-            foreach (EmployeeDTO employeeDTO in employeeRepository.GetEmployeesByTask(taskID))
+            EmployeeDTO[] employeeDTOs = employeeRepository.GetEmployeesByTask(taskID);
+            foreach (EmployeeDTO employeeDTO in employeeDTOs)
             {
                 Employee employee = EmployeeEntityMapping.ToEmployee(employeeDTO);
                 employees.Add(employee);
             }
+
             return employees.ToArray();
         }
 
@@ -163,11 +165,15 @@ namespace BusinessLogic
         {
             // taskStartHour, taskEndHour is task times that New/existing which does not have caretakers assigned.
             int newTaskStartHour = task.TaskDateTime.Hour;
+            int newTaskStartDay = task.TaskDateTime.DayOfYear;
             int newTaskEndHour = newTaskStartHour + (int)task.EstimatedDuration;
 
             ZooTask[] employeeTasks = GetTasksByCaretaker(employee.ID);
             foreach (ZooTask empTask in employeeTasks)
             {
+                if (newTaskStartDay != empTask.TaskDateTime.DayOfYear)
+                    continue;
+
                 if (empTask.TaskDateTime.Hour < newTaskStartHour)
                 {
                     if (empTask.TaskDateTime.Hour + empTask.EstimatedDuration > newTaskStartHour)

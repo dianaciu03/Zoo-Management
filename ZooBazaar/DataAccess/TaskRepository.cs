@@ -149,6 +149,31 @@ namespace DataAccess
             }
             return foundTasks.ToArray();
         }
+        public void UpdateTaskStatus(string status, int taskId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand query = new SqlCommand("Update Tasks Set TaskStatus = @TaskStatus WHERE TaskID = @TaskID", connection);
+                query.Parameters.AddWithValue("@TaskID", taskId);
+                query.Parameters.AddWithValue("@TaskStatus", status);
+
+
+                ZooTaskDTO task;
+                try
+                {
+                    connection.Open();
+
+                    query.ExecuteNonQuery();
+
+                }
+                catch (SqlException) { return ; }
+
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
 
         public void AddTask(ZooTaskDTO task)
         {
@@ -214,11 +239,14 @@ namespace DataAccess
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
 
-                SqlCommand command = new SqlCommand("INSERT INTO TaskEmployeeRelation " +
-                    "VALUES (@EmployeeID,@TaskID); ", connection);
+                SqlCommand command = new SqlCommand("" +
+                    " INSERT INTO TaskEmployeeRelation VALUES (@EmployeeID,@TaskID); " +
+                    " Update Tasks Set TaskStatus = @TaskStatus WHERE TaskID = @TaskID ",
+                    connection);
 
                 command.Parameters.AddWithValue("@EmployeeID", employeeID);
                 command.Parameters.AddWithValue("@TaskID", taskID);
+                command.Parameters.AddWithValue("@TaskStatus", "Assigned");
 
                 try 
                 { 
