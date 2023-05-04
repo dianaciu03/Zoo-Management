@@ -14,6 +14,7 @@ namespace DataAccess
         public void AddUpdateEmployee(EmployeeDTO employee, ContractDTO contract, EmergencyContactDTO emergencyContact);
         public List<EmployeeDTO> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeType);
         public EmployeeDTO? GetEmployeeByEmail(string email);
+        public EmployeeDTO? GetEmployeeById(int id);
 
     }
 }

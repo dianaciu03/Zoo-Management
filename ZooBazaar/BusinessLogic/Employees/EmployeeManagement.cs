@@ -75,6 +75,17 @@ namespace BusinessLogic
 
             return employee;
         }
+        public Employee? GetEmployeeById(int id)
+        {
+            EmployeeDTO? employeeDto = null;
+            if (_employeeRepository.GetEmployeeById(id) != null)
+                employeeDto = _employeeRepository.GetEmployeeById(id);
+            if (employeeDto == null)
+                return null;
+            Employee employee = ((EmployeeDTO)employeeDto).ToEmployee();
+
+            return employee;
+        }
 
         public List<Employee> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeType, out int[] ints)
         {

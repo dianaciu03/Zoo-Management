@@ -8,7 +8,7 @@ namespace WebApp.Pages
 {
     public class LoginModel : PageModel
     {
-        private const string SessionKeyEmail = "_Email";
+        private string sessionKeyId = "_Id";
         IEmployeeManagement employeeManagement;
 
         public LoginModel(IEmployeeRepository employeeRepository)
@@ -31,7 +31,7 @@ namespace WebApp.Pages
             Employee logEmployee = employeeManagement.GetEmployeeByEmail(UserName);
             if (logEmployee.Password == Password)
             {
-                HttpContext.Session.SetString(SessionKeyEmail, logEmployee.ID.ToString());
+                HttpContext.Session.SetString(sessionKeyId, logEmployee.ID.ToString());
                 return new RedirectToPageResult("User");
             }
 

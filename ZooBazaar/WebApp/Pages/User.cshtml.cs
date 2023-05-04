@@ -7,7 +7,7 @@ namespace WebApp.Pages
 {
     public class UserModel : PageModel
     {
-        private const string SessionKeyEmail = "_Email";
+        private string sessionKeyId = "_Id";
 
         private EmployeeManagement employeeManagement;
 
@@ -18,11 +18,11 @@ namespace WebApp.Pages
 
         public IActionResult? OnGet()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyEmail)))
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(sessionKeyId)))
             {
                 return new RedirectToPageResult("Login");
             }
-            Employee loggedInEmployee = employeeManagement.GetEmployeeByEmail(HttpContext.Session.GetString(SessionKeyEmail));
+            Employee? loggedInEmployee = employeeManagement.GetEmployeeById(Convert.ToInt32(HttpContext.Session.GetString(sessionKeyId)));
 
             FirstName = loggedInEmployee.FirstName;
             LastName = loggedInEmployee.LastName;
