@@ -2,6 +2,7 @@ using BusinessLogic;
 using DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Reflection;
 
 namespace WebApp.Pages
 {
@@ -31,6 +32,8 @@ namespace WebApp.Pages
             Address = loggedInEmployee.Address;
             ID = loggedInEmployee.ID;
 
+            Tasks = taskManagement.GetTasksByCaretaker(ID).ToList();
+
             return Page();
         }
 
@@ -44,6 +47,8 @@ namespace WebApp.Pages
         public string Address { get; set; }
         [BindProperty]
         public int ID { get; set; }
+        [BindProperty]
+        public List<ZooTask> Tasks { get; set; }
 
         public TaskManagement taskManagement { get; set; }
     }

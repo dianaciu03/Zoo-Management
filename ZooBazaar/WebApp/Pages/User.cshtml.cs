@@ -42,5 +42,10 @@ namespace WebApp.Pages
         [BindProperty]
         public string Address { get; set; }
 
+        public void OnPost()
+        {
+            //update employee detials here.
+        }
+
     }
 }

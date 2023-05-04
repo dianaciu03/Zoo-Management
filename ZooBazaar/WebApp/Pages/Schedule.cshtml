@@ -2,25 +2,94 @@
 @using BusinessLogic; 
 @model WebApp.Pages.ScheduleModel
 @{
-    <header class="mini-nav">
-    <ul>
-        <li><a href="~/Schedule">Schedule</a></li>
-        <li><a href="~/User">My details</a></li>
-    </ul>
-        
-    </header>
 
-    <div class="schedule-container">
-        <h2>My tasks</h2>
-        @foreach (ZooTask task in Model.taskManagement.GetTasksByCaretaker(Model.ID))
-        {
-            <div class="task">
-                <h3>Task: @task.Name</h3>
-                <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy hh/mm")</p>
-                <p>Area: @task.EnclosureArea</p>
-                <p>Enclosure: @task.EnclosureNumber</p>
+    <div class="schedulePage">
+    
+        <h2>Schedule</h2>
+
+        <div class="tab">
+            <button class="tablinks" onclick="openSetting(event, 'Today')">Today</button>
+            <button class="tablinks" onclick="openSetting(event, 'Tommorow')">Tommorow</button>
+            <button class="tablinks" onclick="openSetting(event, 'Week')">Week</button>
+        </div>
+    
+
+        <!-- TabContent -->
+        <div id="Today" class="tabcontent">
+            <h2>Todays tasks</h2>
+            <div class="tasks">
+
+                @foreach (ZooTask task in Model.Tasks)
+                {
+                    <div class="task">
+                        <h3>Task: @task.Name</h3>
+                        <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy hh/mm")</p>
+                        <p>Area: @task.EnclosureArea</p>
+                        <p>Enclosure: @task.EnclosureNumber</p>
+                    </div>
+                }
+
             </div>
-        }
+        </div>
+
+        <div id="Tommorow" class="tabcontent">
+            <h2>Tommorow tasks</h2>
+            <div class="tasks">
+
+                @foreach (ZooTask task in Model.Tasks)
+                {
+                    <div class="task">
+                        <h3>Task: @task.Name</h3>
+                        <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy hh/mm")</p>
+                        <p>Area: @task.EnclosureArea</p>
+                        <p>Enclosure: @task.EnclosureNumber</p>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <div id="Week" class="tabcontent">
+            <h2>Week tasks</h2>
+            <div class="tasks">
+
+                @foreach (ZooTask task in Model.Tasks)
+                {
+                    <div class="task">
+                        <h3>Task: @task.Name</h3>
+                        <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy hh/mm")</p>
+                        <p>Area: @task.EnclosureArea</p>
+                        <p>Enclosure: @task.EnclosureNumber</p>
+                    </div>
+                }
+
+            </div>
+        </div>
+
     </div>
 
+
+    //script for the tabs
+    <script type="text/javascript" language="javascript">
+        function openSetting(evt, accountDetail) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(accountDetail).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 }

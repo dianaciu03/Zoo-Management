@@ -22,13 +22,14 @@ namespace WebApp.Pages
         }
 
         [BindProperty, StringLength(40, ErrorMessage = "You must provide a user name with a miminum length of 1", MinimumLength = 1)]
-        public string UserName { get; set; }
+        public string Email { get; set; }
         [BindProperty, StringLength(40, ErrorMessage = "You must provide a password with a miminum length of 1", MinimumLength = 1)]
         public string Password { get; set; }
 
         public IActionResult? OnPost()
         {
-            Employee logEmployee = employeeManagement.GetEmployeeByEmail(UserName);
+            Employee logEmployee = employeeManagement.GetEmployeeByEmail(Email);
+            if (logEmployee == null) { return null;  }
             if (logEmployee.Password == Password)
             {
                 HttpContext.Session.SetString(sessionKeyId, logEmployee.ID.ToString());
