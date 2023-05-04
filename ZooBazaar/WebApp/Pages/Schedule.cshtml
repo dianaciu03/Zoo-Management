@@ -1,0 +1,26 @@
+﻿@page
+@using BusinessLogic; 
+@model WebApp.Pages.ScheduleModel
+@{
+    <header class="mini-nav">
+    <ul>
+        <li><a href="~/Schedule">Schedule</a></li>
+        <li><a href="~/User">My details</a></li>
+    </ul>
+        
+    </header>
+
+    <div class="schedule-container">
+        <h2>My tasks</h2>
+        @foreach (ZooTask task in Model.taskManagement.GetTasksByCaretaker(Model.ID))
+        {
+            <div class="task">
+                <h3>Task: @task.Name</h3>
+                <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy hh/mm")</p>
+                <p>Area: @task.EnclosureArea</p>
+                <p>Enclosure: @task.EnclosureNumber</p>
+            </div>
+        }
+    </div>
+
+}

@@ -21,7 +21,7 @@ namespace BusinessLogic
         EmployeeRepository employeeRepository = new EmployeeRepository();
         public TaskManagement() 
         {
-            tasks = new List<ZooTask>();
+            //tasks = new List<ZooTask>();
         }
 
         public void ScheduleTask(string name, string enclosureArea, int enclosureNo, string description, DateTime taskDateTime, int taskLength, string specie, Animal? animal)

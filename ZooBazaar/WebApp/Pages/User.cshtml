@@ -1,13 +1,20 @@
 ﻿@page
 @model WebApp.Pages.UserModel
 @{
+    <header class="mini-nav">
+    <ul>
+        <li><a asp-page="~/Schedule">Schedule</a></li>
+        <li><a asp-page="~/User">My details</a></li>
+    </ul>
+        
+    </header>
+
     <div class="employeeDetails">
-                <h2>Festival Details</h2>
-                <div><h3>First Name: @Model.FirstName</h3></div>
-                <div><h3>Last Name: @Model.LastName</h3></div>
-                <div><h3>Email: @Model.Email</h3></div>
-                <div><h3>Address: @Model.Address</h3></div>
-              
+        <h2>User Details</h2>
+        <div><h3>First Name: @Model.FirstName</h3></div>
+        <div><h3>Last Name: @Model.LastName</h3></div>
+        <div><h3>Email: @Model.Email</h3></div>
+        <div><h3>Address: @Model.Address</h3></div>      
     </div>
 
     <p>Well getting employees works and stuff. Need to get the whole employee scheduel system into this next</p>
