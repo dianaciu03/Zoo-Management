@@ -49,5 +49,22 @@ namespace BusinessLogic.Employees
                 employeeId = id
             };
         }
+
+        public static EmergencyContact ToEmergencyContact(this EmergencyContactDTO emergencyContactDTO)
+        {
+            return new EmergencyContact(emergencyContactDTO.firstName,emergencyContactDTO.lastName,emergencyContactDTO.phone,emergencyContactDTO.relationship);
+        }
+
+        public static EmergencyContactDTO ToEmergencyContactDTO(this EmergencyContact employeeEmergencyContact,int id)
+        {
+            return new EmergencyContactDTO()
+            {
+                firstName = employeeEmergencyContact.FirstName,
+                lastName = employeeEmergencyContact.LastName,
+                phone = employeeEmergencyContact.Phone,
+                relationship = employeeEmergencyContact.Relationship,
+                employeeId = id
+            };
+        }
     }
 }

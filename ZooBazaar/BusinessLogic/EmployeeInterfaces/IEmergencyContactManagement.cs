@@ -2,7 +2,7 @@
 {
     public interface IEmergencyContactManagement
     {
-        void AddEmergencyContact(int employeeId);
         EmergencyContact GetContactByEmployee(int employeeId);
+        void UpdateEmergencyContact(EmergencyContact contact, int id);
     }
 }

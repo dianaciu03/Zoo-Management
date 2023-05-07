@@ -21,6 +21,7 @@ namespace DesktopApplication
     {
         IEmployeeManagement employeeManagement;
         IContractManagement contractManagement = new ContractManagement(new ContractRepository());
+        IEmergencyContactManagement emergencyContactManagement = new EmergencyContactManagement(new EmergencyContractRepository());
         public FormHRAdministration(IEmployeeManagement emMng)
         {
             InitializeComponent();
@@ -108,7 +109,7 @@ namespace DesktopApplication
         {
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            var uc = new ucEmergencyContact(tempEmployee) { Dock = DockStyle.Fill };
+            var uc = new ucEmergencyContact(tempEmployee,emergencyContactManagement) { Dock = DockStyle.Fill };
             panelAdministrateEmployees.Controls.Add(uc);
         }
 
