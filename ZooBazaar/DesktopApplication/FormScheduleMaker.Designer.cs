@@ -28,525 +28,775 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.nudTaskEncNumber = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbxTaskEncArea = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.calTaskDateSelection = new System.Windows.Forms.MonthCalendar();
-            this.dtpTaskTime = new System.Windows.Forms.DateTimePicker();
-            this.labelTaskTime = new System.Windows.Forms.Label();
-            this.nudEstimatedTaskTime = new System.Windows.Forms.NumericUpDown();
-            this.labelEstimatedTime = new System.Windows.Forms.Label();
-            this.btnScheduleTask = new System.Windows.Forms.Button();
-            this.labelTaskDescription = new System.Windows.Forms.Label();
-            this.tbxTaskDescription = new System.Windows.Forms.TextBox();
-            this.labelHours = new System.Windows.Forms.Label();
-            this.tbxTaskName = new System.Windows.Forms.TextBox();
-            this.lblTaskName = new System.Windows.Forms.Label();
-            this.groupBoxAnimalSearch = new System.Windows.Forms.GroupBox();
-            this.lvwAnimalSearch = new System.Windows.Forms.ListView();
-            this.colID = new System.Windows.Forms.ColumnHeader();
-            this.colSpecie = new System.Windows.Forms.ColumnHeader();
-            this.colName = new System.Windows.Forms.ColumnHeader();
-            this.labelSearchByName = new System.Windows.Forms.Label();
-            this.labelSpecies = new System.Windows.Forms.Label();
-            this.tbxSearchByName = new System.Windows.Forms.TextBox();
-            this.cbxSearchBySpecie = new System.Windows.Forms.ComboBox();
-            this.labelScheduledTasks = new System.Windows.Forms.Label();
-            this.tabControlScheduledTasks = new System.Windows.Forms.TabControl();
-            this.tabAvailableTasks = new System.Windows.Forms.TabPage();
-            this.btnMarkTaskAsFinished = new System.Windows.Forms.Button();
-            this.btnRemoveTask = new System.Windows.Forms.Button();
-            this.btnMoreTaskDetails = new System.Windows.Forms.Button();
-            this.lvwUnassignedTasks = new System.Windows.Forms.ListView();
-            this.colTaskName = new System.Windows.Forms.ColumnHeader();
-            this.colDate = new System.Windows.Forms.ColumnHeader();
-            this.tabTasksInProgress = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lvwTasksInProgress = new System.Windows.Forms.ListView();
-            this.tabFinishedTasks = new System.Windows.Forms.TabPage();
-            this.btnFinishedTaskMoreDetails = new System.Windows.Forms.Button();
-            this.lvwFinishedTasks = new System.Windows.Forms.ListView();
-            this.colFinishedTaskName = new System.Windows.Forms.ColumnHeader();
-            this.colFinishedTaskDate = new System.Windows.Forms.ColumnHeader();
-            this.labelTitleZooBazaar = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTaskEncNumber)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEstimatedTaskTime)).BeginInit();
-            this.groupBoxAnimalSearch.SuspendLayout();
-            this.tabControlScheduledTasks.SuspendLayout();
-            this.tabAvailableTasks.SuspendLayout();
-            this.tabTasksInProgress.SuspendLayout();
-            this.tabFinishedTasks.SuspendLayout();
-            this.SuspendLayout();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            nudTaskEncNumber = new NumericUpDown();
+            label2 = new Label();
+            cbxTaskEncArea = new ComboBox();
+            label1 = new Label();
+            groupBox1 = new GroupBox();
+            calTaskDateSelection = new MonthCalendar();
+            dtpTaskTime = new DateTimePicker();
+            labelTaskTime = new Label();
+            nudEstimatedTaskTime = new NumericUpDown();
+            labelEstimatedTime = new Label();
+            btnScheduleTask = new Button();
+            labelTaskDescription = new Label();
+            tbxTaskDescription = new TextBox();
+            labelHours = new Label();
+            tbxTaskName = new TextBox();
+            lblTaskName = new Label();
+            groupBoxAnimalSearch = new GroupBox();
+            lvwAnimalSearch = new ListView();
+            colID = new ColumnHeader();
+            colSpecie = new ColumnHeader();
+            colName = new ColumnHeader();
+            labelSearchByName = new Label();
+            labelSpecies = new Label();
+            tbxSearchByName = new TextBox();
+            cbxSearchBySpecie = new ComboBox();
+            labelScheduledTasks = new Label();
+            tabControlScheduledTasks = new TabControl();
+            tabAvailableTasks = new TabPage();
+            btnMarkTaskAsFinished = new Button();
+            btnRemoveTask = new Button();
+            btnMoreTaskDetails = new Button();
+            lvwUnassignedTasks = new ListView();
+            colTaskName = new ColumnHeader();
+            colDate = new ColumnHeader();
+            colEstimatedDuration = new ColumnHeader();
+            tabTasksInProgress = new TabPage();
+            btnAssignedTaskDetails = new Button();
+            lvwTasksInProgress = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            tabFinishedTasks = new TabPage();
+            btnFinishedTaskMoreDetails = new Button();
+            lvwFinishedTasks = new ListView();
+            colFinishedTaskName = new ColumnHeader();
+            colFinishedTaskDate = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            groupBoxTaskDetails = new GroupBox();
+            lblTaskStatus = new Label();
+            lbxTaskEmployees = new ListBox();
+            label3 = new Label();
+            label11 = new Label();
+            tbxTaskAnimalName = new TextBox();
+            tbxAnimalSpecies = new TextBox();
+            label8 = new Label();
+            groupBox3 = new GroupBox();
+            tbxSelectedTaskDescription = new TextBox();
+            label4 = new Label();
+            tbxEstimatedTaskTime = new TextBox();
+            tbxTaskID = new TextBox();
+            label7 = new Label();
+            label10 = new Label();
+            label5 = new Label();
+            label9 = new Label();
+            tbxTaskDate = new TextBox();
+            tbxTaskTitle = new TextBox();
+            label6 = new Label();
+            labelTitleZooBazaar = new Label();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).BeginInit();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudEstimatedTaskTime).BeginInit();
+            groupBoxAnimalSearch.SuspendLayout();
+            tabControlScheduledTasks.SuspendLayout();
+            tabAvailableTasks.SuspendLayout();
+            tabTasksInProgress.SuspendLayout();
+            tabFinishedTasks.SuspendLayout();
+            groupBoxTaskDetails.SuspendLayout();
+            groupBox3.SuspendLayout();
+            SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabControl1.Location = new System.Drawing.Point(168, 44);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(70, 9);
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1539, 973);
-            this.tabControl1.TabIndex = 0;
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            tabControl1.Location = new Point(52, 44);
+            tabControl1.Name = "tabControl1";
+            tabControl1.Padding = new Point(70, 9);
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1809, 937);
+            tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.nudTaskEncNumber);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.cbxTaskEncArea);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.tbxTaskName);
-            this.tabPage1.Controls.Add(this.lblTaskName);
-            this.tabPage1.Controls.Add(this.groupBoxAnimalSearch);
-            this.tabPage1.Controls.Add(this.labelScheduledTasks);
-            this.tabPage1.Controls.Add(this.tabControlScheduledTasks);
-            this.tabPage1.Location = new System.Drawing.Point(4, 45);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1531, 924);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Schedule task";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Controls.Add(nudTaskEncNumber);
+            tabPage1.Controls.Add(label2);
+            tabPage1.Controls.Add(cbxTaskEncArea);
+            tabPage1.Controls.Add(label1);
+            tabPage1.Controls.Add(groupBox1);
+            tabPage1.Controls.Add(tbxTaskName);
+            tabPage1.Controls.Add(lblTaskName);
+            tabPage1.Controls.Add(groupBoxAnimalSearch);
+            tabPage1.Controls.Add(labelScheduledTasks);
+            tabPage1.Controls.Add(tabControlScheduledTasks);
+            tabPage1.Controls.Add(groupBoxTaskDetails);
+            tabPage1.Location = new Point(4, 45);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1801, 888);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Schedule task";
+            tabPage1.UseVisualStyleBackColor = true;
             // 
             // nudTaskEncNumber
             // 
-            this.nudTaskEncNumber.Location = new System.Drawing.Point(679, 76);
-            this.nudTaskEncNumber.Name = "nudTaskEncNumber";
-            this.nudTaskEncNumber.Size = new System.Drawing.Size(71, 29);
-            this.nudTaskEncNumber.TabIndex = 36;
+            nudTaskEncNumber.Location = new Point(679, 76);
+            nudTaskEncNumber.Name = "nudTaskEncNumber";
+            nudTaskEncNumber.Size = new Size(71, 29);
+            nudTaskEncNumber.TabIndex = 36;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(501, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 24);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Enclosure number:";
+            label2.AutoSize = true;
+            label2.Location = new Point(501, 78);
+            label2.Name = "label2";
+            label2.Size = new Size(172, 24);
+            label2.TabIndex = 35;
+            label2.Text = "Enclosure number:";
             // 
             // cbxTaskEncArea
             // 
-            this.cbxTaskEncArea.Enabled = false;
-            this.cbxTaskEncArea.FormattingEnabled = true;
-            this.cbxTaskEncArea.Location = new System.Drawing.Point(199, 75);
-            this.cbxTaskEncArea.Name = "cbxTaskEncArea";
-            this.cbxTaskEncArea.Size = new System.Drawing.Size(283, 32);
-            this.cbxTaskEncArea.TabIndex = 19;
+            cbxTaskEncArea.Enabled = false;
+            cbxTaskEncArea.FormattingEnabled = true;
+            cbxTaskEncArea.Location = new Point(199, 75);
+            cbxTaskEncArea.Name = "cbxTaskEncArea";
+            cbxTaskEncArea.Size = new Size(283, 32);
+            cbxTaskEncArea.TabIndex = 19;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 24);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Enclosure area:";
+            label1.AutoSize = true;
+            label1.Location = new Point(50, 78);
+            label1.Name = "label1";
+            label1.Size = new Size(143, 24);
+            label1.TabIndex = 34;
+            label1.Text = "Enclosure area:";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.calTaskDateSelection);
-            this.groupBox1.Controls.Add(this.dtpTaskTime);
-            this.groupBox1.Controls.Add(this.labelTaskTime);
-            this.groupBox1.Controls.Add(this.nudEstimatedTaskTime);
-            this.groupBox1.Controls.Add(this.labelEstimatedTime);
-            this.groupBox1.Controls.Add(this.btnScheduleTask);
-            this.groupBox1.Controls.Add(this.labelTaskDescription);
-            this.groupBox1.Controls.Add(this.tbxTaskDescription);
-            this.groupBox1.Controls.Add(this.labelHours);
-            this.groupBox1.Location = new System.Drawing.Point(50, 421);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(700, 497);
-            this.groupBox1.TabIndex = 33;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Task date and time";
+            groupBox1.Controls.Add(calTaskDateSelection);
+            groupBox1.Controls.Add(dtpTaskTime);
+            groupBox1.Controls.Add(labelTaskTime);
+            groupBox1.Controls.Add(nudEstimatedTaskTime);
+            groupBox1.Controls.Add(labelEstimatedTime);
+            groupBox1.Controls.Add(btnScheduleTask);
+            groupBox1.Controls.Add(labelTaskDescription);
+            groupBox1.Controls.Add(tbxTaskDescription);
+            groupBox1.Controls.Add(labelHours);
+            groupBox1.Location = new Point(50, 421);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(700, 438);
+            groupBox1.TabIndex = 33;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Task date and time";
             // 
             // calTaskDateSelection
             // 
-            this.calTaskDateSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.calTaskDateSelection.Location = new System.Drawing.Point(12, 34);
-            this.calTaskDateSelection.MaxSelectionCount = 1;
-            this.calTaskDateSelection.Name = "calTaskDateSelection";
-            this.calTaskDateSelection.TabIndex = 20;
+            calTaskDateSelection.Font = new Font("Microsoft Sans Serif", 18.25F, FontStyle.Regular, GraphicsUnit.Point);
+            calTaskDateSelection.Location = new Point(12, 34);
+            calTaskDateSelection.MaxSelectionCount = 1;
+            calTaskDateSelection.Name = "calTaskDateSelection";
+            calTaskDateSelection.TabIndex = 20;
             // 
             // dtpTaskTime
             // 
-            this.dtpTaskTime.CustomFormat = "    HH:mm";
-            this.dtpTaskTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTaskTime.Location = new System.Drawing.Point(370, 30);
-            this.dtpTaskTime.Name = "dtpTaskTime";
-            this.dtpTaskTime.Size = new System.Drawing.Size(130, 29);
-            this.dtpTaskTime.TabIndex = 21;
+            dtpTaskTime.CustomFormat = "    HH:mm";
+            dtpTaskTime.Format = DateTimePickerFormat.Custom;
+            dtpTaskTime.Location = new Point(370, 30);
+            dtpTaskTime.Name = "dtpTaskTime";
+            dtpTaskTime.Size = new Size(130, 29);
+            dtpTaskTime.TabIndex = 21;
             // 
             // labelTaskTime
             // 
-            this.labelTaskTime.AutoSize = true;
-            this.labelTaskTime.Location = new System.Drawing.Point(264, 34);
-            this.labelTaskTime.Name = "labelTaskTime";
-            this.labelTaskTime.Size = new System.Drawing.Size(91, 24);
-            this.labelTaskTime.TabIndex = 22;
-            this.labelTaskTime.Text = "Start time:";
+            labelTaskTime.AutoSize = true;
+            labelTaskTime.Location = new Point(264, 34);
+            labelTaskTime.Name = "labelTaskTime";
+            labelTaskTime.Size = new Size(91, 24);
+            labelTaskTime.TabIndex = 22;
+            labelTaskTime.Text = "Start time:";
             // 
             // nudEstimatedTaskTime
             // 
-            this.nudEstimatedTaskTime.Location = new System.Drawing.Point(268, 120);
-            this.nudEstimatedTaskTime.Name = "nudEstimatedTaskTime";
-            this.nudEstimatedTaskTime.Size = new System.Drawing.Size(133, 29);
-            this.nudEstimatedTaskTime.TabIndex = 26;
+            nudEstimatedTaskTime.Location = new Point(268, 120);
+            nudEstimatedTaskTime.Name = "nudEstimatedTaskTime";
+            nudEstimatedTaskTime.Size = new Size(133, 29);
+            nudEstimatedTaskTime.TabIndex = 26;
             // 
             // labelEstimatedTime
             // 
-            this.labelEstimatedTime.AutoSize = true;
-            this.labelEstimatedTime.Location = new System.Drawing.Point(264, 76);
-            this.labelEstimatedTime.Name = "labelEstimatedTime";
-            this.labelEstimatedTime.Size = new System.Drawing.Size(170, 24);
-            this.labelEstimatedTime.TabIndex = 27;
-            this.labelEstimatedTime.Text = "Estimated duration:";
+            labelEstimatedTime.AutoSize = true;
+            labelEstimatedTime.Location = new Point(264, 76);
+            labelEstimatedTime.Name = "labelEstimatedTime";
+            labelEstimatedTime.Size = new Size(170, 24);
+            labelEstimatedTime.TabIndex = 27;
+            labelEstimatedTime.Text = "Estimated duration:";
             // 
             // btnScheduleTask
             // 
-            this.btnScheduleTask.Location = new System.Drawing.Point(12, 440);
-            this.btnScheduleTask.Name = "btnScheduleTask";
-            this.btnScheduleTask.Size = new System.Drawing.Size(177, 48);
-            this.btnScheduleTask.TabIndex = 23;
-            this.btnScheduleTask.Text = "Schedule task";
-            this.btnScheduleTask.UseVisualStyleBackColor = true;
-            this.btnScheduleTask.Click += new System.EventHandler(this.btnScheduleTask_Click);
+            btnScheduleTask.Location = new Point(12, 375);
+            btnScheduleTask.Name = "btnScheduleTask";
+            btnScheduleTask.Size = new Size(177, 48);
+            btnScheduleTask.TabIndex = 23;
+            btnScheduleTask.Text = "Schedule task";
+            btnScheduleTask.UseVisualStyleBackColor = true;
+            btnScheduleTask.Click += btnScheduleTask_Click;
             // 
             // labelTaskDescription
             // 
-            this.labelTaskDescription.AutoSize = true;
-            this.labelTaskDescription.Location = new System.Drawing.Point(11, 217);
-            this.labelTaskDescription.Name = "labelTaskDescription";
-            this.labelTaskDescription.Size = new System.Drawing.Size(147, 24);
-            this.labelTaskDescription.TabIndex = 25;
-            this.labelTaskDescription.Text = "Task description";
+            labelTaskDescription.AutoSize = true;
+            labelTaskDescription.Location = new Point(11, 217);
+            labelTaskDescription.Name = "labelTaskDescription";
+            labelTaskDescription.Size = new Size(147, 24);
+            labelTaskDescription.TabIndex = 25;
+            labelTaskDescription.Text = "Task description";
             // 
             // tbxTaskDescription
             // 
-            this.tbxTaskDescription.Location = new System.Drawing.Point(12, 244);
-            this.tbxTaskDescription.Multiline = true;
-            this.tbxTaskDescription.Name = "tbxTaskDescription";
-            this.tbxTaskDescription.Size = new System.Drawing.Size(682, 190);
-            this.tbxTaskDescription.TabIndex = 24;
+            tbxTaskDescription.Location = new Point(12, 244);
+            tbxTaskDescription.Multiline = true;
+            tbxTaskDescription.Name = "tbxTaskDescription";
+            tbxTaskDescription.Size = new Size(682, 125);
+            tbxTaskDescription.TabIndex = 24;
             // 
             // labelHours
             // 
-            this.labelHours.AutoSize = true;
-            this.labelHours.Location = new System.Drawing.Point(407, 122);
-            this.labelHours.Name = "labelHours";
-            this.labelHours.Size = new System.Drawing.Size(70, 24);
-            this.labelHours.TabIndex = 28;
-            this.labelHours.Text = "hour(s)";
+            labelHours.AutoSize = true;
+            labelHours.Location = new Point(407, 122);
+            labelHours.Name = "labelHours";
+            labelHours.Size = new Size(70, 24);
+            labelHours.TabIndex = 28;
+            labelHours.Text = "hour(s)";
             // 
             // tbxTaskName
             // 
-            this.tbxTaskName.Location = new System.Drawing.Point(188, 32);
-            this.tbxTaskName.Name = "tbxTaskName";
-            this.tbxTaskName.Size = new System.Drawing.Size(562, 29);
-            this.tbxTaskName.TabIndex = 32;
+            tbxTaskName.Location = new Point(188, 32);
+            tbxTaskName.Name = "tbxTaskName";
+            tbxTaskName.Size = new Size(562, 29);
+            tbxTaskName.TabIndex = 32;
             // 
             // lblTaskName
             // 
-            this.lblTaskName.AutoSize = true;
-            this.lblTaskName.Location = new System.Drawing.Point(50, 35);
-            this.lblTaskName.Name = "lblTaskName";
-            this.lblTaskName.Size = new System.Drawing.Size(108, 24);
-            this.lblTaskName.TabIndex = 31;
-            this.lblTaskName.Text = "Task name:";
+            lblTaskName.AutoSize = true;
+            lblTaskName.Location = new Point(50, 35);
+            lblTaskName.Name = "lblTaskName";
+            lblTaskName.Size = new Size(108, 24);
+            lblTaskName.TabIndex = 31;
+            lblTaskName.Text = "Task name:";
             // 
             // groupBoxAnimalSearch
             // 
-            this.groupBoxAnimalSearch.Controls.Add(this.lvwAnimalSearch);
-            this.groupBoxAnimalSearch.Controls.Add(this.labelSearchByName);
-            this.groupBoxAnimalSearch.Controls.Add(this.labelSpecies);
-            this.groupBoxAnimalSearch.Controls.Add(this.tbxSearchByName);
-            this.groupBoxAnimalSearch.Controls.Add(this.cbxSearchBySpecie);
-            this.groupBoxAnimalSearch.Location = new System.Drawing.Point(50, 147);
-            this.groupBoxAnimalSearch.Name = "groupBoxAnimalSearch";
-            this.groupBoxAnimalSearch.Size = new System.Drawing.Size(700, 268);
-            this.groupBoxAnimalSearch.TabIndex = 29;
-            this.groupBoxAnimalSearch.TabStop = false;
-            this.groupBoxAnimalSearch.Text = "Animal search";
+            groupBoxAnimalSearch.Controls.Add(lvwAnimalSearch);
+            groupBoxAnimalSearch.Controls.Add(labelSearchByName);
+            groupBoxAnimalSearch.Controls.Add(labelSpecies);
+            groupBoxAnimalSearch.Controls.Add(tbxSearchByName);
+            groupBoxAnimalSearch.Controls.Add(cbxSearchBySpecie);
+            groupBoxAnimalSearch.Location = new Point(50, 147);
+            groupBoxAnimalSearch.Name = "groupBoxAnimalSearch";
+            groupBoxAnimalSearch.Size = new Size(700, 268);
+            groupBoxAnimalSearch.TabIndex = 29;
+            groupBoxAnimalSearch.TabStop = false;
+            groupBoxAnimalSearch.Text = "Animal search";
             // 
             // lvwAnimalSearch
             // 
-            this.lvwAnimalSearch.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colID,
-            this.colSpecie,
-            this.colName});
-            this.lvwAnimalSearch.FullRowSelect = true;
-            this.lvwAnimalSearch.Location = new System.Drawing.Point(15, 117);
-            this.lvwAnimalSearch.MultiSelect = false;
-            this.lvwAnimalSearch.Name = "lvwAnimalSearch";
-            this.lvwAnimalSearch.Size = new System.Drawing.Size(679, 141);
-            this.lvwAnimalSearch.TabIndex = 15;
-            this.lvwAnimalSearch.UseCompatibleStateImageBehavior = false;
-            this.lvwAnimalSearch.View = System.Windows.Forms.View.Details;
-            this.lvwAnimalSearch.SelectedIndexChanged += new System.EventHandler(this.lvwAnimalSearch_SelectedIndexChanged);
+            lvwAnimalSearch.Columns.AddRange(new ColumnHeader[] { colID, colSpecie, colName });
+            lvwAnimalSearch.FullRowSelect = true;
+            lvwAnimalSearch.Location = new Point(15, 117);
+            lvwAnimalSearch.MultiSelect = false;
+            lvwAnimalSearch.Name = "lvwAnimalSearch";
+            lvwAnimalSearch.Size = new Size(679, 141);
+            lvwAnimalSearch.TabIndex = 15;
+            lvwAnimalSearch.UseCompatibleStateImageBehavior = false;
+            lvwAnimalSearch.View = View.Details;
+            lvwAnimalSearch.SelectedIndexChanged += lvwAnimalSearch_SelectedIndexChanged;
             // 
             // colID
             // 
-            this.colID.Text = "ID";
-            this.colID.Width = 62;
+            colID.Text = "ID";
+            colID.Width = 62;
             // 
             // colSpecie
             // 
-            this.colSpecie.Text = "Specie";
-            this.colSpecie.Width = 159;
+            colSpecie.Text = "Specie";
+            colSpecie.Width = 159;
             // 
             // colName
             // 
-            this.colName.Text = "Name";
-            this.colName.Width = 174;
+            colName.Text = "Name";
+            colName.Width = 174;
             // 
             // labelSearchByName
             // 
-            this.labelSearchByName.AutoSize = true;
-            this.labelSearchByName.Location = new System.Drawing.Point(11, 72);
-            this.labelSearchByName.Name = "labelSearchByName";
-            this.labelSearchByName.Size = new System.Drawing.Size(153, 24);
-            this.labelSearchByName.TabIndex = 16;
-            this.labelSearchByName.Text = "Search by name:";
+            labelSearchByName.AutoSize = true;
+            labelSearchByName.Location = new Point(11, 72);
+            labelSearchByName.Name = "labelSearchByName";
+            labelSearchByName.Size = new Size(153, 24);
+            labelSearchByName.TabIndex = 16;
+            labelSearchByName.Text = "Search by name:";
             // 
             // labelSpecies
             // 
-            this.labelSpecies.AutoSize = true;
-            this.labelSpecies.Location = new System.Drawing.Point(11, 34);
-            this.labelSpecies.Name = "labelSpecies";
-            this.labelSpecies.Size = new System.Drawing.Size(83, 24);
-            this.labelSpecies.TabIndex = 18;
-            this.labelSpecies.Text = "Species:";
+            labelSpecies.AutoSize = true;
+            labelSpecies.Location = new Point(11, 34);
+            labelSpecies.Name = "labelSpecies";
+            labelSpecies.Size = new Size(83, 24);
+            labelSpecies.TabIndex = 18;
+            labelSpecies.Text = "Species:";
             // 
             // tbxSearchByName
             // 
-            this.tbxSearchByName.Location = new System.Drawing.Point(411, 69);
-            this.tbxSearchByName.Name = "tbxSearchByName";
-            this.tbxSearchByName.Size = new System.Drawing.Size(283, 29);
-            this.tbxSearchByName.TabIndex = 14;
-            this.tbxSearchByName.TextChanged += new System.EventHandler(this.tbxSearchByName_TextChanged);
+            tbxSearchByName.Location = new Point(411, 69);
+            tbxSearchByName.Name = "tbxSearchByName";
+            tbxSearchByName.Size = new Size(283, 29);
+            tbxSearchByName.TabIndex = 14;
+            tbxSearchByName.TextChanged += tbxSearchByName_TextChanged;
             // 
             // cbxSearchBySpecie
             // 
-            this.cbxSearchBySpecie.FormattingEnabled = true;
-            this.cbxSearchBySpecie.Location = new System.Drawing.Point(411, 31);
-            this.cbxSearchBySpecie.Name = "cbxSearchBySpecie";
-            this.cbxSearchBySpecie.Size = new System.Drawing.Size(283, 32);
-            this.cbxSearchBySpecie.TabIndex = 17;
-            this.cbxSearchBySpecie.SelectedIndexChanged += new System.EventHandler(this.cbxSearchBySpecie_SelectedIndexChanged);
+            cbxSearchBySpecie.FormattingEnabled = true;
+            cbxSearchBySpecie.Location = new Point(411, 31);
+            cbxSearchBySpecie.Name = "cbxSearchBySpecie";
+            cbxSearchBySpecie.Size = new Size(283, 32);
+            cbxSearchBySpecie.TabIndex = 17;
+            cbxSearchBySpecie.SelectedIndexChanged += cbxSearchBySpecie_SelectedIndexChanged;
             // 
             // labelScheduledTasks
             // 
-            this.labelScheduledTasks.AutoSize = true;
-            this.labelScheduledTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelScheduledTasks.Location = new System.Drawing.Point(787, 18);
-            this.labelScheduledTasks.Name = "labelScheduledTasks";
-            this.labelScheduledTasks.Size = new System.Drawing.Size(229, 31);
-            this.labelScheduledTasks.TabIndex = 13;
-            this.labelScheduledTasks.Text = "Scheduled tasks";
+            labelScheduledTasks.AutoSize = true;
+            labelScheduledTasks.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelScheduledTasks.Location = new Point(827, 23);
+            labelScheduledTasks.Name = "labelScheduledTasks";
+            labelScheduledTasks.Size = new Size(229, 31);
+            labelScheduledTasks.TabIndex = 13;
+            labelScheduledTasks.Text = "Scheduled tasks";
             // 
             // tabControlScheduledTasks
             // 
-            this.tabControlScheduledTasks.Controls.Add(this.tabAvailableTasks);
-            this.tabControlScheduledTasks.Controls.Add(this.tabTasksInProgress);
-            this.tabControlScheduledTasks.Controls.Add(this.tabFinishedTasks);
-            this.tabControlScheduledTasks.Location = new System.Drawing.Point(789, 52);
-            this.tabControlScheduledTasks.Name = "tabControlScheduledTasks";
-            this.tabControlScheduledTasks.Padding = new System.Drawing.Point(34, 4);
-            this.tabControlScheduledTasks.SelectedIndex = 0;
-            this.tabControlScheduledTasks.Size = new System.Drawing.Size(700, 513);
-            this.tabControlScheduledTasks.TabIndex = 12;
+            tabControlScheduledTasks.Controls.Add(tabAvailableTasks);
+            tabControlScheduledTasks.Controls.Add(tabTasksInProgress);
+            tabControlScheduledTasks.Controls.Add(tabFinishedTasks);
+            tabControlScheduledTasks.Location = new Point(827, 57);
+            tabControlScheduledTasks.Name = "tabControlScheduledTasks";
+            tabControlScheduledTasks.Padding = new Point(34, 4);
+            tabControlScheduledTasks.SelectedIndex = 0;
+            tabControlScheduledTasks.Size = new Size(901, 429);
+            tabControlScheduledTasks.TabIndex = 12;
             // 
             // tabAvailableTasks
             // 
-            this.tabAvailableTasks.Controls.Add(this.btnMarkTaskAsFinished);
-            this.tabAvailableTasks.Controls.Add(this.btnRemoveTask);
-            this.tabAvailableTasks.Controls.Add(this.btnMoreTaskDetails);
-            this.tabAvailableTasks.Controls.Add(this.lvwUnassignedTasks);
-            this.tabAvailableTasks.Location = new System.Drawing.Point(4, 35);
-            this.tabAvailableTasks.Name = "tabAvailableTasks";
-            this.tabAvailableTasks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAvailableTasks.Size = new System.Drawing.Size(692, 474);
-            this.tabAvailableTasks.TabIndex = 0;
-            this.tabAvailableTasks.Text = "Available";
-            this.tabAvailableTasks.UseVisualStyleBackColor = true;
+            tabAvailableTasks.Controls.Add(btnMarkTaskAsFinished);
+            tabAvailableTasks.Controls.Add(btnRemoveTask);
+            tabAvailableTasks.Controls.Add(btnMoreTaskDetails);
+            tabAvailableTasks.Controls.Add(lvwUnassignedTasks);
+            tabAvailableTasks.Location = new Point(4, 35);
+            tabAvailableTasks.Name = "tabAvailableTasks";
+            tabAvailableTasks.Padding = new Padding(3);
+            tabAvailableTasks.Size = new Size(893, 390);
+            tabAvailableTasks.TabIndex = 0;
+            tabAvailableTasks.Text = "Available";
+            tabAvailableTasks.UseVisualStyleBackColor = true;
             // 
             // btnMarkTaskAsFinished
             // 
-            this.btnMarkTaskAsFinished.Location = new System.Drawing.Point(243, 425);
-            this.btnMarkTaskAsFinished.Name = "btnMarkTaskAsFinished";
-            this.btnMarkTaskAsFinished.Size = new System.Drawing.Size(209, 44);
-            this.btnMarkTaskAsFinished.TabIndex = 20;
-            this.btnMarkTaskAsFinished.Text = "Mark as finished";
-            this.btnMarkTaskAsFinished.UseVisualStyleBackColor = true;
-            this.btnMarkTaskAsFinished.Click += new System.EventHandler(this.btnMarkTaskAsFinished_Click);
+            btnMarkTaskAsFinished.Location = new Point(218, 340);
+            btnMarkTaskAsFinished.Name = "btnMarkTaskAsFinished";
+            btnMarkTaskAsFinished.Size = new Size(209, 44);
+            btnMarkTaskAsFinished.TabIndex = 20;
+            btnMarkTaskAsFinished.Text = "Mark as finished";
+            btnMarkTaskAsFinished.UseVisualStyleBackColor = true;
+            btnMarkTaskAsFinished.Click += btnMarkTaskAsFinished_Click;
             // 
             // btnRemoveTask
             // 
-            this.btnRemoveTask.Location = new System.Drawing.Point(477, 425);
-            this.btnRemoveTask.Name = "btnRemoveTask";
-            this.btnRemoveTask.Size = new System.Drawing.Size(209, 44);
-            this.btnRemoveTask.TabIndex = 19;
-            this.btnRemoveTask.Text = "Remove task";
-            this.btnRemoveTask.UseVisualStyleBackColor = true;
-            this.btnRemoveTask.Click += new System.EventHandler(this.btnRemoveTask_Click);
+            btnRemoveTask.Location = new Point(433, 340);
+            btnRemoveTask.Name = "btnRemoveTask";
+            btnRemoveTask.Size = new Size(209, 44);
+            btnRemoveTask.TabIndex = 19;
+            btnRemoveTask.Text = "Remove task";
+            btnRemoveTask.UseVisualStyleBackColor = true;
+            btnRemoveTask.Click += btnRemoveTask_Click;
             // 
             // btnMoreTaskDetails
             // 
-            this.btnMoreTaskDetails.Location = new System.Drawing.Point(6, 425);
-            this.btnMoreTaskDetails.Name = "btnMoreTaskDetails";
-            this.btnMoreTaskDetails.Size = new System.Drawing.Size(209, 44);
-            this.btnMoreTaskDetails.TabIndex = 18;
-            this.btnMoreTaskDetails.Text = "More details";
-            this.btnMoreTaskDetails.UseVisualStyleBackColor = true;
-            this.btnMoreTaskDetails.Click += new System.EventHandler(this.btnMoreTaskDetails_Click);
+            btnMoreTaskDetails.Location = new Point(3, 340);
+            btnMoreTaskDetails.Name = "btnMoreTaskDetails";
+            btnMoreTaskDetails.Size = new Size(209, 44);
+            btnMoreTaskDetails.TabIndex = 18;
+            btnMoreTaskDetails.Text = "More details";
+            btnMoreTaskDetails.UseVisualStyleBackColor = true;
+            btnMoreTaskDetails.Click += btnMoreTaskDetails_Click;
             // 
             // lvwUnassignedTasks
             // 
-            this.lvwUnassignedTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colTaskName,
-            this.colDate});
-            this.lvwUnassignedTasks.FullRowSelect = true;
-            this.lvwUnassignedTasks.Location = new System.Drawing.Point(6, 5);
-            this.lvwUnassignedTasks.Name = "lvwUnassignedTasks";
-            this.lvwUnassignedTasks.Size = new System.Drawing.Size(680, 414);
-            this.lvwUnassignedTasks.TabIndex = 3;
-            this.lvwUnassignedTasks.UseCompatibleStateImageBehavior = false;
-            this.lvwUnassignedTasks.View = System.Windows.Forms.View.Details;
+            lvwUnassignedTasks.Columns.AddRange(new ColumnHeader[] { colTaskName, colDate, colEstimatedDuration });
+            lvwUnassignedTasks.FullRowSelect = true;
+            lvwUnassignedTasks.Location = new Point(3, 3);
+            lvwUnassignedTasks.Name = "lvwUnassignedTasks";
+            lvwUnassignedTasks.Size = new Size(887, 331);
+            lvwUnassignedTasks.TabIndex = 3;
+            lvwUnassignedTasks.UseCompatibleStateImageBehavior = false;
+            lvwUnassignedTasks.View = View.Details;
+            lvwUnassignedTasks.SelectedIndexChanged += lvwUnassignedTasks_SelectedIndexChanged;
             // 
             // colTaskName
             // 
-            this.colTaskName.Text = "Name";
-            this.colTaskName.Width = 284;
+            colTaskName.Text = "Name";
+            colTaskName.Width = 360;
             // 
             // colDate
             // 
-            this.colDate.Text = "Task date";
-            this.colDate.Width = 159;
+            colDate.Text = "Date";
+            colDate.Width = 220;
+            // 
+            // colEstimatedDuration
+            // 
+            colEstimatedDuration.Text = "Estimated duration";
+            colEstimatedDuration.Width = 220;
             // 
             // tabTasksInProgress
             // 
-            this.tabTasksInProgress.Controls.Add(this.button1);
-            this.tabTasksInProgress.Controls.Add(this.lvwTasksInProgress);
-            this.tabTasksInProgress.Location = new System.Drawing.Point(4, 26);
-            this.tabTasksInProgress.Name = "tabTasksInProgress";
-            this.tabTasksInProgress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTasksInProgress.Size = new System.Drawing.Size(692, 483);
-            this.tabTasksInProgress.TabIndex = 1;
-            this.tabTasksInProgress.Text = "In progress";
-            this.tabTasksInProgress.UseVisualStyleBackColor = true;
+            tabTasksInProgress.Controls.Add(btnAssignedTaskDetails);
+            tabTasksInProgress.Controls.Add(lvwTasksInProgress);
+            tabTasksInProgress.Location = new Point(4, 26);
+            tabTasksInProgress.Name = "tabTasksInProgress";
+            tabTasksInProgress.Padding = new Padding(3);
+            tabTasksInProgress.Size = new Size(893, 399);
+            tabTasksInProgress.TabIndex = 1;
+            tabTasksInProgress.Text = "Assigned";
+            tabTasksInProgress.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAssignedTaskDetails
             // 
-            this.button1.Location = new System.Drawing.Point(6, 425);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(209, 44);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "More details";
-            this.button1.UseVisualStyleBackColor = true;
+            btnAssignedTaskDetails.Location = new Point(6, 342);
+            btnAssignedTaskDetails.Name = "btnAssignedTaskDetails";
+            btnAssignedTaskDetails.Size = new Size(209, 44);
+            btnAssignedTaskDetails.TabIndex = 19;
+            btnAssignedTaskDetails.Text = "More details";
+            btnAssignedTaskDetails.UseVisualStyleBackColor = true;
+            btnAssignedTaskDetails.Click += button1_Click;
             // 
             // lvwTasksInProgress
             // 
-            this.lvwTasksInProgress.Location = new System.Drawing.Point(6, 5);
-            this.lvwTasksInProgress.Name = "lvwTasksInProgress";
-            this.lvwTasksInProgress.Size = new System.Drawing.Size(680, 414);
-            this.lvwTasksInProgress.TabIndex = 4;
-            this.lvwTasksInProgress.UseCompatibleStateImageBehavior = false;
+            lvwTasksInProgress.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lvwTasksInProgress.Location = new Point(6, 5);
+            lvwTasksInProgress.Name = "lvwTasksInProgress";
+            lvwTasksInProgress.Size = new Size(881, 331);
+            lvwTasksInProgress.TabIndex = 4;
+            lvwTasksInProgress.UseCompatibleStateImageBehavior = false;
+            lvwTasksInProgress.View = View.Details;
+            lvwTasksInProgress.SelectedIndexChanged += lvwTasksInProgress_SelectedIndexChanged;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Name";
+            columnHeader1.Width = 360;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Date";
+            columnHeader2.Width = 220;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Estimated duration";
+            columnHeader3.Width = 220;
             // 
             // tabFinishedTasks
             // 
-            this.tabFinishedTasks.Controls.Add(this.btnFinishedTaskMoreDetails);
-            this.tabFinishedTasks.Controls.Add(this.lvwFinishedTasks);
-            this.tabFinishedTasks.Location = new System.Drawing.Point(4, 26);
-            this.tabFinishedTasks.Name = "tabFinishedTasks";
-            this.tabFinishedTasks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFinishedTasks.Size = new System.Drawing.Size(692, 483);
-            this.tabFinishedTasks.TabIndex = 2;
-            this.tabFinishedTasks.Text = "Finished";
-            this.tabFinishedTasks.UseVisualStyleBackColor = true;
+            tabFinishedTasks.Controls.Add(btnFinishedTaskMoreDetails);
+            tabFinishedTasks.Controls.Add(lvwFinishedTasks);
+            tabFinishedTasks.Location = new Point(4, 26);
+            tabFinishedTasks.Name = "tabFinishedTasks";
+            tabFinishedTasks.Padding = new Padding(3);
+            tabFinishedTasks.Size = new Size(893, 399);
+            tabFinishedTasks.TabIndex = 2;
+            tabFinishedTasks.Text = "Finished";
+            tabFinishedTasks.UseVisualStyleBackColor = true;
             // 
             // btnFinishedTaskMoreDetails
             // 
-            this.btnFinishedTaskMoreDetails.Location = new System.Drawing.Point(6, 425);
-            this.btnFinishedTaskMoreDetails.Name = "btnFinishedTaskMoreDetails";
-            this.btnFinishedTaskMoreDetails.Size = new System.Drawing.Size(209, 44);
-            this.btnFinishedTaskMoreDetails.TabIndex = 21;
-            this.btnFinishedTaskMoreDetails.Text = "More details";
-            this.btnFinishedTaskMoreDetails.UseVisualStyleBackColor = true;
-            this.btnFinishedTaskMoreDetails.Click += new System.EventHandler(this.btnFinishedTaskMoreDetails_Click);
+            btnFinishedTaskMoreDetails.Location = new Point(6, 342);
+            btnFinishedTaskMoreDetails.Name = "btnFinishedTaskMoreDetails";
+            btnFinishedTaskMoreDetails.Size = new Size(209, 44);
+            btnFinishedTaskMoreDetails.TabIndex = 21;
+            btnFinishedTaskMoreDetails.Text = "More details";
+            btnFinishedTaskMoreDetails.UseVisualStyleBackColor = true;
+            btnFinishedTaskMoreDetails.Click += btnFinishedTaskMoreDetails_Click;
             // 
             // lvwFinishedTasks
             // 
-            this.lvwFinishedTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colFinishedTaskName,
-            this.colFinishedTaskDate});
-            this.lvwFinishedTasks.FullRowSelect = true;
-            this.lvwFinishedTasks.Location = new System.Drawing.Point(6, 5);
-            this.lvwFinishedTasks.Name = "lvwFinishedTasks";
-            this.lvwFinishedTasks.Size = new System.Drawing.Size(680, 414);
-            this.lvwFinishedTasks.TabIndex = 20;
-            this.lvwFinishedTasks.UseCompatibleStateImageBehavior = false;
-            this.lvwFinishedTasks.View = System.Windows.Forms.View.Details;
+            lvwFinishedTasks.Columns.AddRange(new ColumnHeader[] { colFinishedTaskName, colFinishedTaskDate, columnHeader4 });
+            lvwFinishedTasks.FullRowSelect = true;
+            lvwFinishedTasks.Location = new Point(6, 5);
+            lvwFinishedTasks.Name = "lvwFinishedTasks";
+            lvwFinishedTasks.Size = new Size(881, 331);
+            lvwFinishedTasks.TabIndex = 20;
+            lvwFinishedTasks.UseCompatibleStateImageBehavior = false;
+            lvwFinishedTasks.View = View.Details;
+            lvwFinishedTasks.SelectedIndexChanged += lvwFinishedTasks_SelectedIndexChanged;
             // 
             // colFinishedTaskName
             // 
-            this.colFinishedTaskName.Text = "Name";
-            this.colFinishedTaskName.Width = 284;
+            colFinishedTaskName.Text = "Name";
+            colFinishedTaskName.Width = 360;
             // 
             // colFinishedTaskDate
             // 
-            this.colFinishedTaskDate.Text = "Task date";
-            this.colFinishedTaskDate.Width = 159;
+            colFinishedTaskDate.Text = "Date";
+            colFinishedTaskDate.Width = 220;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Estimated duration";
+            columnHeader4.Width = 220;
+            // 
+            // groupBoxTaskDetails
+            // 
+            groupBoxTaskDetails.Controls.Add(lblTaskStatus);
+            groupBoxTaskDetails.Controls.Add(lbxTaskEmployees);
+            groupBoxTaskDetails.Controls.Add(label3);
+            groupBoxTaskDetails.Controls.Add(label11);
+            groupBoxTaskDetails.Controls.Add(tbxTaskAnimalName);
+            groupBoxTaskDetails.Controls.Add(tbxAnimalSpecies);
+            groupBoxTaskDetails.Controls.Add(label8);
+            groupBoxTaskDetails.Controls.Add(groupBox3);
+            groupBoxTaskDetails.Controls.Add(label4);
+            groupBoxTaskDetails.Controls.Add(tbxEstimatedTaskTime);
+            groupBoxTaskDetails.Controls.Add(tbxTaskID);
+            groupBoxTaskDetails.Controls.Add(label7);
+            groupBoxTaskDetails.Controls.Add(label10);
+            groupBoxTaskDetails.Controls.Add(label5);
+            groupBoxTaskDetails.Controls.Add(label9);
+            groupBoxTaskDetails.Controls.Add(tbxTaskDate);
+            groupBoxTaskDetails.Controls.Add(tbxTaskTitle);
+            groupBoxTaskDetails.Controls.Add(label6);
+            groupBoxTaskDetails.Location = new Point(827, 492);
+            groupBoxTaskDetails.Name = "groupBoxTaskDetails";
+            groupBoxTaskDetails.Size = new Size(901, 367);
+            groupBoxTaskDetails.TabIndex = 37;
+            groupBoxTaskDetails.TabStop = false;
+            // 
+            // lblTaskStatus
+            // 
+            lblTaskStatus.AutoSize = true;
+            lblTaskStatus.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTaskStatus.Location = new Point(686, 315);
+            lblTaskStatus.Name = "lblTaskStatus";
+            lblTaskStatus.Size = new Size(114, 37);
+            lblTaskStatus.TabIndex = 20;
+            lblTaskStatus.Text = "Status";
+            // 
+            // lbxTaskEmployees
+            // 
+            lbxTaskEmployees.FormattingEnabled = true;
+            lbxTaskEmployees.ItemHeight = 24;
+            lbxTaskEmployees.Location = new Point(569, 220);
+            lbxTaskEmployees.Name = "lbxTaskEmployees";
+            lbxTaskEmployees.Size = new Size(313, 76);
+            lbxTaskEmployees.TabIndex = 20;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(0, 24);
+            label3.Margin = new Padding(6, 0, 6, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(188, 37);
+            label3.TabIndex = 0;
+            label3.Text = "Task details";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(678, 183);
+            label11.Name = "label11";
+            label11.Size = new Size(204, 24);
+            label11.TabIndex = 11;
+            label11.Text = "Assigned employee(s):";
+            // 
+            // tbxTaskAnimalName
+            // 
+            tbxTaskAnimalName.Location = new Point(679, 121);
+            tbxTaskAnimalName.Name = "tbxTaskAnimalName";
+            tbxTaskAnimalName.ReadOnly = true;
+            tbxTaskAnimalName.Size = new Size(203, 29);
+            tbxTaskAnimalName.TabIndex = 14;
+            // 
+            // tbxAnimalSpecies
+            // 
+            tbxAnimalSpecies.Location = new Point(679, 72);
+            tbxAnimalSpecies.Name = "tbxAnimalSpecies";
+            tbxAnimalSpecies.ReadOnly = true;
+            tbxAnimalSpecies.Size = new Size(203, 29);
+            tbxAnimalSpecies.TabIndex = 13;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(280, 167);
+            label8.Name = "label8";
+            label8.Size = new Size(70, 24);
+            label8.TabIndex = 19;
+            label8.Text = "hour(s)";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(tbxSelectedTaskDescription);
+            groupBox3.Location = new Point(43, 211);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(473, 141);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Description:";
+            // 
+            // tbxSelectedTaskDescription
+            // 
+            tbxSelectedTaskDescription.Location = new Point(6, 28);
+            tbxSelectedTaskDescription.Multiline = true;
+            tbxSelectedTaskDescription.Name = "tbxSelectedTaskDescription";
+            tbxSelectedTaskDescription.ReadOnly = true;
+            tbxSelectedTaskDescription.Size = new Size(461, 97);
+            tbxSelectedTaskDescription.TabIndex = 10;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(768, 26);
+            label4.Name = "label4";
+            label4.Size = new Size(32, 24);
+            label4.TabIndex = 1;
+            label4.Text = "ID:";
+            // 
+            // tbxEstimatedTaskTime
+            // 
+            tbxEstimatedTaskTime.Location = new Point(186, 164);
+            tbxEstimatedTaskTime.Name = "tbxEstimatedTaskTime";
+            tbxEstimatedTaskTime.ReadOnly = true;
+            tbxEstimatedTaskTime.Size = new Size(85, 29);
+            tbxEstimatedTaskTime.TabIndex = 18;
+            // 
+            // tbxTaskID
+            // 
+            tbxTaskID.Location = new Point(806, 24);
+            tbxTaskID.Name = "tbxTaskID";
+            tbxTaskID.ReadOnly = true;
+            tbxTaskID.Size = new Size(76, 29);
+            tbxTaskID.TabIndex = 7;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(41, 167);
+            label7.Name = "label7";
+            label7.Size = new Size(137, 24);
+            label7.TabIndex = 17;
+            label7.Text = "Estimated time:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(536, 124);
+            label10.Name = "label10";
+            label10.Size = new Size(126, 24);
+            label10.TabIndex = 5;
+            label10.Text = "Animal name:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(43, 78);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 24);
+            label5.TabIndex = 2;
+            label5.Text = "Title:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(519, 75);
+            label9.Name = "label9";
+            label9.Size = new Size(143, 24);
+            label9.TabIndex = 4;
+            label9.Text = "Animal species:";
+            // 
+            // tbxTaskDate
+            // 
+            tbxTaskDate.Location = new Point(104, 118);
+            tbxTaskDate.Name = "tbxTaskDate";
+            tbxTaskDate.ReadOnly = true;
+            tbxTaskDate.Size = new Size(226, 29);
+            tbxTaskDate.TabIndex = 16;
+            // 
+            // tbxTaskTitle
+            // 
+            tbxTaskTitle.Location = new Point(104, 75);
+            tbxTaskTitle.Name = "tbxTaskTitle";
+            tbxTaskTitle.ReadOnly = true;
+            tbxTaskTitle.Size = new Size(327, 29);
+            tbxTaskTitle.TabIndex = 8;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(41, 121);
+            label6.Name = "label6";
+            label6.Size = new Size(53, 24);
+            label6.TabIndex = 15;
+            label6.Text = "Date:";
             // 
             // labelTitleZooBazaar
             // 
-            this.labelTitleZooBazaar.AutoSize = true;
-            this.labelTitleZooBazaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTitleZooBazaar.Location = new System.Drawing.Point(893, 20);
-            this.labelTitleZooBazaar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTitleZooBazaar.Name = "labelTitleZooBazaar";
-            this.labelTitleZooBazaar.Size = new System.Drawing.Size(184, 37);
-            this.labelTitleZooBazaar.TabIndex = 11;
-            this.labelTitleZooBazaar.Text = "ZooBazaar";
+            labelTitleZooBazaar.AutoSize = true;
+            labelTitleZooBazaar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTitleZooBazaar.Location = new Point(893, 20);
+            labelTitleZooBazaar.Margin = new Padding(4, 0, 4, 0);
+            labelTitleZooBazaar.Name = "labelTitleZooBazaar";
+            labelTitleZooBazaar.Size = new Size(184, 37);
+            labelTitleZooBazaar.TabIndex = 11;
+            labelTitleZooBazaar.Text = "ZooBazaar";
             // 
             // FormScheduleMaker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackgroundImage = global::DesktopApplication.Properties.Resources.zooimg5;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1919, 1061);
-            this.Controls.Add(this.labelTitleZooBazaar);
-            this.Controls.Add(this.tabControl1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "FormScheduleMaker";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormScheduleMaker";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTaskEncNumber)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEstimatedTaskTime)).EndInit();
-            this.groupBoxAnimalSearch.ResumeLayout(false);
-            this.groupBoxAnimalSearch.PerformLayout();
-            this.tabControlScheduledTasks.ResumeLayout(false);
-            this.tabAvailableTasks.ResumeLayout(false);
-            this.tabTasksInProgress.ResumeLayout(false);
-            this.tabFinishedTasks.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackgroundImage = Properties.Resources.zooimg5;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1919, 1061);
+            Controls.Add(labelTitleZooBazaar);
+            Controls.Add(tabControl1);
+            Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(6);
+            Name = "FormScheduleMaker";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormScheduleMaker";
+            WindowState = FormWindowState.Maximized;
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudEstimatedTaskTime).EndInit();
+            groupBoxAnimalSearch.ResumeLayout(false);
+            groupBoxAnimalSearch.PerformLayout();
+            tabControlScheduledTasks.ResumeLayout(false);
+            tabAvailableTasks.ResumeLayout(false);
+            tabTasksInProgress.ResumeLayout(false);
+            tabFinishedTasks.ResumeLayout(false);
+            groupBoxTaskDetails.ResumeLayout(false);
+            groupBoxTaskDetails.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -579,7 +829,7 @@
         private System.Windows.Forms.MonthCalendar calTaskDateSelection;
         private System.Windows.Forms.Button btnRemoveTask;
         private System.Windows.Forms.Button btnMoreTaskDetails;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAssignedTaskDetails;
         private System.Windows.Forms.Label labelTitleZooBazaar;
         private System.Windows.Forms.TabPage tabFinishedTasks;
         private System.Windows.Forms.Button btnFinishedTaskMoreDetails;
@@ -596,5 +846,30 @@
         private NumericUpDown nudTaskEncNumber;
         private ComboBox cbxTaskEncArea;
         private Label label1;
+        private GroupBox groupBoxTaskDetails;
+        private Label label3;
+        private Label label4;
+        private TextBox tbxTaskID;
+        private Label label5;
+        private TextBox tbxTaskDate;
+        private TextBox tbxTaskTitle;
+        private Label label6;
+        private TextBox tbxEstimatedTaskTime;
+        private Label label7;
+        private Label label8;
+        private TextBox tbxTaskAnimalName;
+        private TextBox tbxAnimalSpecies;
+        private Label label10;
+        private Label label9;
+        private GroupBox groupBox3;
+        private TextBox tbxSelectedTaskDescription;
+        private Label label11;
+        private ListBox lbxTaskEmployees;
+        private Label lblTaskStatus;
+        private ColumnHeader colEstimatedDuration;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
     }
 }
