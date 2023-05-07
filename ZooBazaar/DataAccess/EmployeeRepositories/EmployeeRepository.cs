@@ -83,7 +83,7 @@ namespace DataAccess
 
         private void UpdateEmployee(EmployeeDTO employee, SqlConnection connection)
         {
-            using (SqlCommand command = new SqlCommand("UPDATE dbo.Employees SET FirstName=@FirstName ,LastName=@LastName ,BirthDate=@BirthDate ,Gender=@Gender ,Address=@Address,Phone=@Phone,Password=@Password,Email=@Email,EmployeeType=@EmployeeType WHERE EmployeeID = @employeeID", connection))
+            using (SqlCommand command = new SqlCommand("UPDATE dbo.Employees SET FirstName=@FirstName ,LastName=@LastName ,BirthDate=@BirthDate ,Gender=@Gender ,Address=@Address,Phone=@Phone,Password=@Password,Email=@Email WHERE EmployeeID = @employeeID", connection))
             {
                 command.Parameters.AddWithValue("@employeeID", employee.id);
                 command.Parameters.AddWithValue("@FirstName", employee.firstName);
