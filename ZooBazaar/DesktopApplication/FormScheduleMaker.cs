@@ -49,7 +49,7 @@ namespace DesktopApplication
                     cbxTaskEncArea.SelectedItem = selectedAnimal.OriginContinent;
                     taskManagement.ScheduleTask(tbxTaskName.Text, selectedAnimal.OriginContinent.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
                 }
-                catch (Exception ex)
+                catch
                 {
                    MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
                 }
@@ -65,7 +65,7 @@ namespace DesktopApplication
                     }
                     taskManagement.ScheduleTask(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
                 }
-                catch (Exception ex)
+                catch
                 {
                     MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
                 }

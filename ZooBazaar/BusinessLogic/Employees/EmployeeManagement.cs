@@ -37,7 +37,7 @@ namespace BusinessLogic
                 startDate = contract.ContractStartDate,
                 endDate = contract.ContractEndDate,
                 hoursPerWeek = contract.HoursPerWeek,
-                salary = contract.Salary
+                salary = Convert.ToDecimal(contract.Salary)
             };
 
             EmergencyContactDTO contactDto = new EmergencyContactDTO
@@ -99,6 +99,21 @@ namespace BusinessLogic
             }
             ints = hoursPerWeek.ToArray();
             return employees;
+        }
+
+        public void UpdateEmployeeInformation(Employee employee)
+        {
+            ContractDTO emptyContract= new ContractDTO();
+            EmergencyContactDTO emptyContact= new EmergencyContactDTO();
+            
+            _employeeRepository.AddUpdateEmployee(employee.ToEmployeeDTO(),emptyContract,emptyContact);
+        }
+
+        public EmployeeContract GetContractById(int id)
+        {
+            
+           return _employeeRepository.GetContractById(id).ToEmployeeContract();
+
         }
     }
 }

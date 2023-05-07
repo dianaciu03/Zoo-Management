@@ -12,12 +12,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 using BusinessLogic.Employees;
+using DataAccess.EmployeeInterfaces;
+using DataAccess.EmployeeRepositories;
 
 namespace DesktopApplication
 {
     public partial class FormHRAdministration : Form
     {
-        IEmployeeManagement employeeManagement;        
+        IEmployeeManagement employeeManagement;
+        IContractManagement contractManagement = new ContractManagement(new ContractRepository());
         public FormHRAdministration(IEmployeeManagement emMng)
         {
             InitializeComponent();
@@ -78,23 +81,27 @@ namespace DesktopApplication
 
         private void btnDisplayEmployeeInformation_Click(object sender, EventArgs e)
         {
-            panelAdministrateEmployees.Controls.Clear();
-            Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            var uc = new ucEmployeeInformation(tempEmployee) { Dock = DockStyle.Fill };
-            panelAdministrateEmployees.Controls.Add(uc);
+            if (lvwEmployees.SelectedItems.Count > 0)
+            {
+                panelAdministrateEmployees.Controls.Clear();
+                Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+                var uc = new ucEmployeeInformation(tempEmployee,employeeManagement) { Dock = DockStyle.Fill };
+                panelAdministrateEmployees.Controls.Add(uc);
+            }
+            else
+            {
+                MessageBox.Show("Please select an employee!");
+                return;
+            }
         }
 
         private void btnEditEmployeeContract_Click(object sender, EventArgs e)
         {
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
-            var uc = new ucContractDetails();
+            EmployeeContract tempContract = employeeManagement.GetContractById(tempEmployee.ID);
+            var uc = new ucContractDetails(tempContract,contractManagement,tempEmployee.ID) { Dock = DockStyle.Fill };
             panelAdministrateEmployees.Controls.Add(uc);
-            //Need to add a contract obj for the employees to pass it to the Employee contract edit
-            // I guess the employees need a contract obj inserted in their class
-            //it doesn't exist atm should be added soon
-           // var uc = new ucContractDetails(employeeManagement, employeeContract) { Dock = DockStyle.Fill };
-            //panelAdministrateEmployees.Controls.Add(uc);
         }
 
         private void btnEditEmployeeAdditional_Click(object sender, EventArgs e)

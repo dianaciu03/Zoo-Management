@@ -83,13 +83,12 @@ namespace DataAccess
 
         private void UpdateEmployee(EmployeeDTO employee, SqlConnection connection)
         {
-            using (SqlCommand command = new SqlCommand(@"UPDATE Employees" +
-                                           " SET (FirstName,LastName,BirthDate,Gender,Address,Phone,Password,Email,EmployeeType) VALUES (@FirstName,@LastName,@Birthdate,@Gender,@Address,@Phone,@Password, @Email, @EmployeeType)", connection))
+            using (SqlCommand command = new SqlCommand("UPDATE dbo.Employees SET FirstName=@FirstName ,LastName=@LastName ,BirthDate=@BirthDate ,Gender=@Gender ,Address=@Address,Phone=@Phone,Password=@Password,Email=@Email,EmployeeType=@EmployeeType WHERE EmployeeID = @employeeID", connection))
             {
-                command.Parameters.AddWithValue("@EmployeeID", employee.id);
+                command.Parameters.AddWithValue("@employeeID", employee.id);
                 command.Parameters.AddWithValue("@FirstName", employee.firstName);
                 command.Parameters.AddWithValue("@LastName", employee.lastName);
-                command.Parameters.AddWithValue("@Birthdate", employee.birthDate);
+                command.Parameters.AddWithValue("@BirthDate", employee.birthDate);
                 command.Parameters.AddWithValue("@Gender", employee.gender);
                 command.Parameters.AddWithValue("@Address", employee.address);
                 command.Parameters.AddWithValue("@Phone", employee.phone);
@@ -220,7 +219,8 @@ namespace DataAccess
                     return employee;
                 }
             }
-        }public EmployeeDTO? GetEmployeeById(int id)
+        }
+        public EmployeeDTO? GetEmployeeById(int id)
         {
             EmployeeDTO employee;
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
@@ -288,6 +288,41 @@ namespace DataAccess
                     reader.Close();
                     connection.Close();
                     return employees.ToArray();
+                }
+            }
+        }
+
+        public ContractDTO GetContractById(int id)
+        {
+            ContractDTO contractDTO;
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                connection.Open();
+                SqlCommand query = new SqlCommand("SELECT * FROM Contracts Where EmployeeID = @id", connection);
+                query.Parameters.AddWithValue("id", id);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    try
+                    {
+                        reader.Read();
+
+                        contractDTO = new ContractDTO
+                        {
+                            employeeId = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                            startDate = reader.GetDateTime(reader.GetOrdinal("StartDate")),
+                            endDate = reader.GetDateTime(reader.GetOrdinal("EndDate")),
+                            hoursPerWeek = (int)reader.GetSqlInt32(reader.GetOrdinal("WeeklyHours")),
+                            salary = (decimal)reader.GetSqlDecimal(reader.GetOrdinal("Salary"))
+                        };
+                        reader.Close();
+                        connection.Close();
+                        return contractDTO;
+                    }
+                    catch
+                    {
+                        return new ContractDTO();
+                    }
                 }
             }
         }

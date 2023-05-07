@@ -11,7 +11,7 @@ namespace DataAccess.DTOs
         public DateTime startDate;
         public DateTime? endDate;
         public int hoursPerWeek;
-        public double salary;
+        public decimal salary;
         public int employeeId;
     }
 }
