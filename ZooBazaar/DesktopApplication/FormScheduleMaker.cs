@@ -24,11 +24,11 @@ namespace DesktopApplication
             animalManagement = am;
             taskManagement = new TaskManagement();
             initializeSpecieComboBox();
+            initializeAreaComboBox();
             updateTasks();
             groupBoxTaskDetails.Visible = false;
             cbxTaskEncArea.SelectedText = "";
         }
-
 
         private void btnScheduleTask_Click(object sender, EventArgs e)
         {
@@ -162,6 +162,8 @@ namespace DesktopApplication
             tbxTaskTitle.Text = task.Name;
             tbxTaskDate.Text = task.TaskDateTime.ToString("dd/MM/yyyy  HH:mm");
             tbxEstimatedTaskTime.Text = task.EstimatedDuration.ToString();
+            tbxEnclosureNumber.Text = task.EnclosureNumber.ToString();
+            tbxEnclosureArea.Text = task.EnclosureArea;
             tbxAnimalSpecies.Text = task.Species.ToString();
             if (task.Animal != null)
                 tbxTaskAnimalName.Text = task.Animal.Name;

@@ -98,6 +98,10 @@
             tbxTaskTitle = new TextBox();
             label6 = new Label();
             labelTitleZooBazaar = new Label();
+            label12 = new Label();
+            tbxEnclosureNumber = new TextBox();
+            label13 = new Label();
+            tbxEnclosureArea = new TextBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).BeginInit();
@@ -116,11 +120,11 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            tabControl1.Location = new Point(52, 44);
+            tabControl1.Location = new Point(51, 30);
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new Point(70, 9);
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1809, 937);
+            tabControl1.Size = new Size(1809, 952);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -139,7 +143,7 @@
             tabPage1.Location = new Point(4, 45);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1801, 888);
+            tabPage1.Size = new Size(1801, 903);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Schedule task";
             tabPage1.UseVisualStyleBackColor = true;
@@ -190,7 +194,7 @@
             groupBox1.Controls.Add(labelHours);
             groupBox1.Location = new Point(50, 421);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(700, 438);
+            groupBox1.Size = new Size(700, 462);
             groupBox1.TabIndex = 33;
             groupBox1.TabStop = false;
             groupBox1.Text = "Task date and time";
@@ -558,6 +562,10 @@
             // 
             // groupBoxTaskDetails
             // 
+            groupBoxTaskDetails.Controls.Add(label12);
+            groupBoxTaskDetails.Controls.Add(tbxEnclosureNumber);
+            groupBoxTaskDetails.Controls.Add(label13);
+            groupBoxTaskDetails.Controls.Add(tbxEnclosureArea);
             groupBoxTaskDetails.Controls.Add(lblTaskStatus);
             groupBoxTaskDetails.Controls.Add(lbxTaskEmployees);
             groupBoxTaskDetails.Controls.Add(label3);
@@ -578,7 +586,7 @@
             groupBoxTaskDetails.Controls.Add(label6);
             groupBoxTaskDetails.Location = new Point(827, 492);
             groupBoxTaskDetails.Name = "groupBoxTaskDetails";
-            groupBoxTaskDetails.Size = new Size(901, 367);
+            groupBoxTaskDetails.Size = new Size(901, 391);
             groupBoxTaskDetails.TabIndex = 37;
             groupBoxTaskDetails.TabStop = false;
             // 
@@ -586,7 +594,7 @@
             // 
             lblTaskStatus.AutoSize = true;
             lblTaskStatus.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTaskStatus.Location = new Point(686, 315);
+            lblTaskStatus.Location = new Point(686, 339);
             lblTaskStatus.Name = "lblTaskStatus";
             lblTaskStatus.Size = new Size(114, 37);
             lblTaskStatus.TabIndex = 20;
@@ -596,7 +604,7 @@
             // 
             lbxTaskEmployees.FormattingEnabled = true;
             lbxTaskEmployees.ItemHeight = 24;
-            lbxTaskEmployees.Location = new Point(569, 220);
+            lbxTaskEmployees.Location = new Point(569, 244);
             lbxTaskEmployees.Name = "lbxTaskEmployees";
             lbxTaskEmployees.Size = new Size(313, 76);
             lbxTaskEmployees.TabIndex = 20;
@@ -615,7 +623,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(678, 183);
+            label11.Location = new Point(678, 207);
             label11.Name = "label11";
             label11.Size = new Size(204, 24);
             label11.TabIndex = 11;
@@ -640,7 +648,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(280, 167);
+            label8.Location = new Point(281, 205);
             label8.Name = "label8";
             label8.Size = new Size(70, 24);
             label8.TabIndex = 19;
@@ -649,7 +657,7 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(tbxSelectedTaskDescription);
-            groupBox3.Location = new Point(43, 211);
+            groupBox3.Location = new Point(41, 244);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(473, 141);
             groupBox3.TabIndex = 9;
@@ -676,7 +684,7 @@
             // 
             // tbxEstimatedTaskTime
             // 
-            tbxEstimatedTaskTime.Location = new Point(186, 164);
+            tbxEstimatedTaskTime.Location = new Point(187, 202);
             tbxEstimatedTaskTime.Name = "tbxEstimatedTaskTime";
             tbxEstimatedTaskTime.ReadOnly = true;
             tbxEstimatedTaskTime.Size = new Size(85, 29);
@@ -693,7 +701,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(41, 167);
+            label7.Location = new Point(42, 205);
             label7.Name = "label7";
             label7.Size = new Size(137, 24);
             label7.TabIndex = 17;
@@ -711,7 +719,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(43, 78);
+            label5.Location = new Point(258, 27);
             label5.Name = "label5";
             label5.Size = new Size(50, 24);
             label5.TabIndex = 2;
@@ -728,7 +736,7 @@
             // 
             // tbxTaskDate
             // 
-            tbxTaskDate.Location = new Point(104, 118);
+            tbxTaskDate.Location = new Point(105, 156);
             tbxTaskDate.Name = "tbxTaskDate";
             tbxTaskDate.ReadOnly = true;
             tbxTaskDate.Size = new Size(226, 29);
@@ -736,7 +744,7 @@
             // 
             // tbxTaskTitle
             // 
-            tbxTaskTitle.Location = new Point(104, 75);
+            tbxTaskTitle.Location = new Point(319, 24);
             tbxTaskTitle.Name = "tbxTaskTitle";
             tbxTaskTitle.ReadOnly = true;
             tbxTaskTitle.Size = new Size(327, 29);
@@ -745,7 +753,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(41, 121);
+            label6.Location = new Point(42, 159);
             label6.Name = "label6";
             label6.Size = new Size(53, 24);
             label6.TabIndex = 15;
@@ -761,6 +769,40 @@
             labelTitleZooBazaar.Size = new Size(184, 37);
             labelTitleZooBazaar.TabIndex = 11;
             labelTitleZooBazaar.Text = "ZooBazaar";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(42, 114);
+            label12.Name = "label12";
+            label12.Size = new Size(172, 24);
+            label12.TabIndex = 28;
+            label12.Text = "Enclosure number:";
+            // 
+            // tbxEnclosureNumber
+            // 
+            tbxEnclosureNumber.Location = new Point(232, 111);
+            tbxEnclosureNumber.Name = "tbxEnclosureNumber";
+            tbxEnclosureNumber.ReadOnly = true;
+            tbxEnclosureNumber.Size = new Size(76, 29);
+            tbxEnclosureNumber.TabIndex = 27;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(41, 77);
+            label13.Name = "label13";
+            label13.Size = new Size(143, 24);
+            label13.TabIndex = 26;
+            label13.Text = "Enclosure area:";
+            // 
+            // tbxEnclosureArea
+            // 
+            tbxEnclosureArea.Location = new Point(232, 77);
+            tbxEnclosureArea.Name = "tbxEnclosureArea";
+            tbxEnclosureArea.ReadOnly = true;
+            tbxEnclosureArea.Size = new Size(185, 29);
+            tbxEnclosureArea.TabIndex = 25;
             // 
             // FormScheduleMaker
             // 
@@ -870,5 +912,9 @@
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
+        private Label label12;
+        private TextBox tbxEnclosureNumber;
+        private Label label13;
+        private TextBox tbxEnclosureArea;
     }
 }

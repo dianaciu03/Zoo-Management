@@ -51,7 +51,7 @@ namespace DesktopApplication
                 ListViewItem item = new ListViewItem();
                 item.Text = task.Name.ToString();
                 item.Tag = task;
-                item.SubItems.Add(task.TaskDateTime.ToString());
+                item.SubItems.Add(task.TaskDateTime.ToString("yyyy/MM/dd HH:mm"));
                 item.SubItems.Add(task.EstimatedDuration.ToString());
                 item.SubItems.Add(task.Status);
                 lvwAllTasks.Items.Add(item);
@@ -129,6 +129,8 @@ namespace DesktopApplication
             tbxTaskDate.Text = task.TaskDateTime.ToString("yyyy/MM/dd HH:mm");
             tbxEstimatedTaskTime.Text = task.EstimatedDuration.ToString();
             tbxAnimalSpecies.Text = task.Species;
+            tbxEnclosureArea.Text = task.EnclosureArea;
+            tbxEnclosureNumber.Text = task.EnclosureNumber.ToString();
             if (task.Animal != null)
                 tbxTaskAnimalName.Text = task.Animal.Name;
             lbxTaskEmployees.Items.Clear();
