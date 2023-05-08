@@ -558,6 +558,7 @@
             this.cbxRelationshipType.Name = "cbxRelationshipType";
             this.cbxRelationshipType.Size = new System.Drawing.Size(365, 37);
             this.cbxRelationshipType.TabIndex = 14;
+            this.cbxRelationshipType.SelectedIndexChanged += new System.EventHandler(this.cbxRelationshipType_SelectedIndexChanged);
             // 
             // labelRelationshipTypeMain
             // 
@@ -1099,10 +1100,10 @@
             this.tabAnimalHistory.Controls.Add(this.rbtnName);
             this.tabAnimalHistory.Controls.Add(this.labelSortBy);
             this.tabAnimalHistory.Controls.Add(this.labelAllAnimals);
-            this.tabAnimalHistory.Location = new System.Drawing.Point(4, 46);
+            this.tabAnimalHistory.Location = new System.Drawing.Point(4, 36);
             this.tabAnimalHistory.Name = "tabAnimalHistory";
             this.tabAnimalHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAnimalHistory.Size = new System.Drawing.Size(1793, 897);
+            this.tabAnimalHistory.Size = new System.Drawing.Size(1793, 907);
             this.tabAnimalHistory.TabIndex = 1;
             this.tabAnimalHistory.Text = "Animal history";
             this.tabAnimalHistory.UseVisualStyleBackColor = true;
@@ -1643,6 +1644,7 @@
             this.cbRelationShipType.Name = "cbRelationShipType";
             this.cbRelationShipType.Size = new System.Drawing.Size(365, 37);
             this.cbRelationShipType.TabIndex = 1;
+            this.cbRelationShipType.SelectedIndexChanged += new System.EventHandler(this.cbRelationShipType_SelectedIndexChanged);
             // 
             // labelRelationshipType
             // 

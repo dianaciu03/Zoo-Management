@@ -241,7 +241,6 @@ namespace DesktopApplication
         //button that makes the group box for adding a relationship to an animal visible (step 1 relationship)
         private void btnAddRelationship_Click(object sender, EventArgs e)
         {
-            cbxRelationshipType.SelectedIndex = 0;
             try
             {
                 Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
@@ -265,12 +264,13 @@ namespace DesktopApplication
                     lbxRelationshipsMain.Items.Add($"Sibling - {animaltemp} ");
                 }
 
-                cbxOtherAnimalRelationship.DataSource = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
-
                 groupBoxSearchAnimal.Visible = false;
                 groupBoxRelationship.Visible = true;
                 lvwAnimals.Enabled = false;
-                tbxMainAnimalRelationship.Text = animal.Name;
+                tbxMainAnimalRelationship.DataBindings.Clear();
+                tbxMainAnimalRelationship.DataBindings.Add("Text", animal, "Name");
+                cbxRelationshipType.SelectedIndex = 0;
+
             }
             catch (Exception ex)
             {
@@ -528,9 +528,6 @@ namespace DesktopApplication
 
             tbxAnimalForRelationship.DataBindings.Add("Text", animal, "Name");
 
-            cbOtherAnimal.DataSource = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
-
-
 
         }
 
@@ -595,6 +592,62 @@ namespace DesktopApplication
                         MessageBox.Show("Please select a realationship type.");
                         break;
                     }
+            }
+        }
+
+        private void cbxRelationshipType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Binding binding = tbxMainAnimalRelationship.DataBindings["Text"];
+
+            Animal animal = (Animal)binding.DataSource;
+
+            List<Animal> animalsInSpecies = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
+            switch (cbxRelationshipType.SelectedIndex)
+            {
+                case 0:
+                    //children
+                    cbxOtherAnimalRelationship.Items.Clear();
+                    animalsInSpecies.Where(a => a.Birthday > animal.Birthday).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
+                    break;
+                case 1:
+                    //parents
+                    cbxOtherAnimalRelationship.Items.Clear();
+                    animalsInSpecies.Where(a => a.Birthday < animal.Birthday).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
+                    break;
+                case 2:
+                    //mates
+                    cbxOtherAnimalRelationship.Items.Clear();
+                    animalsInSpecies.Where(a => a.Gender != animal.Gender).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
+                    break;
+            }
+        }
+    
+
+        private void cbRelationShipType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Binding binding = tbxAnimalForRelationship.DataBindings["Text"];
+
+            Animal animal = (Animal)binding.DataSource;
+
+
+            List<Animal> animalsInSpecies = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
+            switch (cbRelationShipType.SelectedIndex)
+            {
+                case 0:
+                    //children
+                    cbOtherAnimal.Items.Clear();
+                    animalsInSpecies.Where(a => a.Birthday > animal.Birthday).ToList().ForEach(a => cbOtherAnimal.Items.Add(a));
+                    break;
+                case 1:
+                    //parents
+                    cbOtherAnimal.Items.Clear();
+                    animalsInSpecies.Where(a => a.Birthday < animal.Birthday).ToList().ForEach(a => cbOtherAnimal.Items.Add(a));
+                    break;
+                case 2:
+                    //mates
+                    cbOtherAnimal.Items.Clear();
+                    animalsInSpecies.Where(a => a.Gender != animal.Gender).ToList().ForEach(a => cbOtherAnimal.Items.Add(a));
+                    break;
             }
         }
     }
