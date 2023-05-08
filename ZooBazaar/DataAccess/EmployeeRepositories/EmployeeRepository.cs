@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -306,15 +307,28 @@ namespace DataAccess
                     try
                     {
                         reader.Read();
-
-                        contractDTO = new ContractDTO
+                        if (!reader.IsDBNull(reader.GetOrdinal("EndDate")))
                         {
-                            employeeId = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
-                            startDate = reader.GetDateTime(reader.GetOrdinal("StartDate")),
-                            endDate = reader.GetDateTime(reader.GetOrdinal("EndDate")),
-                            hoursPerWeek = (int)reader.GetSqlInt32(reader.GetOrdinal("WeeklyHours")),
-                            salary = (decimal)reader.GetSqlDecimal(reader.GetOrdinal("Salary"))
-                        };
+                            contractDTO = new ContractDTO
+                            {
+                                employeeId = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                                startDate = reader.GetDateTime(reader.GetOrdinal("StartDate")),
+                                endDate = reader.GetDateTime(reader.GetOrdinal("EndDate")),
+                                hoursPerWeek = (int)reader.GetSqlInt32(reader.GetOrdinal("WeeklyHours")),
+                                salary = (decimal)reader.GetSqlDecimal(reader.GetOrdinal("Salary"))
+                            };
+                        }
+                        else
+                        {
+                            contractDTO = new ContractDTO
+                            {
+                                employeeId = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                                startDate = reader.GetDateTime(reader.GetOrdinal("StartDate")),
+                                endDate = DateTime.ParseExact("01/01/0001","dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None),
+                                hoursPerWeek = (int)reader.GetSqlInt32(reader.GetOrdinal("WeeklyHours")),
+                                salary = (decimal)reader.GetSqlDecimal(reader.GetOrdinal("Salary"))
+                            };
+                        }
                         reader.Close();
                         connection.Close();
                         return contractDTO;

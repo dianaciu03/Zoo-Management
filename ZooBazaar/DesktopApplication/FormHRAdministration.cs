@@ -98,6 +98,11 @@ namespace DesktopApplication
 
         private void btnEditEmployeeContract_Click(object sender, EventArgs e)
         {
+            if(lvwEmployees.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Please select an employee!");
+                return;
+            }
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
             EmployeeContract tempContract = employeeManagement.GetContractById(tempEmployee.ID);
@@ -107,6 +112,11 @@ namespace DesktopApplication
 
         private void btnEditEmployeeAdditional_Click(object sender, EventArgs e)
         {
+            if (lvwEmployees.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Please select an employee!");
+                return;
+            }
             panelAdministrateEmployees.Controls.Clear();
             Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
             var uc = new ucEmergencyContact(tempEmployee,emergencyContactManagement) { Dock = DockStyle.Fill };

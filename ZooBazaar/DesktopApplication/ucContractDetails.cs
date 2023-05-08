@@ -95,13 +95,15 @@ namespace DesktopApplication
         private void ucContractDetails_Load(object sender, EventArgs e)
         {
             dateTimePickerStartDateEmployeeContractEdit.Value = employeeContract.ContractStartDate;
-            if(employeeContract.ContractEndDate.HasValue)
+            var endDate = DateTime.ParseExact("01/01/0001", "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
+            if (employeeContract.ContractEndDate > endDate)
             {
                 dateTimePickerEndDateContractEdit.Value = (DateTime)employeeContract.ContractEndDate;
 
             }
             else
             {
+                dateTimePickerEndDateContractEdit.Value = DateTime.Now;
                 dateTimePickerEndDateContractEdit.Enabled = false;
                 checkBoxContractNotMentionedContractEdit.Checked = true;
             }
