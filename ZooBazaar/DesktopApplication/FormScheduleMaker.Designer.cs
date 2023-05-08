@@ -162,7 +162,6 @@
             // 
             // cbxTaskEncArea
             // 
-            cbxTaskEncArea.Enabled = false;
             cbxTaskEncArea.FormattingEnabled = true;
             cbxTaskEncArea.Location = new Point(199, 75);
             cbxTaskEncArea.Name = "cbxTaskEncArea";

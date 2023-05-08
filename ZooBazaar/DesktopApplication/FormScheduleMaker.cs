@@ -123,10 +123,6 @@ namespace DesktopApplication
         {
             searchedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), string.Empty, string.Empty, string.Empty, null, string.Empty);
             updateSearchedAnimalListView();
-            //if (cbxSearchBySpecie.SelectedIndex == 0)
-            //{
-            //    lvwAnimalSearch.Items.Clear();
-            //}
         }
 
         private void updateTasks()
@@ -194,7 +190,8 @@ namespace DesktopApplication
             ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag;
             if (selectedTask.TaskDateTime <= DateTime.Today)
                 taskManagement.UpdateTaskStatus(selectedTask.ID, "Finished");
-            else MessageBox.Show("Task that is scheduled in the future cannot be marked as finished");
+            else
+                MessageBox.Show("Task that is scheduled in the future cannot be marked as finished");
             updateTasks();
         }
 
