@@ -24,18 +24,18 @@ namespace DesktopApplication
             animalManagement = am;
             taskManagement = new TaskManagement();
             initializeSpecieComboBox();
+            initializeAreaComboBox();
             updateTasks();
-           
+            groupBoxTaskDetails.Visible = false;
             cbxTaskEncArea.SelectedText = "";
         }
-
 
         private void btnScheduleTask_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = calTaskDateSelection.SelectionStart;
             DateTime selectedTime = dtpTaskTime.Value;
             DateTime taskDateAndTime = new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, selectedTime.Hour, selectedTime.Minute, selectedTime.Second);
-            
+
             if (lvwAnimalSearch.SelectedIndices.Count > 0)
             {
                 try
@@ -49,23 +49,23 @@ namespace DesktopApplication
                     cbxTaskEncArea.SelectedItem = selectedAnimal.OriginContinent;
                     taskManagement.ScheduleTask(tbxTaskName.Text, selectedAnimal.OriginContinent.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
                 }
-                catch (Exception ex)
+                catch
                 {
-                   MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
+                    MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
                 }
             }
             else
             {
                 try
                 {
-                    if (cbxSearchBySpecie.SelectedIndex < 0) 
-                    { 
+                    if (cbxSearchBySpecie.SelectedIndex < 0)
+                    {
                         MessageBox.Show("You haven't selected the animal specie");
                         return;
                     }
                     taskManagement.ScheduleTask(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
                 }
-                catch (Exception ex)
+                catch
                 {
                     MessageBox.Show("Entered task information is invalid. Check if all the fields are entered and if details are in correct format!");
                 }
@@ -73,7 +73,7 @@ namespace DesktopApplication
             updateTasks();
         }
 
-        private void initializeSpecieComboBox() 
+        private void initializeSpecieComboBox()
         {
             cbxSearchBySpecie.Items.Clear();
             foreach (string s in animalManagement.GetAllSpecies())
@@ -116,17 +116,13 @@ namespace DesktopApplication
                 updateSearchedAnimalListView();
                 if (tbxSearchByName.Text == "") { lvwAnimalSearch.Items.Clear(); }
             }
-           // catch { }
+            // catch { }
         }
 
         private void cbxSearchBySpecie_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), string.Empty, string.Empty, string.Empty, null, string.Empty);
             updateSearchedAnimalListView();
-            //if (cbxSearchBySpecie.SelectedIndex == 0)
-            //{
-            //    lvwAnimalSearch.Items.Clear();
-            //}
         }
 
         private void updateTasks()
@@ -139,7 +135,9 @@ namespace DesktopApplication
                 ListViewItem item = new ListViewItem();
                 item.Tag = task;
                 item.Text = task.Name;
-                item.SubItems.Add(task.TaskDateTime.ToString("dd/MM/yyyy"));
+                item.SubItems.Add(task.TaskDateTime.ToString("dd/MM/yyyy HH:mm"));
+                item.SubItems.Add(task.EstimatedDuration.ToString());
+
                 if (task.Status == "Not started")
                     lvwUnassignedTasks.Items.Add(item);
                 else if (task.Status == "Finished")
@@ -153,18 +151,49 @@ namespace DesktopApplication
         {
             if (lvwUnassignedTasks.SelectedItems.Count > 0)
             {
-                ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag; ;
-                PopupTaskDetails popup = new PopupTaskDetails(selectedTask);
-                popup.ShowDialog();
-                this.Show();
+                fillInTaskDetails((ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag);
+                groupBoxTaskDetails.Visible = true;
             }
             else MessageBox.Show("You haven't selected the task");
+        }
+        private void fillInTaskDetails(ZooTask task)
+        {
+            tbxTaskID.Text = task.ID.ToString();
+            tbxTaskTitle.Text = task.Name;
+            tbxTaskDate.Text = task.TaskDateTime.ToString("dd/MM/yyyy  HH:mm");
+            tbxEstimatedTaskTime.Text = task.EstimatedDuration.ToString();
+            tbxEnclosureNumber.Text = task.EnclosureNumber.ToString();
+            tbxEnclosureArea.Text = task.EnclosureArea;
+            tbxAnimalSpecies.Text = task.Species.ToString();
+            if (task.Animal != null)
+                tbxTaskAnimalName.Text = task.Animal.Name;
+            tbxSelectedTaskDescription.Text = task.Description.ToString();
+            if (taskManagement.GetTaskEmployees(task.ID).Count() > 0)
+            {
+                lbxTaskEmployees.Items.Clear();
+                foreach (Employee employee in taskManagement.GetTaskEmployees(task.ID))
+                {
+                    lbxTaskEmployees.Items.Add(employee.FirstName + " " + employee.LastName);
+                }
+            }
+            else
+            {
+                lbxTaskEmployees.Items.Clear();
+                lbxTaskEmployees.Items.Add("None");
+            }
+            lblTaskStatus.Text = task.Status.ToString();
+            if (task.Status == "Not started") lblTaskStatus.ForeColor = Color.Red;
+            else if (task.Status == "Finished") lblTaskStatus.ForeColor = Color.Green;
+            else if (task.Status == "Assigned") lblTaskStatus.ForeColor = Color.Goldenrod;
         }
 
         private void btnMarkTaskAsFinished_Click(object sender, EventArgs e)
         {
             ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag;
-            selectedTask.Status = "Finished";
+            if (selectedTask.TaskDateTime <= DateTime.Today)
+                taskManagement.UpdateTaskStatus(selectedTask.ID, "Finished");
+            else
+                MessageBox.Show("Task that is scheduled in the future cannot be marked as finished");
             updateTasks();
         }
 
@@ -172,17 +201,18 @@ namespace DesktopApplication
         {
             if (lvwFinishedTasks.SelectedItems.Count > 0)
             {
-                ZooTask selectedTask = (ZooTask)lvwFinishedTasks.SelectedItems[0].Tag;
-                PopupTaskDetails popup = new PopupTaskDetails(selectedTask);
-                popup.ShowDialog();
-                this.Show();
+                fillInTaskDetails((ZooTask)lvwFinishedTasks.SelectedItems[0].Tag);
+                groupBoxTaskDetails.Visible = true;
             }
+            else MessageBox.Show("You haven't selected the task");
         }
 
         private void btnRemoveTask_Click(object sender, EventArgs e)
         {
             ZooTask selectedTask = (ZooTask)lvwUnassignedTasks.SelectedItems[0].Tag;
-            taskManagement.RemoveTaskByID(selectedTask.ID);
+            if (taskManagement.GetTaskEmployees(selectedTask.ID).Count() == 0)
+                taskManagement.RemoveTask(selectedTask.ID);
+            else MessageBox.Show("Task with assigned caretakers cannot be removed");
             updateTasks();
         }
 
@@ -200,7 +230,33 @@ namespace DesktopApplication
                 cbxTaskEncArea.Enabled = true;
                 initializeAreaComboBox();
             }
-            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (lvwTasksInProgress.SelectedItems.Count > 0)
+            {
+                fillInTaskDetails((ZooTask)lvwTasksInProgress.SelectedItems[0].Tag);
+                groupBoxTaskDetails.Visible = true;
+            }
+            else MessageBox.Show("You haven't selected the task");
+
+        }
+
+        private void lvwUnassignedTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            groupBoxTaskDetails.Visible = false;
+        }
+
+        private void lvwTasksInProgress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            groupBoxTaskDetails.Visible = false;
+        }
+
+        private void lvwFinishedTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            groupBoxTaskDetails.Visible = false;
         }
     }
 }

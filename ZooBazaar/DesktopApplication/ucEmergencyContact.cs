@@ -8,27 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using BusinessLogic.Employees;
 
 namespace DesktopApplication
 {
     public partial class ucEmergencyContact : UserControl
     {
         Employee selectedEmployee;
-
-        public ucEmergencyContact(Employee empl)
+        IEmergencyContactManagement emergencyContactManagement;
+        EmergencyContact selectedEmergencyContact;
+        public ucEmergencyContact(Employee empl, IEmergencyContactManagement emergencyContactManagement)
         {
             InitializeComponent();
             selectedEmployee = empl;
+            this.emergencyContactManagement = emergencyContactManagement;
+            selectedEmergencyContact = emergencyContactManagement.GetContactByEmployee(selectedEmployee.ID);
+
         }
 
         private void ucEmergencyContact_Load(object sender, EventArgs e)
         {
-            //tbAddressAdditionalInformation.Text = selectedEmployee.Address;
-            //Employees dont have a postal code field,or emergency contact fields lol
-            //tbPostalCodeAdditionalInformation.Text = 
-            //tbFirstNameAdditionalInformation.Text =
-            //tbLastNameAdditionalInformation.Text = 
-            //tbPhoneNumberAdditionalInformation.Text = 
+            tbFirstNameAdditionalInformation.Text = selectedEmergencyContact.FirstName;
+            tbLastNameAdditionalInformation.Text = selectedEmergencyContact.LastName;
+            tbPhoneNumberAdditionalInformation.Text = selectedEmergencyContact.Phone;
+            tbxEmergencyContractRel.Text = selectedEmergencyContact.Relationship;
         }
 
 
@@ -39,7 +42,27 @@ namespace DesktopApplication
 
         private void btnSaveAdditionalInformationEdit_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                if(string.IsNullOrEmpty(tbFirstNameAdditionalInformation.Text) || string.IsNullOrEmpty(tbLastNameAdditionalInformation.Text) 
+                  || string.IsNullOrEmpty(tbPhoneNumberAdditionalInformation.Text) || string.IsNullOrEmpty(tbxEmergencyContractRel.Text)) 
+                {
+                    MessageBox.Show("Please complete all of the fields before saving changes!");
+                    return;
+                }
+                selectedEmergencyContact.FirstName= tbFirstNameAdditionalInformation.Text;
+                selectedEmergencyContact.LastName= tbLastNameAdditionalInformation.Text;
+                selectedEmergencyContact.Phone= tbPhoneNumberAdditionalInformation.Text;
+                selectedEmergencyContact.Relationship = tbxEmergencyContractRel.Text;
+                emergencyContactManagement.UpdateEmergencyContact(selectedEmergencyContact, selectedEmployee.ID);
+                MessageBox.Show("Changes saved!");
+                this.Hide();
+
+            }
+            catch
+            {
+                MessageBox.Show("Changes couldn't be saved! Action aborted!");
+            }
         }
     }
 }

@@ -150,3 +150,9 @@ label {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+input[type=text] labelbox {
+    border: none;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+}

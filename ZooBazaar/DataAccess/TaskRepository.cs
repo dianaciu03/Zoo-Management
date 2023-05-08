@@ -216,21 +216,11 @@ namespace DataAccess
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                SqlCommand query = new SqlCommand("DELETE FROM Tasks WHERE TaskID = @TaskID;");
+                connection.Open();
+
+                SqlCommand query = new SqlCommand("DELETE FROM Tasks WHERE TaskID = @TaskID ", connection);
                 query.Parameters.AddWithValue("@TaskID", taskID);
-
-
-                try
-                {
-                    connection.Open();
-                    query.ExecuteNonQuery();
-                }
-                catch (SqlException) { }
-                finally
-                {
-                    connection.Close();
-                }
-
+                query.ExecuteNonQuery();
             }
         }
 

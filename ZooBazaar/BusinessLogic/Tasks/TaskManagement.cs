@@ -194,11 +194,20 @@ namespace BusinessLogic
             }
             return true;
         }
+        public void UpdateTaskStatus(int taskId, string status)
+        {
+            taskRepository.UpdateTaskStatus(status, taskId);
+        }
 
         public void AssignEmployee(ZooTask task, Employee employee)
         {
             taskRepository.AssignEmployee(employee.ID, task.ID);
         }
+        public void RemoveTask(int taskId)
+        {
+            taskRepository.RemoveTask(taskId);
+        }
+
 
         public void CompleteTask(ZooTask task)
         {

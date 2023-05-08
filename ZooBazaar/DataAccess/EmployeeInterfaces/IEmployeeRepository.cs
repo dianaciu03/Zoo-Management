@@ -15,6 +15,7 @@ namespace DataAccess
         public List<EmployeeDTO> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeType);
         public EmployeeDTO? GetEmployeeByEmail(string email);
         public EmployeeDTO? GetEmployeeById(int id);
+        public ContractDTO GetContractById(int id);
 
     }
 }
