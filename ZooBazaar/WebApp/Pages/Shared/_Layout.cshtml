@@ -7,11 +7,6 @@
     <title>@ViewData["Home"] - IndividualProjectFestivalWebsite</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/IndividualProjectFestivalWebsite.styles.css" asp-append-version="true" />
-    <style>
-        body {
-            background-image: url("../images/wallpaper.jpg");
-        }
-    </style>
 </head>
 
 <body>
@@ -24,8 +19,9 @@
                     </a>
                 </div>
                 <ul class="nav-links">
-                    <li><a asp-page="#">About Us</a></li>
-                    <li><a asp-page="#">Tickets</a></li>
+                    <li style="padding-right: 4rem"><a asp-page="#">About Us</a></li>
+                    <li ><a asp-page="#">Tickets</a></li>
+                    <li style="padding-left: 4rem"><a asp-page="#">Gallery</a></li>
                 </ul>
                 <div class="login">
                     <a asp-page="Login">Login</a>
