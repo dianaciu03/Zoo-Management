@@ -15,13 +15,21 @@
 </head>
 
 <body>
-    <div class="grid-container">
-        <div class="header">
-            <nav class="navBarMain">
-                <ul>
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/Login">Login</a></li>
+    <div>
+        <div>
+            <nav>
+                <div class="logo">
+                    <a asp-page="/Index">
+                        <img src="~/images/BangerLogo.png"  alt="Your Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a asp-page="#">About Us</a></li>
+                    <li><a asp-page="#">Tickets</a></li>
                 </ul>
+                <div class="login">
+                    <a asp-page="Login">Login</a>
+                </div>
             </nav>
         </div>
 
