@@ -9,12 +9,11 @@
         
     </header>
 
-    <div class="employeeDetails">
+    <div class="employee-details">
         <h2>User Details</h2>
 
-        <form method="post">
+        <form class="form-emp-details" method="post">
             <div>
-                <!--  Yea its scuffed but im lazy and it works -Milan  -->
                 <input asp-for="ID" type="hidden" readonly />
                 <input  asp-for="Role" type="hidden" readonly />
                 <input asp-for="Password" type="hidden" readonly />
@@ -60,6 +59,4 @@
             </div>
         </form>    
     </div>
-
-    <p>Well getting employees works and stuff. Need to get the whole employee scheduel system into this next</p>
 }

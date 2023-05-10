@@ -4,7 +4,7 @@
     <div class="login">
             <h1 class="page-title">Login</h1>
             <div>
-                <form method="post">
+                <form class="login-form" method="post">
                     <div>
                         <label asp-for="Email">Email:</label>
                         <input class="textBox" asp-for="Email" type="text" />
@@ -12,7 +12,7 @@
                     </div>
                     <div>
                         <label asp-for="Password">Password:</label>
-                        <input class="textBox" asp-for="Password" type="text" />
+                        <input class="textBox" asp-for="Password" type="password" />
                         <span asp-validation-for="Password" class="errorMessage"></span>
                     </div>
                     <div>
