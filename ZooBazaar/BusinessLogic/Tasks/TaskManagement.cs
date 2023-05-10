@@ -119,18 +119,17 @@ namespace BusinessLogic
             return foundTasks.ToArray();
         }
 
-        /*public ZooTask[] GetTasksByCaretaker(int employeeID)
+        public ZooTask GetTask(int id)
         {
-            List<ZooTask> foundTasks = new List<ZooTask>();
-            foreach (ZooTask task in tasks)
-            {
-                if (task.GetAssignedEmployee(employeeID) != null)
-                {
-                    foundTasks.Add(task);
-                }
-            }
-            return foundTasks.ToArray();
-        }*/
+            ZooTaskDTO taskDto = taskRepository.GetTask(id);
+
+            Animal? animal = null;
+            if (taskDto.AnimalID != null)
+                animal = animalRepository.GetAnimalByID((int)taskDto.AnimalID)!.DTOToAnimal();
+            ZooTask task = new ZooTask(taskDto.ID, taskDto.Name, taskDto.Description, taskDto.EnclosureArea, taskDto.EnclosureNumber, taskDto.TaskDateTime, taskDto.EstimatedDuration, taskDto.Status, taskDto.Species, animal);
+            return task;
+        }
+
         public ZooTask[] GetTasksByCaretaker(int employeeID, DateTime taskDate)
         {
             List<ZooTask> foundTasks = new List<ZooTask>();

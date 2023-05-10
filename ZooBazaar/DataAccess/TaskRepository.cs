@@ -73,43 +73,32 @@ namespace DataAccess
         }
 
 
-        public ZooTaskDTO GetTask(int taskID)
+        public ZooTaskDTO? GetTask(int taskID)
         {
+            ZooTaskDTO task;
+
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
             {
-                SqlCommand query = new SqlCommand("SELECT * FROM Tasks WHERE TaskID = @TaskID", connection);
+                SqlCommand query = new SqlCommand("SELECT * FROM Tasks WHERE TaskID = @TaskID ", connection);
                 query.Parameters.AddWithValue("@TaskID", taskID);
 
+                connection.Open();
+                SqlDataReader reader = query.ExecuteReader();
+                if (!reader.Read()) return null;
 
-                ZooTaskDTO task;
-                try 
-                { 
-                    connection.Open();
+                task = new ZooTaskDTO(
+                    reader.GetInt32(reader.GetOrdinal("TaskID")),
+                    reader.GetString(reader.GetOrdinal("TaskName")),
+                    reader.GetString(reader.GetOrdinal("TaskDescription")),
+                    reader.GetDateTime(reader.GetOrdinal("TaskDate")),
+                    reader.GetInt32(reader.GetOrdinal("TaskDuration")),
+                    reader.GetString(reader.GetOrdinal("TaskSpecies")),
+                    reader.GetString(reader.GetOrdinal("TaskZone")),
+                    reader.GetInt32(reader.GetOrdinal("TaskEnclosureNumber")),
+                    reader.GetString(reader.GetOrdinal("TaskStatus")));
+                     
+                reader.Close();
 
-                    using (SqlDataReader reader = query.ExecuteReader())
-                    {
-                        task = new ZooTaskDTO(
-                            reader.GetInt32(reader.GetOrdinal("TaskID")),
-                            reader.GetString(reader.GetOrdinal("TaskName")),
-                            reader.GetString(reader.GetOrdinal("TaskDescription")),
-                            reader.GetDateTime(reader.GetOrdinal("TaskDate")),
-                            reader.GetInt32(reader.GetOrdinal("TaskDuration")),
-                            reader.GetString(reader.GetOrdinal("TaskSpecies")),
-                            reader.GetString(reader.GetOrdinal("TaskZone")),
-                            reader.GetInt32(reader.GetOrdinal("TaskEnclosureNumber")),
-                            reader.GetString(reader.GetOrdinal("TaskStatus")));
-                          
-                        reader.Close();
-
-                    }
-
-                }
-                catch (SqlException) { return null; }
-
-                finally
-                {
-                    connection.Close();
-                }
             return task;
             }
             

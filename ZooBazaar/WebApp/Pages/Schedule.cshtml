@@ -23,9 +23,8 @@
 
         <!-- TabContent -->
         <div id="Today" class="tabcontent">
-            <h2>Todays tasks</h2>
+            <h2>Today's tasks</h2>
             <div class="tasks">
-
                 @foreach (ZooTask task in Model.Tasks)
                 {
                     if(task.TaskDateTime >= DateTime.Today && task.TaskDateTime < DateTime.Today.AddDays(1))
@@ -35,6 +34,8 @@
                             <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
                             <p>Area: @task.EnclosureArea</p>
                             <p>Enclosure: @task.EnclosureNumber</p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
                         </div>
                     }
                 }
@@ -54,6 +55,8 @@
                             <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
                             <p>Area: @task.EnclosureArea</p>
                             <p>Enclosure: @task.EnclosureNumber</p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
                         </div>
                     }
                 }
@@ -75,6 +78,7 @@
                             <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
                             <p>Area: @task.EnclosureArea</p>
                             <p>Enclosure: @task.EnclosureNumber</p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
                         </div>
                     }
                 }
@@ -96,6 +100,8 @@
                             <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
                             <p>Area: @task.EnclosureArea</p>
                             <p>Enclosure: @task.EnclosureNumber</p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
                         </div>
                     }
                 }

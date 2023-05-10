@@ -128,29 +128,28 @@ label {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    display: flex;
 }
 
-    /* Style the buttons inside the tab */
-.tab button {
-    background-color: darkblue;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
-}
+    .tab button {
+        background-color: #fcbc83;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: black;
+    }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: deepskyblue;
-}
+        .tab button:hover {
+            background-color: #faa35d;
+        }
 
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: deepskyblue;
-}
+        .tab button.active {
+            background-color: #faa35d;
+        }
+
 
 /* Style the tab content */
 .tabcontent {
@@ -245,31 +244,33 @@ filter: brightness(40%);
     height: 3rem;
     align-items: center;
     list-style: none;
+    background-color: #DED8D8;
 }
 
 .mini-nav li{
     padding-left: 3rem;
 }
 
-.mini-nav a{
+.mini-nav a {
     text-decoration: none;
-    color: white;
     font-size: 24px;
+    color: black;
 }
 
-.employee-details {
+.employee-details, .task-details {
     margin-left: 1rem;
     width: 30%;
     list-style: none;
     padding: 0;
 }
 
-.emp-details-div h2{
+.emp-details-div h2, task-details-div h2{
     margin-left: 1rem;
 }
 
-.employee-details li{
-    height: 40px;
+.employee-details li, .task-details li {
+    height: auto;
+    padding: 10px;
     margin-bottom: 10px;
     font-size: 30px;
     background-color: lightgray;
