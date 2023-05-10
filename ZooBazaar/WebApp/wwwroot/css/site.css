@@ -178,10 +178,15 @@ input[type=text] labelbox {
 
 .main {
     position: absolute;
-    top: 90px;
+    margin-top: 90px;
     width: 100%;
+    height: calc(100vh - 90px);
 }
     
+.page-title{
+    text-align: center;
+}
+
 .image {
 position: absolute;
 top: 0;
@@ -252,8 +257,33 @@ filter: brightness(40%);
     font-size: 24px;
 }
 
-
 .employee-details {
     margin-left: 1rem;
     width: 30%;
+    list-style: none;
+    padding: 0;
+}
+
+.emp-details-div h2{
+    margin-left: 1rem;
+}
+
+.employee-details li{
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.edit-link-button {
+    margin-left: 1rem;
+    background-color: #234b76;
+    width: 30%;
+    border-radius: 5px;
+}
+.edit-link-button a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
 }

@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApp.Pages
 {
-    public class UserModel : PageModel
+    public class UserEditDetailsModel : PageModel
     {
         private string sessionKeyId = "_Id";
 
         private EmployeeManagement employeeManagement;
 
-        public UserModel(IEmployeeRepository employeeRepository)
+        public UserEditDetailsModel(IEmployeeRepository employeeRepository)
         {
             this.employeeManagement = new EmployeeManagement(employeeRepository);
         }
@@ -59,9 +59,23 @@ namespace WebApp.Pages
         public ROLE Role { get; set; }
 
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            
+            Employee updateEmployee = new Employee();
+
+            updateEmployee.ID = ID;
+            updateEmployee.FirstName = FirstName;
+            updateEmployee.LastName = LastName;
+            updateEmployee.Email = Email;
+            updateEmployee.Address = Address;
+            updateEmployee.BirthDate = BirthDate;
+            updateEmployee.PersonGender = PersonGender;
+            updateEmployee.Phone = Phone;
+            updateEmployee.Password = Password;
+            updateEmployee.Role = Role;
+
+            employeeManagement.UpdateEmployeeInformation(updateEmployee);
+            return new RedirectToPageResult("User");
         }
 
     }

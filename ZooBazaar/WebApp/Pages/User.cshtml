@@ -9,54 +9,19 @@
         
     </header>
 
-    <div class="employee-details">
+    <div class="emp-details-div">
         <h2>User Details</h2>
-
-        <form class="form-emp-details" method="post">
-            <div>
-                <input asp-for="ID" type="hidden" readonly />
-                <input  asp-for="Role" type="hidden" readonly />
-                <input asp-for="Password" type="hidden" readonly />
-                
-            </div>
-            <div>
-                <label asp-for="FirstName">First Name:</label>
-                <input class="textBox" asp-for="FirstName" type="text" />
-                <span asp-validation-for="FirstName" class="errorMessage"></span>
-            </div>
-            <div>
-                <label asp-for="LastName">Last Name:</label>
-                <input class="textBox" asp-for="LastName" type="text" />
-                <span asp-validation-for="LastName" class="errorMessage"></span>
-            </div>
-            <div>
-                <label asp-for="Email">Email:</label>
-                <input class="textBox" asp-for="Email" type="text" />
-                <span asp-validation-for="Email" class="errorMessage"></span>
-            </div>
-            <div>
-                <label asp-for="Address">Address:</label>
-                <input class="textBox" asp-for="Address" type="text" />
-                <span asp-validation-for="Address" class="errorMessage"></span>
-            </div>
-            <div>
-                <label asp-for="BirthDate">BirthDate:</label>
-                <input class="datebox" asp-for="BirthDate" type="date"/>
-                <span asp-validation-for="BirthDate" class="errorMessage"></span>
-            </div>
-            <div>
-                <label asp-for="PersonGender">Gender:</label>
-                <input class="textBox" asp-for="PersonGender" type="text" />
-                <span asp-validation-for="PersonGender" class="errorMessage"></span>
-            </div>
-            <div>
-                <label asp-for="Phone">Phone:</label>
-                <input class="textBox" asp-for="Phone" type="text" />
-                <span asp-validation-for="Phone" class="errorMessage"></span>
-            </div>
-            <div>
-                <button id="submitButton" type="submit">Save Changes</button>
-            </div>
-        </form>    
+        <ul class="employee-details">
+            <li>First Name: <b>@Model.FirstName</b></li>
+            <li>Last Name: <b>@Model.LastName</b></li>
+            <li>Email address: <b>@Model.Email</b></li>
+            <li>Address: <b>@Model.Address</b></li>
+            <li>Birth date: <b>@Model.BirthDate.ToString("dd/MM/yyyy")</b></li>
+            <li>Gender: <b>@Model.PersonGender</b></li>
+            <li>Phone: <b>@Model.Phone</b></li>
+        </ul>
+        <a href="/UserEditDetails">
+            <button class="edit-link-button" id="loginButton">Edit</button>
+        </a>
     </div>
 }
