@@ -32,7 +32,8 @@ namespace WebApp.Pages
             Address = loggedInEmployee.Address;
             ID = loggedInEmployee.ID;
 
-            Tasks = taskManagement.GetTasksByCaretaker(ID).ToList();
+            List<ZooTask> tempTasks = taskManagement.GetTasksByCaretaker(ID).ToList();
+            Tasks = tempTasks.OrderBy(t => t.TaskDateTime).ToList();
 
             return Page();
         }

@@ -15,7 +15,8 @@
         <div class="tab">
             <button class="tablinks" onclick="openSetting(event, 'Today')">Today</button>
             <button class="tablinks" onclick="openSetting(event, 'Tommorow')">Tommorow</button>
-            <button class="tablinks" onclick="openSetting(event, 'All')">All</button>
+            <button class="tablinks" onclick="openSetting(event, 'Week')">This Week</button>
+            <button class="tablinks" onclick="openSetting(event, 'NextWeek')">Next Week</button>
         </div>
     
 
@@ -59,18 +60,43 @@
             </div>
         </div>
 
-        <div id="All" class="tabcontent">
-            <h2>All tasks</h2>
+        <div id="Week" class="tabcontent">
+            <h2>Tasks this week</h2>
             <div class="tasks">
 
                 @foreach (ZooTask task in Model.Tasks)
                 {
-                    <div class="task">
-                        <h3>Task: @task.Name</h3>
-                        <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
-                        <p>Area: @task.EnclosureArea</p>
-                        <p>Enclosure: @task.EnclosureNumber</p>
-                    </div>
+                    int dayOfWeek = (int)DateTime.Today.DayOfWeek;
+                    if (task.TaskDateTime >= DateTime.Today.AddDays(-dayOfWeek+1) && task.TaskDateTime < DateTime.Today.AddDays(7-dayOfWeek))
+                    {
+                        <div class="task">
+                            <h3>Task: @task.Name</h3>
+                            <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
+                            <p>Area: @task.EnclosureArea</p>
+                            <p>Enclosure: @task.EnclosureNumber</p>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+        <div id="NextWeek" class="tabcontent">
+            <h2>Next weeks tasks</h2>
+            <div class="tasks">
+
+                @foreach (ZooTask task in Model.Tasks)
+                {
+                    int dayOfWeek = (int)DateTime.Today.DayOfWeek;
+                    if (task.TaskDateTime >= DateTime.Today.AddDays(-dayOfWeek + 8) && task.TaskDateTime < DateTime.Today.AddDays(14 - dayOfWeek))
+                    {
+                        <div class="task">
+                            <h3>Task: @task.Name</h3>
+                            <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
+                            <p>Area: @task.EnclosureArea</p>
+                            <p>Enclosure: @task.EnclosureNumber</p>
+                        </div>
+                    }
                 }
 
             </div>
