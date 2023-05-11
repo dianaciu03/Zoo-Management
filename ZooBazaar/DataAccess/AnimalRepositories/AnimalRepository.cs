@@ -454,18 +454,17 @@ namespace DataAccess.AnimalRepositories
                     return animals;
                 }
 
-                if (parents[0] != null)
+                if(parents.Count == 1)
                 {
                     query.Parameters.AddWithValue("@ParentOneID", parents[0].Id);
-                }
-                if (parents[1] != null)
-                {
-                    query.Parameters.AddWithValue("@ParentTwoID", parents[1].Id);
-                }
-                else
-                {
                     query.Parameters.AddWithValue("@ParentTwoID", "");
                 }
+                if (parents.Count == 2)
+                {
+                    query.Parameters.AddWithValue("@ParentOneID", parents[0].Id);
+                    query.Parameters.AddWithValue("@ParentTwoID", parents[1].Id);
+                }
+
 
                 query.Parameters.AddWithValue("@AnimalID", animalID);
 
