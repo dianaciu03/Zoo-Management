@@ -113,7 +113,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormLogin";
+            this.Text = "Login Page";
             this.ResumeLayout(false);
             this.PerformLayout();
 

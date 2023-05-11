@@ -29,6 +29,8 @@ namespace DesktopApplication
             this.BackgroundImageLayout = ImageLayout.Stretch;
             cbxRoleSearchFeature.DataSource = Enum.GetValues(typeof(ROLE));
             cbxRoleSearchFeature.SelectedIndex = -1;
+            cbRoleEmployeeHistory.DataSource = Enum.GetValues(typeof(ROLE));
+            cbRoleEmployeeHistory.SelectedIndex = -1;
             cbxNewEmpRole.DataSource = Enum.GetValues(typeof(ROLE));
             cbxNewEmpRole.SelectedIndex = -1;
         }

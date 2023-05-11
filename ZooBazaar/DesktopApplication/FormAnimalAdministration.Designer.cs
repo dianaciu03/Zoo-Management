@@ -1266,10 +1266,10 @@
             this.tabPageAddAnimal.Controls.Add(this.groupBoxRelationships);
             this.tabPageAddAnimal.Controls.Add(this.btnConfirmAnimalCreation);
             this.tabPageAddAnimal.Controls.Add(this.btnCancelAnimalCreation);
-            this.tabPageAddAnimal.Location = new System.Drawing.Point(4, 36);
+            this.tabPageAddAnimal.Location = new System.Drawing.Point(4, 46);
             this.tabPageAddAnimal.Name = "tabPageAddAnimal";
             this.tabPageAddAnimal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddAnimal.Size = new System.Drawing.Size(1793, 907);
+            this.tabPageAddAnimal.Size = new System.Drawing.Size(1793, 897);
             this.tabPageAddAnimal.TabIndex = 2;
             this.tabPageAddAnimal.Text = "Add Animal";
             this.tabPageAddAnimal.UseVisualStyleBackColor = true;
@@ -1422,6 +1422,7 @@
             // 
             // cbxOriginAddAnimal
             // 
+            this.cbxOriginAddAnimal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxOriginAddAnimal.FormattingEnabled = true;
             this.cbxOriginAddAnimal.Location = new System.Drawing.Point(205, 163);
             this.cbxOriginAddAnimal.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -1714,7 +1715,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAnimalAdministration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAnimalAdministration";
+            this.Text = "Animal Management";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControlAnimals.ResumeLayout(false);
             this.tabSearchAnimals.ResumeLayout(false);

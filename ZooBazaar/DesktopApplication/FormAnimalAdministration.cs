@@ -519,6 +519,14 @@ namespace DesktopApplication
                 animal = new Animal(tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, date, (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
                 animalManagement.AddUpdateAnimal(animal);
                 MessageBox.Show($"Animal has been successfully created!\n{animal}");
+
+                tbxNameAddAnimal.Text = string.Empty;
+                tbxSpeciesAddAnimal.Text= string.Empty;
+                cbxEndangermentAddAnimal.SelectedIndex = -1;
+                cbxOriginAddAnimal.SelectedIndex = -1;
+                maskedtbxBirthDateAddAnimalForm.Text = string.Empty;
+                nudEnclosureAddAnimal.Value = 0;
+                tbxAdditionalCommentsAddAnimal.Text = string.Empty;
             }
             catch (Exception ex)
             {

@@ -331,9 +331,9 @@
             // 
             this.btnEditEmployeeAdditional.AutoSize = true;
             this.btnEditEmployeeAdditional.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnEditEmployeeAdditional.Location = new System.Drawing.Point(1462, 805);
+            this.btnEditEmployeeAdditional.Location = new System.Drawing.Point(1428, 807);
             this.btnEditEmployeeAdditional.Name = "btnEditEmployeeAdditional";
-            this.btnEditEmployeeAdditional.Size = new System.Drawing.Size(398, 47);
+            this.btnEditEmployeeAdditional.Size = new System.Drawing.Size(307, 47);
             this.btnEditEmployeeAdditional.TabIndex = 21;
             this.btnEditEmployeeAdditional.Text = "Edit additional information";
             this.btnEditEmployeeAdditional.UseVisualStyleBackColor = false;
@@ -343,9 +343,9 @@
             // 
             this.btnEditEmployeeContract.AutoSize = true;
             this.btnEditEmployeeContract.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnEditEmployeeContract.Location = new System.Drawing.Point(1045, 805);
+            this.btnEditEmployeeContract.Location = new System.Drawing.Point(1045, 807);
             this.btnEditEmployeeContract.Name = "btnEditEmployeeContract";
-            this.btnEditEmployeeContract.Size = new System.Drawing.Size(351, 47);
+            this.btnEditEmployeeContract.Size = new System.Drawing.Size(260, 47);
             this.btnEditEmployeeContract.TabIndex = 20;
             this.btnEditEmployeeContract.Text = "Edit employee contract";
             this.btnEditEmployeeContract.UseVisualStyleBackColor = false;
@@ -355,9 +355,9 @@
             // 
             this.btnDisplayEmployeeInformation.AutoSize = true;
             this.btnDisplayEmployeeInformation.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnDisplayEmployeeInformation.Location = new System.Drawing.Point(618, 805);
+            this.btnDisplayEmployeeInformation.Location = new System.Drawing.Point(618, 807);
             this.btnDisplayEmployeeInformation.Name = "btnDisplayEmployeeInformation";
-            this.btnDisplayEmployeeInformation.Size = new System.Drawing.Size(396, 47);
+            this.btnDisplayEmployeeInformation.Size = new System.Drawing.Size(305, 47);
             this.btnDisplayEmployeeInformation.TabIndex = 19;
             this.btnDisplayEmployeeInformation.Text = "Edit employee information";
             this.btnDisplayEmployeeInformation.UseVisualStyleBackColor = false;
@@ -1251,7 +1251,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "FormHRAdministration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormHRAdministration";
+            this.Text = "HR Management";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControlHRAdministration.ResumeLayout(false);
             this.tabPageAllEmployees.ResumeLayout(false);
