@@ -310,6 +310,7 @@
             this.lvwAllTasks.TabIndex = 0;
             this.lvwAllTasks.UseCompatibleStateImageBehavior = false;
             this.lvwAllTasks.View = System.Windows.Forms.View.Details;
+            this.lvwAllTasks.SelectedIndexChanged += new System.EventHandler(this.lvwAvailableTasks_SelectedIndexChanged);
             // 
             // colAllTaskName
             // 

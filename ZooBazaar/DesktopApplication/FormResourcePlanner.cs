@@ -60,9 +60,12 @@ namespace DesktopApplication
 
         private void updateEmployeeCombobox(ZooTask task)
         {
+            ScheduleManagement scheduleManagement = new ScheduleManagement();
             cbxCaretakers.Items.Clear();
             List<Employee> availableCareTakers = new List<Employee>();
-            foreach (Employee employee in employeeManagement.GetEmployees(out int[] ints))
+
+            Shift[] shifts = scheduleManagement.GetShifts(task.TaskDateTime.Date, out Employee[] employees);
+            foreach (Employee employee in employees)
             {
                 if (taskManagement.CheckEmployeeAvailability(task, employee))
                 {
@@ -98,11 +101,6 @@ namespace DesktopApplication
             if (selectedTask != null && selectedCaretaker != null)
                 taskManagement.AssignEmployee(selectedTask, selectedCaretaker);
             updateAvailableTasksListview();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnMoreDetailsTask_Click(object sender, EventArgs e)

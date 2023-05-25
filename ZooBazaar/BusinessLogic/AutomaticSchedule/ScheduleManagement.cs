@@ -23,13 +23,17 @@ namespace BusinessLogic
             return shifts.ToArray();
         }
         
-        public Shift[] GetShifts(DateTime date)
+        public Shift[] GetShifts(DateTime date, out Employee[] employees)
         {
             List<Shift> shifts = new List<Shift>();
-            foreach(ShiftDTO shiftDTO in shiftRepo.GetAllShifts())
+            List<Employee> employeesList = new List<Employee>();
+            foreach(ShiftDTO shiftDTO in shiftRepo.GetAllShifts(date))
             {
                 shifts.Add(new Shift(employeeManagement.GetEmployeeById(shiftDTO.EmployeeId), shiftDTO.ShiftTime));
+                Employee employee = employeeManagement.GetEmployeeById(shiftDTO.EmployeeId);
+                employeesList.Add(employee);
             }
+            employees = employeesList.Distinct().ToArray();
             return shifts.ToArray();
         }
 

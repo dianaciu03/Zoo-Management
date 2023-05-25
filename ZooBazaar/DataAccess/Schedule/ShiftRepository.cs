@@ -39,6 +39,36 @@ namespace DataAccess
             }
         }
 
+        public ShiftDTO[] GetAllShifts(DateTime date)
+        {
+            List<ShiftDTO> shifts = new List<ShiftDTO>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return shifts.ToArray(); }
+                DateTime dateTime = DateTime.Now;
+                SqlCommand query = new SqlCommand("SELECT * FROM Shifts WHERE ShiftTime = @ShiftTime", connection);
+                query.Parameters.AddWithValue("@ShiftTime", date.Date);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ShiftDTO shift = new ShiftDTO()
+                        {
+                            ShiftId = Convert.ToInt32(reader["ShiftId"].ToString()),
+                            EmployeeId = Convert.ToInt32(reader["ShiftEmployeeId"].ToString()),
+                            ShiftTime = Convert.ToDateTime(reader["ShiftTime"].ToString())
+                        };
+                        shifts.Add(shift);
+                    }
+                    reader.Close();
+                    connection.Close();
+                    return shifts.ToArray();
+                }
+            }
+        }
+
         public void AddShift(ShiftDTO shift)
         {
             SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
