@@ -64,7 +64,7 @@ namespace DesktopApplication
             cbxCaretakers.Items.Clear();
             List<Employee> availableCareTakers = new List<Employee>();
 
-            Shift[] shifts = scheduleManagement.GetShifts(task.TaskDateTime.Date, out Employee[] employees);
+            Employee[] employees = scheduleManagement.GetAvailableEmp(task.TaskDateTime.Date);
             foreach (Employee employee in employees)
             {
                 if (taskManagement.CheckEmployeeAvailability(task, employee))

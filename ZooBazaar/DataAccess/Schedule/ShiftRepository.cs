@@ -68,6 +68,32 @@ namespace DataAccess
                 }
             }
         }
+        public int[] GetShiftEmployees(DateTime date)
+        {
+            List<int> employeeIDs = new List<int>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return employeeIDs.ToArray(); }
+                DateTime dateTime = DateTime.Now;
+                SqlCommand query = new SqlCommand("SELECT DISTINCT ShiftEmployeeID FROM Shifts WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) = @ShiftTime", connection);
+                query.Parameters.AddWithValue("@ShiftTime", date.Date);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        int employeeId = Convert.ToInt32(reader["ShiftEmployeeId"].ToString());
+                        employeeIDs.Add(employeeId);
+
+                    }
+                    reader.Close();
+                    connection.Close();
+                    return employeeIDs.ToArray();
+                }
+            }
+        }
 
         public void AddShift(ShiftDTO shift)
         {

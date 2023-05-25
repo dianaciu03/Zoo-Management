@@ -36,6 +36,16 @@ namespace BusinessLogic
             employees = employeesList.Distinct().ToArray();
             return shifts.ToArray();
         }
+        public Employee[] GetAvailableEmp(DateTime date)
+        {
+            List<Employee> employeesList = new List<Employee>();
+            foreach(int employeeId in shiftRepo.GetShiftEmployees(date))
+            {
+                Employee employee = employeeManagement.GetEmployeeById(employeeId);
+                employeesList.Add(employee);
+            }
+            return employeesList.ToArray();
+        }
 
         public void AddShifts(Shift[] shifts)
         {
