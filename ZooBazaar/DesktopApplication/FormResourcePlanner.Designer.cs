@@ -133,6 +133,7 @@
             this.btnAssignEmployee.TabIndex = 37;
             this.btnAssignEmployee.Text = "Assign employee";
             this.btnAssignEmployee.UseVisualStyleBackColor = true;
+            this.btnAssignEmployee.Click += new System.EventHandler(this.btnAssignEmployee_Click);
             // 
             // labelCaretakers
             // 
@@ -160,6 +161,7 @@
             this.btnMoreDetailsTask.TabIndex = 32;
             this.btnMoreDetailsTask.Text = "More details";
             this.btnMoreDetailsTask.UseVisualStyleBackColor = true;
+            this.btnMoreDetailsTask.Click += new System.EventHandler(this.btnMoreDetailsTask_Click);
             // 
             // lvwAvailableTasks
             // 
@@ -176,6 +178,7 @@
             this.lvwAvailableTasks.TabIndex = 31;
             this.lvwAvailableTasks.UseCompatibleStateImageBehavior = false;
             this.lvwAvailableTasks.View = System.Windows.Forms.View.Details;
+            this.lvwAvailableTasks.SelectedIndexChanged += new System.EventHandler(this.lvwAvailableTasks_SelectedIndexChanged);
             // 
             // colTaskName
             // 
@@ -242,6 +245,7 @@
             this.btnTaskMoreDetails.TabIndex = 33;
             this.btnTaskMoreDetails.Text = "More details";
             this.btnTaskMoreDetails.UseVisualStyleBackColor = true;
+            this.btnTaskMoreDetails.Click += new System.EventHandler(this.btnTaskMoreDetails_Click);
             // 
             // btnSearch
             // 
