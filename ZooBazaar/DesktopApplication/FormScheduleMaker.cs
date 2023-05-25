@@ -239,16 +239,7 @@ namespace DesktopApplication
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (lvwTasksInProgress.SelectedItems.Count > 0)
-            {
-                fillInTaskDetails((ZooTask)lvwTasksInProgress.SelectedItems[0].Tag);
-                groupBoxTaskDetails.Visible = true;
-            }
-            else MessageBox.Show("You haven't selected the task");
 
-        }
 
         private void lvwUnassignedTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
