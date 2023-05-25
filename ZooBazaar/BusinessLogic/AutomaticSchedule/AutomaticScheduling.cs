@@ -30,6 +30,7 @@ namespace BusinessLogic
                 for (int i = 0; i < daysPerWeek; i++)
                 {
                     shifts.Add(new Shift(careTaker.Employee, new DateTime(nextShift.Year, nextShift.Month, nextShift.Day, 8, 0, 0)));
+                    shifts.Add(new Shift(careTaker.Employee, new DateTime(nextShift.Year, nextShift.Month, nextShift.Day, 13, 0, 0)));
                     if (nextShift.DayOfWeek == DayOfWeek.Sunday)
                     {
                         nextShift = nextMonday;

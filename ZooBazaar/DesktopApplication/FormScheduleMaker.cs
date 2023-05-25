@@ -18,6 +18,7 @@ namespace DesktopApplication
     public partial class FormScheduleMaker : Form
     {
         TaskManagement taskManagement;
+        ScheduleManagement scheduleManagement;
         private readonly IAnimalManagement animalManagement;
         IEmployeeManagement employeeManagement = new EmployeeManagement(new EmployeeRepository());
 
@@ -27,6 +28,7 @@ namespace DesktopApplication
             InitializeComponent();
             animalManagement = am;
             taskManagement = new TaskManagement();
+            scheduleManagement = new ScheduleManagement();
             initializeSpecieComboBox();
             initializeAreaComboBox();
             updateTasks();
@@ -268,6 +270,7 @@ namespace DesktopApplication
             AutomaticScheduling scheduleMaker = new AutomaticScheduling();
             CaretakerWithHours[] careTakers = employeeManagement.GetCareTakers();
             Shift[] shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers);
+            scheduleManagement.AddShifts(shifts);
             string message = string.Empty;
             foreach( Shift shift in shifts)
             {
