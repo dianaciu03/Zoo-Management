@@ -47,7 +47,7 @@ namespace DataAccess
                 try { connection.Open(); }
                 catch (SqlException) { return shifts.ToArray(); }
                 DateTime dateTime = DateTime.Now;
-                SqlCommand query = new SqlCommand("SELECT * FROM Shifts WHERE ShiftTime = @ShiftTime", connection);
+                SqlCommand query = new SqlCommand("SELECT * FROM Shifts WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) = @ShiftTime", connection);
                 query.Parameters.AddWithValue("@ShiftTime", date.Date);
 
                 using (SqlDataReader reader = query.ExecuteReader())
