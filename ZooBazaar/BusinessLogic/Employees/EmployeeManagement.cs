@@ -15,7 +15,7 @@ namespace BusinessLogic
 
         public EmployeeManagement(IEmployeeRepository employeeRepository)
         {
-            _employeeRepository= employeeRepository;
+            _employeeRepository = employeeRepository;
         }
         public void AddNewEmployee(Employee employee, EmployeeContract contract, EmergencyContact emergencyContact)
         {
@@ -50,7 +50,7 @@ namespace BusinessLogic
 
             _employeeRepository.AddUpdateEmployee(employeeDto, contractDto, contactDto);
         }
-        public Employee[] GetEmployees(out int[] ints)
+        public Employee[] GetEmployees(out int[] contractHours)
         {
             List<Employee> employees = new List<Employee>();
             List<int> weeklyHours = new List<int>();
@@ -60,8 +60,18 @@ namespace BusinessLogic
                 Employee employee = employeeDto.ToEmployee();
                 employees.Add(employee);
             }
-            ints = weeklyHours.ToArray();
+            contractHours = weeklyHours.ToArray();
             return employees.ToArray();
+        }
+        public CaretakerWithHours[] GetCareTakers()
+        {
+            List<CaretakerWithHours> careTakers = new List<CaretakerWithHours>();
+            foreach (EmployeeDTO employeeDto in _employeeRepository.GetAllCareTakers())
+            {
+                CaretakerWithHours careTaker = new CaretakerWithHours(employeeDto.ToEmployee(), employeeDto.hoursPerWeek);
+                careTakers.Add(careTaker);
+            }
+            return careTakers.ToArray();
         }
 
         public Employee GetEmployeeByEmail(string email)

@@ -57,6 +57,44 @@ namespace DataAccess
                 }
             }
         }
+        public List<EmployeeDTO> GetAllCareTakers() // Gets all employees in the employee database and returns them as a list of employeeDTO Objects
+        {
+            List<EmployeeDTO> employees = new List<EmployeeDTO>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return employees; }
+                DateTime dateTime= DateTime.Now;
+                SqlCommand query = new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (c.EndDate > @dateTime OR c.EndDate IS NULL) AND EmployeeType = @EmployeeType ORDER BY c.WeeklyHours DESC", connection);
+                query.Parameters.AddWithValue("@dateTime",dateTime);
+                query.Parameters.AddWithValue("@EmployeeType", "CareTaker");
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        EmployeeDTO employee = new EmployeeDTO()
+                        {
+                            id = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                            firstName = reader.GetString(reader.GetOrdinal("FirstName")),
+                            lastName = reader.GetString(reader.GetOrdinal("LastName")),
+                            birthDate = reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                            gender = reader.GetString(reader.GetOrdinal("Gender")),
+                            address = reader.GetString(reader.GetOrdinal("Address")),
+                            phone = reader.GetString(reader.GetOrdinal("Phone")),
+                            role = reader.GetString(reader.GetOrdinal("EmployeeType")),
+                            password = reader.GetString(reader.GetOrdinal("Password")),
+                            email = reader.GetString(reader.GetOrdinal("Email")),
+                            hoursPerWeek = reader.GetInt32(reader.GetOrdinal("WeeklyHours"))
+                        };
+                        employees.Add(employee);
+                    }
+
+                    reader.Close();
+                    connection.Close();
+                    return employees;
+                }
+            }
+        }
         public void AddUpdateEmployee(EmployeeDTO employee, ContractDTO contract, EmergencyContactDTO emergencyContact)
         {
             using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))

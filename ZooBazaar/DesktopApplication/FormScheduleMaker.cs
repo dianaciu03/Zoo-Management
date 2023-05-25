@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 using BusinessLogic.AnimalInterfaces;
+using BusinessLogic.Employees;
+using DataAccess;
 
 namespace DesktopApplication
 {
@@ -17,6 +19,8 @@ namespace DesktopApplication
     {
         TaskManagement taskManagement;
         private readonly IAnimalManagement animalManagement;
+        IEmployeeManagement employeeManagement = new EmployeeManagement(new EmployeeRepository());
+
         List<Animal> searchedAnimals;
         public FormScheduleMaker(IAnimalManagement am)
         {
@@ -257,6 +261,19 @@ namespace DesktopApplication
         private void lvwFinishedTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupBoxTaskDetails.Visible = false;
+        }
+
+        private void btnScheduleShifts_Click(object sender, EventArgs e)
+        {
+            AutomaticScheduling scheduleMaker = new AutomaticScheduling();
+            CaretakerWithHours[] careTakers = employeeManagement.GetCareTakers();
+            Shift[] shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers);
+            string message = string.Empty;
+            foreach( Shift shift in shifts)
+            {
+                message += $"{shift.ShiftTime} - {shift.Employee.FirstName + " " + shift.Employee.LastName}\n";
+            }
+            MessageBox.Show(message);
         }
     }
 }
