@@ -31,6 +31,7 @@
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
             this.tabControlResourcePlanner = new System.Windows.Forms.TabControl();
             this.tabAssignTasks = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnAssignEmployee = new System.Windows.Forms.Button();
             this.labelCaretakers = new System.Windows.Forms.Label();
             this.cbxCaretakers = new System.Windows.Forms.ComboBox();
@@ -110,6 +111,7 @@
             // 
             // tabAssignTasks
             // 
+            this.tabAssignTasks.Controls.Add(this.button1);
             this.tabAssignTasks.Controls.Add(this.btnAssignEmployee);
             this.tabAssignTasks.Controls.Add(this.labelCaretakers);
             this.tabAssignTasks.Controls.Add(this.cbxCaretakers);
@@ -124,6 +126,16 @@
             this.tabAssignTasks.TabIndex = 0;
             this.tabAssignTasks.Text = "Assign tasks";
             this.tabAssignTasks.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(998, 483);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(291, 44);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Assign tasks automatically";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAssignEmployee
             // 
@@ -314,7 +326,7 @@
             this.lvwAllTasks.TabIndex = 0;
             this.lvwAllTasks.UseCompatibleStateImageBehavior = false;
             this.lvwAllTasks.View = System.Windows.Forms.View.Details;
-            this.lvwAllTasks.SelectedIndexChanged += new System.EventHandler(this.lvwAvailableTasks_SelectedIndexChanged);
+            this.lvwAllTasks.SelectedIndexChanged += new System.EventHandler(this.lvwAllTasks_SelectedIndexChanged);
             // 
             // colAllTaskName
             // 
@@ -653,5 +665,6 @@
         private TextBox tbxEnclosureNumber;
         private Label label1;
         private TextBox tbxEnclosureArea;
+        private Button button1;
     }
 }

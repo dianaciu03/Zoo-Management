@@ -11,6 +11,7 @@ namespace BusinessLogic
 {
     public class AutomaticScheduling
     {
+        TaskManagement taskManagement = new TaskManagement();
         public AutomaticScheduling()
         {
             
@@ -45,6 +46,41 @@ namespace BusinessLogic
                 }
             }
             return shifts.ToArray();
+        }
+
+        public bool AssignTasksAutomatically(List<ZooTask> allTasks)
+        {
+            ScheduleManagement scheduleManagement= new ScheduleManagement();
+            
+            bool wereAllTasksAssigned = true;
+            foreach (ZooTask task in allTasks)
+            {
+                Employee[] careTakers = scheduleManagement.GetAvailableEmp(task.TaskDateTime.Date);
+                bool wasAssigned = false;
+                if (task.TaskDateTime.Date < DateTime.Today.Date)
+                {
+                    continue;
+                }
+                if(task.Status == "Assigned")
+                {
+                    continue;
+                }
+                foreach(Employee careTaker in careTakers) 
+                {
+                    if (taskManagement.CheckEmployeeAvailability(task, careTaker))
+                    {
+                        taskManagement.AssignEmployee(task, careTaker);
+                        wasAssigned= true;
+                        break;
+                    }
+                }
+                if (!wasAssigned)
+                {
+                    wereAllTasksAssigned = false;
+                }
+                
+            }
+            return wereAllTasksAssigned;
         }
     }
 }

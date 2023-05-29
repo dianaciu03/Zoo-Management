@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using BusinessLogic.Employees;
 
 namespace DesktopApplication
 {
@@ -63,7 +64,7 @@ namespace DesktopApplication
             ScheduleManagement scheduleManagement = new ScheduleManagement();
             cbxCaretakers.Items.Clear();
             List<Employee> availableCareTakers = new List<Employee>();
-
+            
             Employee[] employees = scheduleManagement.GetAvailableEmp(task.TaskDateTime.Date);
             foreach (Employee employee in employees)
             {
@@ -154,6 +155,21 @@ namespace DesktopApplication
             groupBoxTaskDetails.Visible = true;
             ZooTask task = (ZooTask)lvwAllTasks.SelectedItems[0].Tag;
             fillTaskDetails(task);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<ZooTask> allTasks = taskManagement.GetTasks().ToList();
+            ScheduleManagement scheduleManagement= new ScheduleManagement();
+            AutomaticScheduling scheduler= new AutomaticScheduling();
+            if(!scheduler.AssignTasksAutomatically(allTasks))
+            {
+                MessageBox.Show("There are tasks that could not be assigned! Please assign them manually!");
+            }
+            else
+            {
+                MessageBox.Show("All tasks have been assigned succesfully!");
+            }
         }
     }
 }
