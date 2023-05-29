@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using DataAccess.AnimalInterfaces;
+using Microsoft.VisualBasic.FileIO;
 
 namespace DataAccess.AnimalRepositories
 {
@@ -590,10 +591,38 @@ namespace DataAccess.AnimalRepositories
             }
         }
 
-        //TODO remove function that changes its status
+        public string GetOrginEnclosureOfSpecies(string species, out int enclosureNumber)
+        {
+            string origin;
+            enclosureNumber = 1;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionHelper.ConnectionValue()))
+                {
+                    conn.Open();
+                    string query = "SELECT Origin, Enclosure FROM Animals WHERE Species = @Species";
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@Species", species);
+                        command.ExecuteNonQuery();
 
-        //Transfer detail table
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            reader.Read();
+                            origin = reader.GetString(reader.GetOrdinal("Origin"));
+                            enclosureNumber = reader.GetInt32(reader.GetOrdinal("Enclosure"));
 
-        //Relationship table
+                        }
+                    }
+                    conn.Close();
+                }
+                return origin;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+
     }
 }

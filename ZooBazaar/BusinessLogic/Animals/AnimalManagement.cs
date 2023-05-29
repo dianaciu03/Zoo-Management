@@ -94,5 +94,12 @@ namespace BusinessLogic
         {
             animalHelper.ChangeAnimalAvailability(animalId, option);
         }
+
+        public string GetOrginEnclosureOfSpecies(string species, out int enclosureNumber)
+        {
+            string origin = animalHelper.GetOrginEnclosureOfSpecies(species, out int enclosureNum);
+            enclosureNumber = enclosureNum;
+            return origin;
+        }
     }
 }

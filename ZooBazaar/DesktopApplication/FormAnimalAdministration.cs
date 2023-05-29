@@ -666,5 +666,14 @@ namespace DesktopApplication
                     break;
             }
         }
+
+        private void cbxAnimalSpecies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string species = cbxAnimalSpecies.Text;
+            string origin = animalManagement.GetOrginEnclosureOfSpecies(species, out int enclosureNumber);
+
+            cbxOriginAddAnimal.Text = origin;
+            nudEnclosureAddAnimal.Value = enclosureNumber;
+        }
     }
 }
