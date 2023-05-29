@@ -32,23 +32,6 @@
             this.tabSearchAnimals = new System.Windows.Forms.TabPage();
             this.groupBoxEditAnimal = new System.Windows.Forms.GroupBox();
             this.cbxAnimalSpeciesEdit = new System.Windows.Forms.ComboBox();
-            this.groupBoxAnimalTransfer = new System.Windows.Forms.GroupBox();
-            this.tbxAnimalTransferPhone = new System.Windows.Forms.TextBox();
-            this.labelAnimeTransferPhone = new System.Windows.Forms.Label();
-            this.labelEndDate = new System.Windows.Forms.Label();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.labelStartDate = new System.Windows.Forms.Label();
-            this.tbxComments = new System.Windows.Forms.TextBox();
-            this.labelComments = new System.Windows.Forms.Label();
-            this.btnCancelTransfer = new System.Windows.Forms.Button();
-            this.btnConfirmTransfer = new System.Windows.Forms.Button();
-            this.tbxAnimalTransfer = new System.Windows.Forms.TextBox();
-            this.tbxAddressTransfer = new System.Windows.Forms.TextBox();
-            this.labelAnimalTransfer = new System.Windows.Forms.Label();
-            this.labelAdressTransfer = new System.Windows.Forms.Label();
-            this.tbxZooNameTransfer = new System.Windows.Forms.TextBox();
-            this.labelZooNameTransfer = new System.Windows.Forms.Label();
             this.btnConfirmChanges = new System.Windows.Forms.Button();
             this.labelDateFormatEdit = new System.Windows.Forms.Label();
             this.labelDateofBirth = new System.Windows.Forms.Label();
@@ -68,6 +51,23 @@
             this.labelContinentEdit = new System.Windows.Forms.Label();
             this.labelSpeciesEdit = new System.Windows.Forms.Label();
             this.labelNameEdit = new System.Windows.Forms.Label();
+            this.groupBoxAnimalTransfer = new System.Windows.Forms.GroupBox();
+            this.tbxAnimalTransferPhone = new System.Windows.Forms.TextBox();
+            this.labelAnimeTransferPhone = new System.Windows.Forms.Label();
+            this.labelEndDate = new System.Windows.Forms.Label();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.labelStartDate = new System.Windows.Forms.Label();
+            this.tbxComments = new System.Windows.Forms.TextBox();
+            this.labelComments = new System.Windows.Forms.Label();
+            this.btnCancelTransfer = new System.Windows.Forms.Button();
+            this.btnConfirmTransfer = new System.Windows.Forms.Button();
+            this.tbxAnimalTransfer = new System.Windows.Forms.TextBox();
+            this.tbxAddressTransfer = new System.Windows.Forms.TextBox();
+            this.labelAnimalTransfer = new System.Windows.Forms.Label();
+            this.labelAdressTransfer = new System.Windows.Forms.Label();
+            this.tbxZooNameTransfer = new System.Windows.Forms.TextBox();
+            this.labelZooNameTransfer = new System.Windows.Forms.Label();
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
             this.cbxAnimalSpeciesSearch = new System.Windows.Forms.ComboBox();
             this.tbxAge = new System.Windows.Forms.TextBox();
@@ -173,8 +173,8 @@
             this.tabControlAnimals.SuspendLayout();
             this.tabSearchAnimals.SuspendLayout();
             this.groupBoxEditAnimal.SuspendLayout();
-            this.groupBoxAnimalTransfer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).BeginInit();
+            this.groupBoxAnimalTransfer.SuspendLayout();
             this.groupBoxSearchAnimal.SuspendLayout();
             this.groupBoxRelationship.SuspendLayout();
             this.tabAnimalHistory.SuspendLayout();
@@ -256,187 +256,6 @@
             this.cbxAnimalSpeciesEdit.Name = "cbxAnimalSpeciesEdit";
             this.cbxAnimalSpeciesEdit.Size = new System.Drawing.Size(400, 37);
             this.cbxAnimalSpeciesEdit.TabIndex = 43;
-            // 
-            // groupBoxAnimalTransfer
-            // 
-            this.groupBoxAnimalTransfer.Controls.Add(this.tbxAnimalTransferPhone);
-            this.groupBoxAnimalTransfer.Controls.Add(this.labelAnimeTransferPhone);
-            this.groupBoxAnimalTransfer.Controls.Add(this.labelEndDate);
-            this.groupBoxAnimalTransfer.Controls.Add(this.dtpEndDate);
-            this.groupBoxAnimalTransfer.Controls.Add(this.dtpStartDate);
-            this.groupBoxAnimalTransfer.Controls.Add(this.labelStartDate);
-            this.groupBoxAnimalTransfer.Controls.Add(this.tbxComments);
-            this.groupBoxAnimalTransfer.Controls.Add(this.labelComments);
-            this.groupBoxAnimalTransfer.Controls.Add(this.btnCancelTransfer);
-            this.groupBoxAnimalTransfer.Controls.Add(this.btnConfirmTransfer);
-            this.groupBoxAnimalTransfer.Controls.Add(this.tbxAnimalTransfer);
-            this.groupBoxAnimalTransfer.Controls.Add(this.tbxAddressTransfer);
-            this.groupBoxAnimalTransfer.Controls.Add(this.labelAnimalTransfer);
-            this.groupBoxAnimalTransfer.Controls.Add(this.labelAdressTransfer);
-            this.groupBoxAnimalTransfer.Controls.Add(this.tbxZooNameTransfer);
-            this.groupBoxAnimalTransfer.Controls.Add(this.labelZooNameTransfer);
-            this.groupBoxAnimalTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxAnimalTransfer.Location = new System.Drawing.Point(14, 30);
-            this.groupBoxAnimalTransfer.Margin = new System.Windows.Forms.Padding(6);
-            this.groupBoxAnimalTransfer.Name = "groupBoxAnimalTransfer";
-            this.groupBoxAnimalTransfer.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBoxAnimalTransfer.Size = new System.Drawing.Size(630, 750);
-            this.groupBoxAnimalTransfer.TabIndex = 45;
-            this.groupBoxAnimalTransfer.TabStop = false;
-            this.groupBoxAnimalTransfer.Text = "Animal transfer";
-            // 
-            // tbxAnimalTransferPhone
-            // 
-            this.tbxAnimalTransferPhone.Location = new System.Drawing.Point(205, 266);
-            this.tbxAnimalTransferPhone.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxAnimalTransferPhone.Name = "tbxAnimalTransferPhone";
-            this.tbxAnimalTransferPhone.Size = new System.Drawing.Size(390, 35);
-            this.tbxAnimalTransferPhone.TabIndex = 24;
-            // 
-            // labelAnimeTransferPhone
-            // 
-            this.labelAnimeTransferPhone.AutoSize = true;
-            this.labelAnimeTransferPhone.Location = new System.Drawing.Point(17, 269);
-            this.labelAnimeTransferPhone.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelAnimeTransferPhone.Name = "labelAnimeTransferPhone";
-            this.labelAnimeTransferPhone.Size = new System.Drawing.Size(177, 29);
-            this.labelAnimeTransferPhone.TabIndex = 23;
-            this.labelAnimeTransferPhone.Text = "Phone number:";
-            // 
-            // labelEndDate
-            // 
-            this.labelEndDate.AutoSize = true;
-            this.labelEndDate.Location = new System.Drawing.Point(17, 376);
-            this.labelEndDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelEndDate.Name = "labelEndDate";
-            this.labelEndDate.Size = new System.Drawing.Size(115, 29);
-            this.labelEndDate.TabIndex = 22;
-            this.labelEndDate.Text = "End date:";
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Location = new System.Drawing.Point(205, 370);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(390, 35);
-            this.dtpEndDate.TabIndex = 21;
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Location = new System.Drawing.Point(205, 318);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(390, 35);
-            this.dtpStartDate.TabIndex = 20;
-            // 
-            // labelStartDate
-            // 
-            this.labelStartDate.AutoSize = true;
-            this.labelStartDate.Location = new System.Drawing.Point(17, 324);
-            this.labelStartDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelStartDate.Name = "labelStartDate";
-            this.labelStartDate.Size = new System.Drawing.Size(121, 29);
-            this.labelStartDate.TabIndex = 19;
-            this.labelStartDate.Text = "Start date:";
-            // 
-            // tbxComments
-            // 
-            this.tbxComments.Location = new System.Drawing.Point(205, 424);
-            this.tbxComments.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxComments.Multiline = true;
-            this.tbxComments.Name = "tbxComments";
-            this.tbxComments.Size = new System.Drawing.Size(390, 179);
-            this.tbxComments.TabIndex = 18;
-            // 
-            // labelComments
-            // 
-            this.labelComments.AutoSize = true;
-            this.labelComments.Location = new System.Drawing.Point(17, 427);
-            this.labelComments.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelComments.Name = "labelComments";
-            this.labelComments.Size = new System.Drawing.Size(135, 29);
-            this.labelComments.TabIndex = 17;
-            this.labelComments.Text = "Comments:";
-            // 
-            // btnCancelTransfer
-            // 
-            this.btnCancelTransfer.AutoSize = true;
-            this.btnCancelTransfer.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnCancelTransfer.Location = new System.Drawing.Point(334, 649);
-            this.btnCancelTransfer.Margin = new System.Windows.Forms.Padding(6);
-            this.btnCancelTransfer.Name = "btnCancelTransfer";
-            this.btnCancelTransfer.Size = new System.Drawing.Size(261, 60);
-            this.btnCancelTransfer.TabIndex = 16;
-            this.btnCancelTransfer.Text = "Cancel";
-            this.btnCancelTransfer.UseVisualStyleBackColor = false;
-            this.btnCancelTransfer.Click += new System.EventHandler(this.btnCancelTransfer_Click);
-            // 
-            // btnConfirmTransfer
-            // 
-            this.btnConfirmTransfer.AutoSize = true;
-            this.btnConfirmTransfer.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnConfirmTransfer.Location = new System.Drawing.Point(22, 649);
-            this.btnConfirmTransfer.Margin = new System.Windows.Forms.Padding(6);
-            this.btnConfirmTransfer.Name = "btnConfirmTransfer";
-            this.btnConfirmTransfer.Size = new System.Drawing.Size(261, 60);
-            this.btnConfirmTransfer.TabIndex = 15;
-            this.btnConfirmTransfer.Text = "Confirm";
-            this.btnConfirmTransfer.UseVisualStyleBackColor = false;
-            this.btnConfirmTransfer.Click += new System.EventHandler(this.btnConfirmTransfer_Click);
-            // 
-            // tbxAnimalTransfer
-            // 
-            this.tbxAnimalTransfer.Location = new System.Drawing.Point(205, 41);
-            this.tbxAnimalTransfer.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxAnimalTransfer.Name = "tbxAnimalTransfer";
-            this.tbxAnimalTransfer.ReadOnly = true;
-            this.tbxAnimalTransfer.Size = new System.Drawing.Size(390, 35);
-            this.tbxAnimalTransfer.TabIndex = 11;
-            // 
-            // tbxAddressTransfer
-            // 
-            this.tbxAddressTransfer.Location = new System.Drawing.Point(205, 147);
-            this.tbxAddressTransfer.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxAddressTransfer.Multiline = true;
-            this.tbxAddressTransfer.Name = "tbxAddressTransfer";
-            this.tbxAddressTransfer.Size = new System.Drawing.Size(390, 102);
-            this.tbxAddressTransfer.TabIndex = 10;
-            // 
-            // labelAnimalTransfer
-            // 
-            this.labelAnimalTransfer.AutoSize = true;
-            this.labelAnimalTransfer.Location = new System.Drawing.Point(17, 44);
-            this.labelAnimalTransfer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelAnimalTransfer.Name = "labelAnimalTransfer";
-            this.labelAnimalTransfer.Size = new System.Drawing.Size(92, 29);
-            this.labelAnimalTransfer.TabIndex = 9;
-            this.labelAnimalTransfer.Text = "Animal:";
-            // 
-            // labelAdressTransfer
-            // 
-            this.labelAdressTransfer.AutoSize = true;
-            this.labelAdressTransfer.Location = new System.Drawing.Point(17, 150);
-            this.labelAdressTransfer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelAdressTransfer.Name = "labelAdressTransfer";
-            this.labelAdressTransfer.Size = new System.Drawing.Size(154, 29);
-            this.labelAdressTransfer.TabIndex = 8;
-            this.labelAdressTransfer.Text = "Zoo address:";
-            // 
-            // tbxZooNameTransfer
-            // 
-            this.tbxZooNameTransfer.Location = new System.Drawing.Point(205, 95);
-            this.tbxZooNameTransfer.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxZooNameTransfer.Name = "tbxZooNameTransfer";
-            this.tbxZooNameTransfer.Size = new System.Drawing.Size(390, 35);
-            this.tbxZooNameTransfer.TabIndex = 7;
-            // 
-            // labelZooNameTransfer
-            // 
-            this.labelZooNameTransfer.AutoSize = true;
-            this.labelZooNameTransfer.Location = new System.Drawing.Point(17, 98);
-            this.labelZooNameTransfer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelZooNameTransfer.Name = "labelZooNameTransfer";
-            this.labelZooNameTransfer.Size = new System.Drawing.Size(127, 29);
-            this.labelZooNameTransfer.TabIndex = 6;
-            this.labelZooNameTransfer.Text = "Zoo name:";
             // 
             // btnConfirmChanges
             // 
@@ -633,6 +452,187 @@
             this.labelNameEdit.Size = new System.Drawing.Size(84, 29);
             this.labelNameEdit.TabIndex = 0;
             this.labelNameEdit.Text = "Name:";
+            // 
+            // groupBoxAnimalTransfer
+            // 
+            this.groupBoxAnimalTransfer.Controls.Add(this.tbxAnimalTransferPhone);
+            this.groupBoxAnimalTransfer.Controls.Add(this.labelAnimeTransferPhone);
+            this.groupBoxAnimalTransfer.Controls.Add(this.labelEndDate);
+            this.groupBoxAnimalTransfer.Controls.Add(this.dtpEndDate);
+            this.groupBoxAnimalTransfer.Controls.Add(this.dtpStartDate);
+            this.groupBoxAnimalTransfer.Controls.Add(this.labelStartDate);
+            this.groupBoxAnimalTransfer.Controls.Add(this.tbxComments);
+            this.groupBoxAnimalTransfer.Controls.Add(this.labelComments);
+            this.groupBoxAnimalTransfer.Controls.Add(this.btnCancelTransfer);
+            this.groupBoxAnimalTransfer.Controls.Add(this.btnConfirmTransfer);
+            this.groupBoxAnimalTransfer.Controls.Add(this.tbxAnimalTransfer);
+            this.groupBoxAnimalTransfer.Controls.Add(this.tbxAddressTransfer);
+            this.groupBoxAnimalTransfer.Controls.Add(this.labelAnimalTransfer);
+            this.groupBoxAnimalTransfer.Controls.Add(this.labelAdressTransfer);
+            this.groupBoxAnimalTransfer.Controls.Add(this.tbxZooNameTransfer);
+            this.groupBoxAnimalTransfer.Controls.Add(this.labelZooNameTransfer);
+            this.groupBoxAnimalTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxAnimalTransfer.Location = new System.Drawing.Point(14, 30);
+            this.groupBoxAnimalTransfer.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBoxAnimalTransfer.Name = "groupBoxAnimalTransfer";
+            this.groupBoxAnimalTransfer.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBoxAnimalTransfer.Size = new System.Drawing.Size(630, 750);
+            this.groupBoxAnimalTransfer.TabIndex = 45;
+            this.groupBoxAnimalTransfer.TabStop = false;
+            this.groupBoxAnimalTransfer.Text = "Animal transfer";
+            // 
+            // tbxAnimalTransferPhone
+            // 
+            this.tbxAnimalTransferPhone.Location = new System.Drawing.Point(205, 266);
+            this.tbxAnimalTransferPhone.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxAnimalTransferPhone.Name = "tbxAnimalTransferPhone";
+            this.tbxAnimalTransferPhone.Size = new System.Drawing.Size(390, 35);
+            this.tbxAnimalTransferPhone.TabIndex = 24;
+            // 
+            // labelAnimeTransferPhone
+            // 
+            this.labelAnimeTransferPhone.AutoSize = true;
+            this.labelAnimeTransferPhone.Location = new System.Drawing.Point(17, 269);
+            this.labelAnimeTransferPhone.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelAnimeTransferPhone.Name = "labelAnimeTransferPhone";
+            this.labelAnimeTransferPhone.Size = new System.Drawing.Size(177, 29);
+            this.labelAnimeTransferPhone.TabIndex = 23;
+            this.labelAnimeTransferPhone.Text = "Phone number:";
+            // 
+            // labelEndDate
+            // 
+            this.labelEndDate.AutoSize = true;
+            this.labelEndDate.Location = new System.Drawing.Point(17, 376);
+            this.labelEndDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelEndDate.Name = "labelEndDate";
+            this.labelEndDate.Size = new System.Drawing.Size(115, 29);
+            this.labelEndDate.TabIndex = 22;
+            this.labelEndDate.Text = "End date:";
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Location = new System.Drawing.Point(205, 370);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(390, 35);
+            this.dtpEndDate.TabIndex = 21;
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Location = new System.Drawing.Point(205, 318);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(390, 35);
+            this.dtpStartDate.TabIndex = 20;
+            // 
+            // labelStartDate
+            // 
+            this.labelStartDate.AutoSize = true;
+            this.labelStartDate.Location = new System.Drawing.Point(17, 324);
+            this.labelStartDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelStartDate.Name = "labelStartDate";
+            this.labelStartDate.Size = new System.Drawing.Size(121, 29);
+            this.labelStartDate.TabIndex = 19;
+            this.labelStartDate.Text = "Start date:";
+            // 
+            // tbxComments
+            // 
+            this.tbxComments.Location = new System.Drawing.Point(205, 424);
+            this.tbxComments.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxComments.Multiline = true;
+            this.tbxComments.Name = "tbxComments";
+            this.tbxComments.Size = new System.Drawing.Size(390, 179);
+            this.tbxComments.TabIndex = 18;
+            // 
+            // labelComments
+            // 
+            this.labelComments.AutoSize = true;
+            this.labelComments.Location = new System.Drawing.Point(17, 427);
+            this.labelComments.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelComments.Name = "labelComments";
+            this.labelComments.Size = new System.Drawing.Size(135, 29);
+            this.labelComments.TabIndex = 17;
+            this.labelComments.Text = "Comments:";
+            // 
+            // btnCancelTransfer
+            // 
+            this.btnCancelTransfer.AutoSize = true;
+            this.btnCancelTransfer.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnCancelTransfer.Location = new System.Drawing.Point(334, 649);
+            this.btnCancelTransfer.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCancelTransfer.Name = "btnCancelTransfer";
+            this.btnCancelTransfer.Size = new System.Drawing.Size(261, 60);
+            this.btnCancelTransfer.TabIndex = 16;
+            this.btnCancelTransfer.Text = "Cancel";
+            this.btnCancelTransfer.UseVisualStyleBackColor = false;
+            this.btnCancelTransfer.Click += new System.EventHandler(this.btnCancelTransfer_Click);
+            // 
+            // btnConfirmTransfer
+            // 
+            this.btnConfirmTransfer.AutoSize = true;
+            this.btnConfirmTransfer.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnConfirmTransfer.Location = new System.Drawing.Point(22, 649);
+            this.btnConfirmTransfer.Margin = new System.Windows.Forms.Padding(6);
+            this.btnConfirmTransfer.Name = "btnConfirmTransfer";
+            this.btnConfirmTransfer.Size = new System.Drawing.Size(261, 60);
+            this.btnConfirmTransfer.TabIndex = 15;
+            this.btnConfirmTransfer.Text = "Confirm";
+            this.btnConfirmTransfer.UseVisualStyleBackColor = false;
+            this.btnConfirmTransfer.Click += new System.EventHandler(this.btnConfirmTransfer_Click);
+            // 
+            // tbxAnimalTransfer
+            // 
+            this.tbxAnimalTransfer.Location = new System.Drawing.Point(205, 41);
+            this.tbxAnimalTransfer.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxAnimalTransfer.Name = "tbxAnimalTransfer";
+            this.tbxAnimalTransfer.ReadOnly = true;
+            this.tbxAnimalTransfer.Size = new System.Drawing.Size(390, 35);
+            this.tbxAnimalTransfer.TabIndex = 11;
+            // 
+            // tbxAddressTransfer
+            // 
+            this.tbxAddressTransfer.Location = new System.Drawing.Point(205, 147);
+            this.tbxAddressTransfer.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxAddressTransfer.Multiline = true;
+            this.tbxAddressTransfer.Name = "tbxAddressTransfer";
+            this.tbxAddressTransfer.Size = new System.Drawing.Size(390, 102);
+            this.tbxAddressTransfer.TabIndex = 10;
+            // 
+            // labelAnimalTransfer
+            // 
+            this.labelAnimalTransfer.AutoSize = true;
+            this.labelAnimalTransfer.Location = new System.Drawing.Point(17, 44);
+            this.labelAnimalTransfer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelAnimalTransfer.Name = "labelAnimalTransfer";
+            this.labelAnimalTransfer.Size = new System.Drawing.Size(92, 29);
+            this.labelAnimalTransfer.TabIndex = 9;
+            this.labelAnimalTransfer.Text = "Animal:";
+            // 
+            // labelAdressTransfer
+            // 
+            this.labelAdressTransfer.AutoSize = true;
+            this.labelAdressTransfer.Location = new System.Drawing.Point(17, 150);
+            this.labelAdressTransfer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelAdressTransfer.Name = "labelAdressTransfer";
+            this.labelAdressTransfer.Size = new System.Drawing.Size(154, 29);
+            this.labelAdressTransfer.TabIndex = 8;
+            this.labelAdressTransfer.Text = "Zoo address:";
+            // 
+            // tbxZooNameTransfer
+            // 
+            this.tbxZooNameTransfer.Location = new System.Drawing.Point(205, 95);
+            this.tbxZooNameTransfer.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxZooNameTransfer.Name = "tbxZooNameTransfer";
+            this.tbxZooNameTransfer.Size = new System.Drawing.Size(390, 35);
+            this.tbxZooNameTransfer.TabIndex = 7;
+            // 
+            // labelZooNameTransfer
+            // 
+            this.labelZooNameTransfer.AutoSize = true;
+            this.labelZooNameTransfer.Location = new System.Drawing.Point(17, 98);
+            this.labelZooNameTransfer.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelZooNameTransfer.Name = "labelZooNameTransfer";
+            this.labelZooNameTransfer.Size = new System.Drawing.Size(127, 29);
+            this.labelZooNameTransfer.TabIndex = 6;
+            this.labelZooNameTransfer.Text = "Zoo name:";
             // 
             // groupBoxSearchAnimal
             // 
@@ -1266,10 +1266,10 @@
             this.tabPageAddAnimal.Controls.Add(this.groupBoxRelationships);
             this.tabPageAddAnimal.Controls.Add(this.btnConfirmAnimalCreation);
             this.tabPageAddAnimal.Controls.Add(this.btnCancelAnimalCreation);
-            this.tabPageAddAnimal.Location = new System.Drawing.Point(4, 36);
+            this.tabPageAddAnimal.Location = new System.Drawing.Point(4, 46);
             this.tabPageAddAnimal.Name = "tabPageAddAnimal";
             this.tabPageAddAnimal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddAnimal.Size = new System.Drawing.Size(1793, 907);
+            this.tabPageAddAnimal.Size = new System.Drawing.Size(1793, 897);
             this.tabPageAddAnimal.TabIndex = 2;
             this.tabPageAddAnimal.Text = "Add Animal";
             this.tabPageAddAnimal.UseVisualStyleBackColor = true;
@@ -1311,6 +1311,7 @@
             this.cbxAnimalSpecies.Name = "cbxAnimalSpecies";
             this.cbxAnimalSpecies.Size = new System.Drawing.Size(397, 37);
             this.cbxAnimalSpecies.TabIndex = 40;
+            this.cbxAnimalSpecies.SelectedIndexChanged += new System.EventHandler(this.cbxAnimalSpecies_SelectedIndexChanged);
             // 
             // labelDateFormat
             // 
@@ -1721,9 +1722,9 @@
             this.tabSearchAnimals.ResumeLayout(false);
             this.groupBoxEditAnimal.ResumeLayout(false);
             this.groupBoxEditAnimal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).EndInit();
             this.groupBoxAnimalTransfer.ResumeLayout(false);
             this.groupBoxAnimalTransfer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).EndInit();
             this.groupBoxSearchAnimal.ResumeLayout(false);
             this.groupBoxSearchAnimal.PerformLayout();
             this.groupBoxRelationship.ResumeLayout(false);
