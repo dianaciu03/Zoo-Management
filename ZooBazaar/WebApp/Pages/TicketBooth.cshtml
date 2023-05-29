@@ -17,20 +17,20 @@
 
             <h2 style="margin-top:60px">Order Tickets</h2>
             <div style="margin-top:25px" class="ticket-type">
-                <label for="toddlers">Toddlers:</label>
-                <input type="number" id="toddlers" min="0" value="0">
+                <label asp-for="ToddlerTicket">Toddlers:</label>
+                <input asp-for="ToddlerTicket" type="number" id="toddlers" min="0" value="0">
                 <label>tickets</label>
             </div>
 
             <div class="ticket-type">
-                <label for="kids">Kids:</label>
-                <input type="number" id="kids" min="0" value="0">
+                <label asp-for="KidTicket">Kids:</label>
+                <input asp-for="KidTicket" type="number" id="kids" min="0" value="0">
                 <label>tickets</label>
             </div>
 
             <div class="ticket-type">
-                <label for="adults">Adults:</label>
-                <input type="number" id="adults" min="0" value="0">
+                <label asp-for="AdultTicket">Adults:</label>
+                <input asp-for="AdultTicket" type="number" id="adults" min="0" value="0">
                 <label>tickets</label>
             </div>
 
