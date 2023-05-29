@@ -40,6 +40,14 @@ namespace DesktopApplication
             cbxEndangermentAddAnimal.DataSource = Enum.GetValues(typeof(ENDANGERMENT));
             cbxOriginAddAnimal.DataSource = Enum.GetValues(typeof(ORIGINCONTINENT));
 
+            var species = animalManagement.GetAllSpecies();
+            cbxAnimalSpecies.DataSource = species;
+            cbxAnimalSpeciesEdit.DataSource = species;
+            cbxAnimalSpeciesSearch.DataSource = species;
+            cbxAnimalSpecies.SelectedIndex = -1;
+            cbxAnimalSpeciesEdit.SelectedIndex = -1;
+            cbxAnimalSpeciesSearch.SelectedIndex = -1;
+
             btnClearAll_Click(this, EventArgs.Empty);
             this.BackgroundImageLayout = ImageLayout.Stretch;
             updateAnimalHistoryListview(animalManagement.GetAllAnimals("AnimalId"));
@@ -73,7 +81,7 @@ namespace DesktopApplication
         private void fillInDetails(Animal a)
         {
             tbxNameEdit.Text = a.Name;
-            tbxSpeciesEdit.Text = a.Species;
+            cbxAnimalSpeciesEdit.Text = a.Species;
             maskedtbxDateOfBirthEdit.Text = a.Birthday.ToString("MM/dd/yyyy");
             cbxContinentEdit.SelectedItem = a.OriginContinent;
             cbxEndangermentEdit.SelectedItem = a.Endangerment;
@@ -110,7 +118,7 @@ namespace DesktopApplication
                 }
 
                 animal.Name = tbxNameEdit.Text;
-                animal.Species = tbxSpeciesEdit.Text;
+                animal.Species = cbxAnimalSpeciesEdit.Text;
                 animal.Birthday = date;
                 animal.Enclosure = (int)numudEnclosureEdit.Value;
                 animal.OriginContinent = (ORIGINCONTINENT)cbxContinentEdit.SelectedItem;
@@ -136,7 +144,7 @@ namespace DesktopApplication
         private void ClearAnimalEditDetails()
         {
             tbxNameEdit.Text = string.Empty;
-            tbxSpeciesEdit.Text = string.Empty;
+            cbxAnimalSpeciesEdit.Text = string.Empty;
             maskedtbxDateOfBirthEdit.Text = string.Empty;
             cbxContinentEdit.SelectedIndex = -1;
             cbxEndangermentEdit.SelectedIndex = -1;
@@ -401,7 +409,7 @@ namespace DesktopApplication
             }
             
 
-            searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, tbxSpecies.Text, cbxOrigin.Text, gender, availability, birthYear, cbxEndangerment.Text);
+            searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, cbxAnimalSpeciesSearch.Text, cbxOrigin.Text, gender, availability, birthYear, cbxEndangerment.Text);
             updateAnimalListview(searchedAnimals.ToArray());
         }
 
@@ -415,7 +423,7 @@ namespace DesktopApplication
             cbxOrigin.SelectedIndex = -1;
             cbxEndangerment.SelectedIndex = -1;
             tbxName.Text = string.Empty;
-            tbxSpecies.Text = string.Empty;
+            cbxAnimalSpeciesSearch.Text = string.Empty;
         }
 
         private void updateAnimalListview(Animal[] animals)
@@ -516,12 +524,12 @@ namespace DesktopApplication
                 else if (rbtnFemaleAddAnimal.Checked) gender = "Female";
                 else throw (new Exception("Please select a gender"));
 
-                animal = new Animal(tbxNameAddAnimal.Text, gender, tbxSpeciesAddAnimal.Text, date, (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
+                animal = new Animal(tbxNameAddAnimal.Text, gender, cbxAnimalSpecies.Text, date, (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
                 animalManagement.AddUpdateAnimal(animal);
                 MessageBox.Show($"Animal has been successfully created!\n{animal}");
 
                 tbxNameAddAnimal.Text = string.Empty;
-                tbxSpeciesAddAnimal.Text= string.Empty;
+                cbxAnimalSpecies.Text= string.Empty;
                 cbxEndangermentAddAnimal.SelectedIndex = -1;
                 cbxOriginAddAnimal.SelectedIndex = -1;
                 maskedtbxBirthDateAddAnimalForm.Text = string.Empty;

@@ -31,38 +31,7 @@
             this.tabControlAnimals = new System.Windows.Forms.TabControl();
             this.tabSearchAnimals = new System.Windows.Forms.TabPage();
             this.groupBoxEditAnimal = new System.Windows.Forms.GroupBox();
-            this.btnConfirmChanges = new System.Windows.Forms.Button();
-            this.labelDateFormatEdit = new System.Windows.Forms.Label();
-            this.labelDateofBirth = new System.Windows.Forms.Label();
-            this.btnCancelEditAnimalDetails = new System.Windows.Forms.Button();
-            this.maskedtbxDateOfBirthEdit = new System.Windows.Forms.MaskedTextBox();
-            this.rbtnMaleEdit = new System.Windows.Forms.RadioButton();
-            this.rbtnFemaleEdit = new System.Windows.Forms.RadioButton();
-            this.labelGenderEdit = new System.Windows.Forms.Label();
-            this.numudEnclosureEdit = new System.Windows.Forms.NumericUpDown();
-            this.labelEnclosureNrEdit = new System.Windows.Forms.Label();
-            this.tbxAdditionalCommentsEdit = new System.Windows.Forms.TextBox();
-            this.labelAdditionalCommentsEdit = new System.Windows.Forms.Label();
-            this.cbxEndangermentEdit = new System.Windows.Forms.ComboBox();
-            this.cbxContinentEdit = new System.Windows.Forms.ComboBox();
-            this.labelEndangerEdit = new System.Windows.Forms.Label();
-            this.tbxSpeciesEdit = new System.Windows.Forms.TextBox();
-            this.tbxNameEdit = new System.Windows.Forms.TextBox();
-            this.labelContinentEdit = new System.Windows.Forms.Label();
-            this.labelSpeciesEdit = new System.Windows.Forms.Label();
-            this.labelNameEdit = new System.Windows.Forms.Label();
-            this.groupBoxRelationship = new System.Windows.Forms.GroupBox();
-            this.btnRemoveRelationship = new System.Windows.Forms.Button();
-            this.btnCancelRelationship = new System.Windows.Forms.Button();
-            this.btnAddNewRelationship = new System.Windows.Forms.Button();
-            this.labelExistingRelationshipMain = new System.Windows.Forms.Label();
-            this.lbxRelationshipsMain = new System.Windows.Forms.ListBox();
-            this.cbxOtherAnimalRelationship = new System.Windows.Forms.ComboBox();
-            this.cbxRelationshipType = new System.Windows.Forms.ComboBox();
-            this.labelRelationshipTypeMain = new System.Windows.Forms.Label();
-            this.labelOtherAnimalMain = new System.Windows.Forms.Label();
-            this.tbxMainAnimalRelationship = new System.Windows.Forms.TextBox();
-            this.labelMainAnimalRelationship = new System.Windows.Forms.Label();
+            this.cbxAnimalSpeciesEdit = new System.Windows.Forms.ComboBox();
             this.groupBoxAnimalTransfer = new System.Windows.Forms.GroupBox();
             this.tbxAnimalTransferPhone = new System.Windows.Forms.TextBox();
             this.labelAnimeTransferPhone = new System.Windows.Forms.Label();
@@ -80,7 +49,27 @@
             this.labelAdressTransfer = new System.Windows.Forms.Label();
             this.tbxZooNameTransfer = new System.Windows.Forms.TextBox();
             this.labelZooNameTransfer = new System.Windows.Forms.Label();
+            this.btnConfirmChanges = new System.Windows.Forms.Button();
+            this.labelDateFormatEdit = new System.Windows.Forms.Label();
+            this.labelDateofBirth = new System.Windows.Forms.Label();
+            this.btnCancelEditAnimalDetails = new System.Windows.Forms.Button();
+            this.maskedtbxDateOfBirthEdit = new System.Windows.Forms.MaskedTextBox();
+            this.rbtnMaleEdit = new System.Windows.Forms.RadioButton();
+            this.rbtnFemaleEdit = new System.Windows.Forms.RadioButton();
+            this.labelGenderEdit = new System.Windows.Forms.Label();
+            this.numudEnclosureEdit = new System.Windows.Forms.NumericUpDown();
+            this.labelEnclosureNrEdit = new System.Windows.Forms.Label();
+            this.tbxAdditionalCommentsEdit = new System.Windows.Forms.TextBox();
+            this.labelAdditionalCommentsEdit = new System.Windows.Forms.Label();
+            this.cbxEndangermentEdit = new System.Windows.Forms.ComboBox();
+            this.cbxContinentEdit = new System.Windows.Forms.ComboBox();
+            this.labelEndangerEdit = new System.Windows.Forms.Label();
+            this.tbxNameEdit = new System.Windows.Forms.TextBox();
+            this.labelContinentEdit = new System.Windows.Forms.Label();
+            this.labelSpeciesEdit = new System.Windows.Forms.Label();
+            this.labelNameEdit = new System.Windows.Forms.Label();
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
+            this.cbxAnimalSpeciesSearch = new System.Windows.Forms.ComboBox();
             this.tbxAge = new System.Windows.Forms.TextBox();
             this.labelAgeSearch = new System.Windows.Forms.Label();
             this.btnDisplayAllAnimals = new System.Windows.Forms.Button();
@@ -95,7 +84,6 @@
             this.cbxOrigin = new System.Windows.Forms.ComboBox();
             this.labelEndangerment = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.tbxSpecies = new System.Windows.Forms.TextBox();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.labelOrigin = new System.Windows.Forms.Label();
             this.labelSpecies = new System.Windows.Forms.Label();
@@ -111,6 +99,18 @@
             this.colAvailability = new System.Windows.Forms.ColumnHeader();
             this.btnAddRelationship = new System.Windows.Forms.Button();
             this.btnEditAnimal = new System.Windows.Forms.Button();
+            this.groupBoxRelationship = new System.Windows.Forms.GroupBox();
+            this.btnRemoveRelationship = new System.Windows.Forms.Button();
+            this.btnCancelRelationship = new System.Windows.Forms.Button();
+            this.btnAddNewRelationship = new System.Windows.Forms.Button();
+            this.labelExistingRelationshipMain = new System.Windows.Forms.Label();
+            this.lbxRelationshipsMain = new System.Windows.Forms.ListBox();
+            this.cbxOtherAnimalRelationship = new System.Windows.Forms.ComboBox();
+            this.cbxRelationshipType = new System.Windows.Forms.ComboBox();
+            this.labelRelationshipTypeMain = new System.Windows.Forms.Label();
+            this.labelOtherAnimalMain = new System.Windows.Forms.Label();
+            this.tbxMainAnimalRelationship = new System.Windows.Forms.TextBox();
+            this.labelMainAnimalRelationship = new System.Windows.Forms.Label();
             this.tabAnimalHistory = new System.Windows.Forms.TabPage();
             this.lvwAnimalHistory = new System.Windows.Forms.ListView();
             this.columnId = new System.Windows.Forms.ColumnHeader();
@@ -131,6 +131,7 @@
             this.labelAllAnimals = new System.Windows.Forms.Label();
             this.tabPageAddAnimal = new System.Windows.Forms.TabPage();
             this.groupBoxAddAnimal = new System.Windows.Forms.GroupBox();
+            this.cbxAnimalSpecies = new System.Windows.Forms.ComboBox();
             this.labelDateFormat = new System.Windows.Forms.Label();
             this.labelAddAnimalBirthDate = new System.Windows.Forms.Label();
             this.maskedtbxBirthDateAddAnimalForm = new System.Windows.Forms.MaskedTextBox();
@@ -144,7 +145,6 @@
             this.cbxEndangermentAddAnimal = new System.Windows.Forms.ComboBox();
             this.cbxOriginAddAnimal = new System.Windows.Forms.ComboBox();
             this.labelAddAnimalEndangerment = new System.Windows.Forms.Label();
-            this.tbxSpeciesAddAnimal = new System.Windows.Forms.TextBox();
             this.tbxNameAddAnimal = new System.Windows.Forms.TextBox();
             this.labelAddAnimalOrigin = new System.Windows.Forms.Label();
             this.labelAddAnimalSpecies = new System.Windows.Forms.Label();
@@ -173,10 +173,10 @@
             this.tabControlAnimals.SuspendLayout();
             this.tabSearchAnimals.SuspendLayout();
             this.groupBoxEditAnimal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).BeginInit();
-            this.groupBoxRelationship.SuspendLayout();
             this.groupBoxAnimalTransfer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).BeginInit();
             this.groupBoxSearchAnimal.SuspendLayout();
+            this.groupBoxRelationship.SuspendLayout();
             this.tabAnimalHistory.SuspendLayout();
             this.tabPageAddAnimal.SuspendLayout();
             this.groupBoxAddAnimal.SuspendLayout();
@@ -200,13 +200,13 @@
             // tabSearchAnimals
             // 
             this.tabSearchAnimals.Controls.Add(this.groupBoxEditAnimal);
-            this.tabSearchAnimals.Controls.Add(this.groupBoxRelationship);
             this.tabSearchAnimals.Controls.Add(this.groupBoxAnimalTransfer);
             this.tabSearchAnimals.Controls.Add(this.groupBoxSearchAnimal);
             this.tabSearchAnimals.Controls.Add(this.btnTransferAnimal);
             this.tabSearchAnimals.Controls.Add(this.lvwAnimals);
             this.tabSearchAnimals.Controls.Add(this.btnAddRelationship);
             this.tabSearchAnimals.Controls.Add(this.btnEditAnimal);
+            this.tabSearchAnimals.Controls.Add(this.groupBoxRelationship);
             this.tabSearchAnimals.Location = new System.Drawing.Point(4, 46);
             this.tabSearchAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabSearchAnimals.Name = "tabSearchAnimals";
@@ -219,6 +219,7 @@
             // groupBoxEditAnimal
             // 
             this.groupBoxEditAnimal.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxEditAnimal.Controls.Add(this.cbxAnimalSpeciesEdit);
             this.groupBoxEditAnimal.Controls.Add(this.btnConfirmChanges);
             this.groupBoxEditAnimal.Controls.Add(this.labelDateFormatEdit);
             this.groupBoxEditAnimal.Controls.Add(this.labelDateofBirth);
@@ -234,13 +235,12 @@
             this.groupBoxEditAnimal.Controls.Add(this.cbxEndangermentEdit);
             this.groupBoxEditAnimal.Controls.Add(this.cbxContinentEdit);
             this.groupBoxEditAnimal.Controls.Add(this.labelEndangerEdit);
-            this.groupBoxEditAnimal.Controls.Add(this.tbxSpeciesEdit);
             this.groupBoxEditAnimal.Controls.Add(this.tbxNameEdit);
             this.groupBoxEditAnimal.Controls.Add(this.labelContinentEdit);
             this.groupBoxEditAnimal.Controls.Add(this.labelSpeciesEdit);
             this.groupBoxEditAnimal.Controls.Add(this.labelNameEdit);
             this.groupBoxEditAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxEditAnimal.Location = new System.Drawing.Point(29, 18);
+            this.groupBoxEditAnimal.Location = new System.Drawing.Point(28, 11);
             this.groupBoxEditAnimal.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.groupBoxEditAnimal.Name = "groupBoxEditAnimal";
             this.groupBoxEditAnimal.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
@@ -249,355 +249,13 @@
             this.groupBoxEditAnimal.TabStop = false;
             this.groupBoxEditAnimal.Text = "Animal details:";
             // 
-            // btnConfirmChanges
+            // cbxAnimalSpeciesEdit
             // 
-            this.btnConfirmChanges.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnConfirmChanges.Location = new System.Drawing.Point(21, 740);
-            this.btnConfirmChanges.Name = "btnConfirmChanges";
-            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 52);
-            this.btnConfirmChanges.TabIndex = 42;
-            this.btnConfirmChanges.Text = "Confirm";
-            this.btnConfirmChanges.UseVisualStyleBackColor = false;
-            this.btnConfirmChanges.Click += new System.EventHandler(this.btnConfirmChanges_Click);
-            // 
-            // labelDateFormatEdit
-            // 
-            this.labelDateFormatEdit.AutoSize = true;
-            this.labelDateFormatEdit.Location = new System.Drawing.Point(359, 269);
-            this.labelDateFormatEdit.Name = "labelDateFormatEdit";
-            this.labelDateFormatEdit.Size = new System.Drawing.Size(155, 29);
-            this.labelDateFormatEdit.TabIndex = 39;
-            this.labelDateFormatEdit.Text = "(mm/dd/yyyy)";
-            // 
-            // labelDateofBirth
-            // 
-            this.labelDateofBirth.AutoSize = true;
-            this.labelDateofBirth.Location = new System.Drawing.Point(17, 269);
-            this.labelDateofBirth.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelDateofBirth.Name = "labelDateofBirth";
-            this.labelDateofBirth.Size = new System.Drawing.Size(148, 29);
-            this.labelDateofBirth.TabIndex = 38;
-            this.labelDateofBirth.Text = "Date of birth:";
-            // 
-            // btnCancelEditAnimalDetails
-            // 
-            this.btnCancelEditAnimalDetails.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnCancelEditAnimalDetails.Location = new System.Drawing.Point(334, 740);
-            this.btnCancelEditAnimalDetails.Name = "btnCancelEditAnimalDetails";
-            this.btnCancelEditAnimalDetails.Size = new System.Drawing.Size(261, 52);
-            this.btnCancelEditAnimalDetails.TabIndex = 41;
-            this.btnCancelEditAnimalDetails.Text = "Cancel";
-            this.btnCancelEditAnimalDetails.UseVisualStyleBackColor = false;
-            this.btnCancelEditAnimalDetails.Click += new System.EventHandler(this.btnCancelEditAnimalDetails_Click);
-            // 
-            // maskedtbxDateOfBirthEdit
-            // 
-            this.maskedtbxDateOfBirthEdit.Location = new System.Drawing.Point(205, 266);
-            this.maskedtbxDateOfBirthEdit.Mask = "00/00/0000";
-            this.maskedtbxDateOfBirthEdit.Name = "maskedtbxDateOfBirthEdit";
-            this.maskedtbxDateOfBirthEdit.ResetOnSpace = false;
-            this.maskedtbxDateOfBirthEdit.Size = new System.Drawing.Size(129, 35);
-            this.maskedtbxDateOfBirthEdit.TabIndex = 35;
-            // 
-            // rbtnMaleEdit
-            // 
-            this.rbtnMaleEdit.AutoSize = true;
-            this.rbtnMaleEdit.Location = new System.Drawing.Point(205, 218);
-            this.rbtnMaleEdit.Name = "rbtnMaleEdit";
-            this.rbtnMaleEdit.Size = new System.Drawing.Size(84, 33);
-            this.rbtnMaleEdit.TabIndex = 31;
-            this.rbtnMaleEdit.TabStop = true;
-            this.rbtnMaleEdit.Text = "Male";
-            this.rbtnMaleEdit.UseVisualStyleBackColor = true;
-            // 
-            // rbtnFemaleEdit
-            // 
-            this.rbtnFemaleEdit.AutoSize = true;
-            this.rbtnFemaleEdit.Location = new System.Drawing.Point(315, 218);
-            this.rbtnFemaleEdit.Name = "rbtnFemaleEdit";
-            this.rbtnFemaleEdit.Size = new System.Drawing.Size(113, 33);
-            this.rbtnFemaleEdit.TabIndex = 30;
-            this.rbtnFemaleEdit.TabStop = true;
-            this.rbtnFemaleEdit.Text = "Female";
-            this.rbtnFemaleEdit.UseVisualStyleBackColor = true;
-            // 
-            // labelGenderEdit
-            // 
-            this.labelGenderEdit.AutoSize = true;
-            this.labelGenderEdit.Location = new System.Drawing.Point(16, 220);
-            this.labelGenderEdit.Name = "labelGenderEdit";
-            this.labelGenderEdit.Size = new System.Drawing.Size(100, 29);
-            this.labelGenderEdit.TabIndex = 29;
-            this.labelGenderEdit.Text = "Gender:";
-            // 
-            // numudEnclosureEdit
-            // 
-            this.numudEnclosureEdit.Location = new System.Drawing.Point(205, 378);
-            this.numudEnclosureEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.numudEnclosureEdit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numudEnclosureEdit.Name = "numudEnclosureEdit";
-            this.numudEnclosureEdit.Size = new System.Drawing.Size(129, 35);
-            this.numudEnclosureEdit.TabIndex = 17;
-            this.numudEnclosureEdit.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // labelEnclosureNrEdit
-            // 
-            this.labelEnclosureNrEdit.AutoSize = true;
-            this.labelEnclosureNrEdit.Location = new System.Drawing.Point(16, 380);
-            this.labelEnclosureNrEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelEnclosureNrEdit.Name = "labelEnclosureNrEdit";
-            this.labelEnclosureNrEdit.Size = new System.Drawing.Size(154, 29);
-            this.labelEnclosureNrEdit.TabIndex = 16;
-            this.labelEnclosureNrEdit.Text = "Enclosure nr:";
-            // 
-            // tbxAdditionalCommentsEdit
-            // 
-            this.tbxAdditionalCommentsEdit.Location = new System.Drawing.Point(21, 483);
-            this.tbxAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.tbxAdditionalCommentsEdit.Multiline = true;
-            this.tbxAdditionalCommentsEdit.Name = "tbxAdditionalCommentsEdit";
-            this.tbxAdditionalCommentsEdit.Size = new System.Drawing.Size(581, 226);
-            this.tbxAdditionalCommentsEdit.TabIndex = 15;
-            // 
-            // labelAdditionalCommentsEdit
-            // 
-            this.labelAdditionalCommentsEdit.AutoSize = true;
-            this.labelAdditionalCommentsEdit.Location = new System.Drawing.Point(16, 439);
-            this.labelAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelAdditionalCommentsEdit.Name = "labelAdditionalCommentsEdit";
-            this.labelAdditionalCommentsEdit.Size = new System.Drawing.Size(243, 29);
-            this.labelAdditionalCommentsEdit.TabIndex = 14;
-            this.labelAdditionalCommentsEdit.Text = "Additional comments:";
-            // 
-            // cbxEndangermentEdit
-            // 
-            this.cbxEndangermentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEndangermentEdit.FormattingEnabled = true;
-            this.cbxEndangermentEdit.Location = new System.Drawing.Point(205, 320);
-            this.cbxEndangermentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cbxEndangermentEdit.Name = "cbxEndangermentEdit";
-            this.cbxEndangermentEdit.Size = new System.Drawing.Size(397, 37);
-            this.cbxEndangermentEdit.TabIndex = 13;
-            // 
-            // cbxContinentEdit
-            // 
-            this.cbxContinentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxContinentEdit.FormattingEnabled = true;
-            this.cbxContinentEdit.Location = new System.Drawing.Point(205, 163);
-            this.cbxContinentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cbxContinentEdit.Name = "cbxContinentEdit";
-            this.cbxContinentEdit.Size = new System.Drawing.Size(397, 37);
-            this.cbxContinentEdit.TabIndex = 9;
-            // 
-            // labelEndangerEdit
-            // 
-            this.labelEndangerEdit.AutoSize = true;
-            this.labelEndangerEdit.Location = new System.Drawing.Point(16, 323);
-            this.labelEndangerEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelEndangerEdit.Name = "labelEndangerEdit";
-            this.labelEndangerEdit.Size = new System.Drawing.Size(177, 29);
-            this.labelEndangerEdit.TabIndex = 8;
-            this.labelEndangerEdit.Text = "Endangerment:";
-            // 
-            // tbxSpeciesEdit
-            // 
-            this.tbxSpeciesEdit.Location = new System.Drawing.Point(205, 106);
-            this.tbxSpeciesEdit.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxSpeciesEdit.Name = "tbxSpeciesEdit";
-            this.tbxSpeciesEdit.Size = new System.Drawing.Size(397, 35);
-            this.tbxSpeciesEdit.TabIndex = 6;
-            // 
-            // tbxNameEdit
-            // 
-            this.tbxNameEdit.Location = new System.Drawing.Point(205, 48);
-            this.tbxNameEdit.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxNameEdit.Name = "tbxNameEdit";
-            this.tbxNameEdit.Size = new System.Drawing.Size(397, 35);
-            this.tbxNameEdit.TabIndex = 5;
-            // 
-            // labelContinentEdit
-            // 
-            this.labelContinentEdit.AutoSize = true;
-            this.labelContinentEdit.Location = new System.Drawing.Point(16, 166);
-            this.labelContinentEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelContinentEdit.Name = "labelContinentEdit";
-            this.labelContinentEdit.Size = new System.Drawing.Size(121, 29);
-            this.labelContinentEdit.TabIndex = 2;
-            this.labelContinentEdit.Text = "Continent:";
-            // 
-            // labelSpeciesEdit
-            // 
-            this.labelSpeciesEdit.AutoSize = true;
-            this.labelSpeciesEdit.Location = new System.Drawing.Point(16, 109);
-            this.labelSpeciesEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelSpeciesEdit.Name = "labelSpeciesEdit";
-            this.labelSpeciesEdit.Size = new System.Drawing.Size(107, 29);
-            this.labelSpeciesEdit.TabIndex = 1;
-            this.labelSpeciesEdit.Text = "Species:";
-            // 
-            // labelNameEdit
-            // 
-            this.labelNameEdit.AutoSize = true;
-            this.labelNameEdit.Location = new System.Drawing.Point(16, 51);
-            this.labelNameEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelNameEdit.Name = "labelNameEdit";
-            this.labelNameEdit.Size = new System.Drawing.Size(84, 29);
-            this.labelNameEdit.TabIndex = 0;
-            this.labelNameEdit.Text = "Name:";
-            // 
-            // groupBoxRelationship
-            // 
-            this.groupBoxRelationship.Controls.Add(this.btnRemoveRelationship);
-            this.groupBoxRelationship.Controls.Add(this.btnCancelRelationship);
-            this.groupBoxRelationship.Controls.Add(this.btnAddNewRelationship);
-            this.groupBoxRelationship.Controls.Add(this.labelExistingRelationshipMain);
-            this.groupBoxRelationship.Controls.Add(this.lbxRelationshipsMain);
-            this.groupBoxRelationship.Controls.Add(this.cbxOtherAnimalRelationship);
-            this.groupBoxRelationship.Controls.Add(this.cbxRelationshipType);
-            this.groupBoxRelationship.Controls.Add(this.labelRelationshipTypeMain);
-            this.groupBoxRelationship.Controls.Add(this.labelOtherAnimalMain);
-            this.groupBoxRelationship.Controls.Add(this.tbxMainAnimalRelationship);
-            this.groupBoxRelationship.Controls.Add(this.labelMainAnimalRelationship);
-            this.groupBoxRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxRelationship.Location = new System.Drawing.Point(29, 18);
-            this.groupBoxRelationship.Name = "groupBoxRelationship";
-            this.groupBoxRelationship.Size = new System.Drawing.Size(630, 750);
-            this.groupBoxRelationship.TabIndex = 46;
-            this.groupBoxRelationship.TabStop = false;
-            this.groupBoxRelationship.Text = "Add relationship";
-            // 
-            // btnRemoveRelationship
-            // 
-            this.btnRemoveRelationship.AutoSize = true;
-            this.btnRemoveRelationship.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnRemoveRelationship.Location = new System.Drawing.Point(178, 676);
-            this.btnRemoveRelationship.Margin = new System.Windows.Forms.Padding(6);
-            this.btnRemoveRelationship.Name = "btnRemoveRelationship";
-            this.btnRemoveRelationship.Size = new System.Drawing.Size(261, 55);
-            this.btnRemoveRelationship.TabIndex = 22;
-            this.btnRemoveRelationship.Text = "Remove relationship";
-            this.btnRemoveRelationship.UseVisualStyleBackColor = false;
-            this.btnRemoveRelationship.Click += new System.EventHandler(this.btnRemoveRelationship_Click);
-            // 
-            // btnCancelRelationship
-            // 
-            this.btnCancelRelationship.AutoSize = true;
-            this.btnCancelRelationship.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnCancelRelationship.Location = new System.Drawing.Point(331, 310);
-            this.btnCancelRelationship.Margin = new System.Windows.Forms.Padding(6);
-            this.btnCancelRelationship.Name = "btnCancelRelationship";
-            this.btnCancelRelationship.Size = new System.Drawing.Size(261, 55);
-            this.btnCancelRelationship.TabIndex = 21;
-            this.btnCancelRelationship.Text = "Cancel";
-            this.btnCancelRelationship.UseVisualStyleBackColor = false;
-            this.btnCancelRelationship.Click += new System.EventHandler(this.btnCancelRelationship_Click);
-            // 
-            // btnAddNewRelationship
-            // 
-            this.btnAddNewRelationship.AutoSize = true;
-            this.btnAddNewRelationship.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnAddNewRelationship.Location = new System.Drawing.Point(33, 310);
-            this.btnAddNewRelationship.Margin = new System.Windows.Forms.Padding(6);
-            this.btnAddNewRelationship.Name = "btnAddNewRelationship";
-            this.btnAddNewRelationship.Size = new System.Drawing.Size(261, 55);
-            this.btnAddNewRelationship.TabIndex = 20;
-            this.btnAddNewRelationship.Text = "Add relationship";
-            this.btnAddNewRelationship.UseVisualStyleBackColor = false;
-            this.btnAddNewRelationship.Click += new System.EventHandler(this.btnAddNewRelationship_Click);
-            // 
-            // labelExistingRelationshipMain
-            // 
-            this.labelExistingRelationshipMain.AutoSize = true;
-            this.labelExistingRelationshipMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelExistingRelationshipMain.Location = new System.Drawing.Point(28, 424);
-            this.labelExistingRelationshipMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelExistingRelationshipMain.Name = "labelExistingRelationshipMain";
-            this.labelExistingRelationshipMain.Size = new System.Drawing.Size(246, 29);
-            this.labelExistingRelationshipMain.TabIndex = 19;
-            this.labelExistingRelationshipMain.Text = "Existing relationships:";
-            // 
-            // lbxRelationshipsMain
-            // 
-            this.lbxRelationshipsMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbxRelationshipsMain.FormattingEnabled = true;
-            this.lbxRelationshipsMain.HorizontalScrollbar = true;
-            this.lbxRelationshipsMain.ItemHeight = 29;
-            this.lbxRelationshipsMain.Location = new System.Drawing.Point(33, 471);
-            this.lbxRelationshipsMain.Margin = new System.Windows.Forms.Padding(2);
-            this.lbxRelationshipsMain.Name = "lbxRelationshipsMain";
-            this.lbxRelationshipsMain.Size = new System.Drawing.Size(559, 178);
-            this.lbxRelationshipsMain.TabIndex = 18;
-            // 
-            // cbxOtherAnimalRelationship
-            // 
-            this.cbxOtherAnimalRelationship.FormattingEnabled = true;
-            this.cbxOtherAnimalRelationship.Location = new System.Drawing.Point(33, 239);
-            this.cbxOtherAnimalRelationship.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxOtherAnimalRelationship.Name = "cbxOtherAnimalRelationship";
-            this.cbxOtherAnimalRelationship.Size = new System.Drawing.Size(365, 37);
-            this.cbxOtherAnimalRelationship.TabIndex = 16;
-            // 
-            // cbxRelationshipType
-            // 
-            this.cbxRelationshipType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRelationshipType.FormattingEnabled = true;
-            this.cbxRelationshipType.Items.AddRange(new object[] {
-            "Parent of",
-            "Child of",
-            "Mate of"});
-            this.cbxRelationshipType.Location = new System.Drawing.Point(33, 139);
-            this.cbxRelationshipType.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxRelationshipType.Name = "cbxRelationshipType";
-            this.cbxRelationshipType.Size = new System.Drawing.Size(365, 37);
-            this.cbxRelationshipType.TabIndex = 14;
-            this.cbxRelationshipType.SelectedIndexChanged += new System.EventHandler(this.cbxRelationshipType_SelectedIndexChanged);
-            // 
-            // labelRelationshipTypeMain
-            // 
-            this.labelRelationshipTypeMain.AutoSize = true;
-            this.labelRelationshipTypeMain.Location = new System.Drawing.Point(28, 98);
-            this.labelRelationshipTypeMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelRelationshipTypeMain.Name = "labelRelationshipTypeMain";
-            this.labelRelationshipTypeMain.Size = new System.Drawing.Size(204, 29);
-            this.labelRelationshipTypeMain.TabIndex = 17;
-            this.labelRelationshipTypeMain.Text = "Relationship type:";
-            // 
-            // labelOtherAnimalMain
-            // 
-            this.labelOtherAnimalMain.AutoSize = true;
-            this.labelOtherAnimalMain.Location = new System.Drawing.Point(28, 200);
-            this.labelOtherAnimalMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelOtherAnimalMain.Name = "labelOtherAnimalMain";
-            this.labelOtherAnimalMain.Size = new System.Drawing.Size(158, 29);
-            this.labelOtherAnimalMain.TabIndex = 15;
-            this.labelOtherAnimalMain.Text = "Other Animal:";
-            // 
-            // tbxMainAnimalRelationship
-            // 
-            this.tbxMainAnimalRelationship.Location = new System.Drawing.Point(202, 41);
-            this.tbxMainAnimalRelationship.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxMainAnimalRelationship.Name = "tbxMainAnimalRelationship";
-            this.tbxMainAnimalRelationship.ReadOnly = true;
-            this.tbxMainAnimalRelationship.Size = new System.Drawing.Size(390, 35);
-            this.tbxMainAnimalRelationship.TabIndex = 13;
-            // 
-            // labelMainAnimalRelationship
-            // 
-            this.labelMainAnimalRelationship.AutoSize = true;
-            this.labelMainAnimalRelationship.Location = new System.Drawing.Point(28, 44);
-            this.labelMainAnimalRelationship.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.labelMainAnimalRelationship.Name = "labelMainAnimalRelationship";
-            this.labelMainAnimalRelationship.Size = new System.Drawing.Size(92, 29);
-            this.labelMainAnimalRelationship.TabIndex = 12;
-            this.labelMainAnimalRelationship.Text = "Animal:";
+            this.cbxAnimalSpeciesEdit.FormattingEnabled = true;
+            this.cbxAnimalSpeciesEdit.Location = new System.Drawing.Point(202, 106);
+            this.cbxAnimalSpeciesEdit.Name = "cbxAnimalSpeciesEdit";
+            this.cbxAnimalSpeciesEdit.Size = new System.Drawing.Size(400, 37);
+            this.cbxAnimalSpeciesEdit.TabIndex = 43;
             // 
             // groupBoxAnimalTransfer
             // 
@@ -618,7 +276,7 @@
             this.groupBoxAnimalTransfer.Controls.Add(this.tbxZooNameTransfer);
             this.groupBoxAnimalTransfer.Controls.Add(this.labelZooNameTransfer);
             this.groupBoxAnimalTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxAnimalTransfer.Location = new System.Drawing.Point(29, 18);
+            this.groupBoxAnimalTransfer.Location = new System.Drawing.Point(14, 30);
             this.groupBoxAnimalTransfer.Margin = new System.Windows.Forms.Padding(6);
             this.groupBoxAnimalTransfer.Name = "groupBoxAnimalTransfer";
             this.groupBoxAnimalTransfer.Padding = new System.Windows.Forms.Padding(6);
@@ -780,8 +438,205 @@
             this.labelZooNameTransfer.TabIndex = 6;
             this.labelZooNameTransfer.Text = "Zoo name:";
             // 
+            // btnConfirmChanges
+            // 
+            this.btnConfirmChanges.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnConfirmChanges.Location = new System.Drawing.Point(22, 740);
+            this.btnConfirmChanges.Name = "btnConfirmChanges";
+            this.btnConfirmChanges.Size = new System.Drawing.Size(261, 52);
+            this.btnConfirmChanges.TabIndex = 42;
+            this.btnConfirmChanges.Text = "Confirm";
+            this.btnConfirmChanges.UseVisualStyleBackColor = false;
+            this.btnConfirmChanges.Click += new System.EventHandler(this.btnConfirmChanges_Click);
+            // 
+            // labelDateFormatEdit
+            // 
+            this.labelDateFormatEdit.AutoSize = true;
+            this.labelDateFormatEdit.Location = new System.Drawing.Point(359, 269);
+            this.labelDateFormatEdit.Name = "labelDateFormatEdit";
+            this.labelDateFormatEdit.Size = new System.Drawing.Size(155, 29);
+            this.labelDateFormatEdit.TabIndex = 39;
+            this.labelDateFormatEdit.Text = "(mm/dd/yyyy)";
+            // 
+            // labelDateofBirth
+            // 
+            this.labelDateofBirth.AutoSize = true;
+            this.labelDateofBirth.Location = new System.Drawing.Point(17, 269);
+            this.labelDateofBirth.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelDateofBirth.Name = "labelDateofBirth";
+            this.labelDateofBirth.Size = new System.Drawing.Size(148, 29);
+            this.labelDateofBirth.TabIndex = 38;
+            this.labelDateofBirth.Text = "Date of birth:";
+            // 
+            // btnCancelEditAnimalDetails
+            // 
+            this.btnCancelEditAnimalDetails.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnCancelEditAnimalDetails.Location = new System.Drawing.Point(334, 740);
+            this.btnCancelEditAnimalDetails.Name = "btnCancelEditAnimalDetails";
+            this.btnCancelEditAnimalDetails.Size = new System.Drawing.Size(261, 52);
+            this.btnCancelEditAnimalDetails.TabIndex = 41;
+            this.btnCancelEditAnimalDetails.Text = "Cancel";
+            this.btnCancelEditAnimalDetails.UseVisualStyleBackColor = false;
+            this.btnCancelEditAnimalDetails.Click += new System.EventHandler(this.btnCancelEditAnimalDetails_Click);
+            // 
+            // maskedtbxDateOfBirthEdit
+            // 
+            this.maskedtbxDateOfBirthEdit.Location = new System.Drawing.Point(205, 266);
+            this.maskedtbxDateOfBirthEdit.Mask = "00/00/0000";
+            this.maskedtbxDateOfBirthEdit.Name = "maskedtbxDateOfBirthEdit";
+            this.maskedtbxDateOfBirthEdit.ResetOnSpace = false;
+            this.maskedtbxDateOfBirthEdit.Size = new System.Drawing.Size(129, 35);
+            this.maskedtbxDateOfBirthEdit.TabIndex = 35;
+            // 
+            // rbtnMaleEdit
+            // 
+            this.rbtnMaleEdit.AutoSize = true;
+            this.rbtnMaleEdit.Location = new System.Drawing.Point(205, 218);
+            this.rbtnMaleEdit.Name = "rbtnMaleEdit";
+            this.rbtnMaleEdit.Size = new System.Drawing.Size(84, 33);
+            this.rbtnMaleEdit.TabIndex = 31;
+            this.rbtnMaleEdit.TabStop = true;
+            this.rbtnMaleEdit.Text = "Male";
+            this.rbtnMaleEdit.UseVisualStyleBackColor = true;
+            // 
+            // rbtnFemaleEdit
+            // 
+            this.rbtnFemaleEdit.AutoSize = true;
+            this.rbtnFemaleEdit.Location = new System.Drawing.Point(315, 218);
+            this.rbtnFemaleEdit.Name = "rbtnFemaleEdit";
+            this.rbtnFemaleEdit.Size = new System.Drawing.Size(113, 33);
+            this.rbtnFemaleEdit.TabIndex = 30;
+            this.rbtnFemaleEdit.TabStop = true;
+            this.rbtnFemaleEdit.Text = "Female";
+            this.rbtnFemaleEdit.UseVisualStyleBackColor = true;
+            // 
+            // labelGenderEdit
+            // 
+            this.labelGenderEdit.AutoSize = true;
+            this.labelGenderEdit.Location = new System.Drawing.Point(16, 220);
+            this.labelGenderEdit.Name = "labelGenderEdit";
+            this.labelGenderEdit.Size = new System.Drawing.Size(100, 29);
+            this.labelGenderEdit.TabIndex = 29;
+            this.labelGenderEdit.Text = "Gender:";
+            // 
+            // numudEnclosureEdit
+            // 
+            this.numudEnclosureEdit.Location = new System.Drawing.Point(205, 378);
+            this.numudEnclosureEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.numudEnclosureEdit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numudEnclosureEdit.Name = "numudEnclosureEdit";
+            this.numudEnclosureEdit.Size = new System.Drawing.Size(129, 35);
+            this.numudEnclosureEdit.TabIndex = 17;
+            this.numudEnclosureEdit.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // labelEnclosureNrEdit
+            // 
+            this.labelEnclosureNrEdit.AutoSize = true;
+            this.labelEnclosureNrEdit.Location = new System.Drawing.Point(16, 380);
+            this.labelEnclosureNrEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEnclosureNrEdit.Name = "labelEnclosureNrEdit";
+            this.labelEnclosureNrEdit.Size = new System.Drawing.Size(154, 29);
+            this.labelEnclosureNrEdit.TabIndex = 16;
+            this.labelEnclosureNrEdit.Text = "Enclosure nr:";
+            // 
+            // tbxAdditionalCommentsEdit
+            // 
+            this.tbxAdditionalCommentsEdit.Location = new System.Drawing.Point(21, 483);
+            this.tbxAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.tbxAdditionalCommentsEdit.Multiline = true;
+            this.tbxAdditionalCommentsEdit.Name = "tbxAdditionalCommentsEdit";
+            this.tbxAdditionalCommentsEdit.Size = new System.Drawing.Size(581, 226);
+            this.tbxAdditionalCommentsEdit.TabIndex = 15;
+            // 
+            // labelAdditionalCommentsEdit
+            // 
+            this.labelAdditionalCommentsEdit.AutoSize = true;
+            this.labelAdditionalCommentsEdit.Location = new System.Drawing.Point(16, 439);
+            this.labelAdditionalCommentsEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAdditionalCommentsEdit.Name = "labelAdditionalCommentsEdit";
+            this.labelAdditionalCommentsEdit.Size = new System.Drawing.Size(243, 29);
+            this.labelAdditionalCommentsEdit.TabIndex = 14;
+            this.labelAdditionalCommentsEdit.Text = "Additional comments:";
+            // 
+            // cbxEndangermentEdit
+            // 
+            this.cbxEndangermentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEndangermentEdit.FormattingEnabled = true;
+            this.cbxEndangermentEdit.Location = new System.Drawing.Point(205, 320);
+            this.cbxEndangermentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cbxEndangermentEdit.Name = "cbxEndangermentEdit";
+            this.cbxEndangermentEdit.Size = new System.Drawing.Size(397, 37);
+            this.cbxEndangermentEdit.TabIndex = 13;
+            // 
+            // cbxContinentEdit
+            // 
+            this.cbxContinentEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxContinentEdit.FormattingEnabled = true;
+            this.cbxContinentEdit.Location = new System.Drawing.Point(205, 163);
+            this.cbxContinentEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cbxContinentEdit.Name = "cbxContinentEdit";
+            this.cbxContinentEdit.Size = new System.Drawing.Size(397, 37);
+            this.cbxContinentEdit.TabIndex = 9;
+            // 
+            // labelEndangerEdit
+            // 
+            this.labelEndangerEdit.AutoSize = true;
+            this.labelEndangerEdit.Location = new System.Drawing.Point(16, 323);
+            this.labelEndangerEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelEndangerEdit.Name = "labelEndangerEdit";
+            this.labelEndangerEdit.Size = new System.Drawing.Size(177, 29);
+            this.labelEndangerEdit.TabIndex = 8;
+            this.labelEndangerEdit.Text = "Endangerment:";
+            // 
+            // tbxNameEdit
+            // 
+            this.tbxNameEdit.Location = new System.Drawing.Point(205, 48);
+            this.tbxNameEdit.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxNameEdit.Name = "tbxNameEdit";
+            this.tbxNameEdit.Size = new System.Drawing.Size(397, 35);
+            this.tbxNameEdit.TabIndex = 5;
+            // 
+            // labelContinentEdit
+            // 
+            this.labelContinentEdit.AutoSize = true;
+            this.labelContinentEdit.Location = new System.Drawing.Point(16, 166);
+            this.labelContinentEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelContinentEdit.Name = "labelContinentEdit";
+            this.labelContinentEdit.Size = new System.Drawing.Size(121, 29);
+            this.labelContinentEdit.TabIndex = 2;
+            this.labelContinentEdit.Text = "Continent:";
+            // 
+            // labelSpeciesEdit
+            // 
+            this.labelSpeciesEdit.AutoSize = true;
+            this.labelSpeciesEdit.Location = new System.Drawing.Point(16, 109);
+            this.labelSpeciesEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelSpeciesEdit.Name = "labelSpeciesEdit";
+            this.labelSpeciesEdit.Size = new System.Drawing.Size(107, 29);
+            this.labelSpeciesEdit.TabIndex = 1;
+            this.labelSpeciesEdit.Text = "Species:";
+            // 
+            // labelNameEdit
+            // 
+            this.labelNameEdit.AutoSize = true;
+            this.labelNameEdit.Location = new System.Drawing.Point(16, 51);
+            this.labelNameEdit.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelNameEdit.Name = "labelNameEdit";
+            this.labelNameEdit.Size = new System.Drawing.Size(84, 29);
+            this.labelNameEdit.TabIndex = 0;
+            this.labelNameEdit.Text = "Name:";
+            // 
             // groupBoxSearchAnimal
             // 
+            this.groupBoxSearchAnimal.Controls.Add(this.cbxAnimalSpeciesSearch);
             this.groupBoxSearchAnimal.Controls.Add(this.tbxAge);
             this.groupBoxSearchAnimal.Controls.Add(this.labelAgeSearch);
             this.groupBoxSearchAnimal.Controls.Add(this.btnDisplayAllAnimals);
@@ -796,20 +651,27 @@
             this.groupBoxSearchAnimal.Controls.Add(this.cbxOrigin);
             this.groupBoxSearchAnimal.Controls.Add(this.labelEndangerment);
             this.groupBoxSearchAnimal.Controls.Add(this.labelStatus);
-            this.groupBoxSearchAnimal.Controls.Add(this.tbxSpecies);
             this.groupBoxSearchAnimal.Controls.Add(this.tbxName);
             this.groupBoxSearchAnimal.Controls.Add(this.labelOrigin);
             this.groupBoxSearchAnimal.Controls.Add(this.labelSpecies);
             this.groupBoxSearchAnimal.Controls.Add(this.labelName);
             this.groupBoxSearchAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxSearchAnimal.Location = new System.Drawing.Point(29, 18);
+            this.groupBoxSearchAnimal.Location = new System.Drawing.Point(28, 30);
             this.groupBoxSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxSearchAnimal.Name = "groupBoxSearchAnimal";
             this.groupBoxSearchAnimal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(630, 581);
+            this.groupBoxSearchAnimal.Size = new System.Drawing.Size(610, 578);
             this.groupBoxSearchAnimal.TabIndex = 12;
             this.groupBoxSearchAnimal.TabStop = false;
             this.groupBoxSearchAnimal.Text = "Search by:";
+            // 
+            // cbxAnimalSpeciesSearch
+            // 
+            this.cbxAnimalSpeciesSearch.FormattingEnabled = true;
+            this.cbxAnimalSpeciesSearch.Location = new System.Drawing.Point(252, 92);
+            this.cbxAnimalSpeciesSearch.Name = "cbxAnimalSpeciesSearch";
+            this.cbxAnimalSpeciesSearch.Size = new System.Drawing.Size(336, 37);
+            this.cbxAnimalSpeciesSearch.TabIndex = 39;
             // 
             // tbxAge
             // 
@@ -954,14 +816,6 @@
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "Status:";
             // 
-            // tbxSpecies
-            // 
-            this.tbxSpecies.Location = new System.Drawing.Point(252, 92);
-            this.tbxSpecies.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbxSpecies.Name = "tbxSpecies";
-            this.tbxSpecies.Size = new System.Drawing.Size(336, 35);
-            this.tbxSpecies.TabIndex = 6;
-            // 
             // tbxName
             // 
             this.tbxName.Location = new System.Drawing.Point(252, 41);
@@ -1089,6 +943,152 @@
             this.btnEditAnimal.Text = "Edit animal";
             this.btnEditAnimal.UseVisualStyleBackColor = false;
             this.btnEditAnimal.Click += new System.EventHandler(this.btnEditAnimal_Click);
+            // 
+            // groupBoxRelationship
+            // 
+            this.groupBoxRelationship.Controls.Add(this.btnRemoveRelationship);
+            this.groupBoxRelationship.Controls.Add(this.btnCancelRelationship);
+            this.groupBoxRelationship.Controls.Add(this.btnAddNewRelationship);
+            this.groupBoxRelationship.Controls.Add(this.labelExistingRelationshipMain);
+            this.groupBoxRelationship.Controls.Add(this.lbxRelationshipsMain);
+            this.groupBoxRelationship.Controls.Add(this.cbxOtherAnimalRelationship);
+            this.groupBoxRelationship.Controls.Add(this.cbxRelationshipType);
+            this.groupBoxRelationship.Controls.Add(this.labelRelationshipTypeMain);
+            this.groupBoxRelationship.Controls.Add(this.labelOtherAnimalMain);
+            this.groupBoxRelationship.Controls.Add(this.tbxMainAnimalRelationship);
+            this.groupBoxRelationship.Controls.Add(this.labelMainAnimalRelationship);
+            this.groupBoxRelationship.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxRelationship.Location = new System.Drawing.Point(19, 18);
+            this.groupBoxRelationship.Name = "groupBoxRelationship";
+            this.groupBoxRelationship.Size = new System.Drawing.Size(630, 750);
+            this.groupBoxRelationship.TabIndex = 46;
+            this.groupBoxRelationship.TabStop = false;
+            this.groupBoxRelationship.Text = "Add relationship";
+            // 
+            // btnRemoveRelationship
+            // 
+            this.btnRemoveRelationship.AutoSize = true;
+            this.btnRemoveRelationship.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnRemoveRelationship.Location = new System.Drawing.Point(178, 676);
+            this.btnRemoveRelationship.Margin = new System.Windows.Forms.Padding(6);
+            this.btnRemoveRelationship.Name = "btnRemoveRelationship";
+            this.btnRemoveRelationship.Size = new System.Drawing.Size(261, 55);
+            this.btnRemoveRelationship.TabIndex = 22;
+            this.btnRemoveRelationship.Text = "Remove relationship";
+            this.btnRemoveRelationship.UseVisualStyleBackColor = false;
+            this.btnRemoveRelationship.Click += new System.EventHandler(this.btnRemoveRelationship_Click);
+            // 
+            // btnCancelRelationship
+            // 
+            this.btnCancelRelationship.AutoSize = true;
+            this.btnCancelRelationship.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnCancelRelationship.Location = new System.Drawing.Point(331, 310);
+            this.btnCancelRelationship.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCancelRelationship.Name = "btnCancelRelationship";
+            this.btnCancelRelationship.Size = new System.Drawing.Size(261, 55);
+            this.btnCancelRelationship.TabIndex = 21;
+            this.btnCancelRelationship.Text = "Cancel";
+            this.btnCancelRelationship.UseVisualStyleBackColor = false;
+            this.btnCancelRelationship.Click += new System.EventHandler(this.btnCancelRelationship_Click);
+            // 
+            // btnAddNewRelationship
+            // 
+            this.btnAddNewRelationship.AutoSize = true;
+            this.btnAddNewRelationship.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnAddNewRelationship.Location = new System.Drawing.Point(33, 310);
+            this.btnAddNewRelationship.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAddNewRelationship.Name = "btnAddNewRelationship";
+            this.btnAddNewRelationship.Size = new System.Drawing.Size(261, 55);
+            this.btnAddNewRelationship.TabIndex = 20;
+            this.btnAddNewRelationship.Text = "Add relationship";
+            this.btnAddNewRelationship.UseVisualStyleBackColor = false;
+            this.btnAddNewRelationship.Click += new System.EventHandler(this.btnAddNewRelationship_Click);
+            // 
+            // labelExistingRelationshipMain
+            // 
+            this.labelExistingRelationshipMain.AutoSize = true;
+            this.labelExistingRelationshipMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelExistingRelationshipMain.Location = new System.Drawing.Point(28, 424);
+            this.labelExistingRelationshipMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelExistingRelationshipMain.Name = "labelExistingRelationshipMain";
+            this.labelExistingRelationshipMain.Size = new System.Drawing.Size(246, 29);
+            this.labelExistingRelationshipMain.TabIndex = 19;
+            this.labelExistingRelationshipMain.Text = "Existing relationships:";
+            // 
+            // lbxRelationshipsMain
+            // 
+            this.lbxRelationshipsMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbxRelationshipsMain.FormattingEnabled = true;
+            this.lbxRelationshipsMain.HorizontalScrollbar = true;
+            this.lbxRelationshipsMain.ItemHeight = 29;
+            this.lbxRelationshipsMain.Location = new System.Drawing.Point(33, 471);
+            this.lbxRelationshipsMain.Margin = new System.Windows.Forms.Padding(2);
+            this.lbxRelationshipsMain.Name = "lbxRelationshipsMain";
+            this.lbxRelationshipsMain.Size = new System.Drawing.Size(559, 178);
+            this.lbxRelationshipsMain.TabIndex = 18;
+            // 
+            // cbxOtherAnimalRelationship
+            // 
+            this.cbxOtherAnimalRelationship.FormattingEnabled = true;
+            this.cbxOtherAnimalRelationship.Location = new System.Drawing.Point(33, 239);
+            this.cbxOtherAnimalRelationship.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxOtherAnimalRelationship.Name = "cbxOtherAnimalRelationship";
+            this.cbxOtherAnimalRelationship.Size = new System.Drawing.Size(365, 37);
+            this.cbxOtherAnimalRelationship.TabIndex = 16;
+            // 
+            // cbxRelationshipType
+            // 
+            this.cbxRelationshipType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRelationshipType.FormattingEnabled = true;
+            this.cbxRelationshipType.Items.AddRange(new object[] {
+            "Parent of",
+            "Child of",
+            "Mate of"});
+            this.cbxRelationshipType.Location = new System.Drawing.Point(33, 139);
+            this.cbxRelationshipType.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxRelationshipType.Name = "cbxRelationshipType";
+            this.cbxRelationshipType.Size = new System.Drawing.Size(365, 37);
+            this.cbxRelationshipType.TabIndex = 14;
+            this.cbxRelationshipType.SelectedIndexChanged += new System.EventHandler(this.cbxRelationshipType_SelectedIndexChanged);
+            // 
+            // labelRelationshipTypeMain
+            // 
+            this.labelRelationshipTypeMain.AutoSize = true;
+            this.labelRelationshipTypeMain.Location = new System.Drawing.Point(28, 98);
+            this.labelRelationshipTypeMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelRelationshipTypeMain.Name = "labelRelationshipTypeMain";
+            this.labelRelationshipTypeMain.Size = new System.Drawing.Size(204, 29);
+            this.labelRelationshipTypeMain.TabIndex = 17;
+            this.labelRelationshipTypeMain.Text = "Relationship type:";
+            // 
+            // labelOtherAnimalMain
+            // 
+            this.labelOtherAnimalMain.AutoSize = true;
+            this.labelOtherAnimalMain.Location = new System.Drawing.Point(28, 200);
+            this.labelOtherAnimalMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelOtherAnimalMain.Name = "labelOtherAnimalMain";
+            this.labelOtherAnimalMain.Size = new System.Drawing.Size(158, 29);
+            this.labelOtherAnimalMain.TabIndex = 15;
+            this.labelOtherAnimalMain.Text = "Other Animal:";
+            // 
+            // tbxMainAnimalRelationship
+            // 
+            this.tbxMainAnimalRelationship.Location = new System.Drawing.Point(202, 41);
+            this.tbxMainAnimalRelationship.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.tbxMainAnimalRelationship.Name = "tbxMainAnimalRelationship";
+            this.tbxMainAnimalRelationship.ReadOnly = true;
+            this.tbxMainAnimalRelationship.Size = new System.Drawing.Size(390, 35);
+            this.tbxMainAnimalRelationship.TabIndex = 13;
+            // 
+            // labelMainAnimalRelationship
+            // 
+            this.labelMainAnimalRelationship.AutoSize = true;
+            this.labelMainAnimalRelationship.Location = new System.Drawing.Point(28, 44);
+            this.labelMainAnimalRelationship.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.labelMainAnimalRelationship.Name = "labelMainAnimalRelationship";
+            this.labelMainAnimalRelationship.Size = new System.Drawing.Size(92, 29);
+            this.labelMainAnimalRelationship.TabIndex = 12;
+            this.labelMainAnimalRelationship.Text = "Animal:";
             // 
             // tabAnimalHistory
             // 
@@ -1266,16 +1266,17 @@
             this.tabPageAddAnimal.Controls.Add(this.groupBoxRelationships);
             this.tabPageAddAnimal.Controls.Add(this.btnConfirmAnimalCreation);
             this.tabPageAddAnimal.Controls.Add(this.btnCancelAnimalCreation);
-            this.tabPageAddAnimal.Location = new System.Drawing.Point(4, 46);
+            this.tabPageAddAnimal.Location = new System.Drawing.Point(4, 36);
             this.tabPageAddAnimal.Name = "tabPageAddAnimal";
             this.tabPageAddAnimal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddAnimal.Size = new System.Drawing.Size(1793, 897);
+            this.tabPageAddAnimal.Size = new System.Drawing.Size(1793, 907);
             this.tabPageAddAnimal.TabIndex = 2;
             this.tabPageAddAnimal.Text = "Add Animal";
             this.tabPageAddAnimal.UseVisualStyleBackColor = true;
             // 
             // groupBoxAddAnimal
             // 
+            this.groupBoxAddAnimal.Controls.Add(this.cbxAnimalSpecies);
             this.groupBoxAddAnimal.Controls.Add(this.labelDateFormat);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalBirthDate);
             this.groupBoxAddAnimal.Controls.Add(this.maskedtbxBirthDateAddAnimalForm);
@@ -1289,7 +1290,6 @@
             this.groupBoxAddAnimal.Controls.Add(this.cbxEndangermentAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.cbxOriginAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalEndangerment);
-            this.groupBoxAddAnimal.Controls.Add(this.tbxSpeciesAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.tbxNameAddAnimal);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalOrigin);
             this.groupBoxAddAnimal.Controls.Add(this.labelAddAnimalSpecies);
@@ -1303,6 +1303,14 @@
             this.groupBoxAddAnimal.TabIndex = 43;
             this.groupBoxAddAnimal.TabStop = false;
             this.groupBoxAddAnimal.Text = "Animal details:";
+            // 
+            // cbxAnimalSpecies
+            // 
+            this.cbxAnimalSpecies.FormattingEnabled = true;
+            this.cbxAnimalSpecies.Location = new System.Drawing.Point(205, 106);
+            this.cbxAnimalSpecies.Name = "cbxAnimalSpecies";
+            this.cbxAnimalSpecies.Size = new System.Drawing.Size(397, 37);
+            this.cbxAnimalSpecies.TabIndex = 40;
             // 
             // labelDateFormat
             // 
@@ -1439,14 +1447,6 @@
             this.labelAddAnimalEndangerment.Size = new System.Drawing.Size(177, 29);
             this.labelAddAnimalEndangerment.TabIndex = 8;
             this.labelAddAnimalEndangerment.Text = "Endangerment:";
-            // 
-            // tbxSpeciesAddAnimal
-            // 
-            this.tbxSpeciesAddAnimal.Location = new System.Drawing.Point(205, 106);
-            this.tbxSpeciesAddAnimal.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.tbxSpeciesAddAnimal.Name = "tbxSpeciesAddAnimal";
-            this.tbxSpeciesAddAnimal.Size = new System.Drawing.Size(397, 35);
-            this.tbxSpeciesAddAnimal.TabIndex = 6;
             // 
             // tbxNameAddAnimal
             // 
@@ -1721,13 +1721,13 @@
             this.tabSearchAnimals.ResumeLayout(false);
             this.groupBoxEditAnimal.ResumeLayout(false);
             this.groupBoxEditAnimal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).EndInit();
-            this.groupBoxRelationship.ResumeLayout(false);
-            this.groupBoxRelationship.PerformLayout();
             this.groupBoxAnimalTransfer.ResumeLayout(false);
             this.groupBoxAnimalTransfer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numudEnclosureEdit)).EndInit();
             this.groupBoxSearchAnimal.ResumeLayout(false);
             this.groupBoxSearchAnimal.PerformLayout();
+            this.groupBoxRelationship.ResumeLayout(false);
+            this.groupBoxRelationship.PerformLayout();
             this.tabAnimalHistory.ResumeLayout(false);
             this.tabAnimalHistory.PerformLayout();
             this.tabPageAddAnimal.ResumeLayout(false);
@@ -1812,7 +1812,6 @@
         private System.Windows.Forms.ComboBox cbxOrigin;
         private System.Windows.Forms.Label labelEndangerment;
         private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.TextBox tbxSpecies;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label labelOrigin;
         private System.Windows.Forms.Label labelSpecies;
@@ -1839,7 +1838,6 @@
         private System.Windows.Forms.Label labelSpeciesEdit;
         private System.Windows.Forms.Label labelNameEdit;
         private System.Windows.Forms.GroupBox groupBoxAddAnimal;
-        private System.Windows.Forms.Label labelDateFormat;
         private System.Windows.Forms.Label labelAddAnimalBirthDate;
         private System.Windows.Forms.MaskedTextBox maskedtbxBirthDateAddAnimalForm;
         private System.Windows.Forms.RadioButton rbtnMaleAddAnimal;
@@ -1852,7 +1850,6 @@
         private System.Windows.Forms.ComboBox cbxEndangermentAddAnimal;
         private System.Windows.Forms.ComboBox cbxOriginAddAnimal;
         private System.Windows.Forms.Label labelAddAnimalEndangerment;
-        private System.Windows.Forms.TextBox tbxSpeciesAddAnimal;
         private System.Windows.Forms.TextBox tbxNameAddAnimal;
         private System.Windows.Forms.Label labelAddAnimalOrigin;
         private System.Windows.Forms.Label labelAddAnimalSpecies;
@@ -1886,6 +1883,10 @@
         private System.Windows.Forms.Label labelOtherAnimalMain;
         private System.Windows.Forms.TextBox tbxMainAnimalRelationship;
         private System.Windows.Forms.Label labelMainAnimalRelationship;
+        private ComboBox cbxAnimalSpecies;
+        private Label labelDateFormat;
+        private ComboBox cbxAnimalSpeciesEdit;
+        private ComboBox cbxAnimalSpeciesSearch;
     }
 }
 
