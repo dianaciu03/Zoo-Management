@@ -20,9 +20,12 @@ namespace BusinessLogic
             List<Shift> shifts = new List<Shift>();
 
             DateTime today = DateTime.Today;
-            int daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
+            int daysUntilMonday = 7;
+            if (today.DayOfWeek != DayOfWeek.Monday)
+            {
+                daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
+            }
             DateTime nextMonday = DateTime.Today.AddDays(daysUntilMonday);
-            DateTime endOfWeek = nextMonday.AddDays(6);
             DateTime nextShift = nextMonday;
             foreach (CaretakerWithHours careTaker in careTakers)
             {

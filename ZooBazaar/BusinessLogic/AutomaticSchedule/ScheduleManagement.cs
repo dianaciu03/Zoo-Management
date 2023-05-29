@@ -36,6 +36,7 @@ namespace BusinessLogic
             employees = employeesList.Distinct().ToArray();
             return shifts.ToArray();
         }
+
         public Employee[] GetAvailableEmp(DateTime date)
         {
             List<Employee> employeesList = new List<Employee>();
