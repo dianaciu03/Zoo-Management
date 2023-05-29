@@ -27,12 +27,11 @@ namespace BusinessLogic.Tickets
             Barcode = barcode;
         }
 
-        public Ticket(string ticketType, decimal price, DateTime date, string barcode)
+        public Ticket(string ticketType, decimal price, DateTime date)
         {
             TicketType = ticketType;
             Price = price;
             Date = date;
-            Barcode = barcode;
         }
 
         public Ticket()
