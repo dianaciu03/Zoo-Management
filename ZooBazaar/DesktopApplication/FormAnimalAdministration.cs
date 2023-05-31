@@ -456,7 +456,8 @@ namespace DesktopApplication
             try
             {
                 Animal animal = (Animal)lvwAnimals.SelectedItems[0].Tag;
-                MessageBox.Show(animal.GetAnimalDetails(animal));
+                AnimalDetails form = new AnimalDetails(animal.GetAnimalDetails(animal));
+                form.ShowDialog();
             }
             catch(NullReferenceException)
             {
