@@ -32,15 +32,6 @@
     <Compile Update="FormScheduleMaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PopupContractDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="PopupEmployeeCreation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="PopupEmployeeDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
