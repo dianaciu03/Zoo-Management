@@ -29,6 +29,9 @@ namespace DesktopApplication
             formDataValidator = new FormDataValidator();
             transferManagement = new TransferManagement(new TransferRepository());
             InitializeFormElements();
+            groupBoxSearchAnimal.Visible = true;
+            groupBoxTransferDetails.Visible = false;
+            btnConfirmTransferDetails.Visible = false;
         }
 
         private void InitializeFormElements()
@@ -674,6 +677,18 @@ namespace DesktopApplication
 
             cbxOriginAddAnimal.Text = origin;
             nudEnclosureAddAnimal.Value = enclosureNumber;
+        }
+
+        private void btnTransferMoreDetails_Click(object sender, EventArgs e)
+        {
+            groupBoxTransferDetails.Visible = true;
+            btnConfirmTransferDetails.Visible = true;
+        }
+
+        private void btnConfirmTransferDetails_Click(object sender, EventArgs e)
+        {
+            groupBoxTransferDetails.Visible = false;
+            btnConfirmTransferDetails.Visible = false;
         }
     }
 }
