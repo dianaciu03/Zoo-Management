@@ -13,31 +13,6 @@ namespace DataAccess
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
-        public int NewZooTaskID()
-        {
-            int i = 0;
-
-            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
-            {
-                SqlCommand query = new SqlCommand("SELECT MAX(TaskID) FROM Tasks", connection);
-
-                try
-                { 
-                    connection.Open();
-                    if (query.ExecuteScalar() != DBNull.Value)
-                    {
-                        i = (Int32)query.ExecuteScalar();
-                    }
-                }
-                catch (SqlException) { }
-                finally
-                {
-                    connection.Close();
-                }
-                return i + 1; //+1 beacuse we need a new task id so we get the current highest in database + 1
-            }
-
-        }
         public ZooTaskDTO[] GetAllTasks()
         {
             List<ZooTaskDTO> tasks = new List<ZooTaskDTO>();
