@@ -6,13 +6,13 @@ using System.Reflection;
 
 namespace WebApp.Pages
 {
-    public class ScheduleModel : PageModel
+    public class TaskScheduleModel : PageModel
     {
         private string sessionKeyId = "_Id";
 
         private EmployeeManagement employeeManagement;
 
-        public ScheduleModel(IEmployeeRepository employeeRepository)
+        public TaskScheduleModel(IEmployeeRepository employeeRepository)
         {
             this.employeeManagement = new EmployeeManagement(employeeRepository);
             taskManagement = new TaskManagement();

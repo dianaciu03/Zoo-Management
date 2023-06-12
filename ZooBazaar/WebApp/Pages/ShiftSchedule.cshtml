@@ -1,0 +1,235 @@
+﻿@page
+@using BusinessLogic; 
+@model WebApp.Pages.ShiftSchedule
+
+
+<div class="shiftPage">
+
+    <header class="mini-nav">
+        <ul>
+            <li><a asp-page="/ShiftSchedule">Shifts</a></li>
+            <li><a asp-page="/TaskSchedule">My tasks</a></li>
+            <li><a asp-page="/User">My details</a></li>
+        </ul>
+    </header>
+    
+    <div class="week-control">
+        <h2 style="margin-left: 1rem;">My shifts: <i>Next week</i></h2>
+        <div>
+            <form method="post">
+                    <input asp-page-handler="Down" name="down" type="submit" value="down" />
+                    <input asp-page-handler="Up" name="up" type="submit" value="up" />
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="shifts-container">
+        <div class="weekday-block">
+            <h2>Monday</h2>
+            <ul class="shifts-list">
+                @foreach (Shift shift in Model.Shifts.Where(x => x.ShiftTime.DayOfWeek == DayOfWeek.Monday))
+                {
+                    <li>@shift.ShiftTime.ToString("HH:mm") - @shift.ShiftTime.AddHours(4).ToString("HH:mm")</li>
+                }
+            </ul>
+            <div class="tasks-list">
+                
+                @if (Model.Tasks != null && Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Monday).Any())
+                {
+                    <h3>Tasks:</h3>
+
+                    @foreach (ZooTask task in Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Monday))
+                    {
+                        <div>
+                            <p>Name: <b>@task.Name</b></p>
+                            <p>Species: <b>@task.Species</b></p>
+
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+        <div class="weekday-block">
+            <h2>Tuesday</h2>
+            <ul class="shifts-list">
+                @foreach (Shift shift in Model.Shifts.Where(x => x.ShiftTime.DayOfWeek == DayOfWeek.Tuesday))
+                {
+                    <li>@shift.ShiftTime.ToString("HH:mm") - @shift.ShiftTime.AddHours(4).ToString("HH:mm")</li>
+                }
+            </ul>
+            <div class="tasks-list">
+                @if (Model.Tasks != null && Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Tuesday).Any())
+            {
+                    <h3>Tasks:</h3>
+
+                    @foreach (ZooTask task in Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Tuesday))
+                    {
+                        <div>
+                            <p>Name: <b>@task.Name</b></p>
+                            <p>Species: <b>@task.Species</b></p>
+
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+        <div class="weekday-block">
+            <h2>Wednesday</h2>
+            <ul class="shifts-list">
+                @foreach (Shift shift in Model.Shifts.Where(x => x.ShiftTime.DayOfWeek == DayOfWeek.Wednesday))
+                {
+                    <li>@shift.ShiftTime.ToString("HH:mm") - @shift.ShiftTime.AddHours(4).ToString("HH:mm")</li>
+                }
+            </ul>
+            <div class="tasks-list">
+                @if (Model.Tasks != null && Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Wednesday).Any())
+            {
+                    <h3>Tasks:</h3>
+
+                    @foreach (ZooTask task in Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Wednesday))
+                    {
+                        <div>
+                            <p>Name: <b>@task.Name</b></p>
+                            <p>Species: <b>@task.Species</b></p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+        <div class="weekday-block">
+            <h2>Thursday</h2>
+            <ul class="shifts-list">
+                @foreach (Shift shift in Model.Shifts.Where(x => x.ShiftTime.DayOfWeek == DayOfWeek.Thursday))
+                {
+                    <li>@shift.ShiftTime.ToString("HH:mm") - @shift.ShiftTime.AddHours(4).ToString("HH:mm")</li>
+                }
+            </ul>
+            <div class="tasks-list">
+                @if (Model.Tasks != null && Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Thursday).Any())
+            {
+                    <h3>Tasks:</h3>
+
+                    @foreach (ZooTask task in Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Thursday))
+                    {
+                        <div>
+                            <p>Name: <b>@task.Name</b></p>
+                            <p>Species: <b>@task.Species</b></p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+        <div class="weekday-block">
+            <h2>Friday</h2>
+            <ul class="shifts-list">
+                @foreach (Shift shift in Model.Shifts.Where(x => x.ShiftTime.DayOfWeek == DayOfWeek.Friday))
+                {
+                    <li>@shift.ShiftTime.ToString("HH:mm") - @shift.ShiftTime.AddHours(4).ToString("HH:mm")</li>
+                }
+            </ul>
+            <div class="tasks-list">
+                @if (Model.Tasks != null && Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Friday).Any())
+            {
+                    <h3>Tasks:</h3>
+
+                    @foreach (ZooTask task in Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Friday))
+                    {
+                        <div>
+                            <p>Name: <b>@task.Name</b></p>
+                            <p>Species: <b>@task.Species</b></p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+        <div class="weekday-block">
+            <h2>Saturday</h2>
+            <ul class="shifts-list">
+                @foreach (Shift shift in Model.Shifts.Where(x => x.ShiftTime.DayOfWeek == DayOfWeek.Saturday))
+                {
+                    <li>@shift.ShiftTime.ToString("HH:mm") - @shift.ShiftTime.AddHours(4).ToString("HH:mm")</li>
+                }
+            </ul>
+            <div class="tasks-list">
+                @if (Model.Tasks != null && Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Saturday).Any())
+            {
+                    <h3>Tasks:</h3>
+
+                    @foreach (ZooTask task in Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Saturday))
+                    {
+                        <div>
+                            <p>Name: <b>@task.Name</b></p>
+                            <p>Species: <b>@task.Species</b></p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+        <div class="weekday-block">
+            <h2>Sunday</h2>
+            <ul class="shifts-list">
+                @foreach (Shift shift in Model.Shifts.Where(x => x.ShiftTime.DayOfWeek == DayOfWeek.Sunday))
+                {
+                    <li>@shift.ShiftTime.ToString("HH:mm") - @shift.ShiftTime.AddHours(4).ToString("HH:mm")</li>
+                }
+            </ul>
+        <div class="tasks-list">
+                @if (Model.Tasks != null && Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Sunday).Any())
+            {
+                    <h3>Tasks:</h3>
+
+                    @foreach (ZooTask task in Model.Tasks.Where(x => x.TaskDateTime.DayOfWeek == DayOfWeek.Sunday))
+                    {
+                        <div>
+                            <p>Name: <b>@task.Name</b></p>
+                            <p>Species: <b>@task.Species</b></p>
+                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
+
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript" language="javascript">
+        function openSetting(evt, accountDetail) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(accountDetail).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
