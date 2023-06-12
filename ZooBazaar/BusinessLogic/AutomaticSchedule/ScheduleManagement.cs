@@ -16,18 +16,18 @@ namespace BusinessLogic
         public Shift[] GetShifts()
         {
             List<Shift> shifts = new List<Shift>();
-            foreach(ShiftDTO shiftDTO in shiftRepo.GetAllShifts())
+            foreach (ShiftDTO shiftDTO in shiftRepo.GetAllShifts())
             {
                 shifts.Add(new Shift(employeeManagement.GetEmployeeById(shiftDTO.EmployeeId), shiftDTO.ShiftTime));
             }
             return shifts.ToArray();
         }
-        
+
         public Shift[] GetShifts(DateTime date, out Employee[] employees)
         {
             List<Shift> shifts = new List<Shift>();
             List<Employee> employeesList = new List<Employee>();
-            foreach(ShiftDTO shiftDTO in shiftRepo.GetAllShifts(date))
+            foreach (ShiftDTO shiftDTO in shiftRepo.GetAllShifts(date))
             {
                 shifts.Add(new Shift(employeeManagement.GetEmployeeById(shiftDTO.EmployeeId), shiftDTO.ShiftTime));
                 Employee employee = employeeManagement.GetEmployeeById(shiftDTO.EmployeeId);
@@ -40,7 +40,7 @@ namespace BusinessLogic
         public Employee[] GetAvailableEmp(DateTime date)
         {
             List<Employee> employeesList = new List<Employee>();
-            foreach(int employeeId in shiftRepo.GetShiftEmployees(date))
+            foreach (int employeeId in shiftRepo.GetShiftEmployees(date))
             {
                 Employee employee = employeeManagement.GetEmployeeById(employeeId);
                 employeesList.Add(employee);
@@ -50,7 +50,7 @@ namespace BusinessLogic
 
         public void AddShifts(Shift[] shifts)
         {
-            foreach(Shift shift in shifts)
+            foreach (Shift shift in shifts)
             {
                 ShiftDTO shiftDto = new ShiftDTO()
                 {
@@ -59,6 +59,15 @@ namespace BusinessLogic
                 };
                 shiftRepo.AddShift(shiftDto);
             }
+        }
+        public Shift[] GetShiftsByCaretaker(int careTakerId)
+        {
+            List<Shift> employeeShifts = new List<Shift>();
+            foreach(ShiftDTO shiftDto in shiftRepo.GetAllShifts().Where(x => x.EmployeeId == careTakerId))
+            {
+                employeeShifts.Add(new Shift(shiftDto.ShiftId, employeeManagement.GetEmployeeById(shiftDto.EmployeeId), shiftDto.ShiftTime));
+            }
+            return employeeShifts.ToArray();
         }
     }
 }

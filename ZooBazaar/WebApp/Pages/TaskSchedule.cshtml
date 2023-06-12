@@ -1,17 +1,18 @@
 ﻿@page
 @using BusinessLogic; 
-@model WebApp.Pages.ScheduleModel
+@model WebApp.Pages.TaskScheduleModel
 @{
 
     <div class="schedulePage">
     
     <header class="mini-nav">
         <ul>
-            <li><a asp-page="/Schedule">Schedule</a></li>
+            <li><a asp-page="/ShiftSchedule">Shifts</a></li>
+            <li><a asp-page="/TaskSchedule">My tasks</a></li>
             <li><a asp-page="/User">My details</a></li>
         </ul>
     </header>
-        <h2>Schedule</h2>
+        <h2>Task Schedule</h2>
 
         <div class="tab">
             <button class="tablinks" onclick="openSetting(event, 'Today')">Today</button>
@@ -35,7 +36,6 @@
                             <p>Area: @task.EnclosureArea</p>
                             <p>Enclosure: @task.EnclosureNumber</p>
                             <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
-
                         </div>
                     }
                 }

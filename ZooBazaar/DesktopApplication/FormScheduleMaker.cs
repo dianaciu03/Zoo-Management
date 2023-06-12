@@ -239,8 +239,6 @@ namespace DesktopApplication
 
         }
 
-
-
         private void lvwUnassignedTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupBoxTaskDetails.Visible = false;

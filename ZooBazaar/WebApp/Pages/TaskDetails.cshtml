@@ -4,12 +4,13 @@
 @{    
     <header class="mini-nav">
         <ul>
-            <li><a asp-page="/Schedule">Schedule</a></li>
+            <li><a asp-page="/ShiftSchedule">Shifts</a></li>
+            <li><a asp-page="/TaskSchedule">My tasks</a></li>
             <li><a asp-page="/User">My details</a></li>
         </ul>
     </header>
     <div class="task-details-div">
-        <h2>Task Details</h2>
+        <h2 style="margin-left: 1rem;">Task Details</h2>
         <ul class="task-details">
             <li>Task ID: <b>@Model.Task.ID</b></li>
             <li>Task: <b>@Model.Task.Name</b></li>
