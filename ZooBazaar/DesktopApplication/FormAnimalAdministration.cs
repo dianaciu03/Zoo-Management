@@ -134,7 +134,6 @@ namespace DesktopApplication
 
                 animalManagement.AddUpdateAnimal(animal);
 
-                MessageBox.Show("Animal has been edited successfully!");
                 //reset to initial state
                 btnCancelEditAnimalDetails_Click(this, EventArgs.Empty);
             }
@@ -225,7 +224,6 @@ namespace DesktopApplication
                     {
                         animalManagement.ChangeAnimalAvailability(animal.Id, "Transfered");
                     }
-                    MessageBox.Show("Transfer has been successfully created!");
                     //resets to original state
                     btnCancelTransfer_Click(this, EventArgs.Empty);
                 }
@@ -299,7 +297,6 @@ namespace DesktopApplication
                             ((Animal)cbxOtherAnimalRelationship.SelectedItem));
                         if (result.Success)
                         {
-                        MessageBox.Show("Relationship has been added successfully!");
                         btnCancelRelationship_Click(this, EventArgs.Empty);
                         }
                         else
@@ -315,7 +312,6 @@ namespace DesktopApplication
                             ((Animal)lvwAnimals.SelectedItems[0].Tag));
                         if (result.Success)
                         {
-                            MessageBox.Show("Relationship has been added successfully!");
                             btnCancelRelationship_Click(this, EventArgs.Empty);
                         }
                         else
@@ -332,7 +328,6 @@ namespace DesktopApplication
                             animalManagement.AddMateRelationship(
                                 ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id,
                                 ((Animal)lvwAnimals.SelectedItems[0].Tag).Id);
-                            MessageBox.Show("Relationship has been added successfully!");
                             btnCancelRelationship_Click(this, EventArgs.Empty);
                         }
                         else if (((Animal)cbxOtherAnimalRelationship.SelectedItem).Gender == "Female" &&
@@ -341,7 +336,6 @@ namespace DesktopApplication
                             animalManagement.AddMateRelationship(
                                 ((Animal)lvwAnimals.SelectedItems[0].Tag).Id,
                                 ((Animal)cbxOtherAnimalRelationship.SelectedItem).Id);
-                            MessageBox.Show("Relationship has been added successfully!");
                             btnCancelRelationship_Click(this, EventArgs.Empty);
                         }
                         else
@@ -530,7 +524,6 @@ namespace DesktopApplication
 
                 animal = new Animal(tbxNameAddAnimal.Text, gender, cbxAnimalSpecies.Text, date, (ORIGINCONTINENT)cbxOriginAddAnimal.SelectedItem, tbxAdditionalCommentsAddAnimal.Text, (ENDANGERMENT)cbxEndangermentAddAnimal.SelectedItem, (int)nudEnclosureAddAnimal.Value, "Available");
                 animalManagement.AddUpdateAnimal(animal);
-                MessageBox.Show($"Animal has been successfully created!\n{animal}");
 
                 tbxNameAddAnimal.Text = string.Empty;
                 cbxAnimalSpecies.Text= string.Empty;
@@ -568,7 +561,6 @@ namespace DesktopApplication
                         animalManagement.AddParentChildRelationship(
                             animal,
                             ((Animal)cbOtherAnimal.SelectedItem));
-                        MessageBox.Show("Relationship has been added successfully!");
                         btnCancelRelationship_Click(this, EventArgs.Empty);
                         break;
                     }
@@ -577,7 +569,6 @@ namespace DesktopApplication
                         animalManagement.AddParentChildRelationship(
                             ((Animal)cbOtherAnimal.SelectedItem),
                             animal);
-                        MessageBox.Show("Relationship has been added successfully!");
                         btnCancelRelationship_Click(this, EventArgs.Empty);
                         break;
                     }
@@ -589,7 +580,6 @@ namespace DesktopApplication
                             animalManagement.AddMateRelationship(
                                 ((Animal)cbOtherAnimal.SelectedItem).Id,
                                 animal.Id);
-                            MessageBox.Show("Relationship has been added successfully!");
                             btnCancelRelationship_Click(this, EventArgs.Empty);
                         }
                         else if (((Animal)cbOtherAnimal.SelectedItem).Gender == "Female" &&
@@ -598,7 +588,6 @@ namespace DesktopApplication
                             animalManagement.AddMateRelationship(
                                 animal.Id,
                                 ((Animal)cbOtherAnimal.SelectedItem).Id);
-                            MessageBox.Show("Relationship has been added successfully!");
                             btnCancelRelationship_Click(this, EventArgs.Empty);
                         }
                         else
@@ -609,7 +598,7 @@ namespace DesktopApplication
                     }
                 default:
                     {
-                        MessageBox.Show("Please select a realationship type.");
+                        s.Show("Please select a realationship type.");
                         break;
                     }
             }

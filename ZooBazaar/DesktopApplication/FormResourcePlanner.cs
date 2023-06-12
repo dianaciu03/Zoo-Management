@@ -166,10 +166,6 @@ namespace DesktopApplication
             {
                 MessageBox.Show("There are tasks that could not be assigned! Please assign them manually!");
             }
-            else
-            {
-                MessageBox.Show("All tasks have been assigned succesfully!");
-            }
         }
     }
 }
