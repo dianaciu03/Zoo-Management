@@ -1751,10 +1751,10 @@
             this.tabPageTransfers.Controls.Add(this.btnConfirmTransferDetails);
             this.tabPageTransfers.Controls.Add(this.btnTransferMoreDetails);
             this.tabPageTransfers.Controls.Add(this.tabControlTypeTransfers);
-            this.tabPageTransfers.Location = new System.Drawing.Point(4, 46);
+            this.tabPageTransfers.Location = new System.Drawing.Point(4, 36);
             this.tabPageTransfers.Name = "tabPageTransfers";
             this.tabPageTransfers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTransfers.Size = new System.Drawing.Size(1793, 897);
+            this.tabPageTransfers.Size = new System.Drawing.Size(1793, 907);
             this.tabPageTransfers.TabIndex = 3;
             this.tabPageTransfers.Text = "Transfers";
             this.tabPageTransfers.UseVisualStyleBackColor = true;
@@ -2204,7 +2204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackgroundImage = global::DesktopApplication.Properties.Resources.zooimg5;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(234)))), ((int)(((byte)(197)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1919, 1061);
             this.Controls.Add(this.labelTitleZooBazaar);

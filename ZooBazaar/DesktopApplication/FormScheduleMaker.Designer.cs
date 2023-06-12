@@ -477,10 +477,10 @@
             // 
             this.tabTasksInProgress.Controls.Add(this.btnAssignedTaskDetails);
             this.tabTasksInProgress.Controls.Add(this.lvwTasksInProgress);
-            this.tabTasksInProgress.Location = new System.Drawing.Point(4, 35);
+            this.tabTasksInProgress.Location = new System.Drawing.Point(4, 26);
             this.tabTasksInProgress.Name = "tabTasksInProgress";
             this.tabTasksInProgress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTasksInProgress.Size = new System.Drawing.Size(893, 390);
+            this.tabTasksInProgress.Size = new System.Drawing.Size(893, 399);
             this.tabTasksInProgress.TabIndex = 1;
             this.tabTasksInProgress.Text = "Assigned";
             this.tabTasksInProgress.UseVisualStyleBackColor = true;
@@ -527,10 +527,10 @@
             // 
             this.tabFinishedTasks.Controls.Add(this.btnFinishedTaskMoreDetails);
             this.tabFinishedTasks.Controls.Add(this.lvwFinishedTasks);
-            this.tabFinishedTasks.Location = new System.Drawing.Point(4, 35);
+            this.tabFinishedTasks.Location = new System.Drawing.Point(4, 26);
             this.tabFinishedTasks.Name = "tabFinishedTasks";
             this.tabFinishedTasks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFinishedTasks.Size = new System.Drawing.Size(893, 390);
+            this.tabFinishedTasks.Size = new System.Drawing.Size(893, 399);
             this.tabFinishedTasks.TabIndex = 2;
             this.tabFinishedTasks.Text = "Finished";
             this.tabFinishedTasks.UseVisualStyleBackColor = true;
@@ -844,7 +844,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackgroundImage = global::DesktopApplication.Properties.Resources.zooimg5;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(234)))), ((int)(((byte)(197)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1919, 1061);
             this.Controls.Add(this.labelTitleZooBazaar);

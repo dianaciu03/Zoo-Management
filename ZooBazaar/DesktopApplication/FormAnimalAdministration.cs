@@ -598,7 +598,7 @@ namespace DesktopApplication
                     }
                 default:
                     {
-                        s.Show("Please select a realationship type.");
+                        MessageBox.Show("Please select a realationship type.");
                         break;
                     }
             }
