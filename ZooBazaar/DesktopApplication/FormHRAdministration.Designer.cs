@@ -30,6 +30,7 @@
         {
             this.tabControlHRAdministration = new System.Windows.Forms.TabControl();
             this.tabPageAllEmployees = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
             this.btnShowAllEmployees = new System.Windows.Forms.Button();
             this.labelEmployeeContractType = new System.Windows.Forms.Label();
@@ -159,6 +160,7 @@
             // 
             // tabPageAllEmployees
             // 
+            this.tabPageAllEmployees.Controls.Add(this.button1);
             this.tabPageAllEmployees.Controls.Add(this.groupBoxSearchAnimal);
             this.tabPageAllEmployees.Controls.Add(this.panelAdministrateEmployees);
             this.tabPageAllEmployees.Controls.Add(this.btnEditEmployeeAdditional);
@@ -172,6 +174,18 @@
             this.tabPageAllEmployees.TabIndex = 0;
             this.tabPageAllEmployees.Text = "Administrate employees";
             this.tabPageAllEmployees.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.NavajoWhite;
+            this.button1.Location = new System.Drawing.Point(1539, 807);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(196, 47);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Holiday request";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBoxSearchAnimal
             // 
@@ -322,18 +336,18 @@
             // 
             // panelAdministrateEmployees
             // 
-            this.panelAdministrateEmployees.Location = new System.Drawing.Point(13, 382);
+            this.panelAdministrateEmployees.Location = new System.Drawing.Point(13, 372);
             this.panelAdministrateEmployees.Name = "panelAdministrateEmployees";
-            this.panelAdministrateEmployees.Size = new System.Drawing.Size(569, 510);
+            this.panelAdministrateEmployees.Size = new System.Drawing.Size(569, 499);
             this.panelAdministrateEmployees.TabIndex = 22;
             // 
             // btnEditEmployeeAdditional
             // 
             this.btnEditEmployeeAdditional.AutoSize = true;
             this.btnEditEmployeeAdditional.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnEditEmployeeAdditional.Location = new System.Drawing.Point(1428, 807);
+            this.btnEditEmployeeAdditional.Location = new System.Drawing.Point(1219, 807);
             this.btnEditEmployeeAdditional.Name = "btnEditEmployeeAdditional";
-            this.btnEditEmployeeAdditional.Size = new System.Drawing.Size(307, 47);
+            this.btnEditEmployeeAdditional.Size = new System.Drawing.Size(273, 47);
             this.btnEditEmployeeAdditional.TabIndex = 21;
             this.btnEditEmployeeAdditional.Text = "Edit additional information";
             this.btnEditEmployeeAdditional.UseVisualStyleBackColor = false;
@@ -343,9 +357,9 @@
             // 
             this.btnEditEmployeeContract.AutoSize = true;
             this.btnEditEmployeeContract.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnEditEmployeeContract.Location = new System.Drawing.Point(1045, 807);
+            this.btnEditEmployeeContract.Location = new System.Drawing.Point(932, 807);
             this.btnEditEmployeeContract.Name = "btnEditEmployeeContract";
-            this.btnEditEmployeeContract.Size = new System.Drawing.Size(260, 47);
+            this.btnEditEmployeeContract.Size = new System.Drawing.Size(244, 47);
             this.btnEditEmployeeContract.TabIndex = 20;
             this.btnEditEmployeeContract.Text = "Edit employee contract";
             this.btnEditEmployeeContract.UseVisualStyleBackColor = false;
@@ -357,7 +371,7 @@
             this.btnDisplayEmployeeInformation.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnDisplayEmployeeInformation.Location = new System.Drawing.Point(618, 807);
             this.btnDisplayEmployeeInformation.Name = "btnDisplayEmployeeInformation";
-            this.btnDisplayEmployeeInformation.Size = new System.Drawing.Size(305, 47);
+            this.btnDisplayEmployeeInformation.Size = new System.Drawing.Size(275, 47);
             this.btnDisplayEmployeeInformation.TabIndex = 19;
             this.btnDisplayEmployeeInformation.Text = "Edit employee information";
             this.btnDisplayEmployeeInformation.UseVisualStyleBackColor = false;
@@ -648,6 +662,7 @@
             this.btnSearchHistory.TabIndex = 42;
             this.btnSearchHistory.Text = "Display";
             this.btnSearchHistory.UseVisualStyleBackColor = false;
+            this.btnSearchHistory.Click += new System.EventHandler(this.btnSearchHistory_Click);
             // 
             // rbtnSortByContract
             // 
@@ -1382,5 +1397,6 @@
         private System.Windows.Forms.Label labelEmployeeLastName;
         private System.Windows.Forms.Label labelEmployeeFirstName;
         private ColumnHeader columnContractType;
+        private Button button1;
     }
 }

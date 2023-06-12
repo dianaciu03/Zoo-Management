@@ -268,5 +268,76 @@ namespace DesktopApplication
             List<Employee> employees = employeeManagement.SearchForEmployee(tbxFirstNameEmployeeHistoryTab.Text, tbxLastNameEmployeeHistoryTab.Text, weeklyHours, cbRoleEmployeeHistory.Text, out int[] ints);
             updateEmployeeHistoryListview(employees.ToArray(), ints);
         }
+
+        private void btnSearchHistory_Click(object sender, EventArgs e)
+        {
+            //dont ask it works,fml
+            if(listViewEmployeeHistoryTab.Items.Count == 0)
+            {
+                MessageBox.Show("Please search the employees you want to filter first!");
+                return;
+            }
+            Dictionary<Employee,int> unsortedEmployees= new Dictionary<Employee,int>();
+            foreach(ListViewItem item in listViewEmployeeHistoryTab.Items)
+            {
+                if (item.SubItems[8].Text == "Full-time")
+                {
+                    unsortedEmployees.Add(item.Tag as Employee, 40);
+                }
+                else
+                {
+                    unsortedEmployees.Add(item.Tag as Employee, 20);
+                }
+                
+            }
+            //i would do a switch dont get me wrong but it doesn't work like that I dont think
+            if(rbtnSortAlphabeticalAsc.Checked)
+            {
+                
+                var sortedEmployees = from entry in unsortedEmployees orderby entry.Key.LastName ascending select (entry.Key,entry.Value);
+                Dictionary<Employee, int> employees =  sortedEmployees.ToDictionary(pair => pair.Key, pair => pair.Value);
+                Employee[] listOfSortedEmployees = employees.Keys.ToArray();
+                updateEmployeeHistoryListview(listOfSortedEmployees,employees.Values.ToArray());
+                return;
+            }
+            if(rbtnSortAlphabeticalDesc.Checked)
+            {
+                var sortedEmployees = from entry in unsortedEmployees orderby entry.Key.LastName descending select (entry.Key, entry.Value);
+                Dictionary<Employee, int> employees = sortedEmployees.ToDictionary(pair => pair.Key, pair => pair.Value);
+                Employee[] listOfSortedEmployees = employees.Keys.ToArray();
+                updateEmployeeHistoryListview(listOfSortedEmployees, employees.Values.ToArray());
+                return;
+            }
+            if(rbtnSortByRole.Checked)
+            {
+                var sortedEmployees = from entry in unsortedEmployees orderby entry.Key.Role descending select (entry.Key, entry.Value);
+                Dictionary<Employee, int> employees = sortedEmployees.ToDictionary(pair => pair.Key, pair => pair.Value);
+                Employee[] listOfSortedEmployees = employees.Keys.ToArray();
+                updateEmployeeHistoryListview(listOfSortedEmployees, employees.Values.ToArray());
+                return;
+            }
+            if(rbtnSortByContract.Checked)
+            {
+                var sortedEmployees = from entry in unsortedEmployees orderby entry.Value descending select (entry.Key, entry.Value);
+                Dictionary<Employee, int> employees = sortedEmployees.ToDictionary(pair => pair.Key, pair => pair.Value);
+                Employee[] listOfSortedEmployees = employees.Keys.ToArray();
+                updateEmployeeHistoryListview(listOfSortedEmployees, employees.Values.ToArray());
+                return;
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (lvwEmployees.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Please select an employee!");
+                return;
+            }
+            panelAdministrateEmployees.Controls.Clear();
+            Employee tempEmployee = (Employee)lvwEmployees.SelectedItems[0].Tag;
+            var uc = new ucHolidayRequest(tempEmployee) { Dock = DockStyle.Fill };
+            panelAdministrateEmployees.Controls.Add(uc);
+        }
     }
 }
