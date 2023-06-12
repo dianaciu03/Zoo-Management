@@ -22,6 +22,7 @@ namespace DesktopApplication
         private readonly IAnimalManagement animalManagement;
         private readonly ITransferManagement transferManagement;
         List<RadioButton> animalHistoryOrderBy;
+        private Transfer currentTransfer;
         public FormAnimalAdministration(IAnimalManagement am)
         {
             InitializeComponent();
@@ -32,6 +33,9 @@ namespace DesktopApplication
             groupBoxSearchAnimal.Visible = true;
             groupBoxTransferDetails.Visible = false;
             btnConfirmTransferDetails.Visible = false;
+            FillTransfersList();
+            dtpNewEndDate.Enabled = false;
+            dtpNewStartDate.Enabled = false;
         }
 
         private void InitializeFormElements()
@@ -514,9 +518,6 @@ namespace DesktopApplication
                     maskedtbxBirthDateAddAnimalForm.Text = date.ToString("MM/dd/yyyy");
                     maskedtbxBirthDateAddAnimalForm.SelectionStart = maskedtbxBirthDateAddAnimalForm.Text.Length;
                 }
-
-
-
                 string gender;
                 if (rbtnMaleAddAnimal.Checked) gender = "Male";
                 else if (rbtnFemaleAddAnimal.Checked) gender = "Female";
@@ -538,22 +539,14 @@ namespace DesktopApplication
                 MessageBox.Show(ex.Message);
                 return;
             }
-
             tbxAnimalForRelationship.DataBindings.Add("Text", animal, "Name");
-
-
         }
 
         private void buttonAddRelationshipAddAnimal_Click(object sender, EventArgs e)
         {
             Binding binding = tbxAnimalForRelationship.DataBindings["Text"] ;
-
-
-
             Animal animal = (Animal)binding.DataSource;
             
-                
-
             switch (cbRelationShipType.SelectedIndex)
             {
                 case 0:
@@ -632,12 +625,11 @@ namespace DesktopApplication
         }
     
 
+
         private void cbRelationShipType_SelectedIndexChanged(object sender, EventArgs e)
         {
             Binding binding = tbxAnimalForRelationship.DataBindings["Text"];
-
             Animal animal = (Animal)binding.DataSource;
-
 
             List<Animal> animalsInSpecies = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
             switch (cbRelationShipType.SelectedIndex)
@@ -660,6 +652,82 @@ namespace DesktopApplication
             }
         }
 
+        //
+        //TAB TRANSFER ANIMALS
+        //
+
+        private void FillTransfersList()
+        {
+            List<Transfer> transfers = transferManagement.GetAllTransfersNoAnimal();
+            //foreach (Transfer transfer in transfers)
+            //{
+            //    if (transfer.StartDate <= DateTime.Now && transfer.EndDate >= DateTime.Now)
+            //        transferManagement.ChangeAnimalAvailability(transfer.TransferId, "Transferred");
+            //    else 
+            //        transferManagement.ChangeAnimalAvailability(transfer.TransferId, "Available");                 
+            //}
+            lvwCurrentTransfers.Items.Clear();
+            lvwFutureTransfers.Items.Clear();
+            lvwPastTransfers.Items.Clear();
+            foreach (Transfer transfer in transfers)
+            {
+                if (transfer.StartDate <= DateTime.Now && transfer.EndDate >= DateTime.Now)
+                {
+                    ListViewItem item = new ListViewItem();
+                    Animal animal = animalManagement.GetAnimalByID(transfer.AnimalId);
+                    item.Text = animal.Name;
+                    item.Tag = transfer;
+                    item.SubItems.Add(animal.Species);
+
+                    string formattedDate = transfer.StartDate.ToString("dd MMMM yyyy");
+                    item.SubItems.Add(formattedDate);
+
+                    string formattedDate2 = transfer.EndDate.ToString("dd MMMM yyyy");
+                    item.SubItems.Add(formattedDate2);
+                    item.SubItems.Add(transfer.ZooName);
+                    lvwCurrentTransfers.Items.Add(item);
+
+                    //transferManagement.ChangeAnimalAvailability(transfers[i].TransferId, "Transfered");
+                }
+                else if (transfer.StartDate < DateTime.Now && transfer.EndDate < DateTime.Now)
+                {
+                    ListViewItem item = new ListViewItem();
+                    Animal animal = animalManagement.GetAnimalByID(transfer.AnimalId);
+                    item.Text = animal.Name;
+                    item.Tag = transfer;
+                    item.SubItems.Add(animal.Species);
+                    string formattedDate = transfer.StartDate.ToString("dd MMMM yyyy");
+                    item.SubItems.Add(formattedDate);
+
+                    string formattedDate2 = transfer.EndDate.ToString("dd MMMM yyyy");
+                    item.SubItems.Add(formattedDate2);
+                    item.SubItems.Add(transfer.ZooName);
+                    lvwPastTransfers.Items.Add(item);
+
+
+                    //if (transfers[i].AnimalId != transfers[i - 1].AnimalId)
+                    //    transferManagement.ChangeAnimalAvailability(transfers[i].TransferId, "Available");
+                    //else
+                    //    continue;
+                }
+                else if (transfer.StartDate > DateTime.Now && transfer.EndDate > DateTime.Now)
+                {
+                    ListViewItem item = new ListViewItem();
+                    Animal animal = animalManagement.GetAnimalByID(transfer.AnimalId);
+                    item.Text = animal.Name;
+                    item.Tag = transfer;
+                    item.SubItems.Add(animal.Species);
+                    string formattedDate = transfer.StartDate.ToString("MMMM dd yyyy");
+                    item.SubItems.Add(formattedDate);
+
+                    string formattedDate2 = transfer.EndDate.ToString("MMMM dd yyyy");
+                    item.SubItems.Add(formattedDate2);
+                    item.SubItems.Add(transfer.ZooName);
+                    lvwFutureTransfers.Items.Add(item);
+                }
+            }
+        }
+
         private void cbxAnimalSpecies_SelectedIndexChanged(object sender, EventArgs e)
         {
             string species = cbxAnimalSpecies.Text;
@@ -671,14 +739,127 @@ namespace DesktopApplication
 
         private void btnTransferMoreDetails_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Transfer transfer = (Transfer)lvwCurrentTransfers.SelectedItems[0].Tag;
+                FillInTransferDetails(transfer);
+                currentTransfer = transfer;
+                cbNewEndDate.Checked = false;
+                cnNewStartDate.Checked = false;
+            }
+            catch(Exception)
+            {
+                return;
+            } 
+        }
+
+        private void FillInTransferDetails(Transfer transfer)
+        {
+            Animal animal = animalManagement.GetAnimalByID(transfer.AnimalId);
+            labelInputAnimalName.Text = animal.Name;
+            labelInputAnimalSpecies.Text = animal.Species;
+            labelInputAnimalGender.Text = animal.Gender;
+            labelInputZooName.Text = transfer.ZooName;
+            labelInputZooAddress.Text = transfer.ZooAddress;
+            labelInputZooPhone.Text = transfer.ZooPhone;
+            string formattedDate = transfer.StartDate.ToString("MMMM dd yyyy");
+            labelInputStartDate.Text = formattedDate;
+            string formattedDate2 = transfer.EndDate.ToString("MMMM dd yyyy");
+            labelInputEndDate.Text = formattedDate2;
+            labelInputComments.Text = transfer.Description;
+
             groupBoxTransferDetails.Visible = true;
             btnConfirmTransferDetails.Visible = true;
         }
 
         private void btnConfirmTransferDetails_Click(object sender, EventArgs e)
         {
+            if(cbNewEndDate.Checked)
+            {
+                currentTransfer.EndDate = dtpNewEndDate.Value;
+            }
+            else if(cnNewStartDate.Checked)
+            {
+                currentTransfer.StartDate = dtpNewStartDate.Value;
+            }
+            transferManagement.UpdateTransferDates(currentTransfer.TransferId, currentTransfer.StartDate, currentTransfer.EndDate);
+            
+            if(currentTransfer.StartDate.Date <= DateTime.Now.Date && currentTransfer.EndDate.Date > DateTime.Now.Date)
+            {
+                transferManagement.ChangeAnimalAvailability(currentTransfer.TransferId, "Transferred");
+            }
+            else if(currentTransfer.EndDate.Date == DateTime.Now.Date)
+            {
+                transferManagement.ChangeAnimalAvailability(currentTransfer.TransferId, "Available");
+            }
+            else
+            {
+                transferManagement.ChangeAnimalAvailability(currentTransfer.TransferId, "Available");
+            }
             groupBoxTransferDetails.Visible = false;
             btnConfirmTransferDetails.Visible = false;
+            cbNewEndDate.Checked = false;
+            cnNewStartDate.Checked = false;
+            currentTransfer = null;
+            FillTransfersList();
+        }
+
+        private void cnNewStartDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cnNewStartDate.Checked)
+            {
+                dtpNewStartDate.Enabled = true;
+            }
+            else
+            {
+                dtpNewStartDate.Value = DateTime.Now.Date;
+                dtpNewStartDate.Enabled = false;
+            }
+        }
+
+        private void cbNewEndDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbNewEndDate.Checked)
+            {
+                dtpNewEndDate.Enabled = true;
+            }
+            else
+            {
+                dtpNewStartDate.Value = DateTime.Now.Date;
+                dtpNewEndDate.Enabled = false;
+            }
+        }
+
+        private void btnMoreDetailsFutureTransfers_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Transfer transfer = (Transfer)lvwFutureTransfers.SelectedItems[0].Tag;
+                FillInTransferDetails(transfer);
+                currentTransfer = transfer;
+                cbNewEndDate.Checked = false;
+                cnNewStartDate.Checked = false;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void btnMoreDetailsPastTransfer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Transfer transfer = (Transfer)lvwPastTransfers.SelectedItems[0].Tag;
+                FillInTransferDetails(transfer);
+                currentTransfer = transfer;
+                cbNewEndDate.Checked = false;
+                cnNewStartDate.Checked = false;
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

@@ -102,10 +102,8 @@ namespace DataAccess
             {
 
                 //connection.Open();
-                SqlCommand query = new SqlCommand(" IF NOT EXISTS (SELECT * FROM Shifts WHERE ShiftTime > @weekStart and ShiftTime < @weekEnd) " +
-                                                  " BEGIN " +
-                                                  " INSERT INTO Shifts (ShiftEmployeeId, ShiftTime) VALUES (@employeeId, @time) " +
-                                                  " END ", connection);
+                SqlCommand query = new SqlCommand(" INSERT INTO Shifts (ShiftEmployeeId, ShiftTime)" +
+                                                  " VALUES (@employeeId, @time)", connection);
 
                 query.Parameters.AddWithValue("@employeeId", shift.EmployeeId);
                 query.Parameters.AddWithValue("@time", shift.ShiftTime);
@@ -116,8 +114,8 @@ namespace DataAccess
                     startOfWeek = shift.ShiftTime.Date.AddDays(-(int)shift.ShiftTime.DayOfWeek + 1); //Start of week = today - today + 1
                 DateTime endOfWeek = startOfWeek.AddDays(6);
 
-                query.Parameters.AddWithValue("@weekStart", startOfWeek);
-                query.Parameters.AddWithValue("@weekEnd", endOfWeek);
+                //query.Parameters.AddWithValue("@weekStart", startOfWeek);
+                //query.Parameters.AddWithValue("@weekEnd", endOfWeek.AddDays(1));
                 
                 try
                 {

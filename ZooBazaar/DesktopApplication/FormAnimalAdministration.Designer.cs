@@ -171,9 +171,11 @@
             this.btnCancelAnimalCreation = new System.Windows.Forms.Button();
             this.tabPageTransfers = new System.Windows.Forms.TabPage();
             this.groupBoxTransferDetails = new System.Windows.Forms.GroupBox();
+            this.dtpNewEndDate = new System.Windows.Forms.DateTimePicker();
+            this.cbNewEndDate = new System.Windows.Forms.CheckBox();
+            this.dtpNewStartDate = new System.Windows.Forms.DateTimePicker();
             this.labeldays = new System.Windows.Forms.Label();
-            this.tbxNrDays = new System.Windows.Forms.TextBox();
-            this.cbPostponeTransfer = new System.Windows.Forms.CheckBox();
+            this.cnNewStartDate = new System.Windows.Forms.CheckBox();
             this.labelInputComments = new System.Windows.Forms.Label();
             this.labelInputEndDate = new System.Windows.Forms.Label();
             this.labelInputStartDate = new System.Windows.Forms.Label();
@@ -217,6 +219,8 @@
             this.columnHeader12 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader15 = new System.Windows.Forms.ColumnHeader();
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
+            this.btnMoreDetailsFutureTransfers = new System.Windows.Forms.Button();
+            this.btnMoreDetailsPastTransfer = new System.Windows.Forms.Button();
             this.tabControlAnimals.SuspendLayout();
             this.tabSearchAnimals.SuspendLayout();
             this.groupBoxSearchAnimal.SuspendLayout();
@@ -1749,21 +1753,22 @@
             // 
             this.tabPageTransfers.Controls.Add(this.groupBoxTransferDetails);
             this.tabPageTransfers.Controls.Add(this.btnConfirmTransferDetails);
-            this.tabPageTransfers.Controls.Add(this.btnTransferMoreDetails);
             this.tabPageTransfers.Controls.Add(this.tabControlTypeTransfers);
-            this.tabPageTransfers.Location = new System.Drawing.Point(4, 36);
+            this.tabPageTransfers.Location = new System.Drawing.Point(4, 46);
             this.tabPageTransfers.Name = "tabPageTransfers";
             this.tabPageTransfers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTransfers.Size = new System.Drawing.Size(1793, 907);
+            this.tabPageTransfers.Size = new System.Drawing.Size(1793, 897);
             this.tabPageTransfers.TabIndex = 3;
             this.tabPageTransfers.Text = "Transfers";
             this.tabPageTransfers.UseVisualStyleBackColor = true;
             // 
             // groupBoxTransferDetails
             // 
+            this.groupBoxTransferDetails.Controls.Add(this.dtpNewEndDate);
+            this.groupBoxTransferDetails.Controls.Add(this.cbNewEndDate);
+            this.groupBoxTransferDetails.Controls.Add(this.dtpNewStartDate);
             this.groupBoxTransferDetails.Controls.Add(this.labeldays);
-            this.groupBoxTransferDetails.Controls.Add(this.tbxNrDays);
-            this.groupBoxTransferDetails.Controls.Add(this.cbPostponeTransfer);
+            this.groupBoxTransferDetails.Controls.Add(this.cnNewStartDate);
             this.groupBoxTransferDetails.Controls.Add(this.labelInputComments);
             this.groupBoxTransferDetails.Controls.Add(this.labelInputEndDate);
             this.groupBoxTransferDetails.Controls.Add(this.labelInputStartDate);
@@ -1782,46 +1787,66 @@
             this.groupBoxTransferDetails.Controls.Add(this.labelNameTransfer);
             this.groupBoxTransferDetails.Controls.Add(this.labelAddressTransfer);
             this.groupBoxTransferDetails.Controls.Add(this.labelTransferZooNamew);
-            this.groupBoxTransferDetails.Location = new System.Drawing.Point(1012, 44);
+            this.groupBoxTransferDetails.Location = new System.Drawing.Point(1093, 44);
             this.groupBoxTransferDetails.Name = "groupBoxTransferDetails";
-            this.groupBoxTransferDetails.Size = new System.Drawing.Size(752, 701);
+            this.groupBoxTransferDetails.Size = new System.Drawing.Size(664, 701);
             this.groupBoxTransferDetails.TabIndex = 40;
             this.groupBoxTransferDetails.TabStop = false;
             this.groupBoxTransferDetails.Text = "Transfer details";
             // 
+            // dtpNewEndDate
+            // 
+            this.dtpNewEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNewEndDate.Location = new System.Drawing.Point(471, 178);
+            this.dtpNewEndDate.Name = "dtpNewEndDate";
+            this.dtpNewEndDate.Size = new System.Drawing.Size(158, 32);
+            this.dtpNewEndDate.TabIndex = 47;
+            // 
+            // cbNewEndDate
+            // 
+            this.cbNewEndDate.AutoSize = true;
+            this.cbNewEndDate.Location = new System.Drawing.Point(452, 142);
+            this.cbNewEndDate.Name = "cbNewEndDate";
+            this.cbNewEndDate.Size = new System.Drawing.Size(171, 30);
+            this.cbNewEndDate.TabIndex = 46;
+            this.cbNewEndDate.Text = "New end date:";
+            this.cbNewEndDate.UseVisualStyleBackColor = true;
+            this.cbNewEndDate.CheckedChanged += new System.EventHandler(this.cbNewEndDate_CheckedChanged);
+            // 
+            // dtpNewStartDate
+            // 
+            this.dtpNewStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNewStartDate.Location = new System.Drawing.Point(471, 84);
+            this.dtpNewStartDate.Name = "dtpNewStartDate";
+            this.dtpNewStartDate.Size = new System.Drawing.Size(158, 32);
+            this.dtpNewStartDate.TabIndex = 45;
+            // 
             // labeldays
             // 
             this.labeldays.AutoSize = true;
-            this.labeldays.Location = new System.Drawing.Point(653, 83);
+            this.labeldays.Location = new System.Drawing.Point(626, 87);
             this.labeldays.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.labeldays.Name = "labeldays";
-            this.labeldays.Size = new System.Drawing.Size(58, 26);
+            this.labeldays.Size = new System.Drawing.Size(0, 26);
             this.labeldays.TabIndex = 44;
-            this.labeldays.Text = "days";
             // 
-            // tbxNrDays
+            // cnNewStartDate
             // 
-            this.tbxNrDays.Location = new System.Drawing.Point(528, 80);
-            this.tbxNrDays.Name = "tbxNrDays";
-            this.tbxNrDays.Size = new System.Drawing.Size(114, 32);
-            this.tbxNrDays.TabIndex = 43;
-            // 
-            // cbPostponeTransfer
-            // 
-            this.cbPostponeTransfer.AutoSize = true;
-            this.cbPostponeTransfer.Location = new System.Drawing.Point(528, 44);
-            this.cbPostponeTransfer.Name = "cbPostponeTransfer";
-            this.cbPostponeTransfer.Size = new System.Drawing.Size(202, 30);
-            this.cbPostponeTransfer.TabIndex = 42;
-            this.cbPostponeTransfer.Text = "Postpone transfer";
-            this.cbPostponeTransfer.UseVisualStyleBackColor = true;
+            this.cnNewStartDate.AutoSize = true;
+            this.cnNewStartDate.Location = new System.Drawing.Point(452, 48);
+            this.cnNewStartDate.Name = "cnNewStartDate";
+            this.cnNewStartDate.Size = new System.Drawing.Size(177, 30);
+            this.cnNewStartDate.TabIndex = 42;
+            this.cnNewStartDate.Text = "New start date:";
+            this.cnNewStartDate.UseVisualStyleBackColor = true;
+            this.cnNewStartDate.CheckedChanged += new System.EventHandler(this.cnNewStartDate_CheckedChanged);
             // 
             // labelInputComments
             // 
             this.labelInputComments.Location = new System.Drawing.Point(169, 540);
             this.labelInputComments.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.labelInputComments.Name = "labelInputComments";
-            this.labelInputComments.Size = new System.Drawing.Size(542, 130);
+            this.labelInputComments.Size = new System.Drawing.Size(473, 130);
             this.labelInputComments.TabIndex = 41;
             this.labelInputComments.Text = "<comments>";
             // 
@@ -1999,7 +2024,7 @@
             // 
             this.btnConfirmTransferDetails.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnConfirmTransferDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnConfirmTransferDetails.Location = new System.Drawing.Point(1271, 767);
+            this.btnConfirmTransferDetails.Location = new System.Drawing.Point(1302, 769);
             this.btnConfirmTransferDetails.Name = "btnConfirmTransferDetails";
             this.btnConfirmTransferDetails.Size = new System.Drawing.Size(289, 70);
             this.btnConfirmTransferDetails.TabIndex = 38;
@@ -2011,7 +2036,7 @@
             // 
             this.btnTransferMoreDetails.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnTransferMoreDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTransferMoreDetails.Location = new System.Drawing.Point(339, 675);
+            this.btnTransferMoreDetails.Location = new System.Drawing.Point(338, 681);
             this.btnTransferMoreDetails.Name = "btnTransferMoreDetails";
             this.btnTransferMoreDetails.Size = new System.Drawing.Size(307, 70);
             this.btnTransferMoreDetails.TabIndex = 39;
@@ -2027,18 +2052,19 @@
             this.tabControlTypeTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControlTypeTransfers.Location = new System.Drawing.Point(27, 44);
             this.tabControlTypeTransfers.Name = "tabControlTypeTransfers";
-            this.tabControlTypeTransfers.Padding = new System.Drawing.Point(87, 8);
+            this.tabControlTypeTransfers.Padding = new System.Drawing.Point(100, 8);
             this.tabControlTypeTransfers.SelectedIndex = 0;
-            this.tabControlTypeTransfers.Size = new System.Drawing.Size(950, 594);
+            this.tabControlTypeTransfers.Size = new System.Drawing.Size(1027, 827);
             this.tabControlTypeTransfers.TabIndex = 0;
             // 
             // tabCurrentTransfers
             // 
             this.tabCurrentTransfers.Controls.Add(this.lvwCurrentTransfers);
+            this.tabCurrentTransfers.Controls.Add(this.btnTransferMoreDetails);
             this.tabCurrentTransfers.Location = new System.Drawing.Point(4, 44);
             this.tabCurrentTransfers.Name = "tabCurrentTransfers";
             this.tabCurrentTransfers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCurrentTransfers.Size = new System.Drawing.Size(942, 546);
+            this.tabCurrentTransfers.Size = new System.Drawing.Size(1019, 779);
             this.tabCurrentTransfers.TabIndex = 0;
             this.tabCurrentTransfers.Text = "Current Transfers";
             this.tabCurrentTransfers.UseVisualStyleBackColor = true;
@@ -2052,16 +2078,17 @@
             this.columnHeader11,
             this.columnHeader13});
             this.lvwCurrentTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lvwCurrentTransfers.FullRowSelect = true;
             this.lvwCurrentTransfers.Location = new System.Drawing.Point(6, 6);
             this.lvwCurrentTransfers.Name = "lvwCurrentTransfers";
-            this.lvwCurrentTransfers.Size = new System.Drawing.Size(930, 534);
+            this.lvwCurrentTransfers.Size = new System.Drawing.Size(1007, 651);
             this.lvwCurrentTransfers.TabIndex = 40;
             this.lvwCurrentTransfers.UseCompatibleStateImageBehavior = false;
             this.lvwCurrentTransfers.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "Name";
+            this.columnHeader8.Text = "Zoo Name";
             this.columnHeader8.Width = 200;
             // 
             // columnHeader9
@@ -2072,25 +2099,26 @@
             // columnHeader10
             // 
             this.columnHeader10.Text = "StartDate";
-            this.columnHeader10.Width = 180;
+            this.columnHeader10.Width = 190;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "End Date";
-            this.columnHeader11.Width = 180;
+            this.columnHeader11.Width = 190;
             // 
             // columnHeader13
             // 
-            this.columnHeader13.Text = "Type";
-            this.columnHeader13.Width = 160;
+            this.columnHeader13.Text = "Name";
+            this.columnHeader13.Width = 220;
             // 
             // tabFutureTransfers
             // 
+            this.tabFutureTransfers.Controls.Add(this.btnMoreDetailsFutureTransfers);
             this.tabFutureTransfers.Controls.Add(this.lvwFutureTransfers);
             this.tabFutureTransfers.Location = new System.Drawing.Point(4, 44);
             this.tabFutureTransfers.Name = "tabFutureTransfers";
             this.tabFutureTransfers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFutureTransfers.Size = new System.Drawing.Size(942, 546);
+            this.tabFutureTransfers.Size = new System.Drawing.Size(1019, 779);
             this.tabFutureTransfers.TabIndex = 1;
             this.tabFutureTransfers.Text = "Future Transfers";
             this.tabFutureTransfers.UseVisualStyleBackColor = true;
@@ -2104,9 +2132,10 @@
             this.columnHeader7,
             this.columnHeader14});
             this.lvwFutureTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lvwFutureTransfers.FullRowSelect = true;
             this.lvwFutureTransfers.Location = new System.Drawing.Point(6, 6);
             this.lvwFutureTransfers.Name = "lvwFutureTransfers";
-            this.lvwFutureTransfers.Size = new System.Drawing.Size(930, 534);
+            this.lvwFutureTransfers.Size = new System.Drawing.Size(1007, 651);
             this.lvwFutureTransfers.TabIndex = 41;
             this.lvwFutureTransfers.UseCompatibleStateImageBehavior = false;
             this.lvwFutureTransfers.View = System.Windows.Forms.View.Details;
@@ -2124,25 +2153,26 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "StartDate";
-            this.columnHeader5.Width = 180;
+            this.columnHeader5.Width = 190;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "End Date";
-            this.columnHeader7.Width = 180;
+            this.columnHeader7.Width = 190;
             // 
             // columnHeader14
             // 
-            this.columnHeader14.Text = "Type";
-            this.columnHeader14.Width = 160;
+            this.columnHeader14.Text = "Zoo Name";
+            this.columnHeader14.Width = 220;
             // 
             // tabPastTransfers
             // 
+            this.tabPastTransfers.Controls.Add(this.btnMoreDetailsPastTransfer);
             this.tabPastTransfers.Controls.Add(this.lvwPastTransfers);
             this.tabPastTransfers.Location = new System.Drawing.Point(4, 44);
             this.tabPastTransfers.Name = "tabPastTransfers";
             this.tabPastTransfers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPastTransfers.Size = new System.Drawing.Size(942, 546);
+            this.tabPastTransfers.Size = new System.Drawing.Size(1019, 779);
             this.tabPastTransfers.TabIndex = 2;
             this.tabPastTransfers.Text = "Past Transfers";
             this.tabPastTransfers.UseVisualStyleBackColor = true;
@@ -2156,9 +2186,10 @@
             this.columnHeader12,
             this.columnHeader15});
             this.lvwPastTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lvwPastTransfers.FullRowSelect = true;
             this.lvwPastTransfers.Location = new System.Drawing.Point(6, 6);
             this.lvwPastTransfers.Name = "lvwPastTransfers";
-            this.lvwPastTransfers.Size = new System.Drawing.Size(930, 534);
+            this.lvwPastTransfers.Size = new System.Drawing.Size(1007, 651);
             this.lvwPastTransfers.TabIndex = 41;
             this.lvwPastTransfers.UseCompatibleStateImageBehavior = false;
             this.lvwPastTransfers.View = System.Windows.Forms.View.Details;
@@ -2176,17 +2207,17 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "StartDate";
-            this.columnHeader6.Width = 180;
+            this.columnHeader6.Width = 190;
             // 
             // columnHeader12
             // 
             this.columnHeader12.Text = "End Date";
-            this.columnHeader12.Width = 180;
+            this.columnHeader12.Width = 190;
             // 
             // columnHeader15
             // 
-            this.columnHeader15.Text = "Type";
-            this.columnHeader15.Width = 160;
+            this.columnHeader15.Text = "Zoo Name";
+            this.columnHeader15.Width = 220;
             // 
             // labelTitleZooBazaar
             // 
@@ -2199,6 +2230,30 @@
             this.labelTitleZooBazaar.Size = new System.Drawing.Size(242, 51);
             this.labelTitleZooBazaar.TabIndex = 1;
             this.labelTitleZooBazaar.Text = "ZooBazaar";
+            // 
+            // btnMoreDetailsFutureTransfers
+            // 
+            this.btnMoreDetailsFutureTransfers.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnMoreDetailsFutureTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMoreDetailsFutureTransfers.Location = new System.Drawing.Point(339, 681);
+            this.btnMoreDetailsFutureTransfers.Name = "btnMoreDetailsFutureTransfers";
+            this.btnMoreDetailsFutureTransfers.Size = new System.Drawing.Size(307, 70);
+            this.btnMoreDetailsFutureTransfers.TabIndex = 42;
+            this.btnMoreDetailsFutureTransfers.Text = "More details";
+            this.btnMoreDetailsFutureTransfers.UseVisualStyleBackColor = false;
+            this.btnMoreDetailsFutureTransfers.Click += new System.EventHandler(this.btnMoreDetailsFutureTransfers_Click);
+            // 
+            // btnMoreDetailsPastTransfer
+            // 
+            this.btnMoreDetailsPastTransfer.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnMoreDetailsPastTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMoreDetailsPastTransfer.Location = new System.Drawing.Point(340, 681);
+            this.btnMoreDetailsPastTransfer.Name = "btnMoreDetailsPastTransfer";
+            this.btnMoreDetailsPastTransfer.Size = new System.Drawing.Size(307, 70);
+            this.btnMoreDetailsPastTransfer.TabIndex = 43;
+            this.btnMoreDetailsPastTransfer.Text = "More details";
+            this.btnMoreDetailsPastTransfer.UseVisualStyleBackColor = false;
+            this.btnMoreDetailsPastTransfer.Click += new System.EventHandler(this.btnMoreDetailsPastTransfer_Click);
             // 
             // FormAnimalAdministration
             // 
@@ -2437,8 +2492,12 @@
         private ColumnHeader columnHeader12;
         private ColumnHeader columnHeader15;
         private Label labeldays;
-        private TextBox tbxNrDays;
-        private CheckBox cbPostponeTransfer;
+        private CheckBox cnNewStartDate;
+        private DateTimePicker dtpNewEndDate;
+        private CheckBox cbNewEndDate;
+        private DateTimePicker dtpNewStartDate;
+        private Button btnMoreDetailsFutureTransfers;
+        private Button btnMoreDetailsPastTransfer;
     }
 }
 
