@@ -52,7 +52,10 @@ namespace BusinessLogic.Animals
             dth.ChangeAnimalAvailability(transferId, option);
         }
 
-
+        public void UpdateTransferDates(int transferId, DateTime startDate, DateTime endDate)
+        {
+            dth.UpdateTransferDates(transferId, startDate, endDate);
+        }
 
     }
 }

@@ -8,5 +8,6 @@ namespace DataAccess.AnimalInterfaces
         List<TransferDTO> GetTransferByAnimalId(int id);
         List<TransferDTO> GetAllTransfers();
         void ChangeAnimalAvailability(int transferId, string option);
+        void UpdateTransferDates(int transferId, DateTime startDate, DateTime endDate);
     }
 }

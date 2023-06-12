@@ -169,5 +169,29 @@ namespace DataAccess.AnimalRepositories
                 return;
             }
         }
+
+        public void UpdateTransferDates(int transferId, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionHelper.ConnectionValue()))
+                {
+                    conn.Open();
+                    string query = "UPDATE Transfer SET StartDate=@StartDate, EndDate=@EndDate WHERE TransferId=@TransferId";
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@TransferId", transferId);
+                        command.Parameters.AddWithValue("@StartDate", startDate);
+                        command.Parameters.AddWithValue("@EndDate", endDate);
+                        command.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
     }
 }

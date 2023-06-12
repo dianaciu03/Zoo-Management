@@ -22,6 +22,7 @@ namespace DesktopApplication
         private readonly IAnimalManagement animalManagement;
         private readonly ITransferManagement transferManagement;
         List<RadioButton> animalHistoryOrderBy;
+        private Transfer currentTransfer;
         public FormAnimalAdministration(IAnimalManagement am)
         {
             InitializeComponent();
@@ -742,6 +743,9 @@ namespace DesktopApplication
             {
                 Transfer transfer = (Transfer)lvwCurrentTransfers.SelectedItems[0].Tag;
                 FillInTransferDetails(transfer);
+                currentTransfer = transfer;
+                cbNewEndDate.Checked = false;
+                cnNewStartDate.Checked = false;
             }
             catch(Exception)
             {
@@ -770,11 +774,34 @@ namespace DesktopApplication
 
         private void btnConfirmTransferDetails_Click(object sender, EventArgs e)
         {
+            if(cbNewEndDate.Checked)
+            {
+                currentTransfer.EndDate = dtpNewEndDate.Value;
+            }
+            else if(cnNewStartDate.Checked)
+            {
+                currentTransfer.StartDate = dtpNewStartDate.Value;
+            }
+            transferManagement.UpdateTransferDates(currentTransfer.TransferId, currentTransfer.StartDate, currentTransfer.EndDate);
             
+            if(currentTransfer.StartDate.Date <= DateTime.Now.Date && currentTransfer.EndDate.Date > DateTime.Now.Date)
+            {
+                transferManagement.ChangeAnimalAvailability(currentTransfer.TransferId, "Transferred");
+            }
+            else if(currentTransfer.EndDate.Date == DateTime.Now.Date)
+            {
+                transferManagement.ChangeAnimalAvailability(currentTransfer.TransferId, "Available");
+            }
+            else
+            {
+                transferManagement.ChangeAnimalAvailability(currentTransfer.TransferId, "Available");
+            }
             groupBoxTransferDetails.Visible = false;
             btnConfirmTransferDetails.Visible = false;
             cbNewEndDate.Checked = false;
             cnNewStartDate.Checked = false;
+            currentTransfer = null;
+            FillTransfersList();
         }
 
         private void cnNewStartDate_CheckedChanged(object sender, EventArgs e)
@@ -785,6 +812,7 @@ namespace DesktopApplication
             }
             else
             {
+                dtpNewStartDate.Value = DateTime.Now.Date;
                 dtpNewStartDate.Enabled = false;
             }
         }
@@ -797,6 +825,7 @@ namespace DesktopApplication
             }
             else
             {
+                dtpNewStartDate.Value = DateTime.Now.Date;
                 dtpNewEndDate.Enabled = false;
             }
         }
@@ -807,6 +836,9 @@ namespace DesktopApplication
             {
                 Transfer transfer = (Transfer)lvwFutureTransfers.SelectedItems[0].Tag;
                 FillInTransferDetails(transfer);
+                currentTransfer = transfer;
+                cbNewEndDate.Checked = false;
+                cnNewStartDate.Checked = false;
             }
             catch (Exception)
             {
@@ -820,6 +852,9 @@ namespace DesktopApplication
             {
                 Transfer transfer = (Transfer)lvwPastTransfers.SelectedItems[0].Tag;
                 FillInTransferDetails(transfer);
+                currentTransfer = transfer;
+                cbNewEndDate.Checked = false;
+                cnNewStartDate.Checked = false;
             }
             catch (Exception)
             {

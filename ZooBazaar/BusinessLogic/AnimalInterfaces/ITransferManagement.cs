@@ -10,5 +10,6 @@ namespace BusinessLogic.AnimalInterfaces
         List<Transfer> GetAllTransfersById(int id);
         void SaveTransfer(Transfer transfer);
         void ChangeAnimalAvailability(int transferId, string option);
+        void UpdateTransferDates(int transferId, DateTime startDate, DateTime endDate);
     }
 }
