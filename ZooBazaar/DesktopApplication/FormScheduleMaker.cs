@@ -21,6 +21,7 @@ namespace DesktopApplication
         ScheduleManagement scheduleManagement;
         private readonly IAnimalManagement animalManagement;
         IEmployeeManagement employeeManagement = new EmployeeManagement(new EmployeeRepository());
+        Shift[] shifts;
 
         List<Animal> searchedAnimals;
         public FormScheduleMaker(IAnimalManagement am)
@@ -259,7 +260,8 @@ namespace DesktopApplication
         {
             AutomaticScheduling scheduleMaker = new AutomaticScheduling();
             CaretakerWithHours[] careTakers = employeeManagement.GetCareTakers();
-            Shift[] shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers);
+            btnPublishSchedule.Visible = true;
+            shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers);
 
             DateTime today = DateTime.Today;
             int daysUntilMonday = 7;
@@ -304,6 +306,11 @@ namespace DesktopApplication
         private void nudScheduleLenght_ValueChanged(object sender, EventArgs e)
         {
             updateScheduleDetails();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
