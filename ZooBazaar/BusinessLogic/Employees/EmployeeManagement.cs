@@ -125,5 +125,10 @@ namespace BusinessLogic
            return _employeeRepository.GetContractById(id).ToEmployeeContract();
 
         }
+
+        public void AddHoliday(int employeeId, DateTime startDate, DateTime endDate)
+        {
+            _employeeRepository.AddHoliday(employeeId, startDate, endDate);
+        }
     }
 }

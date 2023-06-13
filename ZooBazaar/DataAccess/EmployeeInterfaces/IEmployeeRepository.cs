@@ -17,6 +17,7 @@ namespace DataAccess
         public EmployeeDTO? GetEmployeeByEmail(string email);
         public EmployeeDTO? GetEmployeeById(int id);
         public ContractDTO GetContractById(int id);
+        public void AddHoliday(int employeeId, DateTime startDate, DateTime endDate);
 
     }
 }

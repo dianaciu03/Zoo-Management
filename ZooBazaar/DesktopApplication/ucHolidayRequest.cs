@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace DesktopApplication
     public partial class ucHolidayRequest : UserControl
     {
         Employee employee;
+        IEmployeeManagement employeeManagement = new EmployeeManagement(new EmployeeRepository());
         public ucHolidayRequest(Employee selectedEmployee)
         {
             //IDK HOW TO FIX VISUAL BUG FOR THIS UC WHEN IT'S DISPLAYED I LITERALLY COPY PASTED ALL OF IT WTFFFFFFF
@@ -36,17 +38,19 @@ namespace DesktopApplication
                 MessageBox.Show("Please make sure the start date is before the end date!");
                 return;
             }
-            //REVIEW WITH AUGUSTINAS HOW TO IMPLEMENT IN DB, idk how the shifts work and I dont wanna break it
+            try
+            {
+                employeeManagement.AddHoliday(employee.ID, dateTimePickerStartDate.Value, dateTimePickerEndDate.Value);
+                this.Hide();
+            }
+            catch
+            {
+                MessageBox.Show("Could not schedule holiday time!");
+                return;
+            }
+            
+            
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbRole_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

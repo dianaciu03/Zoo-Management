@@ -75,7 +75,6 @@
             this.tbRole.Name = "tbRole";
             this.tbRole.Size = new System.Drawing.Size(165, 32);
             this.tbRole.TabIndex = 57;
-            this.tbRole.TextChanged += new System.EventHandler(this.tbRole_TextChanged);
             // 
             // tbLastName
             // 
@@ -102,7 +101,6 @@
             this.label2.Size = new System.Drawing.Size(63, 26);
             this.label2.TabIndex = 54;
             this.label2.Text = "Role:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // labelLastName
             // 
@@ -116,9 +114,9 @@
             // 
             // btnCancelContractEdit
             // 
-            this.btnCancelContractEdit.Location = new System.Drawing.Point(11, 254);
+            this.btnCancelContractEdit.Location = new System.Drawing.Point(11, 256);
             this.btnCancelContractEdit.Name = "btnCancelContractEdit";
-            this.btnCancelContractEdit.Size = new System.Drawing.Size(126, 23);
+            this.btnCancelContractEdit.Size = new System.Drawing.Size(126, 21);
             this.btnCancelContractEdit.TabIndex = 52;
             this.btnCancelContractEdit.Text = "Cancel";
             this.btnCancelContractEdit.UseVisualStyleBackColor = true;
@@ -139,7 +137,7 @@
             this.dateTimePickerEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerEndDate.Location = new System.Drawing.Point(165, 225);
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(165, 215);
             this.dateTimePickerEndDate.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             this.dateTimePickerEndDate.Size = new System.Drawing.Size(147, 32);
@@ -148,7 +146,7 @@
             // labelEndDate
             // 
             this.labelEndDate.AutoSize = true;
-            this.labelEndDate.Location = new System.Drawing.Point(17, 225);
+            this.labelEndDate.Location = new System.Drawing.Point(17, 211);
             this.labelEndDate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.labelEndDate.Name = "labelEndDate";
             this.labelEndDate.Size = new System.Drawing.Size(105, 26);

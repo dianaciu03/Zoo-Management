@@ -64,9 +64,23 @@ namespace DataAccess
             {
                 try { connection.Open(); }
                 catch (SqlException) { return employees; }
+                DateTime today = DateTime.Today;
+                int daysUntilMonday = 7;
+                if (today.DayOfWeek != DayOfWeek.Monday)
+                {
+                    daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
+                }
+                DateTime nextMonday = DateTime.Today.AddDays(daysUntilMonday);
+                DateTime nextSunday = nextMonday.AddDays(6);
                 DateTime dateTime= DateTime.Now;
-                SqlCommand query = new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID WHERE (c.EndDate > @dateTime OR c.EndDate IS NULL) AND EmployeeType = @EmployeeType ORDER BY c.WeeklyHours DESC", connection);
+                SqlCommand query = new SqlCommand("SELECT e.*,c.WeeklyHours FROM Employees AS e JOIN Contracts AS c ON e.EmployeeID = c.EmployeeID LEFT JOIN dbo.Holiday AS h ON e.EmployeeID = h.employee_id " +
+                    "WHERE (c.EndDate > @nextSunday OR (c.EndDate IS NULL)) " +
+                    "AND ((h.end_date < @nextMonday) OR (h.start_date > @nextSunday) OR (e.EmployeeID NOT IN (SELECT employee_id FROM dbo.Holiday))) " +
+                    "AND EmployeeType = @EmployeeType " +
+                    "ORDER BY c.WeeklyHours DESC", connection);
                 query.Parameters.AddWithValue("@dateTime",dateTime);
+                query.Parameters.AddWithValue("@nextSunday", nextSunday);
+                query.Parameters.AddWithValue("@nextMonday", nextMonday);
                 query.Parameters.AddWithValue("@EmployeeType", "CareTaker");
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
@@ -376,6 +390,23 @@ namespace DataAccess
                         return new ContractDTO();
                     }
                 }
+            }
+        }
+
+        public void AddHoliday(int employeeId, DateTime startDate, DateTime endDate)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("INSERT INTO dbo.Holiday VALUES (@employeeID ,@startDate ,@endDate);", connection))
+                {
+                    command.Parameters.AddWithValue("@employeeID", employeeId);
+                    command.Parameters.AddWithValue("@startDate", startDate);
+                    command.Parameters.AddWithValue("@endDate", endDate);
+
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
             }
         }
     }

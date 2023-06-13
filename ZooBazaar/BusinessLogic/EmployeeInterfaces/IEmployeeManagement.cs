@@ -13,5 +13,6 @@ namespace BusinessLogic
         public List<Employee> SearchForEmployee(string firstName, string lastname, int weeklyHours, string employeeType, out int[] ints);
         public void UpdateEmployeeInformation(Employee employee);
         public EmployeeContract GetContractById(int id);
+        public void AddHoliday(int employeeId, DateTime startDate, DateTime endDate);
     }
 }
