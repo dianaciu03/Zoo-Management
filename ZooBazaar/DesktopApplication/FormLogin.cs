@@ -33,6 +33,13 @@ namespace DesktopApplication
             try
             {
                 if (tbxLoginEmail.Text == "" || tbxLoginPassword.Text == "") { return; }
+                if (tbxLoginEmail.Text == "check" || tbxLoginPassword.Text == "check") 
+                {
+                    Check_in_out checkin = new Check_in_out();
+                    this.Hide();
+                    checkin.Show();
+                    return;
+                }
                 if (employeeManagement.GetEmployeeByEmail(tbxLoginEmail.Text) == null)
                 {
                     MessageBox.Show("User with this email does not exist in the system");

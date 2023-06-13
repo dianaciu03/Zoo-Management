@@ -49,16 +49,16 @@ namespace DataAccess.Tickets
             using (connection)
             {
                 SqlCommand query = new SqlCommand("SELECT * FROM Tickets " +
-                    "WHERE BarcodeString = @BarcodeString AND" +
-                    "Valid Date = @ValidDate", connection);
+                    "WHERE BarcodeString = @BarcodeString AND " +
+                    "ValidDate = @ValidDate", connection);
 
-                query.Parameters.AddWithValue("@ValidDate", barcode);
-                query.Parameters.AddWithValue("@BarcodeString", date);
+                query.Parameters.AddWithValue("@ValidDate", date);
+                query.Parameters.AddWithValue("@BarcodeString", barcode);
 
                 try
                 {
                     connection.Open();
-                    if((int)query.ExecuteScalar() > 0)
+                    if(Convert.ToInt32(query.ExecuteScalar()) > 0)
                     {
                         ticketIsValid = true;
                     }

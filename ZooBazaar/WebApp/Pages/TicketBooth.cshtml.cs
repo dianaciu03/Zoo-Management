@@ -1,6 +1,7 @@
 using BusinessLogic.Tickets;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Text.Json;
 
 namespace WebApp.Pages
 {
@@ -61,6 +62,7 @@ namespace WebApp.Pages
                     order.AddTicketToOrder(ticket);
                 }
             }
+            TempData["Order"] = JsonSerializer.Serialize(order);
             //needs to refirect to another page with the total amount
             return RedirectToPage("OrderOverview");
         }

@@ -38,7 +38,7 @@ nav {
     left: 0;
     width: 100%;
     background-color: white;
-    height: 90px;
+    height: 95px;
 }
 
 .logo img {
@@ -208,7 +208,7 @@ filter: brightness(40%);
 
 .index-title1 {
     position: absolute;
-    margin-left: 3rem;
+    margin-left: 1rem;
     margin-top: 0.5rem;
     font-size: 30px;
     color: ghostwhite;
