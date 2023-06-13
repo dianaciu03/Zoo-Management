@@ -472,7 +472,7 @@ filter: brightness(40%);
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 100px;
     padding: 0 8vh;
     margin: 0 auto;
     position: relative;
@@ -481,15 +481,15 @@ filter: brightness(40%);
 
 .aboutus-img {
     width: auto;
-    height: 100vh; /* Add this line to make the image height adjust based on its aspect ratio */
+    height: 100vh; 
     background-image: url("../images/01.png");
-    background-size: contain; /* Add this line to make the image fit within the container */
-    background-repeat: no-repeat; /* Add this line to prevent repeating the image */
+    background-size: contain; 
+    background-repeat: no-repeat; 
 }
 
 .secret-box {
-    height: 80vh;
-    width: 61vh;
+    height: 71vh;
+    width: 53vh;
     content: "";
     position: absolute;
     border: 4px solid #6AAF08;
@@ -498,3 +498,34 @@ filter: brightness(40%);
     border-radius: 10px;
     z-index: -1;
 }
+
+.aboutus-title {
+    font-size: 64px;
+    color: #6AAF08;
+    font-weight: 700;
+}
+
+.aboutus-subtitle {
+    font-size: 48px;
+    color: dimgrey;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.checklist {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.checklist-item {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.checkmark {
+    color: green;
+    margin-right: 5px;
+}
+
