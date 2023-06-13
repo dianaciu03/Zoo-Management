@@ -20,7 +20,8 @@ namespace WebApp.Pages
 
         public void OnGet()
         {
-            byte[] barcode = barcodeCreator.CreateBarcode("abc123673fdhja");
+            byte[] barcode = barcodeCreator.CreateBarcode("abc123673fdhja"/*barcode string goes here*/);
+            
             Barcode = Convert.ToBase64String(barcode);
         }
     }

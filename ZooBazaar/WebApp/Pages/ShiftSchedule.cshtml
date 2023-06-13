@@ -14,11 +14,11 @@
     </header>
     
     <div class="week-control">
-        <h2 style="margin-left: 1rem;">My shifts: <i>Next week</i></h2>
+        <h2 style="margin-left: 1rem;">My shifts: <i>@DateTime.Today.AddDays(-Model.DayOfWeek + 8).ToString("dd MMM") - @DateTime.Today.AddDays(14 - Model.DayOfWeek).ToString("dd MMM")</i></h2>
         <div>
             <form method="post">
-                    <input asp-page-handler="Down" name="down" type="submit" value="down" />
-                    <input asp-page-handler="Up" name="up" type="submit" value="up" />
+                    <input asp-page-handler="Down" name="down" type="submit" value="<" />
+                    <input asp-page-handler="Up" name="up" type="submit" value=">" />
             </form>
         </div>
     </div>
