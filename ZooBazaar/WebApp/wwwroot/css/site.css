@@ -450,11 +450,13 @@ filter: brightness(40%);
 }
 
 .week-control div input{
-    margin: 0 1rem;
-    width: 60px;
+    margin: 0 auto;
+    width: 50px;
     background-color: #234b76;
     color: white;
     border-radius: 5px;
+    padding: 10px;
+    text-align: center;
 }
 
 .aboutus {

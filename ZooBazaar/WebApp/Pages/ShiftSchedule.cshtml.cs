@@ -39,8 +39,18 @@ namespace WebApp.Pages
 
             //DateTime.Today.AddDays(-dayOfWeek + 8) && task.TaskDateTime < DateTime.Today.AddDays(14 - dayOfWeek)
             DayOfWeek = (int)DateTime.Today.DayOfWeek;
-            List<Shift> tempShifts = scheduleManagement.GetShiftsByCaretaker(ID).Where(x => x.ShiftTime.Date < DateTime.Today.AddDays(14 - DayOfWeek) && x.ShiftTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8)).ToList();
-            Tasks = taskManagement.GetTasksByCaretaker(ID).Where(x => x.TaskDateTime.Date < DateTime.Today.AddDays(14 - DayOfWeek) && x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8)).ToList();
+            List<Shift> tempShifts = scheduleManagement.GetShiftsByCaretaker(ID)
+                .Where(
+                    x => 
+                    x.ShiftTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
+                    x.ShiftTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8))
+                .ToList();
+            Tasks = taskManagement.GetTasksByCaretaker(ID)
+                .Where(
+                    x => 
+                    x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) && 
+                    x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8))
+                .ToList();
             Shifts = tempShifts.OrderBy(t => t.ShiftTime).ToList();
 
             return Page();
@@ -59,12 +69,18 @@ namespace WebApp.Pages
             Address = loggedInEmployee.Address;
             ID = loggedInEmployee.ID;
 
-            WeekCounter--;
+            WeekCounter++;
 
-            int dayOfWeek = DayOfWeek + (7 * WeekCounter);
+            DayOfWeek = DayOfWeek + (7 * WeekCounter);
             HttpContext.Session.SetInt32("WeekCounter", WeekCounter);
-            List<Shift> tempShifts = scheduleManagement.GetShiftsByCaretaker(ID).Where(x => x.ShiftTime.Date < DateTime.Today.AddDays(14 - dayOfWeek) && x.ShiftTime.Date >= DateTime.Today.AddDays(-dayOfWeek + 8)).ToList();
-            Tasks = taskManagement.GetTasksByCaretaker(ID).Where(x => x.TaskDateTime.Date < DateTime.Today.AddDays(14 - dayOfWeek) && x.TaskDateTime.Date >= DateTime.Today.AddDays(-dayOfWeek + 8)).ToList();
+            List<Shift> tempShifts = scheduleManagement.GetShiftsByCaretaker(ID)
+                .Where(x => x.ShiftTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
+                    x.ShiftTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8))
+                .ToList();
+            Tasks = taskManagement.GetTasksByCaretaker(ID)
+                .Where(x => x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
+                    x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8))
+                .ToList();
             Shifts = tempShifts.OrderBy(t => t.ShiftTime).ToList();
             return null;
         }
@@ -83,12 +99,14 @@ namespace WebApp.Pages
             Address = loggedInEmployee.Address;
             ID = loggedInEmployee.ID;
 
-            WeekCounter++;
+            WeekCounter--;
 
-            int dayOfWeek = DayOfWeek + (7 * WeekCounter);
+            DayOfWeek = DayOfWeek + (7 * WeekCounter);
             HttpContext.Session.SetInt32("WeekCounter", WeekCounter);
-            List<Shift> tempShifts = scheduleManagement.GetShiftsByCaretaker(ID).Where(x => x.ShiftTime.Date < DateTime.Today.AddDays(14 - dayOfWeek) && x.ShiftTime.Date >= DateTime.Today.AddDays(-dayOfWeek + 8)).ToList();
-            Tasks = taskManagement.GetTasksByCaretaker(ID).Where(x => x.TaskDateTime.Date < DateTime.Today.AddDays(14 - dayOfWeek) && x.TaskDateTime.Date >= DateTime.Today.AddDays(-dayOfWeek + 8)).ToList();
+            List<Shift> tempShifts = scheduleManagement.GetShiftsByCaretaker(ID)
+                .Where(x => x.ShiftTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
+                x.ShiftTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8)).ToList();
+            Tasks = taskManagement.GetTasksByCaretaker(ID).Where(x => x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) && x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8)).ToList();
             Shifts = tempShifts.OrderBy(t => t.ShiftTime).ToList();
             return null;
         }
