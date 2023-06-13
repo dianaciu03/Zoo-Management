@@ -48,8 +48,11 @@ namespace BusinessLogic
             return employeesList.ToArray();
         }
 
-        public void AddShifts(Shift[] shifts)
+        public bool AddShifts(Shift[] shifts, DateTime startDate, DateTime endDate)
         {
+            if (shiftRepo.GetShiftsWithinRange(startDate, endDate).Count() > 0)
+                return false;
+            
             foreach (Shift shift in shifts)
             {
                 ShiftDTO shiftDto = new ShiftDTO()
@@ -59,6 +62,7 @@ namespace BusinessLogic
                 };
                 shiftRepo.AddShift(shiftDto);
             }
+            return true;
         }
         public Shift[] GetShiftsByCaretaker(int careTakerId)
         {
