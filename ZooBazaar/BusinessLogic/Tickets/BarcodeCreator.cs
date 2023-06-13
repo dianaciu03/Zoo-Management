@@ -13,7 +13,8 @@ namespace BusinessLogic.Tickets
     {
         public byte[] CreateBarcode(string barcodeString)
         {
-            var barcode = BarcodeWriter.CreateBarcode(barcodeString, BarcodeEncoding.Code128);
+            var barcode = BarcodeWriter.CreateBarcode(barcodeString, BarcodeEncoding.Code128/*Encoding is the type of barcode it is*/);
+            barcode.ResizeTo(400, 100);
 
             return barcode.ToImage().GetBytes();
         }
