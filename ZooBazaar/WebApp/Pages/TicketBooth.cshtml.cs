@@ -25,22 +25,22 @@ namespace WebApp.Pages
 
         public IActionResult OnPost()
         {
-            TicketOrder order = new TicketOrder();
+            TicketOrder order = new TicketOrder(ValidDate);
             if(AdultTicket + ToddlerTicket + KidTicket >= 20)
             {
                 for (int i = 1; i <= AdultTicket; i++)
                 {
-                    Ticket ticket = new Ticket("Adult", (decimal)24.50, ValidDate);
+                    Ticket ticket = new Ticket("Adult", (decimal)24.50);
                     order.AddTicketToOrder(ticket);
                 }
                 for (int i = 1; i <= KidTicket; i++)
                 {
-                    Ticket ticket = new Ticket("Kid", (decimal)23, ValidDate);
+                    Ticket ticket = new Ticket("Kid", (decimal)23);
                     order.AddTicketToOrder(ticket);
                 }
                 for (int i = 1; i <= ToddlerTicket; i++)
                 {
-                    Ticket ticket = new Ticket("Toddler", (decimal)0, ValidDate);
+                    Ticket ticket = new Ticket("Toddler", (decimal)0);
                     order.AddTicketToOrder(ticket);
                 }
             }
@@ -48,17 +48,17 @@ namespace WebApp.Pages
             {
                 for (int i = 1; i <= AdultTicket; i++)
                 {
-                    Ticket ticket = new Ticket("Adult", (decimal)26.50, ValidDate);
+                    Ticket ticket = new Ticket("Adult", (decimal)26.50);
                     order.AddTicketToOrder(ticket);
                 }
                 for (int i = 1; i <= KidTicket; i++)
                 {
-                    Ticket ticket = new Ticket("Kid", (decimal)24, ValidDate);
+                    Ticket ticket = new Ticket("Kid", (decimal)24);
                     order.AddTicketToOrder(ticket);
                 }
                 for (int i = 1; i <= ToddlerTicket; i++)
                 {
-                    Ticket ticket = new Ticket("Toddler", (decimal)0, ValidDate);
+                    Ticket ticket = new Ticket("Toddler", (decimal)0);
                     order.AddTicketToOrder(ticket);
                 }
             }

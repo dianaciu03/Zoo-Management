@@ -14,24 +14,22 @@ namespace BusinessLogic.Tickets
 
         public decimal Price { get; set; }
 
-        public DateTime Date { get; set; }
+        
 
         public string Barcode { get; set; }
 
-        public Ticket(int ticketId, string ticketType, decimal price, DateTime date, string barcode)
+        public Ticket(int ticketId, string ticketType, decimal price, string barcode)
         {
             TicketId = ticketId;
             TicketType = ticketType;
             Price = price;
-            Date = date;
             Barcode = barcode;
         }
 
-        public Ticket(string ticketType, decimal price, DateTime date)
+        public Ticket(string ticketType, decimal price)
         {
             TicketType = ticketType;
             Price = price;
-            Date = date;
         }
 
         public Ticket()
