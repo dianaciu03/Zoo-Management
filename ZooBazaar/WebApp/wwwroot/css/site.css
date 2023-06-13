@@ -178,7 +178,6 @@ input[type=text] labelbox {
 
 .main {
     position: absolute;
-    margin-top: 90px;
     width: 100%;
     height: calc(100vh - 90px);
 }
@@ -458,10 +457,9 @@ filter: brightness(40%);
 }
 
 .aboutus {
-    top: 90px;
-    position: fixed;
+    top: 0;
     width: 100%;
-    height: 46vh;
+    height: 50vh;
     background-size: cover;
     background-position: center;
     background-image: url("../images/aboutus1.jpg");
@@ -473,17 +471,28 @@ filter: brightness(40%);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    padding: 0 8vh;
     margin: 0 auto;
     position: relative;
-    top: 46vh;
+    top: 20vh;
 }
 
 .aboutus-img {
-    width: 100vh;
-    height: auto; /* Add this line to make the image height adjust based on its aspect ratio */
+    width: auto;
+    height: 100vh; /* Add this line to make the image height adjust based on its aspect ratio */
     background-image: url("../images/01.png");
     background-size: contain; /* Add this line to make the image fit within the container */
     background-repeat: no-repeat; /* Add this line to prevent repeating the image */
 }
 
-
+.secret-box {
+    height: 80vh;
+    width: 61vh;
+    content: "";
+    position: absolute;
+    border: 4px solid #6AAF08;
+    left: 235px;
+    top: -64px;
+    border-radius: 10px;
+    z-index: -1;
+}

@@ -2,24 +2,24 @@
 @model WebApp.Pages.LoginModel
 @{
     <div>
-            <h1 class="page-title">Login</h1>
-            <div>
-                <form class="login-form" method="post">
-                    <div>
-                        <label asp-for="Email">Email:</label>
-                        <input class="textBox" asp-for="Email" type="text" />
-                        <span asp-validation-for="Email" class="errorMessage"></span>
-                    </div>
-                    <div>
-                        <label asp-for="Password">Password:</label>
-                        <input class="textBox" asp-for="Password" type="password" />
-                        <span asp-validation-for="Password" class="errorMessage"></span>
-                    </div>
-                    <div>
-                        <button id="loginButton" type="submit">Login</button>
-                    </div>
-                </form>
-            </div>
+                <h1 class="page-title" style="margin-top:50px;">Login</h1>
+                <div>
+                    <form class="login-form" method="post">
+                        <div>
+                            <label asp-for="Email">Email:</label>
+                            <input class="textBox" asp-for="Email" type="text" />
+                            <span asp-validation-for="Email" class="errorMessage"></span>
+                        </div>
+                        <div>
+                            <label asp-for="Password">Password:</label>
+                            <input class="textBox" asp-for="Password" type="password" />
+                            <span asp-validation-for="Password" class="errorMessage"></span>
+                        </div>
+                        <div>
+                            <button id="loginButton" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
     </div>
 }
 @section scripts{
