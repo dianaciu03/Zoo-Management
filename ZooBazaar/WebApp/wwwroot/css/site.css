@@ -24,21 +24,20 @@ body {
 
 .header {
     top: 0;
-    position: sticky;
     grid-area: header;
 }
 
 
-nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: white;
     height: 95px;
+    z-index: 100;
 }
 
 .logo img {

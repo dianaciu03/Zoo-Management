@@ -116,6 +116,7 @@
             label14 = new Label();
             btnScheduleShifts = new Button();
             labelTitleZooBazaar = new Label();
+            btnPublishSchedule = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).BeginInit();
@@ -811,6 +812,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(btnPublishSchedule);
             tabPage2.Controls.Add(btnShiftsDetails);
             tabPage2.Controls.Add(btnReviewShifts);
             tabPage2.Controls.Add(btnRemoveShift);
@@ -952,6 +954,17 @@
             labelTitleZooBazaar.TabIndex = 11;
             labelTitleZooBazaar.Text = "ZooBazaar";
             // 
+            // btnPublishSchedule
+            // 
+            btnPublishSchedule.Location = new Point(47, 641);
+            btnPublishSchedule.Name = "btnPublishSchedule";
+            btnPublishSchedule.Size = new Size(381, 35);
+            btnPublishSchedule.TabIndex = 12;
+            btnPublishSchedule.Text = "Publish";
+            btnPublishSchedule.UseVisualStyleBackColor = true;
+            btnPublishSchedule.Visible = false;
+            btnPublishSchedule.Click += button1_Click;
+            // 
             // FormScheduleMaker
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -1081,5 +1094,6 @@
         private NumericUpDown nudScheduleLenght;
         private Label label15;
         private Label label14;
+        private Button btnPublishSchedule;
     }
 }
