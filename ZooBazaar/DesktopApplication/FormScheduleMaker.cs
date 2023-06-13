@@ -32,6 +32,7 @@ namespace DesktopApplication
             initializeSpecieComboBox();
             initializeAreaComboBox();
             updateTasks();
+            updateScheduleDetails();
             groupBoxTaskDetails.Visible = false;
             cbxTaskEncArea.SelectedText = "";
         }
@@ -259,13 +260,50 @@ namespace DesktopApplication
             AutomaticScheduling scheduleMaker = new AutomaticScheduling();
             CaretakerWithHours[] careTakers = employeeManagement.GetCareTakers();
             Shift[] shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers);
-            scheduleManagement.AddShifts(shifts);
-            string message = string.Empty;
-            foreach( Shift shift in shifts)
+
+            DateTime today = DateTime.Today;
+            int daysUntilMonday = 7;
+            if (today.DayOfWeek != DayOfWeek.Monday)
             {
-                message += $"{shift.ShiftTime} - {shift.Employee.FirstName + " " + shift.Employee.LastName}\n";
+                daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
+            }
+            DateTime nextMonday = DateTime.Today.AddDays(daysUntilMonday);
+            DateTime endDay = nextMonday.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
+
+            bool success = scheduleManagement.AddShifts(shifts, nextMonday, endDay);
+            string message = string.Empty;
+            if (success == false)
+            {
+                message += "Schedule could not be created because it overlaps with the one that already exists";
+            }
+            else
+            {
+                foreach (Shift shift in shifts)
+                {
+                    message += $"{shift.ShiftTime} - {shift.Employee.FirstName + " " + shift.Employee.LastName}\n";
+                }
             }
             MessageBox.Show(message);
+        }
+
+        private void updateScheduleDetails()
+        {
+            //tbxScheduleStartDate;
+            DateTime today = DateTime.Today;
+            int daysUntilMonday = 7;
+            if (today.DayOfWeek != DayOfWeek.Monday)
+            {
+                daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
+            }
+            DateTime nextMonday = DateTime.Today.AddDays(daysUntilMonday);
+            tbxScheduleStartDate.Text = nextMonday.ToString("dd / MM / yyyy");
+            DateTime endDay = nextMonday.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
+            tbxScheduleEndDate.Text = endDay.ToString("dd / MM / yyyy");
+        }
+
+        private void nudScheduleLenght_ValueChanged(object sender, EventArgs e)
+        {
+            updateScheduleDetails();
         }
     }
 }
