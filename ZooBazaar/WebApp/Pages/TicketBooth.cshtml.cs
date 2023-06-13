@@ -16,9 +16,6 @@ namespace WebApp.Pages
         public int ToddlerTicket { get; set; }
 
         [BindProperty]
-        public string DiscountCode { get; set; }
-
-        [BindProperty]
         public DateTime ValidDate { get; set; }
 
         public void OnGet()
@@ -64,12 +61,8 @@ namespace WebApp.Pages
                     order.AddTicketToOrder(ticket);
                 }
             }
-            if(!String.IsNullOrEmpty(DiscountCode))
-            {
-                order.DiscountCode = DiscountCode;
-            }
             //needs to refirect to another page with the total amount
-            return Page();
+            return RedirectToPage("OrderOverview");
         }
     }
 }

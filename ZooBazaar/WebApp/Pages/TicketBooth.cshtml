@@ -5,17 +5,16 @@
 <div class="background-img-tickets">
     <div class="ticket-box">
         <form method="post">
-            <h2>Ticket Prices</h2>
+            <h1 style="margin-bottom:40px;">Ticket Prices</h1>
             <div>Toddler (age 0 to 3 years) - Free entrance</div>
             <div style ="margin-top:5px">Child (age 4 to 9 years) - 24€</div>
             <div style="margin-top:5px">Adult - 26.50€</div>
 
-            <p class="group-discount">Groups with 20+ people have discount prices.</p>
-            <div>Toddler (age 0 to 3 years) - Free entrance</div>
+            <p style="margin-top:50px" class="group-discount">Groups with 20+ people have discount prices.</p>
             <div style="margin-top:5px">Child (age 4 to 9 years) - 23€</div>
             <div style="margin-top:5px">Adult - 24.5€</div>
 
-            <h2 style="margin-top:40px">Order Tickets</h2>
+            <h2 style="margin-top:60px">Order Tickets</h2>
             <div style="margin-top:10px" class="ticket-type">
                 <label asp-for="ToddlerTicket">Toddlers:</label>
                 <input asp-for="ToddlerTicket" type="number" min="0" value="0">
@@ -33,18 +32,11 @@
                 <input asp-for="AdultTicket" type="number" min="0" value="0">
                 <label>tickets</label>
             </div>
-            <div class="discount">
+            <div class="date-order">
                 <label asp-for="ValidDate">Date:</label>
                 <input asp-for="ValidDate" type="date">
             </div>
-
-            <p style="margin-top:40px" class="group-discount">If you have a discount from one of our pertners, enter it here:</p>
-            <div class="discount">
-                <label for="discount">Discount:</label>
-                <input type="text" id="discount">
-            </div>
-
-            <button style="margin-top:40px; margin-bottom:10px;" type="submit" class="order-button">Place Order</button>
+            <button style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Place Order</button>
         </form>
     </div>
 </div>

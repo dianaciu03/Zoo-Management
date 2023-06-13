@@ -295,9 +295,9 @@ filter: brightness(40%);
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border: 1px solid #ccc;
-    max-width: 600px;
+    max-width: 650px;
     margin-left: 3rem;
-    padding-left: 2rem;
+    padding: 20px 40px;
     color: white;
     font-size: 24px;
 }
@@ -322,24 +322,25 @@ filter: brightness(40%);
         font-size: 20px;
     }
 
-.discount {
+.date-order {
     margin-bottom: 10px;
 }
 
-    .discount label {
+    .date-order label {
         display: inline-block;
         width: 100px;
     }
 
-    .discount input {
+    .date-order input {
         width: 250px;
         height: 34px;
-        font-size: 20px;
+        font-size: 18px;
     }
 
 .group-discount {
     font-style: italic;
     margin-bottom: 10px;
+    font-size: 28px;
 }
 
 .order-button {
@@ -360,7 +361,7 @@ filter: brightness(40%);
     }
 
 .background-img-tickets {
-    background-image: url('/images/zoopic.jpg');
+    background-image: url('/images/tickets3.jpg');
     background-size: 100% 100%;
     background-position: center;
 }
@@ -516,6 +517,7 @@ filter: brightness(40%);
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
+    /* Tonto el que traduzca este texto */
 }
 
 .checklist-item {
