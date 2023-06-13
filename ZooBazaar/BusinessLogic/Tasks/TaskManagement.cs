@@ -50,6 +50,41 @@ namespace BusinessLogic
                 taskRepository.AddTask(zooTaskDTO);
             }
         }
+        //THERE U GO BITCH
+        public void ScheduleTaskDaily(string name, string enclosureArea, int enclosureNo, string description, DateTime taskDateTime, int taskLength, string specie, Animal? animal)
+        {
+
+            ZooTask newTask = new ZooTask()
+            {
+                Name = name,
+                Description = description,
+                EnclosureArea = enclosureArea,
+                EnclosureNumber = enclosureNo,
+                Status = "Not started",
+                TaskDateTime = taskDateTime,
+                EstimatedDuration = taskLength,
+                Species = specie,
+                Animal = animal
+            };
+            for (int index = 0; index < 7; index++)
+            {
+                //MOVE THE LOOP TO THE GRAPHIC LAYER 
+
+                if (animal != null)
+                {
+                    ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, newTask.Animal.Id);
+                    taskRepository.AddTask(zooTaskDTO);
+                }
+                else
+                {
+                    ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status);
+                    taskRepository.AddTask(zooTaskDTO);
+                }
+
+                newTask.TaskDateTime = newTask.TaskDateTime.AddDays(1);
+            }
+
+        }
 
         public void RemoveTaskByID(int id)
         {
