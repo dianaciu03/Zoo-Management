@@ -2,6 +2,34 @@
 @model WebApp.Pages.OrderOverviewModel
 @{
 }
+
+<style>
+    .payment-container {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        height: 100px;
+    }
+
+        .payment-method label {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+            .payment-method label img {
+                height: 80px;
+                margin-right: 5px;
+            }
+
+        .payment-method input[type="radio"] {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+</style>
 <div>
 
     <form class="order-form" method="post">
@@ -13,7 +41,7 @@
                 <p class="ticket-type">Ticket Type: @ticketGroup.Key</p>
                 <div class="ticket-info">
                     <p style="font-size: 26px;">x @ticketGroup.Count()</p>
-                    <p class="ticket-price">@ticketGroup.First().Price.ToString("C")</p>
+                    <p class="ticket-price">€@ticketGroup.First().Price.ToString()</p>
                 </div>
 
             </div>
@@ -24,7 +52,7 @@
                 Valid Date: @Model.Order.Date.ToString("MMMM/dd/yyyy")
             </p>
             <p>
-                Order Total: @Model.Order.TotalPrice.ToString("C")
+                Order Total: €@Model.Order.TotalPrice.ToString()
             </p>
         </div>
 
@@ -32,6 +60,33 @@
             <label >If you have a discount code from one of our partners, enter it here:</label>
             <input type="text" id="discount">
         </div>
+
+        
+        <h3 style="margin-top:50px;">Payment Methods</h3>
+            <div class="payment-container">
+                <label>
+                <img style="height: 80px; width:auto;" src="~/images/ideal-logo.png" alt="Ideal">
+                    <input type="radio" name="paymentMethod" value="ideal" checked>
+                    Ideal
+                </label>
+            </div>
+
+            <div class="payment-container">
+                <label>
+                <img style="height: 80px; width:auto;" src="~/images/paypal-logo.png" alt="PayPal">
+                    <input type="radio" name="paymentMethod" value="paypal">
+                    PayPal
+                </label>
+            </div>
+
+            <div class="payment-container">
+                <label>
+                <img style="height: 80px; width:auto;" src="~/images/credit-card-icons.png" alt="Credit Card">
+                    <input type="radio" name="paymentMethod" value="creditcard">
+                    Credit Card
+                </label>
+            </div>
+
         <button style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
     </form>
 </div>
