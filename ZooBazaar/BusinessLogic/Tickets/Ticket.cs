@@ -14,8 +14,6 @@ namespace BusinessLogic.Tickets
 
         public decimal Price { get; set; }
 
-        
-
         public string Barcode { get; set; }
 
         public Ticket(int ticketId, string ticketType, decimal price, string barcode)
