@@ -19,16 +19,26 @@ namespace DataAccess.Tickets
             using (connection)
             {
                 SqlCommand newNumber = new SqlCommand("SELECT MAX(BarcodeString) FROM Tickets " +
-                    "WHERE BarcodeString < @NextDateString", connection);
+                    "WHERE BarcodeString < @NextDateString " +
+                    "AND BarcodeString > @CurrentDayString", connection);
 
+                decimal currentDate = Convert.ToDecimal($"{ticket.ValidDate.Date}00000");
                 decimal nextDate = Convert.ToDecimal($"{ticket.ValidDate.AddDays(1).Date}00000");
                 newNumber.Parameters.AddWithValue("@NextDateString", nextDate);
+                newNumber.Parameters.AddWithValue("@NextDateString", nextDate);
+
 
                 decimal currentHighest = 0;
                 try
                 {
                     connection.Open();
-                    currentHighest = Convert.ToDecimal(newNumber.ExecuteScalar());
+                    if (Convert.ToDecimal(newNumber.ExecuteScalar()) > 0){
+                        currentHighest = Convert.ToDecimal(newNumber.ExecuteScalar());
+                    }
+                    else
+                    {
+                        currentHighest = currentDate;
+                    }
                 }
                 catch (SqlException) { }
 
@@ -115,11 +125,10 @@ namespace DataAccess.Tickets
                         if (reader.Read())
                         {
                             ticket = new(
-                                reader.GetInt32(reader.GetOrdinal("TicketID")),
                                 reader.GetString(reader.GetOrdinal("TicketType")),
                                 reader.GetDecimal(reader.GetOrdinal("TicketPrice")),
                                 reader.GetDateTime(reader.GetOrdinal("ValidDate")),
-                                reader.GetString(reader.GetOrdinal("BarcodeString")));
+                                reader.GetDecimal(reader.GetOrdinal("BarcodeString")));
                         }
                     }
                 }

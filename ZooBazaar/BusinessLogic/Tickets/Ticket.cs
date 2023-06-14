@@ -28,5 +28,7 @@ namespace BusinessLogic.Tickets
             TicketType = ticketType;
             Price = price;
         }
+
+        public Ticket() { }
     }
 }
