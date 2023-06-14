@@ -14,11 +14,10 @@ namespace BusinessLogic.Tickets
 
         public decimal Price { get; set; }
 
-        public string Barcode { get; set; }
+        public decimal Barcode { get; set; }
 
-        public Ticket(int ticketId, string ticketType, decimal price, string barcode)
+        public Ticket(string ticketType, decimal price, decimal barcode)
         {
-            TicketId = ticketId;
             TicketType = ticketType;
             Price = price;
             Barcode = barcode;
@@ -28,11 +27,6 @@ namespace BusinessLogic.Tickets
         {
             TicketType = ticketType;
             Price = price;
-        }
-
-        public Ticket()
-        {
-
         }
     }
 }
