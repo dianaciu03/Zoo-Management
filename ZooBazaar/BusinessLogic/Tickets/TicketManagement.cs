@@ -32,14 +32,20 @@ namespace BusinessLogic.Tickets
                 ticket.Barcode);
         }
 
-        public List<Ticket> AddTicket(List<Ticket> tickets, TicketOrder order)
+        public TicketOrder AddOrder(TicketOrder order)
         {
             List<Ticket> ticketsReturn = new List<Ticket>();
-            foreach (Ticket ticket in tickets)
+            TicketOrder ticketOrder = new TicketOrder();
+            foreach (Ticket ticket in order.Tickets)
             {
                 ticketsReturn.Add(DTOToTicket(ticketRepository.AddTicket(TicketToDTO(ticket, order.Date))));
             }
-            return ticketsReturn;
+            ticketOrder.TotalPrice = order.TotalPrice;
+            ticketOrder.DiscountCode = order.DiscountCode;
+            ticketOrder.Date = order.Date;
+            ticketOrder.Tickets = ticketsReturn;
+
+            return ticketOrder;
         }
 
         public bool IsValid(string barcode, DateTime date)
