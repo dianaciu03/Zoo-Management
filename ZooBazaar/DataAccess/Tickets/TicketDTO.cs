@@ -8,23 +8,20 @@ namespace DataAccess.Tickets
 {
     public class TicketDTO
     {
-        public int TicketID { get; init; }
         public string TicketType { get; init; }
         public decimal TicketPrice { get; init; }
         public DateTime ValidDate { get; init; }
-        public string Barcode { get; init; }
+        public decimal Barcode { get; init; }
 
-        public TicketDTO(string ticketType, decimal ticketPrice, DateTime validDate, string barcode) 
+        public TicketDTO(string ticketType, decimal ticketPrice, DateTime validDate) 
         {
             this.TicketType = ticketType;
             this.TicketPrice = ticketPrice;
             this.ValidDate = validDate;
-            this.Barcode = barcode;
         }
 
-        public TicketDTO(int ticketID, string ticketType, decimal ticketPrice, DateTime validDate, string barcode)
+        public TicketDTO(string ticketType, decimal ticketPrice, DateTime validDate, decimal barcode)
         {
-            this.TicketID = ticketID;
             this.TicketType = ticketType;
             this.TicketPrice = ticketPrice;
             this.ValidDate = validDate;

@@ -13,11 +13,25 @@ namespace DataAccess.Tickets
     {
         ConnectionHelper connectionHelper = new ConnectionHelper();
 
-        public void AddTicket(TicketDTO ticket)
+        public TicketDTO AddTicket(TicketDTO ticket)
         {
             SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
             using (connection)
             {
+                SqlCommand newNumber = new SqlCommand("SELECT MAX(BarcodeString) FROM Tickets " +
+                    "WHERE BarcodeString < @NextDateString", connection);
+
+                decimal nextDate = Convert.ToDecimal($"{ticket.ValidDate.AddDays(1).Date}00000");
+                newNumber.Parameters.AddWithValue("@NextDateString", nextDate);
+
+                decimal currentHighest = 0;
+                try
+                {
+                    connection.Open();
+                    currentHighest = Convert.ToDecimal(newNumber.ExecuteScalar());
+                }
+                catch (SqlException) { }
+
                 SqlCommand query = new SqlCommand("INSERT INTO Tickets " +
                     "(TicketType, TicketPrice, ValidDate, BarcodeString)" +
                     "VALUES(@TicketType, @TicketPrice, @ValidDate, @BarcodeString", connection);
@@ -25,7 +39,7 @@ namespace DataAccess.Tickets
                 query.Parameters.AddWithValue("@TicketType", ticket.TicketType);
                 query.Parameters.AddWithValue("@TicketPrice", ticket.TicketPrice);
                 query.Parameters.AddWithValue("@ValidDate", ticket.ValidDate);
-                query.Parameters.AddWithValue("@BarcodeString", ticket.Barcode);
+                query.Parameters.AddWithValue("@BarcodeString", currentHighest+1);
 
                 try
                 {
@@ -37,6 +51,12 @@ namespace DataAccess.Tickets
                 {
                     connection.Close();
                 }
+                return new TicketDTO(
+                    ticket.TicketType,
+                    ticket.TicketPrice,
+                    ticket.ValidDate,
+                    currentHighest+1
+                    );
 
             }
         }

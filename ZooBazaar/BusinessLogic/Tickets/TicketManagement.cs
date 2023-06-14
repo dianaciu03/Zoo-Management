@@ -21,16 +21,25 @@ namespace BusinessLogic.Tickets
             return new TicketDTO(
                 ticket.TicketType,
                 ticket.Price,
-                date,
+                date);
+        }
+
+        private Ticket DTOToTicket(TicketDTO ticket)
+        {
+            return new Ticket(
+                ticket.TicketType,
+                ticket.TicketPrice,
                 ticket.Barcode);
         }
 
-        public void AddTicket(List<Ticket> tickets, TicketOrder order)
+        public List<Ticket> AddTicket(List<Ticket> tickets, TicketOrder order)
         {
+            List<Ticket> ticketsReturn = new List<Ticket>();
             foreach (Ticket ticket in tickets)
             {
-                ticketRepository.AddTicket(TicketToDTO(ticket, order.Date));
+                ticketsReturn.Add(DTOToTicket(ticketRepository.AddTicket(TicketToDTO(ticket, order.Date))));
             }
+            return ticketsReturn;
         }
 
         public bool IsValid(string barcode, DateTime date)
