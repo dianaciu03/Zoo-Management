@@ -27,10 +27,17 @@
             </p>
         </div>
 
-        <div class="discount">
+        @*<form class="discount" method="post" asp-page-handler="ValidateDiscount">
             <label >If you have a discount code from one of our partners, enter it here:</label>
-            <input type="text" id="discount">
-        </div>
+            <input type="text" asp-for="DiscountCode">
+            <button style="margin-top:10px;" type="submit" class="order-button">Validate discount code</button>
+        </form>
+        <div class="order-details">
+            <p></p>
+            <p>
+                Total after discount: €@Model.Order.TotalPriceAfterDiscount.ToString()
+            </p>
+        </div>*@
 
         
         <p style="margin-top: 50px;" class="ticket-type">Payment Methods</p>

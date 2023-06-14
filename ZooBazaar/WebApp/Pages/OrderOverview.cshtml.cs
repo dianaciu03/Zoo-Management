@@ -11,6 +11,12 @@ namespace WebApp.Pages
         [BindProperty]
         public TicketOrder Order { get; set; }
 
+        [BindProperty]
+        public string DiscountCode { get; set; }
+
+        [BindProperty]
+        public decimal TotalPriceAfterDiscount { get; set; }
+
         public void OnGet()
         {
             if (TempData.ContainsKey("Order"))
@@ -18,12 +24,13 @@ namespace WebApp.Pages
                 TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
                 order.CalculateTotalPrice();
                 Order = order;
-
             }
         }
 
         public IActionResult OnPost()
         {
+            TicketManagement tm = new TicketManagement();
+            TicketOrder newOrder = tm.AddOrder(Order);
             //SET THE NEW PRICE
             //ADD THE TICKETS TO DATABASE
             //ADD ORDER TO DATABASE
@@ -31,8 +38,13 @@ namespace WebApp.Pages
             //GET TICKETS FROM DATABASE
             //CREATE NEW ORDER OBJECT
             //ADD TICKETS TO NEW ORDER OBJECT (this should have the new total price, ticket barcodes, valid date etc)
-            TempData["Order"] = JsonSerializer.Serialize(Order);
+            TempData["Order"] = JsonSerializer.Serialize(newOrder);
             return RedirectToPage("ConfirmedOrder");
         }
+
+        //public IActionResult OnPostValidateOrder()
+        //{
+            
+        //}
     }
 }
