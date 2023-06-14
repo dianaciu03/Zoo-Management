@@ -21,5 +21,18 @@ namespace WebApp.Pages
 
             }
         }
+
+        public IActionResult OnPost()
+        {
+            //SET THE NEW PRICE
+            //ADD THE TICKETS TO DATABASE
+            //ADD ORDER TO DATABASE
+            //GET ORDER
+            //GET TICKETS FROM DATABASE
+            //CREATE NEW ORDER OBJECT
+            //ADD TICKETS TO NEW ORDER OBJECT (this should have the new total price, ticket barcodes, valid date etc)
+            TempData["Order"] = JsonSerializer.Serialize(Order);
+            return RedirectToPage("ConfirmedOrder");
+        }
     }
 }

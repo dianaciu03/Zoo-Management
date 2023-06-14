@@ -2,6 +2,7 @@ using BusinessLogic.Tickets;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Sockets;
+using System.Text.Json;
 
 namespace WebApp.Pages
 {
@@ -10,8 +11,19 @@ namespace WebApp.Pages
         BarcodeCreator barcodeCreator;
         public List<Ticket> Tickets { get; set; }
 
+        [BindProperty]
+        public TicketOrder Order { get; set; }
+
         public void OnGet()
         {
+            if (TempData.ContainsKey("Order"))
+            {
+                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
+                order.CalculateTotalPrice();
+                Order = order;
+
+            }
+
             barcodeCreator = new BarcodeCreator();
             Tickets = new List<Ticket>();
 

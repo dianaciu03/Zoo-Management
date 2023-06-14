@@ -63,7 +63,6 @@ namespace WebApp.Pages
                 }
             }
             TempData["Order"] = JsonSerializer.Serialize(order);
-            //needs to refirect to another page with the total amount
             return RedirectToPage("OrderOverview");
         }
     }
