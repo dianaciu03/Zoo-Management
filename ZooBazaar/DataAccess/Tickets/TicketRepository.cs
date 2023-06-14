@@ -112,15 +112,15 @@ namespace DataAccess.Tickets
                     connection.Open();
                     using(SqlDataReader reader = query.ExecuteReader())
                     {
-                        if (reader.Read())
-                        {
-                            ticket = new(
-                                reader.GetInt32(reader.GetOrdinal("TicketID")),
-                                reader.GetString(reader.GetOrdinal("TicketType")),
-                                reader.GetDecimal(reader.GetOrdinal("TicketPrice")),
-                                reader.GetDateTime(reader.GetOrdinal("ValidDate")),
-                                reader.GetString(reader.GetOrdinal("BarcodeString")));
-                        }
+                        //if (reader.Read())
+                        //{
+                        //    ticket = new(
+                        //        reader.GetInt32(reader.GetOrdinal("TicketID")),
+                        //        reader.GetString(reader.GetOrdinal("TicketType")),
+                        //        reader.GetDecimal(reader.GetOrdinal("TicketPrice")),
+                        //        reader.GetDateTime(reader.GetOrdinal("ValidDate")),
+                        //        reader.GetString(reader.GetOrdinal("BarcodeString")));
+                        //}
                     }
                 }
                 catch (SqlException) { }
