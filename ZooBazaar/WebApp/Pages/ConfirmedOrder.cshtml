@@ -39,7 +39,7 @@
                 <p class="ticket-type">Ticket Type: @ticket.TicketType</p>
                     <div class="ticket-info">
                     <p class="ticket-price">€@ticket.Price</p>
-                    <img src="data:image/bmp;base64,@Model.CreateBarcode(ticket.Barcode.ToString())" />
+                    <img src="data:image/bmp;base64, @Model.CreateBarcode(ticket.Barcode.ToString())" />
                     </div>
 
                 </div>

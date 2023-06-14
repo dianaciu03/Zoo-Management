@@ -75,6 +75,38 @@ namespace DataAccess.Tickets
             }
         }
 
+        public bool IsValidDiscountCode(string discount)
+        {
+            SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
+            using (connection)
+            {
+                SqlCommand query = new SqlCommand("SELECT COUNT(discount_code) FROM Discount_codes " +
+                    "WHERE  discount_code = @discount", connection);
+
+                query.Parameters.AddWithValue("@discount", discount);
+
+                try
+                {
+                    connection.Open();
+                    if (Convert.ToInt32(query.ExecuteScalar()) > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                catch (SqlException) 
+                {
+                    return false;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                
+
+            }
+        }
+
         public bool IsValid(string barcode, DateTime date)
         {
             bool ticketIsValid  = false;

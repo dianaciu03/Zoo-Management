@@ -28,7 +28,7 @@ namespace WebApp.Pages
             }
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPostCheckout()
         {
             if (TempData.ContainsKey("Order"))
             {
@@ -46,12 +46,14 @@ namespace WebApp.Pages
             return RedirectToPage("ConfirmedOrder");
         }
 
-        //public IActionResult OnPostValidateDiscount()
-        //{
-            //methods to get the new price after the discount code is validated and applied
-            //dabo e treaba ta
-            //Order.DiscountCodeApplied = DiscountCode
-            //Order.TotalPrice = newTotalPrice
-        //}
+        public IActionResult OnPostValidateDiscount()
+        {
+            //Cannot user Order property bcs it's null idk why it's not binded properly tf
+            //This method works but on return the tickets go *spook* not there anymore idk why 
+            TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
+            TotalPriceAfterDiscount =order.CalculateTotalPriceWithDiscount(DiscountCode);
+            Order.DiscountCodeApplied = DiscountCode;
+            return Page();
+        }
     }
 }
