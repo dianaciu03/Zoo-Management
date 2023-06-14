@@ -9,7 +9,6 @@ namespace WebApp.Pages
     public class ConfirmedOrderModel : PageModel
     {
         BarcodeCreator barcodeCreator;
-        public List<Ticket> Tickets { get; set; }
 
         [BindProperty]
         public TicketOrder Order { get; set; }
@@ -25,12 +24,6 @@ namespace WebApp.Pages
             }
 
             barcodeCreator = new BarcodeCreator();
-            Tickets = new List<Ticket>();
-
-            Tickets.Add(new Ticket(
-                "Adult",
-                (decimal)20.24,
-                2023061400001));
         }
 
         public string CreateBarcode(string barcode)
