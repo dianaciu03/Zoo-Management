@@ -10,24 +10,33 @@
         margin-bottom: 10px;
         display: flex;
         align-items: center;
-        height: 100px;
+        height: 80px;
+        justify-content: space-between; /* Align items to the left and right */
+    }
+
+    .payment-method {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Align items to the left and right */
+        margin-right: 10px;
+        font-size: 20px;
+        flex-grow: 1;
     }
 
         .payment-method label {
             display: flex;
             align-items: center;
-            margin-right: 10px;
-            font-size: 20px;
         }
 
             .payment-method label img {
-                height: 80px;
-                margin-right: 5px;
+                height: 60px;
+                width: auto;
+                margin-left: 10px;
             }
 
         .payment-method input[type="radio"] {
-            margin-right: 5px;
-            font-size: 20px;
+            margin-right: 10px;
+            font-size: 25px;
         }
 </style>
 <div>
@@ -62,30 +71,37 @@
         </div>
 
         
-        <h3 style="margin-top:50px;">Payment Methods</h3>
-            <div class="payment-container">
+        <p style="margin-top: 50px;" class="ticket-type">Payment Methods</p>
+
+        <div class="payment-container">
+            <div class="payment-method">
                 <label>
-                <img style="height: 60px; width:auto;" src="~/images/ideal-logo.png" alt="Ideal">
                     <input type="radio" name="paymentMethod" value="ideal" checked>
                     Ideal
                 </label>
+                <img style="height: 60px; width: auto;" src="~/images/ideal-logo.png" alt="Ideal">
             </div>
+        </div>
 
-            <div class="payment-container">
+        <div class="payment-container">
+            <div class="payment-method">
                 <label>
-                <img style="height: 60px; width:auto;" src="~/images/paypal-logo.png" alt="PayPal">
                     <input type="radio" name="paymentMethod" value="paypal">
                     PayPal
                 </label>
+                <img style="height: 60px; width: auto;" src="~/images/paypal-logo.png" alt="PayPal">
             </div>
+        </div>
 
-            <div class="payment-container">
+        <div class="payment-container">
+            <div class="payment-method">
                 <label>
-                <img style="height: 60px; width:auto;" src="~/images/credit-card-icons.png" alt="Credit Card">
                     <input type="radio" name="paymentMethod" value="creditcard">
                     Credit Card
                 </label>
+                <img style="height: 60px; width: auto;" src="~/images/credit-card-icons.jpg" alt="Credit Card">
             </div>
+        </div>
 
         <button style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
     </form>
