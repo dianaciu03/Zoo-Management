@@ -24,11 +24,18 @@ namespace WebApp.Pages
                 TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
                 order.CalculateTotalPrice();
                 Order = order;
+                TempData["Order"] = JsonSerializer.Serialize(order);
             }
         }
 
         public IActionResult OnPost()
         {
+            if (TempData.ContainsKey("Order"))
+            {
+                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
+                order.CalculateTotalPrice();
+                Order = order;
+            }
             TicketManagement tm = new TicketManagement();
             TicketOrder newOrder = tm.AddOrder(Order);
             //SET THE NEW PRICE
