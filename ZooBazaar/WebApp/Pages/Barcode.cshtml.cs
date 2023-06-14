@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BusinessLogic;
 using BusinessLogic.Tickets;
-using IronBarCode;
 using System.Drawing;
 
 namespace WebApp.Pages
