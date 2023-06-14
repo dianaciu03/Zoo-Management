@@ -33,7 +33,7 @@
 
             <h1 class="page-title" style="margin-bottom:50px;">Order Overview</h1>
 
-            @foreach (Ticket ticket in Model.Tickets)
+            @foreach (Ticket ticket in Model.Order.Tickets)
             {
                 <div class="ticket-container">
                 <p class="ticket-type">Ticket Type: @ticket.TicketType</p>
