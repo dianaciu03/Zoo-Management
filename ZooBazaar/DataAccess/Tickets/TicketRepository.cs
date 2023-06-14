@@ -20,19 +20,19 @@ namespace DataAccess.Tickets
             {
                 SqlCommand newNumber = new SqlCommand("SELECT MAX(BarcodeString) FROM Tickets " +
                     "WHERE BarcodeString < @NextDateString " +
-                    "AND BarcodeString > @CurrentDayString", connection);
+                    "AND BarcodeString >= @CurrentDayString", connection);
 
-                decimal currentDate = Convert.ToDecimal($"{ticket.ValidDate.Date}00000");
-                decimal nextDate = Convert.ToDecimal($"{ticket.ValidDate.AddDays(1).Date}00000");
+                decimal currentDate = Convert.ToDecimal($"{ticket.ValidDate.Year}{ticket.ValidDate.Month.ToString("d2")}{ticket.ValidDate.Day.ToString("d2")}00000");
+                decimal nextDate = Convert.ToDecimal($"{ticket.ValidDate.AddDays(1).Year}{ticket.ValidDate.AddDays(1).Month.ToString("d2")}{ticket.ValidDate.AddDays(1).Day.ToString("d2")}00000");
                 newNumber.Parameters.AddWithValue("@NextDateString", nextDate);
-                newNumber.Parameters.AddWithValue("@NextDateString", nextDate);
+                newNumber.Parameters.AddWithValue("@CurrentDayString", currentDate);
 
 
                 decimal currentHighest = 0;
                 try
                 {
                     connection.Open();
-                    if (Convert.ToDecimal(newNumber.ExecuteScalar()) > 0){
+                    if (newNumber.ExecuteScalar() != DBNull.Value){
                         currentHighest = Convert.ToDecimal(newNumber.ExecuteScalar());
                     }
                     else
@@ -41,15 +41,19 @@ namespace DataAccess.Tickets
                     }
                 }
                 catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
 
                 SqlCommand query = new SqlCommand("INSERT INTO Tickets " +
                     "(TicketType, TicketPrice, ValidDate, BarcodeString)" +
-                    "VALUES(@TicketType, @TicketPrice, @ValidDate, @BarcodeString", connection);
+                    "VALUES(@TicketType, @TicketPrice, @ValidDate, @BarcodeString)", connection);
 
                 query.Parameters.AddWithValue("@TicketType", ticket.TicketType);
                 query.Parameters.AddWithValue("@TicketPrice", ticket.TicketPrice);
                 query.Parameters.AddWithValue("@ValidDate", ticket.ValidDate);
-                query.Parameters.AddWithValue("@BarcodeString", currentHighest+1);
+                query.Parameters.AddWithValue("@BarcodeString", (currentHighest+1));
 
                 try
                 {
