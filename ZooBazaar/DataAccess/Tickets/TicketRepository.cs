@@ -112,5 +112,120 @@ namespace DataAccess.Tickets
             }
             return ticket;
         }
+
+        public bool AlreadyCheckedIn(string barcode)
+        {
+            bool checkedIn = false;
+
+            SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
+            using (connection)
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM CheckinCheckout " +
+                    "WHERE BarcodeString = @BarcodeString", connection);
+
+                query.Parameters.AddWithValue("@BarcodeString", barcode);
+
+                try
+                {
+                    connection.Open();
+                    if (Convert.ToInt32(query.ExecuteScalar()) > 0)
+                    {
+                        checkedIn = true;
+                    }
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+
+            return checkedIn;
+        }
+
+        public void CheckOut(string barcode, DateTime time)
+        {
+            SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
+            using (connection)
+            {
+                SqlCommand query = new SqlCommand("UPDATE CheckinCheckout " +
+                    "SET Checkout = @Checkout " +
+                    "WHERE BarcodeString = @BarcodeString", connection);
+
+                query.Parameters.AddWithValue("@BarcodeString", barcode);
+                query.Parameters.AddWithValue("@Checkout", time);
+
+                try
+                {
+                    connection.Open();
+                    query.ExecuteNonQuery();
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+        }
+
+        public void CheckIn(string barcode, DateTime time)
+        {
+            SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
+            using (connection)
+            {
+                SqlCommand query = new SqlCommand("INSERT INTO CheckinCheckout " +
+                    "(BarcodeString, Checkin)" +
+                    "VALUES(@BarcodeString, @Checkin)", connection);
+
+                query.Parameters.AddWithValue("@BarcodeString", barcode);
+                query.Parameters.AddWithValue("@Checkin", time);
+
+                try
+                {
+                    connection.Open();
+                    query.ExecuteNonQuery();
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+        }
+
+        public bool NotUsed(string barcode)
+        {
+            bool ticketIsUsed = false;
+
+            SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue());
+            using (connection)
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM CheckinCheckout " +
+                    "WHERE BarcodeString = @BarcodeString " +
+                    "AND Checkout IS NOT NULL", connection);
+
+                query.Parameters.AddWithValue("@BarcodeString", barcode);
+
+                try
+                {
+                    connection.Open();
+                    if (Convert.ToInt32(query.ExecuteScalar()) > 0)
+                    {
+                        ticketIsUsed = true;
+                    }
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+
+            return ticketIsUsed;
+        }
     }
 }

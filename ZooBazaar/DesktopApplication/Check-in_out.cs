@@ -1,4 +1,5 @@
-﻿using DataAccess.Tickets;
+﻿using BusinessLogic.Tickets;
+using DataAccess.Tickets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,13 @@ namespace DesktopApplication
 {
     public partial class Check_in_out : Form
     {
-        TicketRepository ticketRepository;
+        TicketManagement ticketManagement;
 
         public Check_in_out()
         {
             InitializeComponent();
 
-            ticketRepository = new TicketRepository();
+            ticketManagement = new TicketManagement();
             panelInvalidTicket.Hide();
             panelValidTicket.Hide();
         }
@@ -35,8 +36,9 @@ namespace DesktopApplication
 
             string barcode = textBoxBarcodeString.Text;
             textBoxBarcodeString.Clear();
-            if (ticketRepository.IsValid(barcode, DateTime.Today))
+            if (ticketManagement.IsValid(barcode, DateTime.Today))
             {
+                ticketManagement.Check_in_out(barcode);
                 panelInvalidTicket.Hide();
                 panelValidTicket.Show();
             }
