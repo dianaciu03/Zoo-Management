@@ -4,7 +4,7 @@
 }
 <div>
 
-    <form class="order-form" method="post">
+    <div class="order-form">
         <h1 class="page-title" style="margin-bottom:50px;">Order Overview</h1>
 
         @foreach (var ticketGroup in Model.Order.Tickets.GroupBy(t => t.TicketType))
@@ -13,7 +13,7 @@
                 <p class="ticket-type">Ticket Type: @ticketGroup.Key</p>
                 <div class="ticket-info">
                     <p style="font-size: 26px;">x @ticketGroup.Count()</p>
-                    <p class="ticket-price">€@ticketGroup.First().Price.ToString()</p>
+                    <p class="ticket-price">@ticketGroup.First().Price.ToString("F2")€</p>
                 </div>
             </div>
         }
@@ -23,55 +23,59 @@
                 Valid Date: @Model.Order.Date.ToString("MMMM/dd/yyyy")
             </p>
             <p>
-                Order Total: €@Model.Order.TotalPrice.ToString()
+                Total: @Model.Order.TotalPrice.ToString("F2")€
             </p>
         </div>
 
-        @*<form class="discount" method="post" asp-page-handler="ValidateDiscount">
-            <label >If you have a discount code from one of our partners, enter it here:</label>
-            <input type="text" asp-for="DiscountCode">
-            <button style="margin-top:10px;" type="submit" class="order-button">Validate discount code</button>
+        <form method="post" asp-page-handler="ValidateDiscount">
+            <div class="discount">
+                <label>If you have a discount code from one of our partners, enter it here:</label>
+                <input type="text" asp-for="DiscountCode">
+                <div style="margin-top: 3px; padding-left:0;" class="order-details">
+                    <button style="width: 250px; height: 50px; display: flex; justify-content: center; border-radius:3px; align-items: center; padding-left:0;" type="submit">Validate Discount</button>
+                    <p>
+                        Total after discount: YES@* @Model.Order.TotalPriceAfterDiscount.ToString("F2")€*@
+                    </p>
+                </div>
+                
+            </div>
+        </form> 
+
+        <form method="post">
+            <p style="margin-top: 80px;" class="ticket-type">Payment Methods</p>
+
+            <div class="payment-container">
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="paymentMethod" value="Ideal" checked>
+                        Ideal
+                    </label>
+                    <img style="height: 60px; width: auto;" src="~/images/ideal-logo.png" alt="Ideal">
+                </div>
+            </div>
+
+            <div class="payment-container">
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="paymentMethod" value="PayPal">
+                        PayPal
+                    </label>
+                    <img style="height: 60px; width: auto;" src="~/images/paypal-logo.png" alt="PayPal">
+                </div>
+            </div>
+
+            <div class="payment-container">
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="paymentMethod" value="CreditCard">
+                        Credit Card
+                    </label>
+                    <img style="height: 60px; width: auto;" src="~/images/credit-card-icons.jpg" alt="Credit Card">
+                </div>
+            </div>
+
+            <button style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
         </form>
-        <div class="order-details">
-            <p></p>
-            <p>
-                Total after discount: €@Model.Order.TotalPriceAfterDiscount.ToString()
-            </p>
-        </div>*@
-
         
-        <p style="margin-top: 50px;" class="ticket-type">Payment Methods</p>
-
-        <div class="payment-container">
-            <div class="payment-method">
-                <label>
-                    <input type="radio" name="paymentMethod" value="ideal" checked>
-                    Ideal
-                </label>
-                <img style="height: 60px; width: auto;" src="~/images/ideal-logo.png" alt="Ideal">
-            </div>
-        </div>
-
-        <div class="payment-container">
-            <div class="payment-method">
-                <label>
-                    <input type="radio" name="paymentMethod" value="paypal">
-                    PayPal
-                </label>
-                <img style="height: 60px; width: auto;" src="~/images/paypal-logo.png" alt="PayPal">
-            </div>
-        </div>
-
-        <div class="payment-container">
-            <div class="payment-method">
-                <label>
-                    <input type="radio" name="paymentMethod" value="creditcard">
-                    Credit Card
-                </label>
-                <img style="height: 60px; width: auto;" src="~/images/credit-card-icons.jpg" alt="Credit Card">
-            </div>
-        </div>
-
-        <button style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
-    </form>
+    </div>
 </div>

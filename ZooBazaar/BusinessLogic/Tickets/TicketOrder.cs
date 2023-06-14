@@ -10,9 +10,10 @@ namespace BusinessLogic.Tickets
     {
         private List<Ticket> tickets = new List<Ticket>();
         public int OrderId { get; set; }
-        public string DiscountCode { get; set; }
+        public string DiscountCodeApplied { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime Date { get; set; }
+        public string PaymentMethod { get; set; }
 
         public List<Ticket> Tickets { get { return tickets; } set { tickets = value; } }
 

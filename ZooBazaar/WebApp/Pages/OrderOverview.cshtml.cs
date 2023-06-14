@@ -36,22 +36,22 @@ namespace WebApp.Pages
                 order.CalculateTotalPrice();
                 Order = order;
             }
+            string paymentMethod = Request.Form["paymentMethod"];
+            Order.PaymentMethod = paymentMethod;
+
             TicketManagement tm = new TicketManagement();
             TicketOrder newOrder = tm.AddOrder(Order);
-            //SET THE NEW PRICE
-            //ADD THE TICKETS TO DATABASE
-            //ADD ORDER TO DATABASE
-            //GET ORDER
-            //GET TICKETS FROM DATABASE
-            //CREATE NEW ORDER OBJECT
-            //ADD TICKETS TO NEW ORDER OBJECT (this should have the new total price, ticket barcodes, valid date etc)
+            
             TempData["Order"] = JsonSerializer.Serialize(newOrder);
             return RedirectToPage("ConfirmedOrder");
         }
 
-        //public IActionResult OnPostValidateOrder()
+        //public IActionResult OnPostValidateDiscount()
         //{
-            
+            //methods to get the new price after the discount code is validated and applied
+            //dabo e treaba ta
+            //Order.DiscountCodeApplied = DiscountCode
+            //Order.TotalPrice = newTotalPrice
         //}
     }
 }
