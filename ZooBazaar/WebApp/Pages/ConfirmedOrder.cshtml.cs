@@ -8,8 +8,6 @@ namespace WebApp.Pages
 {
     public class ConfirmedOrderModel : PageModel
     {
-        
-
         [BindProperty]
         public TicketOrder Order { get; set; }
 
