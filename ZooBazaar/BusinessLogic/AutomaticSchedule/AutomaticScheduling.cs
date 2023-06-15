@@ -16,17 +16,9 @@ namespace BusinessLogic
         {
             
         }
-        public Shift[] ScheduleEmployeesForShifts(CaretakerWithHours[] careTakers)
+        public Shift[] ScheduleEmployeesForShifts(CaretakerWithHours[] careTakers, DateTime nextMonday)
         {
             List<Shift> shifts = new List<Shift>();
-
-            DateTime today = DateTime.Today;
-            int daysUntilMonday = 7;
-            if (today.DayOfWeek != DayOfWeek.Monday)
-            {
-                daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
-            }
-            DateTime nextMonday = DateTime.Today.AddDays(daysUntilMonday);
             DateTime nextShift = nextMonday;
             foreach (CaretakerWithHours careTaker in careTakers)
             {

@@ -7,6 +7,7 @@ using DataAccess.DTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -312,24 +313,21 @@ namespace BusinessLogic
             taskRepository.RemoveTask(taskId);
         }
 
-        public void RescheduleTasks(ZooTask[] repetitiveTasks)
+        public void RescheduleTasks(ZooTask[] repetitiveTasks, DateTime weekStartDay, int counter)
         {
             foreach (ZooTask task in repetitiveTasks)
             {
                 
                 if (task.Repetitive == "Daily")
                 {
-                    int daysUntilMonday = 7;
-                    if (task.TaskDateTime.DayOfWeek != DayOfWeek.Monday)
-                    {
-                        daysUntilMonday = ((int)DayOfWeek.Monday - (int)task.TaskDateTime.DayOfWeek + 7) % 7;
-                    }
-                    task.TaskDateTime = task.TaskDateTime.AddDays(daysUntilMonday);
+                    int taskHour = task.TaskDateTime.Hour;
+                    int taskMinute = task.TaskDateTime.Minute;
+                    task.TaskDateTime = new DateTime(weekStartDay.Year, weekStartDay.Month, weekStartDay.Day, taskHour, taskMinute, 0);
                     ScheduleTaskDaily(task.Name, task.EnclosureArea, task.EnclosureNumber, task.Description, task.TaskDateTime, task.EstimatedDuration, task.Species, task.Animal, task.Repetitive);
                 }
                 else if (task.Repetitive == "Weekly")
                 {
-                    task.TaskDateTime = task.TaskDateTime.AddDays(7);
+                    task.TaskDateTime = task.TaskDateTime.AddDays(7 * (counter - 1));
                     ScheduleTask(task.Name, task.EnclosureArea, task.EnclosureNumber, task.Description, task.TaskDateTime, task.EstimatedDuration, task.Species, task.Animal, task.Repetitive);
                 }
             }
