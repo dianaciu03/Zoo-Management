@@ -88,11 +88,11 @@
             // 
             this.labelInvalidTicket.AutoSize = true;
             this.labelInvalidTicket.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelInvalidTicket.Location = new System.Drawing.Point(575, 286);
+            this.labelInvalidTicket.Location = new System.Drawing.Point(612, 286);
             this.labelInvalidTicket.Name = "labelInvalidTicket";
-            this.labelInvalidTicket.Size = new System.Drawing.Size(651, 128);
+            this.labelInvalidTicket.Size = new System.Drawing.Size(606, 128);
             this.labelInvalidTicket.TabIndex = 0;
-            this.labelInvalidTicket.Text = "In-Valid Ticket";
+            this.labelInvalidTicket.Text = "Invalid Ticket";
             // 
             // Check_in_out
             // 
