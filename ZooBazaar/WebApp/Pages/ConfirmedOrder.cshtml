@@ -2,26 +2,34 @@
 @using BusinessLogic.Tickets;
 @model WebApp.Pages.ConfirmedOrderModel
 @{
-    <div>
+    <div class="order-form">
+        <h1 class="page-title" style="margin-bottom:10px;">Order Confirmation</h1>
+        <h3 class ="page-title" style="margin-bottom:50px; font-style:italic;">Your order has been placed successfully!</h3>
 
-        <div  class="order-form">
-            <h1 class="page-title" style="margin-bottom:10px;">Order Confirmation</h1>
-            <h3 class ="page-title" style="margin-bottom:50px; font-style:italic;">Your order has been placed successfully!</h3>
-
-            @foreach (Ticket ticket in Model.Order.Tickets)
-            {
-                <div style="height: 170px; margin-bottom: 50px;" class="ticket-container order-details">
-                    <div>
-                        <p class="ticket-type">Ticket Type: @ticket.TicketType</p>
-                        <p style="margin-top:10px;" class="ticket-type"> Valid Date: @Model.Order.Date.ToString("MMMM/dd/yyyy")</p>
-                        <p style="margin-top:10px;" class="ticket-price">Price: @ticket.Price €</p>
-                    </div> 
-                    <div >
-                        <img src="data:image/bmp;base64,@Model.CreateBarcode(ticket.Barcode.ToString("F2"))" />
-                    </div>
-
+        @for (int i = 0; i < Model.Order.Tickets.Count(); i++)
+        {
+            <div style="height: 170px; margin-bottom: 50px;" class="ticket-container order-details">
+                <div>
+                    <p class="ticket-type">Ticket Type: @Model.Order.Tickets[i].TicketType</p>
+                    <p style="margin-top:10px;" class="ticket-type"> Valid Date: @Model.Order.Date.ToString("MMMM/dd/yyyy")</p>
+                    <p style="margin-top:10px;" class="ticket-price">Price: @Model.Order.Tickets[i].Price €</p>
                 </div>
-            }
-        </div>
-    </div>
+                <div>
+                    <svg id="barcode" jsbarcode-value="@Model.Order.Tickets[i].Barcode"></svg>
+                </div>
+            </div>
+        }
+    </div>   
 }
+
+@section Scripts
+{
+    <script src="~/js/JsBarcode.all.min.js"></script>
+    <script>
+        JsBarcode("#barcode").init();
+    </script>
+}
+
+
+  
+

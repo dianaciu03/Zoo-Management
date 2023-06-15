@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BarcodeStandard;
+using Spire.Barcode;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessLogic.Tickets
 {
@@ -12,21 +15,18 @@ namespace BusinessLogic.Tickets
     {
         public string CreateBarcode(string barcodeString)
         {
-            //var barcode = BarcodeWriter.CreateBarcode(barcodeString, BarcodeEncoding.Code128/*Encoding is the type of barcode it is*/);
-            //barcode.ResizeTo(400, 100);
+            ImageConverter converter = new ImageConverter();
 
-            //return Convert.ToBase64String(barcode.ToImage().GetBytes());
+            string temp = "";
+            BarcodeSettings bs = new BarcodeSettings();
+            bs.Type = BarCodeType.EAN13;
+            bs.Data =   barcodeString;
+            BarCodeGenerator bg = new BarCodeGenerator(bs);
 
-            Barcode barcode1 = new Barcode();
-            barcode1.Encode(BarcodeStandard.Type.Ean13, barcodeString, 400, 100);
-            byte[] bytes = barcode1.GetImageData(SaveTypes.Png);
-
-
-
-
-            return Convert.ToBase64String(bytes);
-
-
+            var image = bg.GenerateImage();
+            byte[] bytes = (byte[])converter.ConvertTo(image, typeof(byte[]));
+            temp = Convert.ToBase64String(bytes);
+            return temp;
         }
     }
 }
