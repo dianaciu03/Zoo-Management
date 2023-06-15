@@ -331,21 +331,9 @@ namespace DesktopApplication
                 }
             }
             MessageBox.Show(message);
-        }
 
-        private void updateStartDate(int startCounter)
-        {
-            //tbxScheduleStartDate;
-            DateTime today = DateTime.Today;
-            int daysUntilStart = 7;
-            if (today.DayOfWeek != DayOfWeek.Monday)
-            {
-                daysUntilStart = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
-            }
-            DateTime scheduleStart = DateTime.Today.AddDays(daysUntilStart);
-            scheduleStart = scheduleStart.AddDays(startCounter * 7 - 7);
-            tbxScheduleStartDate.Text = scheduleStart.ToString("dd / MM / yyyy");
-
+            updateDates(Counter);
+            updateTasks();
         }
 
         private void updateDates(int counter)
@@ -362,17 +350,7 @@ namespace DesktopApplication
             DateTime scheduleEnd = scheduleStart.AddDays(6);
             tbxScheduleEndDate.Text = scheduleEnd.ToString("dd / MM / yyyy");
 
-            Shift[] weeklyShifts = scheduleManagement.GetShiftsInRange(scheduleStart, scheduleEnd);
-            lvwGeneratedShifts.Items.Clear();
-            foreach (Shift shift in weeklyShifts)
-            {
-                ListViewItem item = new ListViewItem();
-                item.Tag = shift;
-                item.Text = shift.ShiftTime.ToString("dd / MM / yyyy");
-                item.SubItems.Add(shift.Employee.FirstName + " " + shift.Employee.LastName);
-                item.SubItems.Add(shift.ShiftTime.ToString("HH:mm"));
-                lvwGeneratedShifts.Items.Add(item);
-            }
+            UpdateWeeklyShifts(scheduleStart, scheduleEnd);
         }
 
 
@@ -430,6 +408,21 @@ namespace DesktopApplication
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             updateTasks();
+        }
+
+        private void UpdateWeeklyShifts(DateTime scheduleStart, DateTime scheduleEnd)
+        {
+            Shift[] weeklyShifts = scheduleManagement.GetShiftsInRange(scheduleStart, scheduleEnd);
+            lvwGeneratedShifts.Items.Clear();
+            foreach (Shift shift in weeklyShifts)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = shift;
+                item.Text = shift.ShiftTime.ToString("dd / MM / yyyy");
+                item.SubItems.Add(shift.Employee.FirstName + " " + shift.Employee.LastName);
+                item.SubItems.Add(shift.ShiftTime.ToString("HH:mm"));
+                lvwGeneratedShifts.Items.Add(item);
+            }
         }
     }
 }
