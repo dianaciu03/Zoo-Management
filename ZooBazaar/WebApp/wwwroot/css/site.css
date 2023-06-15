@@ -637,8 +637,6 @@ filter: brightness(40%);
 .gallery-cell1 {
     height: 600px;
     width: 60%;
-    margin-right: 10px;
-    background-image: url("../images/tiger.jpg");
     counter-increment: gallery-cell;
     background-size: contain;
     background-repeat: no-repeat;
@@ -646,8 +644,6 @@ filter: brightness(40%);
 .gallery-cell2 {
     height: 600px;
     width: 60%;
-    margin-right: 10px;
-    background-image: url("../images/leopard.jpg");
     counter-increment: gallery-cell;
     background-size: contain;
     background-repeat: no-repeat;
@@ -655,8 +651,6 @@ filter: brightness(40%);
 .gallery-cell3 {
     height: 600px;
     width: 60%;
-    margin-right: 10px;
-    background-image: url("../images/cheetah.jpg");
     counter-increment: gallery-cell;
     background-size: contain;
     background-repeat: no-repeat;
@@ -664,8 +658,6 @@ filter: brightness(40%);
 .gallery-cell4 {
     height: 600px;
     width: 60%;
-    margin-right: 10px;
-    background-image: url("../images/gatorboy.jpg");
     counter-increment: gallery-cell;
     background-size: contain;
     background-repeat: no-repeat;
