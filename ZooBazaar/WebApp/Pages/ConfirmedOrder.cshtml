@@ -4,24 +4,57 @@
 @{
     <div>
 
-        <div  class="order-form">
-            <h1 class="page-title" style="margin-bottom:10px;">Order Confirmation</h1>
-            <h3 class ="page-title" style="margin-bottom:50px; font-style:italic;">Your order has been placed successfully!</h3>
+                    <div  class="order-form">
+                        <h1 class="page-title" style="margin-bottom:10px;">Order Confirmation</h1>
+                        <h3 class ="page-title" style="margin-bottom:60px; font-style:italic;">Your order has been placed successfully!</h3>
 
-            @foreach (Ticket ticket in Model.Order.Tickets)
-            {
-                <div style="height: 170px; margin-bottom: 50px;" class="ticket-container order-details">
-                    <div>
-                        <p class="ticket-type">Ticket Type: @ticket.TicketType</p>
-                        <p style="margin-top:10px;" class="ticket-type"> Valid Date: @Model.Order.Date.ToString("MMMM/dd/yyyy")</p>
-                        <p style="margin-top:10px;" class="ticket-price">Price: @ticket.Price €</p>
-                    </div> 
-                    <div >
-                        <img src="data:image/bmp;base64,@Model.CreateBarcode(ticket.Barcode.ToString("F2"))" />
+                        @for (int i = 0; i < Model.Order.Tickets.Count(); i++)
+                        {
+                            <div style="height: 170px; margin-bottom: 50px;" class="ticket-container order-details">
+                                <div>
+                                    <p class="ticket-type">Ticket Type: @Model.Order.Tickets[i].TicketType</p>
+                                    <p style="margin-top:10px;" class="ticket-type"> Valid Date: @Model.Order.Date.ToString("MMMM/dd/yyyy")</p>
+                                    <p style="margin-top:10px;" class="ticket-price">Price: @Model.Order.Tickets[i].Price.ToString("F2")€</p>
+                                </div>
+
+                                <div>
+                                    <svg id="barcode" jsbarcode-value="@Model.Order.Tickets[i].Barcode"></svg>
+                                </div>
+                            </div>
+                        }
+
+                        <div style="margin-top: 40px; padding-left:0;" class="order-details">
+                            <button asp-page-handler="DownloadTickets" style="width: 240px; height: 70px; display: flex; justify-content: center; border-radius:3px; align-items: center; padding-left:0; padding-right:0;" type="submit">Download Tickets</button>
+                            <div>
+                                @if (Model.Order.DiscountCodeApplied != null) 
+                                {
+                                    <p style="margin-bottom:0px">Total: @Model.Order.TotalPriceAfterDiscount.ToString("F2")€</p>
+                                }
+                                else 
+                                {
+                                    <p style="margin-bottom:0px">Total: @Model.Order.TotalPrice.ToString("F2")€</p>
+                                }
+                                
+                                @if (Model.Order.DiscountCodeApplied != null) 
+                                {
+                                <p style="font-style: italic; font-weight:400;margin-top:0px; font-size: 16px;margin-bottom:5px">*Discount code applied.</p>
+                                }
+                                <p>Method of paying: @Model.Order.PaymentMethod</p>
+                            </div>
+
+                        </div>
                     </div>
-
-                </div>
-            }
-        </div>
     </div>
 }
+
+@section Scripts
+{
+    <script src="~/js/JsBarcode.all.min.js"></script>
+    <script>
+        JsBarcode("#barcode").init();
+    </script>
+}
+
+
+  
+

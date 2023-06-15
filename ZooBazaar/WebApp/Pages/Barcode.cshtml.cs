@@ -8,18 +8,18 @@ namespace WebApp.Pages
 {
     public class BarcodeModel : PageModel
     {
-        BarcodeCreator barcodeCreator;
+        //BarcodeCreator barcodeCreator;
 
         public string Barcode { get; private set; }
 
         public BarcodeModel() 
         {
-            barcodeCreator = new BarcodeCreator();
+            //barcodeCreator = new BarcodeCreator();
         }
 
         public void OnGet()
         {
-            Barcode = barcodeCreator.CreateBarcode("123456"/*barcode string goes here*/);
+            //Barcode = barcodeCreator.CreateBarcode("123456"/*barcode string goes here*/);
         }
     }
 }

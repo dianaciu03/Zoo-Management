@@ -306,7 +306,8 @@ namespace BusinessLogic
 
         public void AssignEmployee(ZooTask task, Employee employee)
         {
-            taskRepository.AssignEmployee(employee.ID, task.ID);
+            if (task.Status == "Not started")
+                taskRepository.AssignEmployee(employee.ID, task.ID);
         }
         public void RemoveTask(int taskId)
         {

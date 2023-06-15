@@ -1,4 +1,4 @@
-﻿using DataAccess.Tickets;
+﻿    using DataAccess.Tickets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,27 +46,37 @@ namespace BusinessLogic.Tickets
         public void CalculateTotalPrice()
         {
             decimal totalPrice = 0;
-            foreach(Ticket ticket in tickets)
+            foreach (Ticket ticket in tickets)
             {
                 totalPrice += ticket.Price;
             }
             TotalPrice = totalPrice;
         }
 
-        public void CalculateTotalPriceWithDiscount(string discount)
+        public bool CalculateTotalPriceWithDiscount(string discount)
         {
-            decimal totalPrice = 0;
-            foreach (Ticket ticket in tickets)
+            try
             {
-                totalPrice += ticket.Price;
+                decimal totalPrice = 0;
+                foreach (Ticket ticket in tickets)
+                {
+                    totalPrice += ticket.Price;
+                }
+                TotalPriceAfterDiscount = totalPrice;
+                TicketRepository tr = new TicketRepository();
+                if (tr.IsValidDiscountCode(discount))
+                {
+                    totalPrice -= 5;
+                    TotalPriceAfterDiscount = totalPrice;
+                    return true;
+                }
+                else
+                    return false; 
             }
-            TicketRepository tr = new TicketRepository();
-            if (tr.IsValidDiscountCode(discount))
+            catch
             {
-                totalPrice -= 5; 
+                return false;
             }
-            TotalPriceAfterDiscount = totalPrice;
         }
-
     }
 }

@@ -41,9 +41,11 @@ namespace BusinessLogic.Tickets
                 ticketsReturn.Add(DTOToTicket(ticketRepository.AddTicket(TicketToDTO(ticket, order.Date))));
             }
             ticketOrder.TotalPrice = order.TotalPrice;
+            ticketOrder.TotalPriceAfterDiscount = order.TotalPriceAfterDiscount;
             ticketOrder.DiscountCodeApplied = order.DiscountCodeApplied;
             ticketOrder.Date = order.Date;
             ticketOrder.Tickets = ticketsReturn;
+            ticketOrder.PaymentMethod = order.PaymentMethod;
 
             return ticketOrder;
         }

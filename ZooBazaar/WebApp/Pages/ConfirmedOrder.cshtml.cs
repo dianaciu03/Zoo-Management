@@ -8,8 +8,6 @@ namespace WebApp.Pages
 {
     public class ConfirmedOrderModel : PageModel
     {
-        BarcodeCreator barcodeCreator;
-
         [BindProperty]
         public TicketOrder Order { get; set; }
 
@@ -20,15 +18,10 @@ namespace WebApp.Pages
             {
                 TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(orderJson);
                 order.CalculateTotalPrice();
+                order.CalculateTotalPriceWithDiscount(order.DiscountCodeApplied);
                 Order = order;
             }
 
-            barcodeCreator = new BarcodeCreator();
-        }
-
-        public string CreateBarcode(string barcode)
-        {
-            return barcodeCreator.CreateBarcode(barcode);
         }
     }
 }

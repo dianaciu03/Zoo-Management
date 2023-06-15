@@ -26,6 +26,7 @@ namespace WebApp.Pages
                 order.CalculateTotalPrice();
                 Order = order;
                 TotalPriceAfterDiscount = order.TotalPriceAfterDiscount;
+                DiscountCode = order.DiscountCodeApplied;
             }
         }
 
@@ -51,19 +52,34 @@ namespace WebApp.Pages
 
         public IActionResult OnPostValidateDiscount()
         {
-            OnGet();
-            //Cannot user Order property bcs it's null idk why it's not binded properly tf
-            //This method works but on return the tickets go *spook* not there anymore idk why 
-            Order.CalculateTotalPriceWithDiscount(DiscountCode);
-            Order.DiscountCodeApplied = DiscountCode;
-
-            var updatedOrderJson = JsonSerializer.Serialize(Order);
-            // Create a new cookie with the serialized order data
-            var cookieOptions = new CookieOptions
+            var orderJson = Request.Cookies["OrderCookie"];
+            if (orderJson != null)
             {
-                Expires = DateTime.Now.AddMinutes(30) // Set the expiration date for the cookie
-            };
-            Response.Cookies.Append("OrderCookie", updatedOrderJson, cookieOptions);
+                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(orderJson);
+                order.CalculateTotalPrice();
+                Order = order;
+                TotalPriceAfterDiscount = order.TotalPriceAfterDiscount;
+            }
+            if (DiscountCode == null || !Order.CalculateTotalPriceWithDiscount(DiscountCode))
+            {
+                ModelState.AddModelError(string.Empty, "Invalid discount code!");
+                return Page();
+            }
+            else
+            {
+                Order.DiscountCodeApplied = DiscountCode;
+                Order.CalculateTotalPriceWithDiscount(DiscountCode);
+                
+                var updatedOrderJson = JsonSerializer.Serialize(Order);
+                // Create a new cookie with the serialized order data
+                var cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddMinutes(30) // Set the expiration date for the cookie
+                };
+                Response.Cookies.Append("OrderCookie", updatedOrderJson, cookieOptions);
+            }
+
+            
 
             return RedirectToPage();
         }

@@ -78,7 +78,8 @@ namespace DataAccess
                 DateTime dateTime = DateTime.Now;
                 SqlCommand query = new SqlCommand("SELECT * FROM Shifts " +
                                                   "   WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) >= @StartDate" +
-                                                  "   AND CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) <= @EndDate", connection);
+                                                  "   AND CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) <= @EndDate" +
+                                                  "   ORDER BY ShiftTime asc", connection);
                 query.Parameters.AddWithValue("@StartDate", start.Date);
                 query.Parameters.AddWithValue("@EndDate", end.Date);
 
