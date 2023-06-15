@@ -24,11 +24,5 @@ namespace WebApp.Pages
             }
 
         }
-
-        public string CreateBarcode(string barcode)
-        {
-            BarcodeCreator barcodeCreator = new BarcodeCreator();
-            return barcodeCreator.CreateBarcode(barcode);
-        }
     }
 }
