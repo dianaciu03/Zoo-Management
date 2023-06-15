@@ -409,5 +409,68 @@ namespace DataAccess
                 connection.Close();
             }
         }
+
+        public (List<EmployeeDTO>,List<DateTime>,List<DateTime>) GetAllEmployeesThatHaveHolidays()
+        {
+            List<EmployeeDTO> employees = new List<EmployeeDTO>();
+            List<DateTime> startDates = new List<DateTime>();
+            List<DateTime> endDates = new List<DateTime>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return (employees,startDates,endDates); }
+                DateTime dateTime = DateTime.Now;
+                SqlCommand query = new SqlCommand("SELECT e.*,h.start_date,h.end_date FROM Employees AS e JOIN Holiday AS h ON e.EmployeeID = h.employee_id WHERE h.end_date > @dateTime;", connection);
+                query.Parameters.AddWithValue("@dateTime", dateTime);
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        EmployeeDTO employee = new EmployeeDTO()
+                        {
+                            id = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
+                            firstName = reader.GetString(reader.GetOrdinal("FirstName")),
+                            lastName = reader.GetString(reader.GetOrdinal("LastName")),
+                            birthDate = reader.GetDateTime(reader.GetOrdinal("Birthdate")),
+                            gender = reader.GetString(reader.GetOrdinal("Gender")),
+                            address = reader.GetString(reader.GetOrdinal("Address")),
+                            phone = reader.GetString(reader.GetOrdinal("Phone")),
+                            password = reader.GetString(reader.GetOrdinal("Password")),
+                            email = reader.GetString(reader.GetOrdinal("Email")),
+                            role = reader.GetString(reader.GetOrdinal("EmployeeType")),
+                        };
+                        startDates.Add(reader.GetDateTime(reader.GetOrdinal("start_date")));
+                        endDates.Add(reader.GetDateTime(reader.GetOrdinal("end_date")));
+                        employees.Add(employee);
+                    }
+
+                    reader.Close();
+                    connection.Close();
+                    return (employees, startDates, endDates);
+                }
+            }
+        }
+
+        public bool DeleteHoliday(int id, DateTime startDate)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+                {
+                    connection.Open();
+
+                    SqlCommand query = new SqlCommand("DELETE FROM Holiday WHERE employee_id = @id AND start_date = @startDate ", connection);
+                    query.Parameters.AddWithValue("@id", id);
+                    query.Parameters.AddWithValue("@startDate", startDate);
+                    query.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
     }
 }

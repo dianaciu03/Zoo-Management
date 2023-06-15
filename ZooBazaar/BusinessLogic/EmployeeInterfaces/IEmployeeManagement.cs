@@ -14,5 +14,7 @@ namespace BusinessLogic
         public void UpdateEmployeeInformation(Employee employee);
         public EmployeeContract GetContractById(int id);
         public void AddHoliday(int employeeId, DateTime startDate, DateTime endDate);
+        public (List<Employee>, List<DateTime>, List<DateTime>) GetAllEmployeesThatHaveHoliday();
+        public bool DeleteHoliday(int employeeId,DateTime startDate);
     }
 }

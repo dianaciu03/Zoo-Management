@@ -130,5 +130,25 @@ namespace BusinessLogic
         {
             _employeeRepository.AddHoliday(employeeId, startDate, endDate);
         }
+
+        public (List<Employee>,List<DateTime>,List<DateTime>) GetAllEmployeesThatHaveHoliday()
+        {
+            List<Employee> employees = new List<Employee>();
+            List<EmployeeDTO> dtos = new List<EmployeeDTO>();
+            List<DateTime> startDates = new List<DateTime>();
+            List<DateTime> endDates = new List<DateTime>();
+            (dtos, startDates, endDates) = _employeeRepository.GetAllEmployeesThatHaveHolidays();
+            foreach ( EmployeeDTO dto in dtos)
+            {
+                employees.Add(dto.ToEmployee());
+            }
+
+            return (employees, startDates, endDates);
+        }
+
+        public bool DeleteHoliday(int employeeId, DateTime startDate)
+        {
+            return _employeeRepository.DeleteHoliday(employeeId, startDate);
+        }
     }
 }

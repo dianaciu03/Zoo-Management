@@ -21,9 +21,6 @@ namespace BusinessLogic.Tickets
             barcode1.Encode(BarcodeStandard.Type.Ean13, barcodeString, 400, 100);
             byte[] bytes = barcode1.GetImageData(SaveTypes.Png);
 
-
-
-
             return Convert.ToBase64String(bytes);
 
 
