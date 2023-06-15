@@ -634,31 +634,10 @@ filter: brightness(40%);
     align-items: center;
 }
 
-.gallery-cell1 {
+.gallery-cell {
     height: 600px;
     width: 60%;
     counter-increment: gallery-cell;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
-.gallery-cell2 {
-    height: 600px;
-    width: 60%;
-    counter-increment: gallery-cell;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-.gallery-cell3 {
-    height: 600px;
-    width: 60%;
-    counter-increment: gallery-cell;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-.gallery-cell4 {
-    height: 600px;
-    width: 60%;
-    counter-increment: gallery-cell;
-    background-size: contain;
-    background-repeat: no-repeat;
+
 }
