@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            btnRefresh = new Button();
             nudTaskEncNumber = new NumericUpDown();
             label2 = new Label();
             cbxTaskEncArea = new ComboBox();
@@ -122,7 +123,6 @@
             label14 = new Label();
             btnScheduleShifts = new Button();
             labelTitleZooBazaar = new Label();
-            btnRefresh = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).BeginInit();
@@ -172,6 +172,16 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Schedule task";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(1689, 14);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(97, 57);
+            btnRefresh.TabIndex = 38;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // nudTaskEncNumber
             // 
@@ -879,9 +889,9 @@
             // 
             // btnNextWeek
             // 
-            btnNextWeek.Location = new Point(471, 23);
+            btnNextWeek.Location = new Point(681, 48);
             btnNextWeek.Name = "btnNextWeek";
-            btnNextWeek.Size = new Size(77, 36);
+            btnNextWeek.Size = new Size(77, 56);
             btnNextWeek.TabIndex = 14;
             btnNextWeek.Text = ">";
             btnNextWeek.UseVisualStyleBackColor = true;
@@ -889,9 +899,9 @@
             // 
             // btnPrevWeek
             // 
-            btnPrevWeek.Location = new Point(360, 23);
+            btnPrevWeek.Location = new Point(97, 48);
             btnPrevWeek.Name = "btnPrevWeek";
-            btnPrevWeek.Size = new Size(77, 36);
+            btnPrevWeek.Size = new Size(77, 56);
             btnPrevWeek.TabIndex = 13;
             btnPrevWeek.Text = "<";
             btnPrevWeek.UseVisualStyleBackColor = true;
@@ -899,9 +909,9 @@
             // 
             // btnPublishSchedule
             // 
-            btnPublishSchedule.Location = new Point(47, 725);
+            btnPublishSchedule.Location = new Point(827, 790);
             btnPublishSchedule.Name = "btnPublishSchedule";
-            btnPublishSchedule.Size = new Size(537, 35);
+            btnPublishSchedule.Size = new Size(534, 35);
             btnPublishSchedule.TabIndex = 12;
             btnPublishSchedule.Text = "Publish";
             btnPublishSchedule.UseVisualStyleBackColor = true;
@@ -910,18 +920,18 @@
             // 
             // btnShiftsDetails
             // 
-            btnShiftsDetails.Location = new Point(47, 725);
+            btnShiftsDetails.Location = new Point(827, 749);
             btnShiftsDetails.Name = "btnShiftsDetails";
-            btnShiftsDetails.Size = new Size(182, 35);
+            btnShiftsDetails.Size = new Size(255, 35);
             btnShiftsDetails.TabIndex = 11;
             btnShiftsDetails.Text = "Details";
             btnShiftsDetails.UseVisualStyleBackColor = true;
             // 
             // btnRemoveShift
             // 
-            btnRemoveShift.Location = new Point(246, 725);
+            btnRemoveShift.Location = new Point(1106, 749);
             btnRemoveShift.Name = "btnRemoveShift";
-            btnRemoveShift.Size = new Size(182, 35);
+            btnRemoveShift.Size = new Size(255, 35);
             btnRemoveShift.TabIndex = 8;
             btnRemoveShift.Text = "Remove";
             btnRemoveShift.UseVisualStyleBackColor = true;
@@ -929,9 +939,10 @@
             // lvwGeneratedShifts
             // 
             lvwGeneratedShifts.Columns.AddRange(new ColumnHeader[] { columnHeader5, columnHeader7, columnHeader6 });
-            lvwGeneratedShifts.Location = new Point(47, 286);
+            lvwGeneratedShifts.FullRowSelect = true;
+            lvwGeneratedShifts.Location = new Point(827, 48);
             lvwGeneratedShifts.Name = "lvwGeneratedShifts";
-            lvwGeneratedShifts.Size = new Size(537, 433);
+            lvwGeneratedShifts.Size = new Size(534, 695);
             lvwGeneratedShifts.TabIndex = 7;
             lvwGeneratedShifts.UseCompatibleStateImageBehavior = false;
             lvwGeneratedShifts.View = View.Details;
@@ -953,16 +964,16 @@
             // 
             // tbxScheduleEndDate
             // 
-            tbxScheduleEndDate.Location = new Point(684, 63);
+            tbxScheduleEndDate.Location = new Point(488, 75);
             tbxScheduleEndDate.Name = "tbxScheduleEndDate";
             tbxScheduleEndDate.ReadOnly = true;
-            tbxScheduleEndDate.Size = new Size(146, 29);
+            tbxScheduleEndDate.Size = new Size(147, 29);
             tbxScheduleEndDate.TabIndex = 6;
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(471, 66);
+            label16.Location = new Point(468, 48);
             label16.Name = "label16";
             label16.Size = new Size(190, 24);
             label16.TabIndex = 5;
@@ -970,7 +981,7 @@
             // 
             // tbxScheduleStartDate
             // 
-            tbxScheduleStartDate.Location = new Point(259, 65);
+            tbxScheduleStartDate.Location = new Point(225, 75);
             tbxScheduleStartDate.Name = "tbxScheduleStartDate";
             tbxScheduleStartDate.ReadOnly = true;
             tbxScheduleStartDate.Size = new Size(147, 29);
@@ -978,7 +989,7 @@
             // 
             // nudScheduleLenght
             // 
-            nudScheduleLenght.Location = new Point(47, 182);
+            nudScheduleLenght.Location = new Point(97, 168);
             nudScheduleLenght.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             nudScheduleLenght.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudScheduleLenght.Name = "nudScheduleLenght";
@@ -990,7 +1001,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(47, 155);
+            label15.Location = new Point(97, 141);
             label15.Name = "label15";
             label15.Size = new Size(284, 24);
             label15.TabIndex = 2;
@@ -999,7 +1010,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(47, 68);
+            label14.Location = new Point(209, 48);
             label14.Name = "label14";
             label14.Size = new Size(190, 24);
             label14.TabIndex = 1;
@@ -1007,9 +1018,9 @@
             // 
             // btnScheduleShifts
             // 
-            btnScheduleShifts.Location = new Point(47, 239);
+            btnScheduleShifts.Location = new Point(97, 234);
             btnScheduleShifts.Name = "btnScheduleShifts";
-            btnScheduleShifts.Size = new Size(182, 41);
+            btnScheduleShifts.Size = new Size(406, 41);
             btnScheduleShifts.TabIndex = 0;
             btnScheduleShifts.Text = "ScheduleShifts";
             btnScheduleShifts.UseVisualStyleBackColor = true;
@@ -1025,16 +1036,6 @@
             labelTitleZooBazaar.Size = new Size(184, 37);
             labelTitleZooBazaar.TabIndex = 11;
             labelTitleZooBazaar.Text = "ZooBazaar";
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.Location = new Point(1689, 14);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(97, 57);
-            btnRefresh.TabIndex = 38;
-            btnRefresh.Text = "Refresh";
-            btnRefresh.UseVisualStyleBackColor = true;
-            btnRefresh.Click += btnRefresh_Click;
             // 
             // FormScheduleMaker
             // 
