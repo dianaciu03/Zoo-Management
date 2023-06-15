@@ -24,8 +24,7 @@ namespace DesktopApplication
         Shift[] shifts;
 
         List<Animal> searchedAnimals;
-        public int StartWeekCounter { get; set; } = 1;
-        public int EndWeekCounter { get; set; } = 1;
+        public int Counter { get; set; } = 1;
         public FormScheduleMaker(IAnimalManagement am)
         {
             InitializeComponent();
@@ -35,8 +34,7 @@ namespace DesktopApplication
             initializeSpecieComboBox();
             initializeAreaComboBox();
             updateTasks();
-            updateStartDate(StartWeekCounter);
-            updateEndDate(StartWeekCounter, EndWeekCounter);
+            updateDates(Counter);
             groupBoxTaskDetails.Visible = false;
             cbxTaskEncArea.SelectedText = "";
             rbtnDailyTask.Visible = false;
@@ -295,7 +293,6 @@ namespace DesktopApplication
             btnPublishSchedule.Visible = true;
             ZooTask[] dailyTasks = taskManagement.GetRepetitiveTasks("Daily");
             ZooTask[] weeklyTasks = taskManagement.GetRepetitiveTasks("Weekly");
-            shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers);
 
             DateTime today = DateTime.Today;
             int daysUntilMonday = 7;
@@ -304,13 +301,16 @@ namespace DesktopApplication
                 daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
             }
             DateTime nextMonday = DateTime.Today.AddDays(daysUntilMonday);
-            DateTime endDay = nextMonday.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
+            DateTime scheduleWeekStart = nextMonday.AddDays(7 * (Counter - 1));
+            DateTime endDay = scheduleWeekStart.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
 
-            bool success = scheduleManagement.AddShifts(shifts, nextMonday, endDay);
+            shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers, scheduleWeekStart);
+
+            bool success = scheduleManagement.AddShifts(shifts, scheduleWeekStart, endDay);
             if (success)
             {
-                taskManagement.RescheduleTasks(dailyTasks);
-                taskManagement.RescheduleTasks(weeklyTasks);
+                taskManagement.RescheduleTasks(dailyTasks, scheduleWeekStart, Counter);
+                taskManagement.RescheduleTasks(weeklyTasks, scheduleWeekStart, Counter);
             }
 
             string message = string.Empty;
@@ -340,13 +340,11 @@ namespace DesktopApplication
             DateTime scheduleStart = DateTime.Today.AddDays(daysUntilStart);
             scheduleStart = scheduleStart.AddDays(startCounter * 7 - 7);
             tbxScheduleStartDate.Text = scheduleStart.ToString("dd / MM / yyyy");
-            //DateTime endDay = nextMonday.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
-            //tbxScheduleEndDate.Text = endDay.ToString("dd / MM / yyyy");
+
         }
 
-        private void updateEndDate(int startCounter, int endCounter)
+        private void updateDates(int counter)
         {
-            //tbxScheduleStartDate;
             DateTime today = DateTime.Today;
             int daysUntilStart = 7;
             if (today.DayOfWeek != DayOfWeek.Monday)
@@ -354,17 +352,16 @@ namespace DesktopApplication
                 daysUntilStart = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
             }
             DateTime scheduleStart = DateTime.Today.AddDays(daysUntilStart);
-            scheduleStart = scheduleStart.AddDays(startCounter * 7 - 7);
+            scheduleStart = scheduleStart.AddDays(counter * 7 - 7);
             tbxScheduleStartDate.Text = scheduleStart.ToString("dd / MM / yyyy");
-            DateTime endDay = scheduleStart.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
-            endDay = endDay.AddDays(endCounter * 7 - 7);
-            tbxScheduleEndDate.Text = endDay.ToString("dd / MM / yyyy");
+            DateTime scheduleEnd = scheduleStart.AddDays(6);
+            tbxScheduleEndDate.Text = scheduleEnd.ToString("dd / MM / yyyy");
         }
+
 
         private void nudScheduleLenght_ValueChanged(object sender, EventArgs e)
         {
-            EndWeekCounter = StartWeekCounter + (int)nudScheduleLenght.Value;
-            updateEndDate(StartWeekCounter, EndWeekCounter);
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -391,47 +388,21 @@ namespace DesktopApplication
             }
         }
 
-        private void btnNextStartDate_Click(object sender, EventArgs e)
+        private void btnPrevWeek_Click(object sender, EventArgs e)
         {
-            nudScheduleLenght.Maximum = 5 - StartWeekCounter;
-            nudScheduleLenght.Value = 1;
-
-            if (StartWeekCounter < 5)
+            if (Counter > 1)
             {
-                StartWeekCounter++;
-                updateStartDate(StartWeekCounter);
+                Counter--;
+                updateDates(Counter);
             }
         }
 
-        private void btnPrevStartDate_Click(object sender, EventArgs e)
+        private void btnNextWeek_Click(object sender, EventArgs e)
         {
-            nudScheduleLenght.Maximum = 5 - StartWeekCounter;
-            nudScheduleLenght.Value = 1;
-
-            if (StartWeekCounter > 1)
+            if (Counter < 4)
             {
-                StartWeekCounter--;
-                updateStartDate(StartWeekCounter);
-            }
-        }
-
-        private void btnNextEndDate_Click(object sender, EventArgs e)
-        {
-            
-            if (EndWeekCounter < 4)
-            {
-                EndWeekCounter++;
-                updateEndDate(StartWeekCounter, EndWeekCounter);
-            }
-
-        }
-
-        private void btnPrevEndDate_Click(object sender, EventArgs e)
-        {
-            if (EndWeekCounter > 1)
-            {
-                EndWeekCounter--;
-                updateEndDate(StartWeekCounter, EndWeekCounter);
+                Counter++;
+                updateDates(Counter);
             }
         }
     }

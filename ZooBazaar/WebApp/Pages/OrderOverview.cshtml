@@ -2,13 +2,16 @@
 @model WebApp.Pages.OrderOverviewModel
 @{
 }
-<div>
 
-    <div style="margin-bottom:100px;" class="order-form">
+@*PAGE FORGETS ORDER WHEN APPLYING DISCOUNT, DISCOUNT WORKS*@
+<div>   
+    <form method="post">
+    <div class="order-form">
         <h1 class="page-title" style="margin-bottom:50px;">Order Overview</h1>
 
         @foreach (var ticketGroup in Model.Order.Tickets.GroupBy(t => t.TicketType))
         {
+            
             <div class="ticket-container">
                 <p class="ticket-type">Ticket Type: @ticketGroup.Key</p>
                 <div class="ticket-info">
@@ -27,55 +30,66 @@
             </p>
         </div>
 
-        <form method="post" asp-page-handler="ValidateDiscount">
-            <div class="discount">
-                <label>If you have a discount code from one of our partners, enter it here:</label>
-                <input type="text" asp-for="DiscountCode">
-                <div style="margin-top: 3px; padding-left:0;" class="order-details">
-                    <button style="width: 250px; height: 50px; display: flex; justify-content: center; border-radius:3px; align-items: center; padding-left:0;" type="submit">Validate Discount</button>
+        
+        <div class="discount">
+            <label>If you have a discount code from one of our partners, enter it here:</label>
+            <input type="text" asp-for="DiscountCode">
+            <div style="margin-top: 3px; padding-left:0;" class="order-details">
+                <button asp-page-handler="ValidateDiscount" style="width: 250px; height: 50px; display: flex; justify-content: center; border-radius:3px; align-items: center; padding-left:0;" type="submit">Validate Discount</button>
+                @if(Model.TotalPriceAfterDiscount == 0) 
+                {
                     <p>
-                        Total after discount: YES@* @Model.Order.TotalPriceAfterDiscount.ToString("F2")€*@
+                        Total after discount: @Model.Order.TotalPrice.ToString("F2")€
                     </p>
-                </div>
+                }
+                else 
+                {
+                    <p>
+                        Total after discount: @Model.TotalPriceAfterDiscount.ToString("F2")€
+                    </p>
+                }
                 
             </div>
-        </form> 
+                
+        </div>
 
-        <form method="post">
-            <p style="margin-top: 80px;" class="ticket-type">Payment Methods</p>
+    </form>
+    @*John helped me by putting everything in a big form but it doesn't work now idk why*@
+    <form method="post">
+        <p style="margin-top: 80px;" class="ticket-type">Payment Methods</p>
 
-            <div class="payment-container">
-                <div class="payment-method">
-                    <label>
-                        <input type="radio" name="paymentMethod" value="Ideal" checked>
-                        Ideal
-                    </label>
-                    <img style="height: 60px; width: auto;" src="~/images/ideal-logo.png" alt="Ideal">
-                </div>
+        <div class="payment-container">
+            <div class="payment-method">
+                <label>
+                    <input type="radio" name="paymentMethod" value="Ideal" checked>
+                    Ideal
+                </label>
+                <img style="height: 60px; width: auto;" src="~/images/ideal-logo.png" alt="Ideal">
             </div>
+        </div>
 
-            <div class="payment-container">
-                <div class="payment-method">
-                    <label>
-                        <input type="radio" name="paymentMethod" value="PayPal">
-                        PayPal
-                    </label>
-                    <img style="height: 60px; width: auto;" src="~/images/paypal-logo.png" alt="PayPal">
-                </div>
+        <div class="payment-container">
+            <div class="payment-method">
+                <label>
+                    <input type="radio" name="paymentMethod" value="PayPal">
+                    PayPal
+                </label>
+                <img style="height: 60px; width: auto;" src="~/images/paypal-logo.png" alt="PayPal">
             </div>
+        </div>
 
-            <div class="payment-container">
-                <div class="payment-method">
-                    <label>
-                        <input type="radio" name="paymentMethod" value="CreditCard">
-                        Credit Card
-                    </label>
-                    <img style="height: 60px; width: auto;" src="~/images/credit-card-icons.jpg" alt="Credit Card">
-                </div>
+        <div class="payment-container">
+            <div class="payment-method">
+                <label>
+                    <input type="radio" name="paymentMethod" value="CreditCard">
+                    Credit Card
+                </label>
+                <img style="height: 60px; width: auto;" src="~/images/credit-card-icons.jpg" alt="Credit Card">
             </div>
+        </div>
 
-            <button style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
-        </form>
-        
+        <button asp-page-handler="Checkout" style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
+    </form>
     </div>
+       
 </div>

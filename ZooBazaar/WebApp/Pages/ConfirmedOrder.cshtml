@@ -17,7 +17,7 @@
                         <p style="margin-top:10px;" class="ticket-price">Price: @ticket.Price €</p>
                     </div> 
                     <div >
-                        <img src="data:image/bmp;base64,@Model.CreateBarcode(ticket.Barcode.ToString())" />
+                        <img src="data:image/bmp;base64,@Model.CreateBarcode(ticket.Barcode.ToString("F2"))" />
                     </div>
 
                 </div>

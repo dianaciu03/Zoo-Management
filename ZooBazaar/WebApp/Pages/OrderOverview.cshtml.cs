@@ -25,10 +25,11 @@ namespace WebApp.Pages
                 TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(orderJson);
                 order.CalculateTotalPrice();
                 Order = order;
+                TotalPriceAfterDiscount = order.TotalPriceAfterDiscount;
             }
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPostCheckout()
         {
             OnGet();
             string paymentMethod = Request.Form["paymentMethod"];
@@ -48,12 +49,23 @@ namespace WebApp.Pages
             return RedirectToPage("ConfirmedOrder");
         }
 
-        //public IActionResult OnPostValidateDiscount()
-        //{
-            //methods to get the new price after the discount code is validated and applied
-            //dabo e treaba ta
-            //Order.DiscountCodeApplied = DiscountCode
-            //Order.TotalPrice = newTotalPrice
-        //}
+        public IActionResult OnPostValidateDiscount()
+        {
+            OnGet();
+            //Cannot user Order property bcs it's null idk why it's not binded properly tf
+            //This method works but on return the tickets go *spook* not there anymore idk why 
+            Order.CalculateTotalPriceWithDiscount(DiscountCode);
+            Order.DiscountCodeApplied = DiscountCode;
+
+            var updatedOrderJson = JsonSerializer.Serialize(Order);
+            // Create a new cookie with the serialized order data
+            var cookieOptions = new CookieOptions
+            {
+                Expires = DateTime.Now.AddMinutes(30) // Set the expiration date for the cookie
+            };
+            Response.Cookies.Append("OrderCookie", updatedOrderJson, cookieOptions);
+
+            return RedirectToPage();
+        }
     }
 }

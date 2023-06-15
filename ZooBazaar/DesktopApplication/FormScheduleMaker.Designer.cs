@@ -105,10 +105,6 @@
             tbxTaskTitle = new TextBox();
             label6 = new Label();
             tabPage2 = new TabPage();
-            btnPrevEndDate = new Button();
-            btnNextEndDate = new Button();
-            btnPrevStartDate = new Button();
-            btnNextStartDate = new Button();
             btnPublishSchedule = new Button();
             btnShiftsDetails = new Button();
             btnReviewShifts = new Button();
@@ -124,6 +120,8 @@
             label14 = new Label();
             btnScheduleShifts = new Button();
             labelTitleZooBazaar = new Label();
+            btnPrevWeek = new Button();
+            btnNextWeek = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).BeginInit();
@@ -856,10 +854,8 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(btnPrevEndDate);
-            tabPage2.Controls.Add(btnNextEndDate);
-            tabPage2.Controls.Add(btnPrevStartDate);
-            tabPage2.Controls.Add(btnNextStartDate);
+            tabPage2.Controls.Add(btnNextWeek);
+            tabPage2.Controls.Add(btnPrevWeek);
             tabPage2.Controls.Add(btnPublishSchedule);
             tabPage2.Controls.Add(btnShiftsDetails);
             tabPage2.Controls.Add(btnReviewShifts);
@@ -879,46 +875,6 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "ScheduleShifts";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnPrevEndDate
-            // 
-            btnPrevEndDate.Location = new Point(568, 23);
-            btnPrevEndDate.Name = "btnPrevEndDate";
-            btnPrevEndDate.Size = new Size(75, 36);
-            btnPrevEndDate.TabIndex = 16;
-            btnPrevEndDate.Text = "<";
-            btnPrevEndDate.UseVisualStyleBackColor = true;
-            btnPrevEndDate.Click += btnPrevEndDate_Click;
-            // 
-            // btnNextEndDate
-            // 
-            btnNextEndDate.Location = new Point(669, 23);
-            btnNextEndDate.Name = "btnNextEndDate";
-            btnNextEndDate.Size = new Size(75, 36);
-            btnNextEndDate.TabIndex = 15;
-            btnNextEndDate.Text = ">";
-            btnNextEndDate.UseVisualStyleBackColor = true;
-            btnNextEndDate.Click += btnNextEndDate_Click;
-            // 
-            // btnPrevStartDate
-            // 
-            btnPrevStartDate.Location = new Point(144, 23);
-            btnPrevStartDate.Name = "btnPrevStartDate";
-            btnPrevStartDate.Size = new Size(75, 36);
-            btnPrevStartDate.TabIndex = 14;
-            btnPrevStartDate.Text = "<";
-            btnPrevStartDate.UseVisualStyleBackColor = true;
-            btnPrevStartDate.Click += btnPrevStartDate_Click;
-            // 
-            // btnNextStartDate
-            // 
-            btnNextStartDate.Location = new Point(246, 23);
-            btnNextStartDate.Name = "btnNextStartDate";
-            btnNextStartDate.Size = new Size(75, 36);
-            btnNextStartDate.TabIndex = 13;
-            btnNextStartDate.Text = ">";
-            btnNextStartDate.UseVisualStyleBackColor = true;
-            btnNextStartDate.Click += btnNextStartDate_Click;
             // 
             // btnPublishSchedule
             // 
@@ -1053,6 +1009,26 @@
             labelTitleZooBazaar.TabIndex = 11;
             labelTitleZooBazaar.Text = "ZooBazaar";
             // 
+            // btnPrevWeek
+            // 
+            btnPrevWeek.Location = new Point(360, 23);
+            btnPrevWeek.Name = "btnPrevWeek";
+            btnPrevWeek.Size = new Size(77, 36);
+            btnPrevWeek.TabIndex = 13;
+            btnPrevWeek.Text = "<";
+            btnPrevWeek.UseVisualStyleBackColor = true;
+            btnPrevWeek.Click += btnPrevWeek_Click;
+            // 
+            // btnNextWeek
+            // 
+            btnNextWeek.Location = new Point(471, 23);
+            btnNextWeek.Name = "btnNextWeek";
+            btnNextWeek.Size = new Size(77, 36);
+            btnNextWeek.TabIndex = 14;
+            btnNextWeek.Text = ">";
+            btnNextWeek.UseVisualStyleBackColor = true;
+            btnNextWeek.Click += btnNextWeek_Click;
+            // 
             // FormScheduleMaker
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -1186,9 +1162,7 @@
         private RadioButton rbtnWeeklyTask;
         private RadioButton rbtnDailyTask;
         private CheckBox cbxRepetitiveTask;
-        private Button btnPrevEndDate;
-        private Button btnNextEndDate;
-        private Button btnPrevStartDate;
-        private Button btnNextStartDate;
+        private Button btnNextWeek;
+        private Button btnPrevWeek;
     }
 }

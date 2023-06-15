@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Tickets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace BusinessLogic.Tickets
         public int OrderId { get; set; }
         public string DiscountCodeApplied { get; set; }
         public decimal TotalPrice { get; set; }
+        public decimal TotalPriceAfterDiscount { get; set; }
         public DateTime Date { get; set; }
         public string PaymentMethod { get; set; }
 
@@ -49,6 +51,21 @@ namespace BusinessLogic.Tickets
                 totalPrice += ticket.Price;
             }
             TotalPrice = totalPrice;
+        }
+
+        public void CalculateTotalPriceWithDiscount(string discount)
+        {
+            decimal totalPrice = 0;
+            foreach (Ticket ticket in tickets)
+            {
+                totalPrice += ticket.Price;
+            }
+            TicketRepository tr = new TicketRepository();
+            if (tr.IsValidDiscountCode(discount))
+            {
+                totalPrice -= 5; 
+            }
+            TotalPriceAfterDiscount = totalPrice;
         }
 
     }
