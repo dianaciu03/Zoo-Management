@@ -64,6 +64,22 @@ namespace BusinessLogic
             }
             return true;
         }
+
+        public Shift[] GetShiftsInRange(DateTime startDate, DateTime endDate)
+        {
+            List<Shift> foundShifts = new List<Shift>();
+            foreach (ShiftDTO shiftdto in shiftRepo.GetShiftsWithinRange(startDate, endDate))
+            {
+                Shift shift = new Shift(
+                    shiftdto.ShiftId,
+                    employeeManagement.GetEmployeeById(shiftdto.EmployeeId),
+                    shiftdto.ShiftTime
+                );
+                foundShifts.Add(shift);
+            }
+            return foundShifts.ToArray();
+        }
+
         public Shift[] GetShiftsByCaretaker(int careTakerId)
         {
             List<Shift> employeeShifts = new List<Shift>();

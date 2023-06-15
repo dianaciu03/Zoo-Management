@@ -92,6 +92,11 @@ namespace DesktopApplication
 
                     if (rbtnDailyTask.Checked)
                     {
+                        if (taskDateAndTime.DayOfWeek != DayOfWeek.Monday || (taskDateAndTime.DayOfWeek == DayOfWeek.Monday && taskDateAndTime.Date > DateTime.Today.Date))
+                        {
+                            MessageBox.Show("Please select a Monday for daily tasks");
+                            return;
+                        }
                         taskManagement.ScheduleTaskDaily(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null, "Daily");
                     }
                     else if (rbtnWeeklyTask.Checked)
@@ -356,12 +361,24 @@ namespace DesktopApplication
             tbxScheduleStartDate.Text = scheduleStart.ToString("dd / MM / yyyy");
             DateTime scheduleEnd = scheduleStart.AddDays(6);
             tbxScheduleEndDate.Text = scheduleEnd.ToString("dd / MM / yyyy");
+
+            Shift[] weeklyShifts = scheduleManagement.GetShiftsInRange(scheduleStart, scheduleEnd);
+            lvwGeneratedShifts.Items.Clear();
+            foreach (Shift shift in weeklyShifts)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = shift;
+                item.Text = shift.ShiftTime.ToString("dd / MM / yyyy");
+                item.SubItems.Add(shift.Employee.FirstName + " " + shift.Employee.LastName);
+                item.SubItems.Add(shift.ShiftTime.ToString("HH:mm"));
+                lvwGeneratedShifts.Items.Add(item);
+            }
         }
 
 
         private void nudScheduleLenght_ValueChanged(object sender, EventArgs e)
         {
-         
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -404,6 +421,15 @@ namespace DesktopApplication
                 Counter++;
                 updateDates(Counter);
             }
+        }
+
+        private void btnReviewShifts_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            updateTasks();
         }
     }
 }

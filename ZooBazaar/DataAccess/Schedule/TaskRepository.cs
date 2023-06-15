@@ -22,7 +22,10 @@ namespace DataAccess
                 try { connection.Open(); }
                 catch (SqlException) { return tasks.ToArray(); }
                 DateTime dateTime = DateTime.Now;
-                SqlCommand query = new SqlCommand("SELECT * FROM Tasks", connection);
+                SqlCommand query = new SqlCommand(" SELECT * FROM Tasks" +
+                                                  " Where TaskDate >= @today", connection);
+
+                query.Parameters.AddWithValue("@today", DateTime.Today.Date);
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
                     while (reader.Read())

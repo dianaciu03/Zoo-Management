@@ -327,7 +327,7 @@ namespace BusinessLogic
                 }
                 else if (task.Repetitive == "Weekly")
                 {
-                    task.TaskDateTime = task.TaskDateTime.AddDays(7 * (counter - 1));
+                    task.TaskDateTime = task.TaskDateTime.AddDays(7 * (counter));
                     ScheduleTask(task.Name, task.EnclosureArea, task.EnclosureNumber, task.Description, task.TaskDateTime, task.EstimatedDuration, task.Species, task.Animal, task.Repetitive);
                 }
             }
