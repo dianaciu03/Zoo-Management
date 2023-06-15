@@ -626,16 +626,46 @@ filter: brightness(40%);
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 .gallery {
     background: #EEE;
     margin-top: 20px;
+    height: 600px;
+    align-items: center;
 }
 
-.gallery-cell {
-    height: 800px;
-    width: 80%;
+.gallery-cell1 {
+    height: 600px;
+    width: 60%;
     margin-right: 10px;
-    background-image: url("../images/tickets2.jpg");
+    background-image: url("../images/tiger.jpg");
+    counter-increment: gallery-cell;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.gallery-cell2 {
+    height: 600px;
+    width: 60%;
+    margin-right: 10px;
+    background-image: url("../images/leopard.jpg");
+    counter-increment: gallery-cell;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.gallery-cell3 {
+    height: 600px;
+    width: 60%;
+    margin-right: 10px;
+    background-image: url("../images/cheetah.jpg");
+    counter-increment: gallery-cell;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.gallery-cell4 {
+    height: 600px;
+    width: 60%;
+    margin-right: 10px;
+    background-image: url("../images/gatorboy.jpg");
     counter-increment: gallery-cell;
     background-size: contain;
     background-repeat: no-repeat;
