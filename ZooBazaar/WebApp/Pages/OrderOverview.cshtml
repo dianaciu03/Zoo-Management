@@ -3,10 +3,9 @@
 @{
 }
 
-@*PAGE FORGETS ORDER WHEN APPLYING DISCOUNT, DISCOUNT WORKS*@
 <div>   
-    <form method="post">
     <div class="order-form">
+    <form method="post">
         <h1 class="page-title" style="margin-bottom:50px;">Order Overview</h1>
 
         @foreach (var ticketGroup in Model.Order.Tickets.GroupBy(t => t.TicketType))
@@ -54,42 +53,41 @@
         </div>
 
     </form>
-    @*John helped me by putting everything in a big form but it doesn't work now idk why*@
-    <form method="post">
-        <p style="margin-top: 80px;" class="ticket-type">Payment Methods</p>
+        <form method="post">
+            <p style="margin-top: 80px;" class="ticket-type">Payment Methods</p>
 
-        <div class="payment-container">
-            <div class="payment-method">
-                <label>
-                    <input type="radio" name="paymentMethod" value="Ideal" checked>
-                    Ideal
-                </label>
-                <img style="height: 60px; width: auto;" src="~/images/ideal-logo.png" alt="Ideal">
+            <div class="payment-container">
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="paymentMethod" value="Ideal" checked>
+                        Ideal
+                    </label>
+                    <img style="height: 60px; width: auto;" src="~/images/ideal-logo.png" alt="Ideal">
+                </div>
             </div>
-        </div>
 
-        <div class="payment-container">
-            <div class="payment-method">
-                <label>
-                    <input type="radio" name="paymentMethod" value="PayPal">
-                    PayPal
-                </label>
-                <img style="height: 60px; width: auto;" src="~/images/paypal-logo.png" alt="PayPal">
+            <div class="payment-container">
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="paymentMethod" value="PayPal">
+                        PayPal
+                    </label>
+                    <img style="height: 60px; width: auto;" src="~/images/paypal-logo.png" alt="PayPal">
+                </div>
             </div>
-        </div>
 
-        <div class="payment-container">
-            <div class="payment-method">
-                <label>
-                    <input type="radio" name="paymentMethod" value="CreditCard">
-                    Credit Card
-                </label>
-                <img style="height: 60px; width: auto;" src="~/images/credit-card-icons.jpg" alt="Credit Card">
+            <div class="payment-container">
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="paymentMethod" value="CreditCard">
+                        Credit Card
+                    </label>
+                    <img style="height: 60px; width: auto;" src="~/images/credit-card-icons.jpg" alt="Credit Card">
+                </div>
             </div>
-        </div>
 
-        <button asp-page-handler="Checkout" style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
-    </form>
+            <button asp-page-handler="Checkout" style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Submit Order</button>
+        </form>
     </div>
        
 </div>

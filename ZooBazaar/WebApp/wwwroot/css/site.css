@@ -621,3 +621,22 @@ filter: brightness(40%);
         font-size: 25px;
     }
 
+/*Gallery page*/
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.gallery {
+    background: #EEE;
+    margin-top: 20px;
+}
+
+.gallery-cell {
+    height: 800px;
+    width: 80%;
+    margin-right: 10px;
+    background-image: url("../images/tickets2.jpg");
+    counter-increment: gallery-cell;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
