@@ -339,5 +339,48 @@ namespace DesktopApplication
             var uc = new ucHolidayRequest(tempEmployee) { Dock = DockStyle.Fill };
             panelAdministrateEmployees.Controls.Add(uc);
         }
+
+        private void bttnShowEmployeesOnVacation_Click(object sender, EventArgs e)
+        {
+            lvHolidays.Items.Clear();
+            List<Employee>  employees= new List<Employee>();
+            List<DateTime> startDates = new List<DateTime>();
+            List<DateTime> endDates = new List<DateTime>();
+            (employees, startDates, endDates) = employeeManagement.GetAllEmployeesThatHaveHoliday();
+            int index = 0;
+            foreach (Employee employee in employees)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = employee.ID.ToString();
+                item.Tag = employee;
+                item.SubItems.Add(employee.FirstName);
+                item.SubItems.Add(employee.LastName);
+                item.SubItems.Add(employee.Role.ToString());
+                item.SubItems.Add(startDates[index].ToShortDateString());
+                item.SubItems.Add(endDates[index].ToShortDateString());
+                lvHolidays.Items.Add(item);
+                index++;
+            }
+        }
+
+        private void bttnDeleteHoliday_Click(object sender, EventArgs e)
+        {
+            if(lvHolidays.SelectedItems.Count == 0)    
+            {
+                MessageBox.Show("Please select an employee");
+                return;
+            }
+            Employee tempEmployee = lvHolidays.SelectedItems[0].Tag as Employee;
+            DateTime startDate = DateTime.Parse(lvHolidays.SelectedItems[0].SubItems[4].Text);
+
+            if (employeeManagement.DeleteHoliday(tempEmployee.ID, startDate))
+            {
+                MessageBox.Show("Holiday deleted!");
+            }
+            else
+            {
+                MessageBox.Show("Could not delete holiday!");
+            }
+        }
     }
 }

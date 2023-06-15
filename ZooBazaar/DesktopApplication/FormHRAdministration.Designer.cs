@@ -132,6 +132,16 @@
             this.tbxNewEmpFirstName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabHoliday = new System.Windows.Forms.TabPage();
+            this.bttnDeleteHoliday = new System.Windows.Forms.Button();
+            this.bttnShowEmployeesOnVacation = new System.Windows.Forms.Button();
+            this.lvHolidays = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlHRAdministration.SuspendLayout();
             this.tabPageAllEmployees.SuspendLayout();
@@ -143,6 +153,7 @@
             this.groupBoxContractDetailsPopup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudWeeklyHours)).BeginInit();
             this.groupBoxEmployeeDetailsPopup.SuspendLayout();
+            this.tabHoliday.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlHRAdministration
@@ -150,6 +161,7 @@
             this.tabControlHRAdministration.Controls.Add(this.tabPageAllEmployees);
             this.tabControlHRAdministration.Controls.Add(this.tabPageEmployeeHistory);
             this.tabControlHRAdministration.Controls.Add(this.tabCreateEmployee);
+            this.tabControlHRAdministration.Controls.Add(this.tabHoliday);
             this.tabControlHRAdministration.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControlHRAdministration.Location = new System.Drawing.Point(68, 63);
             this.tabControlHRAdministration.Name = "tabControlHRAdministration";
@@ -1242,6 +1254,92 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "First name:";
             // 
+            // tabHoliday
+            // 
+            this.tabHoliday.Controls.Add(this.bttnDeleteHoliday);
+            this.tabHoliday.Controls.Add(this.bttnShowEmployeesOnVacation);
+            this.tabHoliday.Controls.Add(this.lvHolidays);
+            this.tabHoliday.Location = new System.Drawing.Point(4, 46);
+            this.tabHoliday.Name = "tabHoliday";
+            this.tabHoliday.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHoliday.Size = new System.Drawing.Size(1775, 895);
+            this.tabHoliday.TabIndex = 3;
+            this.tabHoliday.Text = "Holiday";
+            this.tabHoliday.UseVisualStyleBackColor = true;
+            // 
+            // bttnDeleteHoliday
+            // 
+            this.bttnDeleteHoliday.AutoSize = true;
+            this.bttnDeleteHoliday.BackColor = System.Drawing.Color.NavajoWhite;
+            this.bttnDeleteHoliday.Location = new System.Drawing.Point(1275, 777);
+            this.bttnDeleteHoliday.Name = "bttnDeleteHoliday";
+            this.bttnDeleteHoliday.Size = new System.Drawing.Size(355, 57);
+            this.bttnDeleteHoliday.TabIndex = 26;
+            this.bttnDeleteHoliday.Text = "Delete holiday";
+            this.bttnDeleteHoliday.UseVisualStyleBackColor = false;
+            this.bttnDeleteHoliday.Click += new System.EventHandler(this.bttnDeleteHoliday_Click);
+            // 
+            // bttnShowEmployeesOnVacation
+            // 
+            this.bttnShowEmployeesOnVacation.AutoSize = true;
+            this.bttnShowEmployeesOnVacation.BackColor = System.Drawing.Color.NavajoWhite;
+            this.bttnShowEmployeesOnVacation.Location = new System.Drawing.Point(125, 777);
+            this.bttnShowEmployeesOnVacation.Name = "bttnShowEmployeesOnVacation";
+            this.bttnShowEmployeesOnVacation.Size = new System.Drawing.Size(355, 57);
+            this.bttnShowEmployeesOnVacation.TabIndex = 25;
+            this.bttnShowEmployeesOnVacation.Text = "Display employees\' holidays";
+            this.bttnShowEmployeesOnVacation.UseVisualStyleBackColor = false;
+            this.bttnShowEmployeesOnVacation.Click += new System.EventHandler(this.bttnShowEmployeesOnVacation_Click);
+            // 
+            // lvHolidays
+            // 
+            this.lvHolidays.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lvHolidays.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lvHolidays.FullRowSelect = true;
+            this.lvHolidays.Location = new System.Drawing.Point(26, 21);
+            this.lvHolidays.MultiSelect = false;
+            this.lvHolidays.Name = "lvHolidays";
+            this.lvHolidays.Size = new System.Drawing.Size(1703, 728);
+            this.lvHolidays.TabIndex = 15;
+            this.lvHolidays.UseCompatibleStateImageBehavior = false;
+            this.lvHolidays.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 77;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "First name";
+            this.columnHeader2.Width = 228;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Last name";
+            this.columnHeader3.Width = 228;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Role";
+            this.columnHeader4.Width = 228;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Start date";
+            this.columnHeader5.Width = 228;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "End date";
+            this.columnHeader6.Width = 228;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1286,6 +1384,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWeeklyHours)).EndInit();
             this.groupBoxEmployeeDetailsPopup.ResumeLayout(false);
             this.groupBoxEmployeeDetailsPopup.PerformLayout();
+            this.tabHoliday.ResumeLayout(false);
+            this.tabHoliday.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1398,5 +1498,15 @@
         private System.Windows.Forms.Label labelEmployeeFirstName;
         private ColumnHeader columnContractType;
         private Button button1;
+        private TabPage tabHoliday;
+        private ListView lvHolidays;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private Button bttnDeleteHoliday;
+        private Button bttnShowEmployeesOnVacation;
+        private ColumnHeader columnHeader6;
     }
 }

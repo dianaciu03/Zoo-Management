@@ -18,6 +18,8 @@ namespace DataAccess
         public EmployeeDTO? GetEmployeeById(int id);
         public ContractDTO GetContractById(int id);
         public void AddHoliday(int employeeId, DateTime startDate, DateTime endDate);
+        public (List<EmployeeDTO>, List<DateTime>, List<DateTime>) GetAllEmployeesThatHaveHolidays();
+        public bool DeleteHoliday(int id, DateTime startDate);
 
     }
 }
