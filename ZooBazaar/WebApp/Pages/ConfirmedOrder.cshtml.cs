@@ -20,6 +20,7 @@ namespace WebApp.Pages
             {
                 TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(orderJson);
                 order.CalculateTotalPrice();
+                order.CalculateTotalPriceWithDiscount(order.DiscountCodeApplied);
                 Order = order;
             }
 
