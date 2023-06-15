@@ -19,30 +19,32 @@ namespace WebApp.Pages
 
         public void OnGet()
         {
-            if (TempData.ContainsKey("Order"))
+            var orderJson = Request.Cookies["OrderCookie"];
+            if (orderJson != null)
             {
-                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
+                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(orderJson);
                 order.CalculateTotalPrice();
                 Order = order;
-                TempData["Order"] = JsonSerializer.Serialize(order);
             }
         }
 
         public IActionResult OnPost()
         {
-            if (TempData.ContainsKey("Order"))
-            {
-                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
-                order.CalculateTotalPrice();
-                Order = order;
-            }
+            OnGet();
             string paymentMethod = Request.Form["paymentMethod"];
             Order.PaymentMethod = paymentMethod;
 
             TicketManagement tm = new TicketManagement();
             TicketOrder newOrder = tm.AddOrder(Order);
-            
-            TempData["Order"] = JsonSerializer.Serialize(newOrder);
+
+            var updatedOrderJson = JsonSerializer.Serialize(newOrder);
+            // Create a new cookie with the serialized order data
+            var cookieOptions = new CookieOptions
+            {
+                Expires = DateTime.Now.AddMinutes(30) // Set the expiration date for the cookie
+            };
+            Response.Cookies.Append("OrderCookie", updatedOrderJson, cookieOptions);
+
             return RedirectToPage("ConfirmedOrder");
         }
 

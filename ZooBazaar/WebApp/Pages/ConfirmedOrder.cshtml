@@ -2,49 +2,26 @@
 @using BusinessLogic.Tickets;
 @model WebApp.Pages.ConfirmedOrderModel
 @{
-    <style>
-        .payment-container {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            height: 100px;
-        }
-
-        .payment-method label {
-            display: flex;
-            align-items: center;
-            margin-right: 10px;
-            font-size: 20px;
-        }
-
-            .payment-method label img {
-                height: 80px;
-                margin-right: 5px;
-            }
-
-        .payment-method input[type="radio"] {
-            margin-right: 5px;
-            font-size: 20px;
-        }
-    </style>
     <div>
 
-            <h1 class="page-title" style="margin-bottom:50px;">Order Overview</h1>
+        <div  class="order-form">
+            <h1 class="page-title" style="margin-bottom:10px;">Order Confirmation</h1>
+            <h3 class ="page-title" style="margin-bottom:50px; font-style:italic;">Your order has been placed successfully!</h3>
 
             @foreach (Ticket ticket in Model.Order.Tickets)
             {
-                <div class="ticket-container">
-                <p class="ticket-type">Ticket Type: @ticket.TicketType</p>
-                    <div class="ticket-info">
-                    <p class="ticket-price">€@ticket.Price</p>
-                    <img src="data:image/bmp;base64,@Model.CreateBarcode(ticket.Barcode.ToString())" />
+                <div style="height: 170px; margin-bottom: 50px;" class="ticket-container order-details">
+                    <div>
+                        <p class="ticket-type">Ticket Type: @ticket.TicketType</p>
+                        <p style="margin-top:10px;" class="ticket-type"> Valid Date: @Model.Order.Date.ToString("MMMM/dd/yyyy")</p>
+                        <p style="margin-top:10px;" class="ticket-price">Price: @ticket.Price €</p>
+                    </div> 
+                    <div >
+                        <img src="data:image/bmp;base64,@Model.CreateBarcode(ticket.Barcode.ToString())" />
                     </div>
 
                 </div>
             }
-
-           
+        </div>
     </div>
 }

@@ -62,7 +62,16 @@ namespace WebApp.Pages
                     order.AddTicketToOrder(ticket);
                 }
             }
-            TempData["Order"] = JsonSerializer.Serialize(order);
+            //TempData["Order"] = JsonSerializer.Serialize(order);
+
+            var orderJson = JsonSerializer.Serialize(order);
+            // Create a new cookie with the serialized order data
+            var cookieOptions = new CookieOptions
+            {
+                Expires = DateTime.Now.AddMinutes(30) // Set the expiration date for the cookie
+            };
+            Response.Cookies.Append("OrderCookie", orderJson, cookieOptions);
+
             return RedirectToPage("OrderOverview");
         }
     }

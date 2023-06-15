@@ -4,7 +4,7 @@
 }
 <div>
 
-    <div class="order-form">
+    <div style="margin-bottom:100px;" class="order-form">
         <h1 class="page-title" style="margin-bottom:50px;">Order Overview</h1>
 
         @foreach (var ticketGroup in Model.Order.Tickets.GroupBy(t => t.TicketType))

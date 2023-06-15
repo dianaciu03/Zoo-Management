@@ -15,12 +15,12 @@ namespace WebApp.Pages
 
         public void OnGet()
         {
-            if (TempData.ContainsKey("Order"))
+            var orderJson = Request.Cookies["OrderCookie"];
+            if (orderJson != null)
             {
-                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(TempData["Order"].ToString())!;
+                TicketOrder order = JsonSerializer.Deserialize<TicketOrder>(orderJson);
                 order.CalculateTotalPrice();
                 Order = order;
-
             }
 
             barcodeCreator = new BarcodeCreator();
