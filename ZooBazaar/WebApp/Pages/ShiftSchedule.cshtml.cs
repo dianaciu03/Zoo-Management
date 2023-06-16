@@ -49,7 +49,8 @@ namespace WebApp.Pages
                 .Where(
                     x => 
                     x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) && 
-                    x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8))
+                    x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8) &&
+                    x.Status == "Assigned")
                 .ToList();
             Shifts = tempShifts.OrderBy(t => t.ShiftTime).ToList();
 
@@ -78,8 +79,11 @@ namespace WebApp.Pages
                     x.ShiftTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8))
                 .ToList();
             Tasks = taskManagement.GetTasksByCaretaker(ID)
-                .Where(x => x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
-                    x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8))
+                .Where(
+                    x => 
+                    x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
+                    x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8) &&
+                    x.Status == "Assigned")
                 .ToList();
             Shifts = tempShifts.OrderBy(t => t.ShiftTime).ToList();
             return null;
@@ -106,7 +110,13 @@ namespace WebApp.Pages
             List<Shift> tempShifts = scheduleManagement.GetShiftsByCaretaker(ID)
                 .Where(x => x.ShiftTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
                 x.ShiftTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8)).ToList();
-            Tasks = taskManagement.GetTasksByCaretaker(ID).Where(x => x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) && x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8)).ToList();
+            Tasks = taskManagement.GetTasksByCaretaker(ID)
+                .Where(
+                    x => 
+                    x.TaskDateTime.Date < DateTime.Today.AddDays(15 - DayOfWeek) &&
+                    x.TaskDateTime.Date >= DateTime.Today.AddDays(-DayOfWeek + 8) &&
+                    x.Status == "Assigned")
+                .ToList();
             Shifts = tempShifts.OrderBy(t => t.ShiftTime).ToList();
             return null;
         }

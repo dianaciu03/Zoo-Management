@@ -12,103 +12,40 @@
             <li><a asp-page="/User">My details</a></li>
         </ul>
     </header>
-        <h2>Task Schedule</h2>
-
-        <div class="tab">
-            <button class="tablinks" onclick="openSetting(event, 'Today')">Today</button>
-            <button class="tablinks" onclick="openSetting(event, 'Tommorow')">Tommorow</button>
-            <button class="tablinks" onclick="openSetting(event, 'Week')">This Week</button>
-            <button class="tablinks" onclick="openSetting(event, 'NextWeek')">Next Week</button>
-        </div>
-    
-
-        <!-- TabContent -->
-        <div id="Today" class="tabcontent">
-            <h2>Today's tasks</h2>
+        <h2>Today's tasks</h2>
+        <div id="Today">
             <div class="tasks">
-                @foreach (ZooTask task in Model.Tasks)
+                @if (Model.Tasks
+                    .Any(
+                        x => 
+                        x.TaskDateTime >= DateTime.Today &&
+                        x.TaskDateTime < DateTime.Today.AddDays(1) &&
+                        x.Status == "Assigned"))
                 {
-                    if(task.TaskDateTime >= DateTime.Today && task.TaskDateTime < DateTime.Today.AddDays(1))
+                    @foreach (ZooTask task in Model.Tasks
+                        .Where(
+                            x =>
+                            x.TaskDateTime >= DateTime.Today && 
+                            x.TaskDateTime < DateTime.Today.AddDays(1) &&
+                            x.Status == "Assigned"))
                     {
                         <div class="task">
                             <h3>Task: @task.Name</h3>
-                            <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
-                            <p>Area: @task.EnclosureArea</p>
-                            <p>Enclosure: @task.EnclosureNumber</p>
+                            <p><b>Date and time:</b> @task.TaskDateTime.ToString("dd/MM/yyyy - HH:mm")</p>
+                            <p><b>Area:</b> @task.EnclosureArea</p>
+                            <p><b>Enclosure:</b> @task.EnclosureNumber</p>
                             <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
                         </div>
                     }
                 }
-            </div>
-        </div>
-
-        <div id="Tommorow" class="tabcontent">
-            <h2>Tommorow tasks</h2>
-            <div class="tasks">
-
-                @foreach (ZooTask task in Model.Tasks)
+                else
                 {
-                    if (task.TaskDateTime >= DateTime.Today.AddDays(1) && task.TaskDateTime < DateTime.Today.AddDays(2))
-                    {
-                        <div class="task">
-                            <h3>Task: @task.Name</h3>
-                            <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
-                            <p>Area: @task.EnclosureArea</p>
-                            <p>Enclosure: @task.EnclosureNumber</p>
-                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
-
-                        </div>
-                    }
+                    <div class="task">
+                        <p>No tasks are scheduled for today!</p>
+                    </div>
                 }
-
             </div>
         </div>
-
-        <div id="Week" class="tabcontent">
-            <h2>Tasks this week</h2>
-            <div class="tasks">
-
-                @foreach (ZooTask task in Model.Tasks)
-                {
-                    int dayOfWeek = (int)DateTime.Today.DayOfWeek;
-                    if (task.TaskDateTime >= DateTime.Today.AddDays(-dayOfWeek+1) && task.TaskDateTime < DateTime.Today.AddDays(7-dayOfWeek))
-                    {
-                        <div class="task">
-                            <h3>Task: @task.Name</h3>
-                            <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
-                            <p>Area: @task.EnclosureArea</p>
-                            <p>Enclosure: @task.EnclosureNumber</p>
-                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
-                        </div>
-                    }
-                }
-
-            </div>
-        </div>
-
-        <div id="NextWeek" class="tabcontent">
-            <h2>Next weeks tasks</h2>
-            <div class="tasks">
-
-                @foreach (ZooTask task in Model.Tasks)
-                {
-                    int dayOfWeek = (int)DateTime.Today.DayOfWeek;
-                    if (task.TaskDateTime >= DateTime.Today.AddDays(-dayOfWeek + 8) && task.TaskDateTime < DateTime.Today.AddDays(14 - dayOfWeek))
-                    {
-                        <div class="task">
-                            <h3>Task: @task.Name</h3>
-                            <p>Date and time: @task.TaskDateTime.ToString("dd/MM/yyyy HH:mm")</p>
-                            <p>Area: @task.EnclosureArea</p>
-                            <p>Enclosure: @task.EnclosureNumber</p>
-                            <a asp-page="TaskDetails" asp-route-id="@task.ID">Details</a>
-
-                        </div>
-                    }
-                }
-
-            </div>
-        </div>
-
     </div>
 
 
