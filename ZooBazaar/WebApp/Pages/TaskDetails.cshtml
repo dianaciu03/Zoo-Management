@@ -9,22 +9,25 @@
             <li><a asp-page="/User">My details</a></li>
         </ul>
     </header>
-    <div class="task-details-div">
-        <h2 style="margin-left: 1rem;">Task Details</h2>
-        <ul class="task-details">
-            <li>Task ID: <b>@Model.Task.ID</b></li>
-            <li>Task: <b>@Model.Task.Name</b></li>
-            <li>Enclosure Area: <b>@Model.Task.EnclosureArea</b></li>
-            <li>Enclosure Number: <b>@Model.Task.EnclosureNumber</b></li>
-            <li>Description: <b>@Model.Task.Description</b></li>
-            <li>Date And Time <b>@Model.Task.TaskDateTime.ToString("dd/MM/yyyy hh:mm")</b></li>
-            <li>Estimated Duration: <b>@Model.Task.EstimatedDuration</b></li>
-            <li>Species: <b>@Model.Task.Species</b></li>
-            @if (@Model.Task.Animal != null)
-            {
-                <li>Animal: <b>@Model.Task.Animal.Name</b></li>
-            }
-        </ul>
-    </div>
+    <form method="post">
+        <div class="task-details-div">
+            <h2 style="margin-left: 1rem;">Task Details</h2>
+            <ul class="task-details">
+                <li>Task ID: <b>@Model.Task.ID</b></li>
+                <li>Task: <b>@Model.Task.Name</b></li>
+                <li>Enclosure Area: <b>@Model.Task.EnclosureArea</b></li>
+                <li>Enclosure Number: <b>@Model.Task.EnclosureNumber</b></li>
+                <li>Description: <b>@Model.Task.Description</b></li>
+                <li>Date And Time <b>@Model.Task.TaskDateTime.ToString("dd/MM/yyyy hh:mm")</b></li>
+                <li>Estimated Duration: <b>@Model.Task.EstimatedDuration</b></li>
+                <li>Species: <b>@Model.Task.Species</b></li>
+                @if (@Model.Task.Animal != null)
+                {
+                    <li>Animal: <b>@Model.Task.Animal.Name</b></li>
+                }
+            </ul>
+            <button style="" type="submit" name="finishedTask" value="@Model.Task.ID">Finished</button>
+        </div>
+    </form>
     <div><a asp-page="~/ShiftSchedule"></a></div>
 }

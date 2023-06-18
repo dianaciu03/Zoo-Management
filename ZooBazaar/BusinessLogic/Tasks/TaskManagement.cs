@@ -225,10 +225,12 @@ namespace BusinessLogic
 
         }
 
-        public ZooTask GetTask(int id)
+        public ZooTask? GetTask(int id)
         {
-            ZooTaskDTO taskDto = taskRepository.GetTask(id);
+            ZooTaskDTO? taskDto = taskRepository.GetTask(id);
 
+            //if (taskDto == null)
+      
             Animal? animal = null;
             if (taskDto.AnimalID != null)
                 animal = animalRepository.GetAnimalByID((int)taskDto.AnimalID)!.DTOToAnimal();
@@ -337,7 +339,7 @@ namespace BusinessLogic
 
         public void CompleteTask(ZooTask task)
         {
-            task.Status = "Finished";
+            taskRepository.UpdateTaskStatus("Finished", task.ID);
         }
     }
 }

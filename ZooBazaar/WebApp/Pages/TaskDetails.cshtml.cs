@@ -27,6 +27,13 @@ namespace WebApp.Pages
             Task = taskManagement.GetTask(id);
             return Page();
         }
+        public IActionResult OnPost()
+        {
+            int taskId = Convert.ToInt32(Request.Form["finishedTask"]);
+            Task = taskManagement.GetTask(taskId);
+            taskManagement.CompleteTask(Task);
+            return RedirectToPage("User");
+        }
         [BindProperty]
         public ZooTask Task { get; set; }
         [BindProperty]

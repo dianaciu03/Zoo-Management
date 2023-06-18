@@ -308,7 +308,7 @@ namespace DataAccess
 
                 SqlCommand command = new SqlCommand("" +
                     " INSERT INTO TaskEmployeeRelation VALUES (@EmployeeID,@TaskID); " +
-                    " Update Tasks Set TaskStatus = @TaskStatus WHERE TaskID = @TaskID ",
+                    " Update Tasks Set TaskStatus = @TaskStatus WHERE TaskID = @TaskID; ",
                     connection);
 
                 command.Parameters.AddWithValue("@EmployeeID", employeeID);

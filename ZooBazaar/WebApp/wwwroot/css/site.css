@@ -276,6 +276,13 @@ filter: brightness(40%);
     border-radius: 5px;
 }
 
+.task-details-div button {
+    margin-left: 1rem;
+    width: 30%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .edit-link-button {
     margin-left: 1rem;
     background-color: #234b76;
@@ -363,6 +370,31 @@ filter: brightness(40%);
     background-position: center;
 }
 
+.tasks{
+    padding: 0 0 0 3rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.task {
+    font-size: 22px;
+    margin: 0;
+    border-style: none;
+    background-color: #DED8D8;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.task h3{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+
 .shifts-container{
     width: 97%;
     display: grid;
@@ -414,17 +446,18 @@ filter: brightness(40%);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
-.tasks-list a{
-    display: block;
-    text-align: center;
-    color: white;
-    background-color: #234b76;
-    text-decoration: none;
-    margin-top: 10px;
-    padding: 2px 0px;
-    border-radius: 5px;
-    width: 100%;
-}
+    .tasks-list a, .task a {
+        display: block;
+        text-align: center;
+        color: white;
+        background-color: #234b76;
+        text-decoration: none;
+        margin-top: 10px;
+        padding: 2px 0px;
+        border-radius: 5px;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
 
 .tasks-list div p{
     margin: 0;
