@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BarcodeLib" Version="3.0.0" />
-    <PackageReference Include="FreeSpire.Barcode" Version="6.6.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 

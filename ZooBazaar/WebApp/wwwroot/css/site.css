@@ -673,4 +673,10 @@ filter: brightness(40%);
     counter-increment: gallery-cell;
 }
 
+#save_tickets_button {
+    background-color: #faa35d;
+    border: none;
+    color: #6b6b6b;
+    font-size: 1.3em;
+    padding: 16px 32px;
 }

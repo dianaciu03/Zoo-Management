@@ -32,7 +32,8 @@ namespace DataAccess.Tickets
                 try
                 {
                     connection.Open();
-                    if (newNumber.ExecuteScalar() != DBNull.Value){
+                    if (newNumber.ExecuteScalar() != DBNull.Value)
+                    {
                         currentHighest = Convert.ToDecimal(newNumber.ExecuteScalar());
                     }
                     else
