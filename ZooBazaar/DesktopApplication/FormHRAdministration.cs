@@ -139,9 +139,22 @@ namespace DesktopApplication
                 // Try to parse the input string as a date
                 if (DateTime.TryParseExact(input, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
-                    // If the parsing is successful, format the date and update the text box
-                    maskedtbxDoBEmployee.Text = date.ToString("MM/dd/yyyy");
-                    maskedtbxDoBEmployee.SelectionStart = maskedtbxDoBEmployee.Text.Length;
+                    if(date < DateTime.Now)
+                    {
+                        // If the parsing is successful, format the date and update the text box
+                        maskedtbxDoBEmployee.Text = date.ToString("MM/dd/yyyy");
+                        maskedtbxDoBEmployee.SelectionStart = maskedtbxDoBEmployee.Text.Length;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid birthday!");
+                        return;
+                    }
+                }
+                if (!FormDataValidator.IsValidEmail(tbxEmail.Text))
+                {
+                    MessageBox.Show("Please enter a valid email!");
+                    return;
                 }
                 Employee employee = new Employee(tbxNewEmpFirstName.Text, tbxNewEmpLastName.Text, date, gender, tbxPhone.Text, tbxNewEmpAddress.Text, tbxEmployeePassword.Text, tbxEmail.Text, (ROLE)cbxNewEmpRole.SelectedItem);
 
@@ -157,7 +170,7 @@ namespace DesktopApplication
             }
             catch
             {
-                MessageBox.Show("All the fields must be entered");
+                MessageBox.Show("All the fields must be completed!");
             }
         }
 

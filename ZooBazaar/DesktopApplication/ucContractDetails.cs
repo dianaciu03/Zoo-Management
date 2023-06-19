@@ -55,7 +55,7 @@ namespace DesktopApplication
             else
             {
                 nudWeeklyHoursContractEdit.Enabled = true;
-                nudWeeklyHoursContractEdit.Value = 0;
+                nudWeeklyHoursContractEdit.Value = 8;
             }
         }
 
@@ -72,6 +72,10 @@ namespace DesktopApplication
                 if(!checkBoxContractNotMentionedContractEdit.Checked)
                 {
                     employeeContract.ContractEndDate = DateTime.ParseExact(dateTimePickerEndDateContractEdit.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
+                }
+                else
+                {
+                    employeeContract.ContractEndDate = null;
                 }
                 employeeContract.Salary = Convert.ToDouble(tbSalaryContractEdit.Text);
                 employeeContract.HoursPerWeek = (int)nudWeeklyHoursContractEdit.Value;
@@ -95,18 +99,22 @@ namespace DesktopApplication
         private void ucContractDetails_Load(object sender, EventArgs e)
         {
             dateTimePickerStartDateEmployeeContractEdit.Value = employeeContract.ContractStartDate;
-            var endDate = DateTime.ParseExact("01/01/0001", "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
-            if (employeeContract.ContractEndDate > endDate)
+            //gotta check if the value from db is not null (is not 01/01/0001 00:00:00)
+            string[] testEndDate = employeeContract.ContractEndDate.ToString().Split(' ');
+            DateTime endDate = DateTime.Now;
+            if (testEndDate[0] != "01/01/0001")
             {
-                dateTimePickerEndDateContractEdit.Value = (DateTime)employeeContract.ContractEndDate;
-
+                endDate = DateTime.ParseExact(testEndDate[0], "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
             }
             else
             {
-                dateTimePickerEndDateContractEdit.Value = DateTime.Now;
+                endDate = DateTime.ParseExact(DateTime.Now.ToShortDateString(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
                 dateTimePickerEndDateContractEdit.Enabled = false;
                 checkBoxContractNotMentionedContractEdit.Checked = true;
             }
+
+            dateTimePickerEndDateContractEdit.Value = endDate;
+
             nudWeeklyHoursContractEdit.Value = employeeContract.HoursPerWeek;
             if (employeeContract.HoursPerWeek == 40)
             {

@@ -177,11 +177,31 @@
             // 
             // nudWeeklyHoursContractEdit
             // 
+            this.nudWeeklyHoursContractEdit.Increment = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             this.nudWeeklyHoursContractEdit.Location = new System.Drawing.Point(164, 265);
             this.nudWeeklyHoursContractEdit.Margin = new System.Windows.Forms.Padding(6);
+            this.nudWeeklyHoursContractEdit.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.nudWeeklyHoursContractEdit.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
             this.nudWeeklyHoursContractEdit.Name = "nudWeeklyHoursContractEdit";
             this.nudWeeklyHoursContractEdit.Size = new System.Drawing.Size(165, 32);
             this.nudWeeklyHoursContractEdit.TabIndex = 25;
+            this.nudWeeklyHoursContractEdit.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
             // 
             // labelWeeklyHours
             // 
