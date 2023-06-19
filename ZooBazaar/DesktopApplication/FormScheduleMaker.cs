@@ -22,9 +22,13 @@ namespace DesktopApplication
         private readonly IAnimalManagement animalManagement;
         IEmployeeManagement employeeManagement = new EmployeeManagement(new EmployeeRepository());
         Shift[] shifts;
+        ZooTask[] dailyTasks;
+        ZooTask[] weeklyTasks;
 
         List<Animal> searchedAnimals;
         public int Counter { get; set; } = 1;
+        public DateTime ScheduleStartDate { get; set; }
+        public DateTime ScheduleEndDate { get; set; }
         public FormScheduleMaker(IAnimalManagement am)
         {
             InitializeComponent();
@@ -35,10 +39,12 @@ namespace DesktopApplication
             initializeAreaComboBox();
             updateTasks();
             updateDates(Counter);
+            UpdateWeeklyShifts(ScheduleStartDate, ScheduleEndDate);
             groupBoxTaskDetails.Visible = false;
             cbxTaskEncArea.SelectedText = "";
             rbtnDailyTask.Visible = false;
             rbtnWeeklyTask.Visible = false;
+            btnPublishSchedule.Visible = false;
         }
 
         private void btnScheduleTask_Click(object sender, EventArgs e)
@@ -296,8 +302,8 @@ namespace DesktopApplication
             AutomaticScheduling scheduleMaker = new AutomaticScheduling();
             CaretakerWithHours[] careTakers = employeeManagement.GetCareTakers();
             btnPublishSchedule.Visible = true;
-            ZooTask[] dailyTasks = taskManagement.GetRepetitiveTasks("Daily");
-            ZooTask[] weeklyTasks = taskManagement.GetRepetitiveTasks("Weekly");
+            dailyTasks = taskManagement.GetRepetitiveTasks("Daily");
+            weeklyTasks = taskManagement.GetRepetitiveTasks("Weekly");
 
             DateTime today = DateTime.Today;
             int daysUntilMonday = 7;
@@ -310,29 +316,22 @@ namespace DesktopApplication
             DateTime endDay = scheduleWeekStart.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
 
             shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers, scheduleWeekStart);
+            btnPublishSchedule.Visible = true;
 
-            bool success = scheduleManagement.AddShifts(shifts, scheduleWeekStart, endDay);
-            if (success)
-            {
-                taskManagement.RescheduleTasks(dailyTasks, scheduleWeekStart, Counter);
-                taskManagement.RescheduleTasks(weeklyTasks, scheduleWeekStart, Counter);
-            }
-
-            string message = string.Empty;
-            if (success == false)
-            {
-                message += "Schedule could not be published because it overlaps with the one that already exists";
-            }
-            else
-            {
-                foreach (Shift shift in shifts)
-                {
-                    message += $"{shift.ShiftTime} - {shift.Employee.FirstName + " " + shift.Employee.LastName}\n";
-                }
-            }
-            MessageBox.Show(message);
+            ScheduleStartDate = scheduleWeekStart;
+            ScheduleEndDate = endDay;
 
             updateDates(Counter);
+            lvwGeneratedShifts.Items.Clear();
+            foreach (Shift shift in shifts)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = shift;
+                item.Text = shift.ShiftTime.ToString("dd / MM / yyyy");
+                item.SubItems.Add(shift.Employee.FirstName + " " + shift.Employee.LastName);
+                item.SubItems.Add(shift.ShiftTime.ToString("HH:mm"));
+                lvwGeneratedShifts.Items.Add(item);
+            }
             updateTasks();
         }
 
@@ -350,16 +349,14 @@ namespace DesktopApplication
             DateTime scheduleEnd = scheduleStart.AddDays(6);
             tbxScheduleEndDate.Text = scheduleEnd.ToString("dd / MM / yyyy");
 
-            UpdateWeeklyShifts(scheduleStart, scheduleEnd);
+            ScheduleStartDate = scheduleStart;
+            ScheduleEndDate = scheduleEnd;
+
+            //UpdateWeeklyShifts(scheduleStart, scheduleEnd);
         }
 
 
         private void nudScheduleLenght_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }
@@ -389,6 +386,7 @@ namespace DesktopApplication
             {
                 Counter--;
                 updateDates(Counter);
+                UpdateWeeklyShifts(ScheduleStartDate, ScheduleEndDate);
             }
         }
 
@@ -398,6 +396,8 @@ namespace DesktopApplication
             {
                 Counter++;
                 updateDates(Counter);
+                UpdateWeeklyShifts(ScheduleStartDate, ScheduleEndDate);
+
             }
         }
 
@@ -423,6 +423,41 @@ namespace DesktopApplication
                 item.SubItems.Add(shift.ShiftTime.ToString("HH:mm"));
                 lvwGeneratedShifts.Items.Add(item);
             }
+        }
+
+        private void btnPublishSchedule_Click(object sender, EventArgs e)
+        {
+
+            bool success = scheduleManagement.AddShifts(shifts, ScheduleStartDate, ScheduleEndDate);
+            if (success)
+            {
+                taskManagement.RescheduleTasks(dailyTasks, ScheduleStartDate, Counter);
+                taskManagement.RescheduleTasks(weeklyTasks, ScheduleStartDate, Counter);
+            }
+
+            string message = string.Empty;
+            if (success == false)
+            {
+                message += "Schedule could not be published because it overlaps with the one that already exists";
+            }
+            else
+            {
+                foreach (Shift shift in shifts)
+                {
+                    message += $"{shift.ShiftTime} - {shift.Employee.FirstName + " " + shift.Employee.LastName}\n";
+                }
+            }
+            MessageBox.Show(message);
+
+            updateDates(Counter);
+            UpdateWeeklyShifts(ScheduleStartDate, ScheduleEndDate);
+            updateTasks();
+            btnPublishSchedule.Visible = false;
+        }
+
+        private void btnDeleteShifts_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

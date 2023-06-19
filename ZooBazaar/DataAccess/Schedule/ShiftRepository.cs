@@ -101,6 +101,37 @@ namespace DataAccess
                 }
             }
         }
+        public void DeleteShiftsWithinRange(DateTime start, DateTime end)
+        {
+            List<ShiftDTO> shifts = new List<ShiftDTO>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return; }
+                DateTime dateTime = DateTime.Now;
+                SqlCommand query = new SqlCommand("Delete FROM Shifts " +
+                                                  "   WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) >= @StartDate" +
+                                                  "   AND CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) <= @EndDate;", connection);
+                query.Parameters.AddWithValue("@StartDate", start.Date);
+                query.Parameters.AddWithValue("@EndDate", end.Date);
+
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ShiftDTO shift = new ShiftDTO()
+                        {
+                            ShiftId = Convert.ToInt32(reader["ShiftId"].ToString()),
+                            EmployeeId = Convert.ToInt32(reader["ShiftEmployeeId"].ToString()),
+                            ShiftTime = Convert.ToDateTime(reader["ShiftTime"].ToString())
+                        };
+                        shifts.Add(shift);
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+            }
+        }
         public int[] GetShiftEmployees(DateTime date)
         {
             List<int> employeeIDs = new List<int>();

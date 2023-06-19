@@ -123,6 +123,7 @@
             label14 = new Label();
             btnScheduleShifts = new Button();
             labelTitleZooBazaar = new Label();
+            btnDeleteShifts = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).BeginInit();
@@ -866,6 +867,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(btnDeleteShifts);
             tabPage2.Controls.Add(btnNextWeek);
             tabPage2.Controls.Add(btnPrevWeek);
             tabPage2.Controls.Add(btnPublishSchedule);
@@ -916,7 +918,7 @@
             btnPublishSchedule.Text = "Publish";
             btnPublishSchedule.UseVisualStyleBackColor = true;
             btnPublishSchedule.Visible = false;
-            btnPublishSchedule.Click += button1_Click;
+            btnPublishSchedule.Click += btnPublishSchedule_Click;
             // 
             // btnShiftsDetails
             // 
@@ -1020,9 +1022,9 @@
             // 
             btnScheduleShifts.Location = new Point(97, 234);
             btnScheduleShifts.Name = "btnScheduleShifts";
-            btnScheduleShifts.Size = new Size(406, 41);
+            btnScheduleShifts.Size = new Size(322, 41);
             btnScheduleShifts.TabIndex = 0;
-            btnScheduleShifts.Text = "ScheduleShifts";
+            btnScheduleShifts.Text = "Schedule";
             btnScheduleShifts.UseVisualStyleBackColor = true;
             btnScheduleShifts.Click += btnScheduleShifts_Click;
             // 
@@ -1036,6 +1038,16 @@
             labelTitleZooBazaar.Size = new Size(184, 37);
             labelTitleZooBazaar.TabIndex = 11;
             labelTitleZooBazaar.Text = "ZooBazaar";
+            // 
+            // btnDeleteShifts
+            // 
+            btnDeleteShifts.Location = new Point(436, 234);
+            btnDeleteShifts.Name = "btnDeleteShifts";
+            btnDeleteShifts.Size = new Size(322, 41);
+            btnDeleteShifts.TabIndex = 15;
+            btnDeleteShifts.Text = "Delete";
+            btnDeleteShifts.UseVisualStyleBackColor = true;
+            btnDeleteShifts.Click += btnDeleteShifts_Click;
             // 
             // FormScheduleMaker
             // 
@@ -1173,5 +1185,6 @@
         private Button btnPrevWeek;
         private ColumnHeader columnHeader6;
         private Button btnRefresh;
+        private Button btnDeleteShifts;
     }
 }
