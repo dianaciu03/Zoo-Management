@@ -33,7 +33,7 @@
                 <label>tickets</label>
             </div>
             <div class="date-order">
-                <label asp-for="ValidDate">Date:</label>
+                <label asp-for="ValidDate" min="">Date:</label>
                 <input asp-for="ValidDate" type="date">
             </div>
             <button style="margin-top:60px; margin-bottom:20px;" type="submit" class="order-button">Place Order</button>
@@ -47,4 +47,7 @@
 
     // Set the default value of the date input field
     document.getElementById("ValidDate").value = currentDate;
+
+    // Set the minimum date attribute of the input field
+    document.getElementById("ValidDate").min = currentDate;
 </script>
