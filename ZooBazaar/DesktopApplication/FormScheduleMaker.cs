@@ -172,6 +172,12 @@ namespace DesktopApplication
         {
             searchedAnimals = animalManagement.GetSearchedAnimals(tbxSearchByName.Text, cbxSearchBySpecie.SelectedItem.ToString(), string.Empty, string.Empty, string.Empty, null, string.Empty);
             updateSearchedAnimalListView();
+
+            string species = cbxSearchBySpecie.Text;
+            string origin = animalManagement.GetOrginEnclosureOfSpecies(species, out int enclosureNumber);
+
+            cbxTaskEncArea.Text = origin;
+            nudTaskEncNumber.Value = enclosureNumber;
         }
 
         private void updateTasks()
