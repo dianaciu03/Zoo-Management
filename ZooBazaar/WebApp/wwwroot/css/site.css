@@ -654,7 +654,8 @@ filter: brightness(40%);
         font-size: 25px;
     }
 
-/*Gallery page*/
+/*Gallery page */
+/*Wtf does * mean in styling -M */
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
