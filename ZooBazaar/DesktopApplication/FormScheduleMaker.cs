@@ -459,5 +459,14 @@ namespace DesktopApplication
         {
             scheduleManagement.DeleteShiftsWhitinRange(ScheduleStartDate, ScheduleEndDate);
         }
+
+        private void cbxSearchBySpecie_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string species = cbxSearchBySpecie.Text;
+            string origin = animalManagement.GetOrginEnclosureOfSpecies(species, out int enclosureNumber);
+
+            cbxTaskEncArea.Text = origin;
+            nudTaskEncNumber.Value = enclosureNumber;
+        }
     }
 }
