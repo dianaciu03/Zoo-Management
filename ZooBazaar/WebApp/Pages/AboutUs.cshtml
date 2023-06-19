@@ -21,7 +21,25 @@
 			<li class="checklist-item"><span class="checkmark">&#10004;</span> Endangered Species Protection: Actively working to safeguard vulnerable species.</li>
 			<li class="checklist-item"><span class="checkmark">&#10004;</span> Ethical Practices: Ensuring the highest standards of animal welfare.</li>
 		</ul>
-
 	</div>
 	
+</div>
+<div class="statstics-content">
+	<div class="statistics-box" align="center">
+		<img style="border-radius: 50%;" src="~/images/animal-statistics.png" />
+		<p class="statistics-number">@Model.GetTotalAnimals()</p>
+		<p class="statistics-type">+Total Animals</p>
+	</div>
+	<div class="statistics-box" align="center">
+		<img style="border-radius: 50%;" src="~/images/current-visitors.png" />
+		<p class="statistics-number">@Model.GetCurrentVisitors()</p>
+	</div>
+	<div class="statistics-box" align="center">
+		<img style="border-radius: 50%;" src="~/images/visitors.png" />
+		<p class="statistics-number">@Model.GetTotalEmployees()</p>
+	</div>
+	<div class="statistics-box" align="center">
+		<img style="border-radius: 50%;" src="~/images/experts.png" />
+		<p class="statistics-number">@Model.GetTotalSpecies()</p>
+	</div>
 </div>

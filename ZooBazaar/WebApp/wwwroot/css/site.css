@@ -492,7 +492,7 @@ filter: brightness(40%);
 .aboutus {
     top: 0;
     width: 100%;
-    height: 50vh;
+    height: 55vh;
     background-size: cover;
     background-position: center;
     background-image: url("../images/aboutus1.jpg");
@@ -503,29 +503,30 @@ filter: brightness(40%);
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 100px;
+    column-gap: 100px;
     padding: 0 8vh;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     top: 20vh;
+    height: 30vh;
 }
 
 .aboutus-img {
     width: auto;
-    height: 100vh; 
+    height: 55vh; 
     background-image: url("../images/01.png");
     background-size: contain; 
     background-repeat: no-repeat; 
 }
 
 .secret-box {
-    height: 71vh;
-    width: 53vh;
+    height: 66vh;
+    width: 50vh;
     content: "";
     position: absolute;
     border: 4px solid #6AAF08;
-    left: 235px;
-    top: -64px;
+    left: 248px;
+    top: -60px;
     border-radius: 10px;
     z-index: -1;
 }
@@ -551,7 +552,7 @@ filter: brightness(40%);
 }
 
 .checklist-item {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1.5;
     margin-bottom: 10px;
 }
@@ -679,4 +680,39 @@ filter: brightness(40%);
     color: #6b6b6b;
     font-size: 1.3em;
     padding: 16px 32px;
+}
+
+.statistics-box {
+    height: 250px;
+    width: 350px;
+    content: "";
+    border: 4px solid #6AAF08;
+    background-color: #6AAF08;
+    border-radius: 10px;
+    z-index: -1
+}
+
+.statstics-content {
+    width: 100%;
+    display: grid;
+    top: 55vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-content: center;
+    column-gap: 30px;
+    padding: 200px 50px 100px 50px;
+    position: relative;
+    justify-items: center;
+}
+
+.statistics-number {
+    font-size: 48px;
+    color: #ffffff;
+    font-weight: 700
+}
+
+.statistics-type {
+    font-size: 38px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 0;
 }
