@@ -457,7 +457,7 @@ namespace DesktopApplication
 
         private void btnDeleteShifts_Click(object sender, EventArgs e)
         {
-
+            scheduleManagement.DeleteShiftsWhitinRange(ScheduleStartDate, ScheduleEndDate);
         }
     }
 }

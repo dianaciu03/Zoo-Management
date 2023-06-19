@@ -89,5 +89,10 @@ namespace BusinessLogic
             }
             return employeeShifts.ToArray();
         }
+
+        public void DeleteShiftsWhitinRange(DateTime start, DateTime end)
+        {
+            shiftRepo.DeleteShiftsWithinRange(start, end);
+        }
     }
 }

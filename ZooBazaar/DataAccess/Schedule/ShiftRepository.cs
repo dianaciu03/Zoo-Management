@@ -109,27 +109,35 @@ namespace DataAccess
                 try { connection.Open(); }
                 catch (SqlException) { return; }
                 DateTime dateTime = DateTime.Now;
-                SqlCommand query = new SqlCommand("Delete FROM Shifts " +
-                                                  "   WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) >= @StartDate" +
-                                                  "   AND CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) <= @EndDate;", connection);
-                query.Parameters.AddWithValue("@StartDate", start.Date);
-                query.Parameters.AddWithValue("@EndDate", end.Date);
+                SqlCommand queryDeleteShifts = new SqlCommand(
+                                                  " Delete FROM Shifts " +
+                                                  "   WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) >= @StartDate " +
+                                                  "   AND CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, ShiftTime))) <= @EndDate; ", connection);
+                queryDeleteShifts.Parameters.AddWithValue("@StartDate", start.Date);
+                queryDeleteShifts.Parameters.AddWithValue("@EndDate", end.Date);
+                
+                SqlCommand queryDeleteTaskRelations = new SqlCommand(
+                                                  " DELETE FROM TaskEmployeeRelation " +
+                                                  " WHERE TaskID IN (" +
+                                                  "   SELECT tr.TaskID" +
+                                                  "   FROM TaskEmployeeRelation tr " +
+                                                  "   INNER JOIN Tasks t ON tr.TaskID = t.TaskID " +
+                                                  "   WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, t.TaskDate))) >= @StartDate " +
+                                                  "   AND CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, t.TaskDate))) <= @EndDate); ", connection);
+                queryDeleteTaskRelations.Parameters.AddWithValue("@StartDate", start.Date);
+                queryDeleteTaskRelations.Parameters.AddWithValue("@EndDate", end.Date);
 
-                using (SqlDataReader reader = query.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        ShiftDTO shift = new ShiftDTO()
-                        {
-                            ShiftId = Convert.ToInt32(reader["ShiftId"].ToString()),
-                            EmployeeId = Convert.ToInt32(reader["ShiftEmployeeId"].ToString()),
-                            ShiftTime = Convert.ToDateTime(reader["ShiftTime"].ToString())
-                        };
-                        shifts.Add(shift);
-                    }
-                    reader.Close();
-                    connection.Close();
-                }
+                SqlCommand queryDeleteTasks = new SqlCommand(
+                                                  " DELETE FROM Tasks " +
+                                                  "   WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, TaskDate))) >= @StartDate " +
+                                                  "   AND CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, TaskDate))) <= @EndDate; ", connection);
+                queryDeleteTasks.Parameters.AddWithValue("@StartDate", start.Date);
+                queryDeleteTasks.Parameters.AddWithValue("@EndDate", end.Date);
+
+
+                queryDeleteShifts.ExecuteNonQuery();
+                queryDeleteTaskRelations.ExecuteNonQuery();
+                queryDeleteTasks.ExecuteNonQuery();
             }
         }
         public int[] GetShiftEmployees(DateTime date)
