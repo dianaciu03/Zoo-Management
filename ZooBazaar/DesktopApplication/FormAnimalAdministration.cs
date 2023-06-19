@@ -531,7 +531,7 @@ namespace DesktopApplication
                 cbxEndangermentAddAnimal.SelectedIndex = -1;
                 cbxOriginAddAnimal.SelectedIndex = -1;
                 maskedtbxBirthDateAddAnimalForm.Text = string.Empty;
-                nudEnclosureAddAnimal.Value = 0;
+                nudEnclosureAddAnimal.Value = 1;
                 tbxAdditionalCommentsAddAnimal.Text = string.Empty;
             }
             catch (Exception ex)
@@ -603,22 +603,22 @@ namespace DesktopApplication
 
             Animal animal = (Animal)binding.DataSource;
 
+            cbxOtherAnimalRelationship.Items.Clear();
+            cbxOtherAnimalRelationship.Text = "";
+
             List<Animal> animalsInSpecies = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
             switch (cbxRelationshipType.SelectedIndex)
             {
                 case 0:
                     //children
-                    cbxOtherAnimalRelationship.Items.Clear();
                     animalsInSpecies.Where(a => a.Birthday > animal.Birthday).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
                     break;
                 case 1:
                     //parents
-                    cbxOtherAnimalRelationship.Items.Clear();
                     animalsInSpecies.Where(a => a.Birthday < animal.Birthday).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
                     break;
                 case 2:
                     //mates
-                    cbxOtherAnimalRelationship.Items.Clear();
                     animalsInSpecies.Where(a => a.Gender != animal.Gender).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
                     break;
             }
@@ -632,21 +632,23 @@ namespace DesktopApplication
             Animal animal = (Animal)binding.DataSource;
 
             List<Animal> animalsInSpecies = animalManagement.OtherInSpeciesSearch(animal.Id, animal.Species);
+
+            cbOtherAnimal.Items.Clear();
+            cbOtherAnimal.Text = "";
+
+
             switch (cbRelationShipType.SelectedIndex)
             {
                 case 0:
                     //children
-                    cbOtherAnimal.Items.Clear();
                     animalsInSpecies.Where(a => a.Birthday > animal.Birthday).ToList().ForEach(a => cbOtherAnimal.Items.Add(a));
                     break;
                 case 1:
                     //parents
-                    cbOtherAnimal.Items.Clear();
                     animalsInSpecies.Where(a => a.Birthday < animal.Birthday).ToList().ForEach(a => cbOtherAnimal.Items.Add(a));
                     break;
                 case 2:
                     //mates
-                    cbOtherAnimal.Items.Clear();
                     animalsInSpecies.Where(a => a.Gender != animal.Gender).ToList().ForEach(a => cbOtherAnimal.Items.Add(a));
                     break;
             }
