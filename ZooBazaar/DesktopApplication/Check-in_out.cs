@@ -24,6 +24,7 @@ namespace DesktopApplication
             ticketManagement = new TicketManagement();
             panelInvalidTicket.Hide();
             panelValidTicket.Hide();
+            pannelWelcome.Hide();
         }
 
 
@@ -38,9 +39,16 @@ namespace DesktopApplication
             textBoxBarcodeString.Clear();
             if (ticketManagement.IsValid(barcode, DateTime.Today))
             {
-                ticketManagement.Check_in_out(barcode);
+                bool Checkin = ticketManagement.Check_in_out(barcode);
+                if (Checkin)
+                {
+                    pannelWelcome.Show();
+                }
+                else
+                {
+                    panelValidTicket.Show();
+                }
                 panelInvalidTicket.Hide();
-                panelValidTicket.Show();
             }
             else
             {
@@ -50,6 +58,7 @@ namespace DesktopApplication
             await Task.Delay(2000);
             panelInvalidTicket.Hide();
             panelValidTicket.Hide();
+            pannelWelcome.Hide();
         }
     }
 }

@@ -59,15 +59,17 @@ namespace BusinessLogic.Tickets
             return false;
         }
 
-        public void Check_in_out(string barcode)
+        public bool Check_in_out(string barcode)
         {
             if (ticketRepository.AlreadyCheckedIn(barcode))
             {
                 ticketRepository.CheckOut(barcode, DateTime.Now);
+                return false;
             }
             else
             {
                 ticketRepository.CheckIn(barcode, DateTime.Now);
+                return true;
             }
         }
 

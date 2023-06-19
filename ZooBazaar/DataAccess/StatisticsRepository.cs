@@ -85,7 +85,7 @@ namespace DataAccess
             {
                 int employeeCount = 0;
                 SqlCommand query = new SqlCommand("SELECT Count(BarcodeString) FROM sales " +
-                    "WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, salesDate))) = @Date " +
+                    "WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, Checkins))) = @Date " +
                     "AND Checkout IS NULL", connection);
 
                 query.Parameters.AddWithValue("@Date", DateTime.Today);
