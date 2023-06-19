@@ -94,6 +94,7 @@ namespace DesktopApplication
             cbxEndangermentEdit.SelectedItem = a.Endangerment;
             if (a.Gender == "Male") rbtnMaleEdit.Checked = true;
             else if (a.Gender == "Female") rbtnFemaleEdit.Checked = true;
+            numudEnclosureEdit.Value = 1;
             numudEnclosureEdit.Value = a.Enclosure;
             tbxAdditionalCommentsEdit.Text = a.Description;
         }
