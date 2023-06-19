@@ -684,8 +684,8 @@ filter: brightness(40%);
 }
 
 .statistics-box {
-    height: 250px;
-    width: 350px;
+    height: 275px;
+    width: 370px;
     content: "";
     border: 4px solid #6AAF08;
     background-color: #6AAF08;
@@ -708,12 +708,13 @@ filter: brightness(40%);
 .statistics-number {
     font-size: 48px;
     color: #ffffff;
-    font-weight: 700
+    font-weight: 700;
+    margin-bottom: 0;
 }
 
 .statistics-type {
-    font-size: 38px;
+    font-size: 36px;
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 500;
     margin-top: 0;
 }
