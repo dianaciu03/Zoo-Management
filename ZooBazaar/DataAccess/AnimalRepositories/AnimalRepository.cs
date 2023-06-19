@@ -194,7 +194,7 @@ namespace DataAccess.AnimalRepositories
                 SqlCommand query = new SqlCommand("SELECT * FROM Animals" +
                     " WHERE " +
                     "   Name like '%'+@Name+'%' AND" +
-                    "   Gender like '%'+@Gender+'%' AND" +
+                    "   Gender like @Gender+'%' AND" +
                     "   Species like '%'+@Species+'%' AND" +
                     "   Origin like '%'+@Origin+'%' AND" +
                     "   BirthDate like '%'+@BirthYear+'%' AND" +

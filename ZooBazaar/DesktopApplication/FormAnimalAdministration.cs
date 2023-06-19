@@ -229,6 +229,7 @@ namespace DesktopApplication
                     {
                         animalManagement.ChangeAnimalAvailability(animal.Id, "Transfered");
                     }
+                    FillTransfersList();
                     //resets to original state
                     btnCancelTransfer_Click(this, EventArgs.Empty);
                 }
@@ -409,7 +410,6 @@ namespace DesktopApplication
             {
                 birthYear = DateTime.Now.AddYears((int)age * (-1)).Year;
             }
-            
 
             searchedAnimals = animalManagement.GetSearchedAnimals(tbxName.Text, cbxAnimalSpeciesSearch.Text, cbxOrigin.Text, gender, availability, birthYear, cbxEndangerment.Text);
             updateAnimalListview(searchedAnimals.ToArray());

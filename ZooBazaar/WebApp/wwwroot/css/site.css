@@ -444,6 +444,7 @@ filter: brightness(40%);
         border-radius: 5px;
         padding: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin-top: 10px;
     }
 
     .tasks-list a, .task a {
@@ -467,10 +468,12 @@ filter: brightness(40%);
 }
 
 .week-control{
-    width: 97%;
+    width: 98%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 12px;
+    margin-bottom: 23px;
 }
 
 .week-control div{
