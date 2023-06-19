@@ -102,6 +102,7 @@ namespace DesktopApplication
             if (selectedTask != null && selectedCaretaker != null)
                 taskManagement.AssignEmployee(selectedTask, selectedCaretaker);
             updateAvailableTasksListview();
+            updateAllTasksListview();
         }
 
         private void btnMoreDetailsTask_Click(object sender, EventArgs e)
@@ -166,6 +167,8 @@ namespace DesktopApplication
             {
                 MessageBox.Show("There are tasks that could not be assigned! Please assign them manually!");
             }
+            updateAllTasksListview();
+            updateAvailableTasksListview();
         }
     }
 }

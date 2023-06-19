@@ -106,11 +106,9 @@
             tbxTaskTitle = new TextBox();
             label6 = new Label();
             tabPage2 = new TabPage();
+            btnDeleteShifts = new Button();
             btnNextWeek = new Button();
             btnPrevWeek = new Button();
-            btnPublishSchedule = new Button();
-            btnShiftsDetails = new Button();
-            btnRemoveShift = new Button();
             lvwGeneratedShifts = new ListView();
             columnHeader5 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
@@ -123,7 +121,7 @@
             label14 = new Label();
             btnScheduleShifts = new Button();
             labelTitleZooBazaar = new Label();
-            btnDeleteShifts = new Button();
+            btnPublishSchedule = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudTaskEncNumber).BeginInit();
@@ -871,8 +869,6 @@
             tabPage2.Controls.Add(btnNextWeek);
             tabPage2.Controls.Add(btnPrevWeek);
             tabPage2.Controls.Add(btnPublishSchedule);
-            tabPage2.Controls.Add(btnShiftsDetails);
-            tabPage2.Controls.Add(btnRemoveShift);
             tabPage2.Controls.Add(lvwGeneratedShifts);
             tabPage2.Controls.Add(tbxScheduleEndDate);
             tabPage2.Controls.Add(label16);
@@ -888,6 +884,16 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "ScheduleShifts";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteShifts
+            // 
+            btnDeleteShifts.Location = new Point(436, 234);
+            btnDeleteShifts.Name = "btnDeleteShifts";
+            btnDeleteShifts.Size = new Size(322, 41);
+            btnDeleteShifts.TabIndex = 15;
+            btnDeleteShifts.Text = "Delete";
+            btnDeleteShifts.UseVisualStyleBackColor = true;
+            btnDeleteShifts.Click += btnDeleteShifts_Click;
             // 
             // btnNextWeek
             // 
@@ -908,35 +914,6 @@
             btnPrevWeek.Text = "<";
             btnPrevWeek.UseVisualStyleBackColor = true;
             btnPrevWeek.Click += btnPrevWeek_Click;
-            // 
-            // btnPublishSchedule
-            // 
-            btnPublishSchedule.Location = new Point(827, 790);
-            btnPublishSchedule.Name = "btnPublishSchedule";
-            btnPublishSchedule.Size = new Size(534, 35);
-            btnPublishSchedule.TabIndex = 12;
-            btnPublishSchedule.Text = "Publish";
-            btnPublishSchedule.UseVisualStyleBackColor = true;
-            btnPublishSchedule.Visible = false;
-            btnPublishSchedule.Click += btnPublishSchedule_Click;
-            // 
-            // btnShiftsDetails
-            // 
-            btnShiftsDetails.Location = new Point(827, 749);
-            btnShiftsDetails.Name = "btnShiftsDetails";
-            btnShiftsDetails.Size = new Size(255, 35);
-            btnShiftsDetails.TabIndex = 11;
-            btnShiftsDetails.Text = "Details";
-            btnShiftsDetails.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoveShift
-            // 
-            btnRemoveShift.Location = new Point(1106, 749);
-            btnRemoveShift.Name = "btnRemoveShift";
-            btnRemoveShift.Size = new Size(255, 35);
-            btnRemoveShift.TabIndex = 8;
-            btnRemoveShift.Text = "Remove";
-            btnRemoveShift.UseVisualStyleBackColor = true;
             // 
             // lvwGeneratedShifts
             // 
@@ -1039,15 +1016,16 @@
             labelTitleZooBazaar.TabIndex = 11;
             labelTitleZooBazaar.Text = "ZooBazaar";
             // 
-            // btnDeleteShifts
+            // btnPublishSchedule
             // 
-            btnDeleteShifts.Location = new Point(436, 234);
-            btnDeleteShifts.Name = "btnDeleteShifts";
-            btnDeleteShifts.Size = new Size(322, 41);
-            btnDeleteShifts.TabIndex = 15;
-            btnDeleteShifts.Text = "Delete";
-            btnDeleteShifts.UseVisualStyleBackColor = true;
-            btnDeleteShifts.Click += btnDeleteShifts_Click;
+            btnPublishSchedule.Location = new Point(827, 749);
+            btnPublishSchedule.Name = "btnPublishSchedule";
+            btnPublishSchedule.Size = new Size(534, 35);
+            btnPublishSchedule.TabIndex = 12;
+            btnPublishSchedule.Text = "Publish";
+            btnPublishSchedule.UseVisualStyleBackColor = true;
+            btnPublishSchedule.Visible = false;
+            btnPublishSchedule.Click += btnPublishSchedule_Click;
             // 
             // FormScheduleMaker
             // 
@@ -1166,8 +1144,6 @@
         private TextBox tbxEnclosureArea;
         private TabPage tabPage2;
         private Button btnScheduleShifts;
-        private Button btnShiftsDetails;
-        private Button btnRemoveShift;
         private ListView lvwGeneratedShifts;
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader7;
@@ -1177,7 +1153,6 @@
         private NumericUpDown nudScheduleLenght;
         private Label label15;
         private Label label14;
-        private Button btnPublishSchedule;
         private RadioButton rbtnWeeklyTask;
         private RadioButton rbtnDailyTask;
         private CheckBox cbxRepetitiveTask;
@@ -1186,5 +1161,6 @@
         private ColumnHeader columnHeader6;
         private Button btnRefresh;
         private Button btnDeleteShifts;
+        private Button btnPublishSchedule;
     }
 }
