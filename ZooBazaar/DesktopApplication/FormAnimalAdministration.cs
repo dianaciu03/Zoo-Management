@@ -616,7 +616,23 @@ namespace DesktopApplication
                     break;
                 case 1:
                     //parents
-                    animalsInSpecies.Where(a => a.Birthday < animal.Birthday).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
+                    List<Animal> parents = animalManagement.GetParents(animal.Id);
+                    if(parents.Count == 1 && parents[0].Gender == "Male")
+                    {
+                        animalsInSpecies.Where(a => a.Birthday < animal.Birthday && a.Gender == "Female").ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
+                    }
+                    else if (parents.Count == 1 && parents[0].Gender == "Female")
+                    {
+                        animalsInSpecies.Where(a => a.Birthday < animal.Birthday && a.Gender == "Male").ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
+                    }
+                    else if (parents.Count == 2)
+                    {
+                        //dont show any since already has maximum parents
+                    }
+                    else
+                    {
+                        animalsInSpecies.Where(a => a.Birthday < animal.Birthday).ToList().ForEach(a => cbxOtherAnimalRelationship.Items.Add(a));
+                    }
                     break;
                 case 2:
                     //mates
