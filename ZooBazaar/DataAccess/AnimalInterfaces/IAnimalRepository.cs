@@ -17,6 +17,7 @@
         string[] GetAllSpecies();
         void ChangeAnimalAvailability(int animalId, string option);
         string GetOrginEnclosureOfSpecies(string species, out int enclosureNumber);
+        public void RemoveRelationship(int animalID1, int animalID2);
 
     }
 }

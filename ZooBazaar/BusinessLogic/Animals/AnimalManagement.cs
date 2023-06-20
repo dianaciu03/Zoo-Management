@@ -101,5 +101,10 @@ namespace BusinessLogic
             enclosureNumber = enclosureNum;
             return origin;
         }
+
+        public void RemoveRelationship(int animalID1, int animalID2)
+        {
+            animalHelper.RemoveRelationship(animalID1, animalID2);
+        }
     }
 }

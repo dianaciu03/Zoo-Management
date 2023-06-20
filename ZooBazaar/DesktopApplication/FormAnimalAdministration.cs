@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -264,19 +265,19 @@ namespace DesktopApplication
 
                 foreach(Animal animaltemp in animalManagement.GetParents(animal.Id))
                 {
-                    lbxRelationshipsMain.Items.Add($"Parent - {animaltemp}");
+                    lbxRelationshipsMain.Items.Add($"Parent - {animaltemp}:{animaltemp.Id}");
                 }
                 foreach(Animal animaltemp in animalManagement.GetMates(animal.Id, animal.Gender))
                 {
-                    lbxRelationshipsMain.Items.Add($"Mate - {animaltemp}");
+                    lbxRelationshipsMain.Items.Add($"Mate - {animaltemp}:{animaltemp.Id}");
                 }
                 foreach (Animal animaltemp in animalManagement.GetChildren(animal.Id))
                 {
-                    lbxRelationshipsMain.Items.Add($"Child - {animaltemp} ");
+                    lbxRelationshipsMain.Items.Add($"Child - {animaltemp}:{animaltemp.Id}");
                 }
                 foreach (Animal animaltemp in animalManagement.GetSiblings(animal.Id))
                 {
-                    lbxRelationshipsMain.Items.Add($"Sibling - {animaltemp} ");
+                    lbxRelationshipsMain.Items.Add($"Sibling - {animaltemp}:{animaltemp.Id}");
                 }
 
                 groupBoxSearchAnimal.Visible = false;
@@ -369,7 +370,13 @@ namespace DesktopApplication
 
         private void btnRemoveRelationship_Click(object sender, EventArgs e)
         {
-            //DO SOMTHING HERE AHHH
+            string animal = lbxRelationshipsMain.Text;
+            var animalsplit = animal.Split(":");
+            Animal animalanimal = (Animal)lvwAnimals.SelectedItems[0].Tag;
+
+            animalManagement.RemoveRelationship(Convert.ToInt32(animalsplit[1]), animalanimal.Id);
+            btnCancelRelationship_Click(this, EventArgs.Empty);
+
         }
 
         private void ClearRelationshipFields()
