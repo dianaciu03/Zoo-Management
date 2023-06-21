@@ -30,6 +30,8 @@
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBoxEmployeeInformation = new System.Windows.Forms.GroupBox();
+            this.lblEmpAddressEdit = new System.Windows.Forms.Label();
+            this.tbxEmpAddressEdit = new System.Windows.Forms.TextBox();
             this.btnSaveEmployeeEdit = new System.Windows.Forms.Button();
             this.btnCancelEmployeeEdit = new System.Windows.Forms.Button();
             this.rbFemaleEmployeeEdit = new System.Windows.Forms.RadioButton();
@@ -49,8 +51,6 @@
             this.tbFirstNameEmployeeEdit = new System.Windows.Forms.TextBox();
             this.labelLastNameEmployeeEdit = new System.Windows.Forms.Label();
             this.labelFirstNameEmployeeEdit = new System.Windows.Forms.Label();
-            this.tbxEmpAddressEdit = new System.Windows.Forms.TextBox();
-            this.lblEmpAddressEdit = new System.Windows.Forms.Label();
             this.groupBoxEmployeeInformation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,45 +77,62 @@
             this.groupBoxEmployeeInformation.Controls.Add(this.tbFirstNameEmployeeEdit);
             this.groupBoxEmployeeInformation.Controls.Add(this.labelLastNameEmployeeEdit);
             this.groupBoxEmployeeInformation.Controls.Add(this.labelFirstNameEmployeeEdit);
-            this.groupBoxEmployeeInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.groupBoxEmployeeInformation.Location = new System.Drawing.Point(6, 4);
-            this.groupBoxEmployeeInformation.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.groupBoxEmployeeInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBoxEmployeeInformation.Location = new System.Drawing.Point(4, 3);
+            this.groupBoxEmployeeInformation.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxEmployeeInformation.Name = "groupBoxEmployeeInformation";
-            this.groupBoxEmployeeInformation.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupBoxEmployeeInformation.Size = new System.Drawing.Size(825, 753);
+            this.groupBoxEmployeeInformation.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxEmployeeInformation.Size = new System.Drawing.Size(550, 502);
             this.groupBoxEmployeeInformation.TabIndex = 35;
             this.groupBoxEmployeeInformation.TabStop = false;
             this.groupBoxEmployeeInformation.Text = "Employee information";
             // 
+            // lblEmpAddressEdit
+            // 
+            this.lblEmpAddressEdit.AutoSize = true;
+            this.lblEmpAddressEdit.Location = new System.Drawing.Point(75, 263);
+            this.lblEmpAddressEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmpAddressEdit.Name = "lblEmpAddressEdit";
+            this.lblEmpAddressEdit.Size = new System.Drawing.Size(98, 26);
+            this.lblEmpAddressEdit.TabIndex = 38;
+            this.lblEmpAddressEdit.Text = "Address:";
+            // 
+            // tbxEmpAddressEdit
+            // 
+            this.tbxEmpAddressEdit.Location = new System.Drawing.Point(204, 261);
+            this.tbxEmpAddressEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxEmpAddressEdit.Name = "tbxEmpAddressEdit";
+            this.tbxEmpAddressEdit.Size = new System.Drawing.Size(295, 32);
+            this.tbxEmpAddressEdit.TabIndex = 37;
+            // 
             // btnSaveEmployeeEdit
             // 
-            this.btnSaveEmployeeEdit.Location = new System.Drawing.Point(460, 651);
-            this.btnSaveEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveEmployeeEdit.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnSaveEmployeeEdit.Location = new System.Drawing.Point(307, 434);
             this.btnSaveEmployeeEdit.Name = "btnSaveEmployeeEdit";
-            this.btnSaveEmployeeEdit.Size = new System.Drawing.Size(286, 60);
+            this.btnSaveEmployeeEdit.Size = new System.Drawing.Size(191, 40);
             this.btnSaveEmployeeEdit.TabIndex = 36;
             this.btnSaveEmployeeEdit.Text = "Save changes";
-            this.btnSaveEmployeeEdit.UseVisualStyleBackColor = true;
+            this.btnSaveEmployeeEdit.UseVisualStyleBackColor = false;
             this.btnSaveEmployeeEdit.Click += new System.EventHandler(this.btnSaveEmployeeEdit_Click);
             // 
             // btnCancelEmployeeEdit
             // 
-            this.btnCancelEmployeeEdit.Location = new System.Drawing.Point(80, 651);
-            this.btnCancelEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelEmployeeEdit.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnCancelEmployeeEdit.Location = new System.Drawing.Point(53, 434);
             this.btnCancelEmployeeEdit.Name = "btnCancelEmployeeEdit";
-            this.btnCancelEmployeeEdit.Size = new System.Drawing.Size(286, 60);
+            this.btnCancelEmployeeEdit.Size = new System.Drawing.Size(191, 40);
             this.btnCancelEmployeeEdit.TabIndex = 35;
             this.btnCancelEmployeeEdit.Text = "Cancel";
-            this.btnCancelEmployeeEdit.UseVisualStyleBackColor = true;
+            this.btnCancelEmployeeEdit.UseVisualStyleBackColor = false;
             this.btnCancelEmployeeEdit.Click += new System.EventHandler(this.btnCancelEmployeeEdit_Click);
             // 
             // rbFemaleEmployeeEdit
             // 
             this.rbFemaleEmployeeEdit.AutoSize = true;
-            this.rbFemaleEmployeeEdit.Location = new System.Drawing.Point(528, 199);
-            this.rbFemaleEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbFemaleEmployeeEdit.Location = new System.Drawing.Point(352, 133);
             this.rbFemaleEmployeeEdit.Name = "rbFemaleEmployeeEdit";
-            this.rbFemaleEmployeeEdit.Size = new System.Drawing.Size(148, 41);
+            this.rbFemaleEmployeeEdit.Size = new System.Drawing.Size(103, 30);
             this.rbFemaleEmployeeEdit.TabIndex = 34;
             this.rbFemaleEmployeeEdit.TabStop = true;
             this.rbFemaleEmployeeEdit.Text = "Female";
@@ -124,10 +141,9 @@
             // rbMaleEmployeeEdit
             // 
             this.rbMaleEmployeeEdit.AutoSize = true;
-            this.rbMaleEmployeeEdit.Location = new System.Drawing.Point(344, 199);
-            this.rbMaleEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMaleEmployeeEdit.Location = new System.Drawing.Point(229, 133);
             this.rbMaleEmployeeEdit.Name = "rbMaleEmployeeEdit";
-            this.rbMaleEmployeeEdit.Size = new System.Drawing.Size(110, 41);
+            this.rbMaleEmployeeEdit.Size = new System.Drawing.Size(77, 30);
             this.rbMaleEmployeeEdit.TabIndex = 33;
             this.rbMaleEmployeeEdit.TabStop = true;
             this.rbMaleEmployeeEdit.Text = "Male";
@@ -135,95 +151,94 @@
             // 
             // maskedTbBirthdayEmployeeEdit
             // 
-            this.maskedTbBirthdayEmployeeEdit.Location = new System.Drawing.Point(548, 579);
-            this.maskedTbBirthdayEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskedTbBirthdayEmployeeEdit.Location = new System.Drawing.Point(365, 386);
             this.maskedTbBirthdayEmployeeEdit.Mask = "00/00/0000";
             this.maskedTbBirthdayEmployeeEdit.Name = "maskedTbBirthdayEmployeeEdit";
-            this.maskedTbBirthdayEmployeeEdit.Size = new System.Drawing.Size(198, 44);
+            this.maskedTbBirthdayEmployeeEdit.Size = new System.Drawing.Size(133, 32);
             this.maskedTbBirthdayEmployeeEdit.TabIndex = 32;
             this.maskedTbBirthdayEmployeeEdit.ValidatingType = typeof(System.DateTime);
             // 
             // labelGenderEmployeeEdit
             // 
             this.labelGenderEmployeeEdit.AutoSize = true;
-            this.labelGenderEmployeeEdit.Location = new System.Drawing.Point(112, 205);
-            this.labelGenderEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelGenderEmployeeEdit.Location = new System.Drawing.Point(75, 137);
+            this.labelGenderEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGenderEmployeeEdit.Name = "labelGenderEmployeeEdit";
-            this.labelGenderEmployeeEdit.Size = new System.Drawing.Size(132, 37);
+            this.labelGenderEmployeeEdit.Size = new System.Drawing.Size(90, 26);
             this.labelGenderEmployeeEdit.TabIndex = 31;
             this.labelGenderEmployeeEdit.Text = "Gender:";
             // 
             // labelPasswordEmployeeEdit
             // 
             this.labelPasswordEmployeeEdit.AutoSize = true;
-            this.labelPasswordEmployeeEdit.Location = new System.Drawing.Point(83, 517);
-            this.labelPasswordEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPasswordEmployeeEdit.Location = new System.Drawing.Point(55, 345);
+            this.labelPasswordEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPasswordEmployeeEdit.Name = "labelPasswordEmployeeEdit";
-            this.labelPasswordEmployeeEdit.Size = new System.Drawing.Size(167, 37);
+            this.labelPasswordEmployeeEdit.Size = new System.Drawing.Size(114, 26);
             this.labelPasswordEmployeeEdit.TabIndex = 29;
             this.labelPasswordEmployeeEdit.Text = "Password:";
             // 
             // tbPasswordEmployeeEdit
             // 
-            this.tbPasswordEmployeeEdit.Location = new System.Drawing.Point(306, 514);
-            this.tbPasswordEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.tbPasswordEmployeeEdit.Location = new System.Drawing.Point(204, 343);
+            this.tbPasswordEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbPasswordEmployeeEdit.Name = "tbPasswordEmployeeEdit";
-            this.tbPasswordEmployeeEdit.Size = new System.Drawing.Size(440, 44);
+            this.tbPasswordEmployeeEdit.Size = new System.Drawing.Size(295, 32);
             this.tbPasswordEmployeeEdit.TabIndex = 28;
             // 
             // labelDoBEmployeeEdit
             // 
             this.labelDoBEmployeeEdit.AutoSize = true;
-            this.labelDoBEmployeeEdit.Location = new System.Drawing.Point(66, 584);
-            this.labelDoBEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelDoBEmployeeEdit.Location = new System.Drawing.Point(44, 389);
+            this.labelDoBEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDoBEmployeeEdit.Name = "labelDoBEmployeeEdit";
-            this.labelDoBEmployeeEdit.Size = new System.Drawing.Size(409, 37);
+            this.labelDoBEmployeeEdit.Size = new System.Drawing.Size(280, 26);
             this.labelDoBEmployeeEdit.TabIndex = 25;
             this.labelDoBEmployeeEdit.Text = "Date of birth (mm/dd/yyyy) :";
             // 
             // tbEmailEmployeeEdit
             // 
-            this.tbEmailEmployeeEdit.Location = new System.Drawing.Point(306, 453);
-            this.tbEmailEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.tbEmailEmployeeEdit.Location = new System.Drawing.Point(204, 302);
+            this.tbEmailEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbEmailEmployeeEdit.Name = "tbEmailEmployeeEdit";
-            this.tbEmailEmployeeEdit.Size = new System.Drawing.Size(440, 44);
+            this.tbEmailEmployeeEdit.Size = new System.Drawing.Size(295, 32);
             this.tbEmailEmployeeEdit.TabIndex = 20;
             // 
             // labelEmailEmployeeEdit
             // 
             this.labelEmailEmployeeEdit.AutoSize = true;
-            this.labelEmailEmployeeEdit.Location = new System.Drawing.Point(144, 456);
-            this.labelEmailEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelEmailEmployeeEdit.Location = new System.Drawing.Point(96, 304);
+            this.labelEmailEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmailEmployeeEdit.Name = "labelEmailEmployeeEdit";
-            this.labelEmailEmployeeEdit.Size = new System.Drawing.Size(106, 37);
+            this.labelEmailEmployeeEdit.Size = new System.Drawing.Size(74, 26);
             this.labelEmailEmployeeEdit.TabIndex = 19;
             this.labelEmailEmployeeEdit.Text = "Email:";
             // 
             // labelPhoneNumberEmployeeEdit
             // 
             this.labelPhoneNumberEmployeeEdit.AutoSize = true;
-            this.labelPhoneNumberEmployeeEdit.Location = new System.Drawing.Point(14, 330);
-            this.labelPhoneNumberEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPhoneNumberEmployeeEdit.Location = new System.Drawing.Point(9, 220);
+            this.labelPhoneNumberEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPhoneNumberEmployeeEdit.Name = "labelPhoneNumberEmployeeEdit";
-            this.labelPhoneNumberEmployeeEdit.Size = new System.Drawing.Size(236, 37);
+            this.labelPhoneNumberEmployeeEdit.Size = new System.Drawing.Size(161, 26);
             this.labelPhoneNumberEmployeeEdit.TabIndex = 18;
             this.labelPhoneNumberEmployeeEdit.Text = "Phone number:";
             // 
             // tbPhoneNumberEmployeeEdit
             // 
-            this.tbPhoneNumberEmployeeEdit.Location = new System.Drawing.Point(306, 327);
-            this.tbPhoneNumberEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.tbPhoneNumberEmployeeEdit.Location = new System.Drawing.Point(204, 218);
+            this.tbPhoneNumberEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbPhoneNumberEmployeeEdit.Name = "tbPhoneNumberEmployeeEdit";
-            this.tbPhoneNumberEmployeeEdit.Size = new System.Drawing.Size(440, 44);
+            this.tbPhoneNumberEmployeeEdit.Size = new System.Drawing.Size(295, 32);
             this.tbPhoneNumberEmployeeEdit.TabIndex = 17;
             // 
             // labelRoleEmployeeEdit
             // 
             this.labelRoleEmployeeEdit.AutoSize = true;
-            this.labelRoleEmployeeEdit.Location = new System.Drawing.Point(152, 263);
-            this.labelRoleEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelRoleEmployeeEdit.Location = new System.Drawing.Point(101, 175);
+            this.labelRoleEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRoleEmployeeEdit.Name = "labelRoleEmployeeEdit";
-            this.labelRoleEmployeeEdit.Size = new System.Drawing.Size(90, 37);
+            this.labelRoleEmployeeEdit.Size = new System.Drawing.Size(63, 26);
             this.labelRoleEmployeeEdit.TabIndex = 16;
             this.labelRoleEmployeeEdit.Text = "Role:";
             // 
@@ -232,76 +247,56 @@
             this.cbRoleEmployeeEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
             this.cbRoleEmployeeEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoleEmployeeEdit.FormattingEnabled = true;
-            this.cbRoleEmployeeEdit.Location = new System.Drawing.Point(306, 260);
-            this.cbRoleEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbRoleEmployeeEdit.Location = new System.Drawing.Point(204, 173);
             this.cbRoleEmployeeEdit.Name = "cbRoleEmployeeEdit";
-            this.cbRoleEmployeeEdit.Size = new System.Drawing.Size(440, 45);
+            this.cbRoleEmployeeEdit.Size = new System.Drawing.Size(295, 33);
             this.cbRoleEmployeeEdit.TabIndex = 9;
             // 
             // tbLastNameEmployeeEdit
             // 
-            this.tbLastNameEmployeeEdit.Location = new System.Drawing.Point(306, 135);
-            this.tbLastNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.tbLastNameEmployeeEdit.Location = new System.Drawing.Point(204, 90);
+            this.tbLastNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbLastNameEmployeeEdit.Name = "tbLastNameEmployeeEdit";
-            this.tbLastNameEmployeeEdit.Size = new System.Drawing.Size(440, 44);
+            this.tbLastNameEmployeeEdit.Size = new System.Drawing.Size(295, 32);
             this.tbLastNameEmployeeEdit.TabIndex = 6;
             // 
             // tbFirstNameEmployeeEdit
             // 
-            this.tbFirstNameEmployeeEdit.Location = new System.Drawing.Point(306, 72);
-            this.tbFirstNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.tbFirstNameEmployeeEdit.Location = new System.Drawing.Point(204, 48);
+            this.tbFirstNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbFirstNameEmployeeEdit.Name = "tbFirstNameEmployeeEdit";
-            this.tbFirstNameEmployeeEdit.Size = new System.Drawing.Size(440, 44);
+            this.tbFirstNameEmployeeEdit.Size = new System.Drawing.Size(295, 32);
             this.tbFirstNameEmployeeEdit.TabIndex = 5;
             // 
             // labelLastNameEmployeeEdit
             // 
             this.labelLastNameEmployeeEdit.AutoSize = true;
-            this.labelLastNameEmployeeEdit.Location = new System.Drawing.Point(74, 139);
-            this.labelLastNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelLastNameEmployeeEdit.Location = new System.Drawing.Point(49, 93);
+            this.labelLastNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLastNameEmployeeEdit.Name = "labelLastNameEmployeeEdit";
-            this.labelLastNameEmployeeEdit.Size = new System.Drawing.Size(176, 37);
+            this.labelLastNameEmployeeEdit.Size = new System.Drawing.Size(120, 26);
             this.labelLastNameEmployeeEdit.TabIndex = 1;
             this.labelLastNameEmployeeEdit.Text = "Last name:";
             // 
             // labelFirstNameEmployeeEdit
             // 
             this.labelFirstNameEmployeeEdit.AutoSize = true;
-            this.labelFirstNameEmployeeEdit.Location = new System.Drawing.Point(68, 77);
-            this.labelFirstNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelFirstNameEmployeeEdit.Location = new System.Drawing.Point(45, 51);
+            this.labelFirstNameEmployeeEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFirstNameEmployeeEdit.Name = "labelFirstNameEmployeeEdit";
-            this.labelFirstNameEmployeeEdit.Size = new System.Drawing.Size(178, 37);
+            this.labelFirstNameEmployeeEdit.Size = new System.Drawing.Size(121, 26);
             this.labelFirstNameEmployeeEdit.TabIndex = 0;
             this.labelFirstNameEmployeeEdit.Text = "First name:";
             // 
-            // tbxEmpAddressEdit
-            // 
-            this.tbxEmpAddressEdit.Location = new System.Drawing.Point(306, 392);
-            this.tbxEmpAddressEdit.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.tbxEmpAddressEdit.Name = "tbxEmpAddressEdit";
-            this.tbxEmpAddressEdit.Size = new System.Drawing.Size(440, 44);
-            this.tbxEmpAddressEdit.TabIndex = 37;
-            // 
-            // lblEmpAddressEdit
-            // 
-            this.lblEmpAddressEdit.AutoSize = true;
-            this.lblEmpAddressEdit.Location = new System.Drawing.Point(112, 395);
-            this.lblEmpAddressEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblEmpAddressEdit.Name = "lblEmpAddressEdit";
-            this.lblEmpAddressEdit.Size = new System.Drawing.Size(144, 37);
-            this.lblEmpAddressEdit.TabIndex = 38;
-            this.lblEmpAddressEdit.Text = "Address:";
-            // 
             // ucEmployeeInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.groupBoxEmployeeInformation);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(854, 765);
-            this.MinimumSize = new System.Drawing.Size(854, 765);
+            this.MaximumSize = new System.Drawing.Size(569, 510);
+            this.MinimumSize = new System.Drawing.Size(569, 510);
             this.Name = "ucEmployeeInformation";
-            this.Size = new System.Drawing.Size(854, 765);
+            this.Size = new System.Drawing.Size(569, 510);
             this.Load += new System.EventHandler(this.ucEmployeeInformation_Load);
             this.groupBoxEmployeeInformation.ResumeLayout(false);
             this.groupBoxEmployeeInformation.PerformLayout();
