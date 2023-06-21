@@ -288,6 +288,31 @@ namespace DataAccess.AnimalRepositories
             }
         }
 
+        public void RemoveRelationship(int animalID1, int animalID2)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                SqlCommand command = new SqlCommand("DELETE FROM AnimalRelationships " +
+                    "WHERE (AnimalOneID = @AnimalOne AND AnimalTwoID = @AnimalTwo) " +
+                    "OR  (AnimalOneID = @AnimalTwo AND AnimalTwoID = @AnimalOne) ", connection);
+
+                command.Parameters.AddWithValue("@AnimalOne", animalID1);
+                command.Parameters.AddWithValue("@AnimalTwo", animalID2);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (SqlException) { }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         public List<AnimalDTO> GetChildren(int animalID)
         {
             List<AnimalDTO> animals = new List<AnimalDTO>();

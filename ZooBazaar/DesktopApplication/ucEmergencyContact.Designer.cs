@@ -32,6 +32,8 @@
             this.btnCancelAdditionalInformationEdit = new System.Windows.Forms.Button();
             this.btnSaveAdditionalInformationEdit = new System.Windows.Forms.Button();
             this.groupBoxEmergencyContact = new System.Windows.Forms.GroupBox();
+            this.tbxEmergencyContractRel = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbPhoneNumberAdditionalInformation = new System.Windows.Forms.TextBox();
             this.labelFirstNameAdditionalInformation = new System.Windows.Forms.Label();
             this.labelLastNameAdditionalInformation = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.tbLastNameAdditionalInformation = new System.Windows.Forms.TextBox();
             this.labelPhoneNumberAdditionalInformation = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbxEmergencyContractRel = new System.Windows.Forms.TextBox();
             this.groupBoxAdditionalInformation.SuspendLayout();
             this.groupBoxEmergencyContact.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             this.groupBoxAdditionalInformation.Controls.Add(this.btnCancelAdditionalInformationEdit);
             this.groupBoxAdditionalInformation.Controls.Add(this.btnSaveAdditionalInformationEdit);
             this.groupBoxAdditionalInformation.Controls.Add(this.groupBoxEmergencyContact);
-            this.groupBoxAdditionalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.groupBoxAdditionalInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxAdditionalInformation.Location = new System.Drawing.Point(4, 3);
             this.groupBoxAdditionalInformation.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxAdditionalInformation.Name = "groupBoxAdditionalInformation";
@@ -62,22 +62,24 @@
             // 
             // btnCancelAdditionalInformationEdit
             // 
+            this.btnCancelAdditionalInformationEdit.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnCancelAdditionalInformationEdit.Location = new System.Drawing.Point(62, 430);
             this.btnCancelAdditionalInformationEdit.Name = "btnCancelAdditionalInformationEdit";
-            this.btnCancelAdditionalInformationEdit.Size = new System.Drawing.Size(175, 36);
+            this.btnCancelAdditionalInformationEdit.Size = new System.Drawing.Size(175, 47);
             this.btnCancelAdditionalInformationEdit.TabIndex = 41;
             this.btnCancelAdditionalInformationEdit.Text = "Cancel";
-            this.btnCancelAdditionalInformationEdit.UseVisualStyleBackColor = true;
+            this.btnCancelAdditionalInformationEdit.UseVisualStyleBackColor = false;
             this.btnCancelAdditionalInformationEdit.Click += new System.EventHandler(this.btnCancelAdditionalInformationEdit_Click);
             // 
             // btnSaveAdditionalInformationEdit
             // 
+            this.btnSaveAdditionalInformationEdit.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnSaveAdditionalInformationEdit.Location = new System.Drawing.Point(318, 430);
             this.btnSaveAdditionalInformationEdit.Name = "btnSaveAdditionalInformationEdit";
-            this.btnSaveAdditionalInformationEdit.Size = new System.Drawing.Size(175, 36);
+            this.btnSaveAdditionalInformationEdit.Size = new System.Drawing.Size(175, 47);
             this.btnSaveAdditionalInformationEdit.TabIndex = 40;
             this.btnSaveAdditionalInformationEdit.Text = "Save changes";
-            this.btnSaveAdditionalInformationEdit.UseVisualStyleBackColor = true;
+            this.btnSaveAdditionalInformationEdit.UseVisualStyleBackColor = false;
             this.btnSaveAdditionalInformationEdit.Click += new System.EventHandler(this.btnSaveAdditionalInformationEdit_Click);
             // 
             // groupBoxEmergencyContact
@@ -90,13 +92,31 @@
             this.groupBoxEmergencyContact.Controls.Add(this.tbFirstNameAdditionalInformation);
             this.groupBoxEmergencyContact.Controls.Add(this.tbLastNameAdditionalInformation);
             this.groupBoxEmergencyContact.Controls.Add(this.labelPhoneNumberAdditionalInformation);
-            this.groupBoxEmergencyContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.groupBoxEmergencyContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBoxEmergencyContact.Location = new System.Drawing.Point(7, 51);
             this.groupBoxEmergencyContact.Name = "groupBoxEmergencyContact";
             this.groupBoxEmergencyContact.Size = new System.Drawing.Size(532, 349);
             this.groupBoxEmergencyContact.TabIndex = 37;
             this.groupBoxEmergencyContact.TabStop = false;
             this.groupBoxEmergencyContact.Text = "Emergency contact";
+            // 
+            // tbxEmergencyContractRel
+            // 
+            this.tbxEmergencyContractRel.Location = new System.Drawing.Point(213, 213);
+            this.tbxEmergencyContractRel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbxEmergencyContractRel.Name = "tbxEmergencyContractRel";
+            this.tbxEmergencyContractRel.Size = new System.Drawing.Size(295, 32);
+            this.tbxEmergencyContractRel.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 216);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 26);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Relationship:";
             // 
             // tbPhoneNumberAdditionalInformation
             // 
@@ -151,24 +171,6 @@
             this.labelPhoneNumberAdditionalInformation.Size = new System.Drawing.Size(161, 26);
             this.labelPhoneNumberAdditionalInformation.TabIndex = 18;
             this.labelPhoneNumberAdditionalInformation.Text = "Phone number:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 216);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 26);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Relationship:";
-            // 
-            // tbxEmergencyContractRel
-            // 
-            this.tbxEmergencyContractRel.Location = new System.Drawing.Point(213, 213);
-            this.tbxEmergencyContractRel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbxEmergencyContractRel.Name = "tbxEmergencyContractRel";
-            this.tbxEmergencyContractRel.Size = new System.Drawing.Size(295, 32);
-            this.tbxEmergencyContractRel.TabIndex = 20;
             // 
             // ucEmergencyContact
             // 
