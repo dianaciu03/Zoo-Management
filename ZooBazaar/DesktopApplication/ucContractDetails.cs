@@ -63,7 +63,7 @@ namespace DesktopApplication
         {
             try
             {
-                if (nudWeeklyHoursContractEdit.Value == 0 || Convert.ToInt32(tbSalaryContractEdit.Text) <= 0)
+                if (Convert.ToInt32(tbSalaryContractEdit.Text) <= 0)
                 {
                     MessageBox.Show("Please complete all of the fields before saving!");
                     return;
