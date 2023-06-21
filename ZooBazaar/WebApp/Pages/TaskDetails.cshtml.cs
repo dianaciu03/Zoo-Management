@@ -32,7 +32,7 @@ namespace WebApp.Pages
             int taskId = Convert.ToInt32(Request.Form["finishedTask"]);
             Task = taskManagement.GetTask(taskId);
             taskManagement.CompleteTask(Task);
-            return RedirectToPage("Shifts");
+            return RedirectToPage("ShiftSchedule");
         }
         [BindProperty]
         public ZooTask Task { get; set; }
