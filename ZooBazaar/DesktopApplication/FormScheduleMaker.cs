@@ -446,13 +446,7 @@ namespace DesktopApplication
             {
                 message += "Schedule could not be published because it overlaps with the one that already exists";
             }
-            else
-            {
-                foreach (Shift shift in shifts)
-                {
-                    message += $"{shift.ShiftTime} - {shift.Employee.FirstName + " " + shift.Employee.LastName}\n";
-                }
-            }
+
             MessageBox.Show(message);
 
             updateDates(Counter);
