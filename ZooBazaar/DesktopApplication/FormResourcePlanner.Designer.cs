@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResourcePlanner));
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
             this.tabControlResourcePlanner = new System.Windows.Forms.TabControl();
             this.tabAssignTasks = new System.Windows.Forms.TabPage();
@@ -46,6 +45,10 @@
             this.labelAvailableTasks = new System.Windows.Forms.Label();
             this.tabOverview = new System.Windows.Forms.TabPage();
             this.btnTaskMoreDetails = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.rbtnLast2Weeks = new System.Windows.Forms.RadioButton();
+            this.rbtnLastWeek = new System.Windows.Forms.RadioButton();
+            this.rbtnToday = new System.Windows.Forms.RadioButton();
             this.labelAllTasks = new System.Windows.Forms.Label();
             this.lvwAllTasks = new System.Windows.Forms.ListView();
             this.colAllTaskName = new System.Windows.Forms.ColumnHeader();
@@ -126,33 +129,29 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.NavajoWhite;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(998, 483);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(291, 51);
+            this.button1.Size = new System.Drawing.Size(291, 44);
             this.button1.TabIndex = 38;
             this.button1.Text = "Assign tasks automatically";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAssignEmployee
             // 
-            this.btnAssignEmployee.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnAssignEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAssignEmployee.Location = new System.Drawing.Point(19, 649);
+            this.btnAssignEmployee.Location = new System.Drawing.Point(19, 638);
             this.btnAssignEmployee.Name = "btnAssignEmployee";
-            this.btnAssignEmployee.Size = new System.Drawing.Size(291, 48);
+            this.btnAssignEmployee.Size = new System.Drawing.Size(209, 44);
             this.btnAssignEmployee.TabIndex = 37;
             this.btnAssignEmployee.Text = "Assign employee";
-            this.btnAssignEmployee.UseVisualStyleBackColor = false;
+            this.btnAssignEmployee.UseVisualStyleBackColor = true;
             this.btnAssignEmployee.Click += new System.EventHandler(this.btnAssignEmployee_Click);
             // 
             // labelCaretakers
             // 
             this.labelCaretakers.AutoSize = true;
             this.labelCaretakers.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelCaretakers.Location = new System.Drawing.Point(13, 565);
+            this.labelCaretakers.Location = new System.Drawing.Point(13, 554);
             this.labelCaretakers.Name = "labelCaretakers";
             this.labelCaretakers.Size = new System.Drawing.Size(158, 31);
             this.labelCaretakers.TabIndex = 34;
@@ -161,21 +160,19 @@
             // cbxCaretakers
             // 
             this.cbxCaretakers.FormattingEnabled = true;
-            this.cbxCaretakers.Location = new System.Drawing.Point(19, 611);
+            this.cbxCaretakers.Location = new System.Drawing.Point(19, 600);
             this.cbxCaretakers.Name = "cbxCaretakers";
-            this.cbxCaretakers.Size = new System.Drawing.Size(291, 32);
+            this.cbxCaretakers.Size = new System.Drawing.Size(303, 32);
             this.cbxCaretakers.TabIndex = 33;
             // 
             // btnMoreDetailsTask
             // 
-            this.btnMoreDetailsTask.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnMoreDetailsTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMoreDetailsTask.Location = new System.Drawing.Point(19, 483);
             this.btnMoreDetailsTask.Name = "btnMoreDetailsTask";
-            this.btnMoreDetailsTask.Size = new System.Drawing.Size(291, 51);
+            this.btnMoreDetailsTask.Size = new System.Drawing.Size(291, 44);
             this.btnMoreDetailsTask.TabIndex = 32;
             this.btnMoreDetailsTask.Text = "More details";
-            this.btnMoreDetailsTask.UseVisualStyleBackColor = false;
+            this.btnMoreDetailsTask.UseVisualStyleBackColor = true;
             this.btnMoreDetailsTask.Click += new System.EventHandler(this.btnMoreDetailsTask_Click);
             // 
             // lvwAvailableTasks
@@ -238,6 +235,10 @@
             // tabOverview
             // 
             this.tabOverview.Controls.Add(this.btnTaskMoreDetails);
+            this.tabOverview.Controls.Add(this.btnSearch);
+            this.tabOverview.Controls.Add(this.rbtnLast2Weeks);
+            this.tabOverview.Controls.Add(this.rbtnLastWeek);
+            this.tabOverview.Controls.Add(this.rbtnToday);
             this.tabOverview.Controls.Add(this.labelAllTasks);
             this.tabOverview.Controls.Add(this.lvwAllTasks);
             this.tabOverview.Location = new System.Drawing.Point(4, 45);
@@ -250,15 +251,55 @@
             // 
             // btnTaskMoreDetails
             // 
-            this.btnTaskMoreDetails.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnTaskMoreDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTaskMoreDetails.Location = new System.Drawing.Point(17, 628);
+            this.btnTaskMoreDetails.Location = new System.Drawing.Point(17, 534);
             this.btnTaskMoreDetails.Name = "btnTaskMoreDetails";
-            this.btnTaskMoreDetails.Size = new System.Drawing.Size(263, 51);
+            this.btnTaskMoreDetails.Size = new System.Drawing.Size(263, 44);
             this.btnTaskMoreDetails.TabIndex = 33;
             this.btnTaskMoreDetails.Text = "More details";
-            this.btnTaskMoreDetails.UseVisualStyleBackColor = false;
+            this.btnTaskMoreDetails.UseVisualStyleBackColor = true;
             this.btnTaskMoreDetails.Click += new System.EventHandler(this.btnTaskMoreDetails_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(1204, 18);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(98, 38);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // rbtnLast2Weeks
+            // 
+            this.rbtnLast2Weeks.AutoSize = true;
+            this.rbtnLast2Weeks.Location = new System.Drawing.Point(1043, 23);
+            this.rbtnLast2Weeks.Name = "rbtnLast2Weeks";
+            this.rbtnLast2Weeks.Size = new System.Drawing.Size(135, 28);
+            this.rbtnLast2Weeks.TabIndex = 17;
+            this.rbtnLast2Weeks.TabStop = true;
+            this.rbtnLast2Weeks.Text = "Last 2 weeks";
+            this.rbtnLast2Weeks.UseVisualStyleBackColor = true;
+            // 
+            // rbtnLastWeek
+            // 
+            this.rbtnLastWeek.AutoSize = true;
+            this.rbtnLastWeek.Location = new System.Drawing.Point(926, 23);
+            this.rbtnLastWeek.Name = "rbtnLastWeek";
+            this.rbtnLastWeek.Size = new System.Drawing.Size(111, 28);
+            this.rbtnLastWeek.TabIndex = 16;
+            this.rbtnLastWeek.TabStop = true;
+            this.rbtnLastWeek.Text = "Last week";
+            this.rbtnLastWeek.UseVisualStyleBackColor = true;
+            // 
+            // rbtnToday
+            // 
+            this.rbtnToday.AutoSize = true;
+            this.rbtnToday.Location = new System.Drawing.Point(839, 23);
+            this.rbtnToday.Name = "rbtnToday";
+            this.rbtnToday.Size = new System.Drawing.Size(81, 28);
+            this.rbtnToday.TabIndex = 15;
+            this.rbtnToday.TabStop = true;
+            this.rbtnToday.Text = "Today";
+            this.rbtnToday.UseVisualStyleBackColor = true;
             // 
             // labelAllTasks
             // 
@@ -281,7 +322,7 @@
             this.lvwAllTasks.Location = new System.Drawing.Point(17, 62);
             this.lvwAllTasks.MultiSelect = false;
             this.lvwAllTasks.Name = "lvwAllTasks";
-            this.lvwAllTasks.Size = new System.Drawing.Size(1285, 549);
+            this.lvwAllTasks.Size = new System.Drawing.Size(1285, 466);
             this.lvwAllTasks.TabIndex = 0;
             this.lvwAllTasks.UseCompatibleStateImageBehavior = false;
             this.lvwAllTasks.View = System.Windows.Forms.View.Details;
@@ -290,12 +331,12 @@
             // colAllTaskName
             // 
             this.colAllTaskName.Text = "Name";
-            this.colAllTaskName.Width = 400;
+            this.colAllTaskName.Width = 360;
             // 
             // colAllTaskDate
             // 
             this.colAllTaskDate.Text = "Date";
-            this.colAllTaskDate.Width = 280;
+            this.colAllTaskDate.Width = 220;
             // 
             // colAllTaskEstimatedDuration
             // 
@@ -553,7 +594,6 @@
             this.Controls.Add(this.labelTitleZooBazaar);
             this.Controls.Add(this.tabControlResourcePlanner);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormResourcePlanner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -586,6 +626,10 @@
         private System.Windows.Forms.Button btnMoreDetailsTask;
         private System.Windows.Forms.ListView lvwAvailableTasks;
         private System.Windows.Forms.Button btnAssignEmployee;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.RadioButton rbtnLast2Weeks;
+        private System.Windows.Forms.RadioButton rbtnLastWeek;
+        private System.Windows.Forms.RadioButton rbtnToday;
         private System.Windows.Forms.Label labelAllTasks;
         private System.Windows.Forms.ListView lvwAllTasks;
         private System.Windows.Forms.Button btnTaskMoreDetails;

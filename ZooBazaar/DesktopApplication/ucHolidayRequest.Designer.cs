@@ -114,24 +114,22 @@
             // 
             // btnCancelContractEdit
             // 
-            this.btnCancelContractEdit.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnCancelContractEdit.Location = new System.Drawing.Point(11, 256);
             this.btnCancelContractEdit.Name = "btnCancelContractEdit";
             this.btnCancelContractEdit.Size = new System.Drawing.Size(126, 21);
             this.btnCancelContractEdit.TabIndex = 52;
             this.btnCancelContractEdit.Text = "Cancel";
-            this.btnCancelContractEdit.UseVisualStyleBackColor = false;
+            this.btnCancelContractEdit.UseVisualStyleBackColor = true;
             this.btnCancelContractEdit.Click += new System.EventHandler(this.btnCancelContractEdit_Click);
             // 
             // btnSaveHoliday
             // 
-            this.btnSaveHoliday.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnSaveHoliday.Location = new System.Drawing.Point(190, 256);
             this.btnSaveHoliday.Name = "btnSaveHoliday";
             this.btnSaveHoliday.Size = new System.Drawing.Size(122, 21);
             this.btnSaveHoliday.TabIndex = 51;
             this.btnSaveHoliday.Text = "Save";
-            this.btnSaveHoliday.UseVisualStyleBackColor = false;
+            this.btnSaveHoliday.UseVisualStyleBackColor = true;
             this.btnSaveHoliday.Click += new System.EventHandler(this.btnSaveHoliday_Click);
             // 
             // dateTimePickerEndDate

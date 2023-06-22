@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHRAdministration));
             this.tabControlHRAdministration = new System.Windows.Forms.TabControl();
             this.tabPageAllEmployees = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -1363,7 +1362,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControlHRAdministration);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormHRAdministration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HR Management";

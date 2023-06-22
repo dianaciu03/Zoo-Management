@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAnimalAdministration));
             this.tabControlAnimals = new System.Windows.Forms.TabControl();
             this.tabSearchAnimals = new System.Windows.Forms.TabPage();
             this.groupBoxSearchAnimal = new System.Windows.Forms.GroupBox();
@@ -1755,10 +1754,10 @@
             this.tabPageTransfers.Controls.Add(this.groupBoxTransferDetails);
             this.tabPageTransfers.Controls.Add(this.btnConfirmTransferDetails);
             this.tabPageTransfers.Controls.Add(this.tabControlTypeTransfers);
-            this.tabPageTransfers.Location = new System.Drawing.Point(4, 36);
+            this.tabPageTransfers.Location = new System.Drawing.Point(4, 46);
             this.tabPageTransfers.Name = "tabPageTransfers";
             this.tabPageTransfers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTransfers.Size = new System.Drawing.Size(1793, 907);
+            this.tabPageTransfers.Size = new System.Drawing.Size(1793, 897);
             this.tabPageTransfers.TabIndex = 3;
             this.tabPageTransfers.Text = "Transfers";
             this.tabPageTransfers.UseVisualStyleBackColor = true;
@@ -2266,7 +2265,6 @@
             this.Controls.Add(this.labelTitleZooBazaar);
             this.Controls.Add(this.tabControlAnimals);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormAnimalAdministration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

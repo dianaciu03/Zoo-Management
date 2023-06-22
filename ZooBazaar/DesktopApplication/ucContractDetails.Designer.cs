@@ -77,24 +77,22 @@
             // 
             // btnCancelContractEdit
             // 
-            this.btnCancelContractEdit.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnCancelContractEdit.Location = new System.Drawing.Point(45, 404);
             this.btnCancelContractEdit.Name = "btnCancelContractEdit";
             this.btnCancelContractEdit.Size = new System.Drawing.Size(159, 42);
             this.btnCancelContractEdit.TabIndex = 52;
             this.btnCancelContractEdit.Text = "Cancel";
-            this.btnCancelContractEdit.UseVisualStyleBackColor = false;
+            this.btnCancelContractEdit.UseVisualStyleBackColor = true;
             this.btnCancelContractEdit.Click += new System.EventHandler(this.btnCancelContractEdit_Click);
             // 
             // btnSaveContractEdit
             // 
-            this.btnSaveContractEdit.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnSaveContractEdit.Location = new System.Drawing.Point(318, 404);
             this.btnSaveContractEdit.Name = "btnSaveContractEdit";
             this.btnSaveContractEdit.Size = new System.Drawing.Size(159, 42);
             this.btnSaveContractEdit.TabIndex = 51;
             this.btnSaveContractEdit.Text = "Save changes";
-            this.btnSaveContractEdit.UseVisualStyleBackColor = false;
+            this.btnSaveContractEdit.UseVisualStyleBackColor = true;
             this.btnSaveContractEdit.Click += new System.EventHandler(this.btnSaveContractEdit_Click);
             // 
             // checkBoxContractNotMentionedContractEdit
