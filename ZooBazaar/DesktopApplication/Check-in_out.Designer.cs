@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Check_in_out));
             this.textBoxBarcodeString = new System.Windows.Forms.TextBox();
             this.labelCheckInOut = new System.Windows.Forms.Label();
             this.panelValidTicket = new System.Windows.Forms.Panel();
@@ -153,6 +154,7 @@
             this.Controls.Add(this.panelInvalidTicket);
             this.Controls.Add(this.labelCheckInOut);
             this.Controls.Add(this.textBoxBarcodeString);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Check_in_out";
             this.Text = "Check_in_out";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

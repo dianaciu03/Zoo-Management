@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResourcePlanner));
             this.labelTitleZooBazaar = new System.Windows.Forms.Label();
             this.tabControlResourcePlanner = new System.Windows.Forms.TabControl();
             this.tabAssignTasks = new System.Windows.Forms.TabPage();
@@ -594,6 +595,7 @@
             this.Controls.Add(this.labelTitleZooBazaar);
             this.Controls.Add(this.tabControlResourcePlanner);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormResourcePlanner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
