@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DataAccess
@@ -36,7 +37,111 @@ namespace DataAccess
                             reader["TaskZone"].ToString(),
                             Convert.ToInt32(reader["TaskEnclosureNumber"]),
                             reader["TaskStatus"].ToString(),
-                            Convert.IsDBNull(reader["TaskAnimalID"]) ? null : (int?)Convert.ToInt32(reader["TaskAnimalID"])
+                            Convert.IsDBNull(reader["TaskAnimalID"]) ? null : (int?)Convert.ToInt32(reader["TaskAnimalID"]),
+                            Convert.IsDBNull(reader["Repetitive"]) ? null : (reader["Repetitive"].ToString())
+                        );
+                        tasks.Add(task);
+                    }
+                    reader.Close();
+                    connection.Close();
+                    return tasks.ToArray();
+                }
+            }
+        }
+        public ZooTaskDTO[] GetDailyTasks()
+        {
+            List<ZooTaskDTO> tasks = new List<ZooTaskDTO>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return tasks.ToArray(); }
+                DateTime dateTime = DateTime.Now;
+                SqlCommand query = new SqlCommand(" SELECT TaskName, TaskDescription, " + 
+                                                  " DATEPART(HOUR, TaskDate) AS TaskHour, " + 
+                                                  " DATEPART(MINUTE, TaskDate) AS TaskMinute, " +
+                                                  " TaskDuration, TaskStatus, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskAnimalID, Repetitive " +
+                                                  "     FROM Tasks " +
+                                                  "     WHERE Repetitive = @daily " +
+                                                  "     GROUP BY TaskName, TaskDescription, " +
+                                                  "              DATEPART(HOUR, TaskDate), " +
+                                                  "              DATEPART(MINUTE, TaskDate), " +
+                                                  "              TaskDuration, TaskStatus, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskAnimalID, Repetitive; ", connection);
+
+                query.Parameters.AddWithValue("@daily", "Daily");
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ZooTaskDTO task = new ZooTaskDTO(
+                            0,
+                            reader["TaskName"].ToString(),
+                            reader["TaskDescription"].ToString(),
+                            new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, Convert.ToInt32(reader["TaskHour"]), Convert.ToInt32(reader["TaskMinute"]), 0),
+                            Convert.ToInt32(reader["TaskDuration"].ToString()),
+                            reader["TaskSpecies"].ToString(),
+                            reader["TaskZone"].ToString(),
+                            Convert.ToInt32(reader["TaskEnclosureNumber"]),
+                            reader["TaskStatus"].ToString(),
+                            Convert.IsDBNull(reader["TaskAnimalID"]) ? null : (int?)Convert.ToInt32(reader["TaskAnimalID"]),
+                            Convert.IsDBNull(reader["Repetitive"]) ? null : (reader["Repetitive"].ToString())
+                        );
+                        tasks.Add(task);
+                    }
+                    reader.Close();
+                    connection.Close();
+                    return tasks.ToArray();
+                }
+            }
+        }
+        public ZooTaskDTO[] GetWeeklyTasks()
+        {
+            List<ZooTaskDTO> tasks = new List<ZooTaskDTO>();
+            using (SqlConnection connection = new SqlConnection(connectionHelper.ConnectionValue()))
+            {
+                try { connection.Open(); }
+                catch (SqlException) { return tasks.ToArray(); }
+                DateTime dateTime = DateTime.Now;
+                SqlCommand query = new SqlCommand(" SELECT TaskName, TaskDescription, " +
+                                                  "     DATEPART(WEEKDAY, TaskDate) AS TaskWeekDay, " +
+                                                  "     DATEPART(HOUR, TaskDate) AS TaskHour, " +
+                                                  "     DATEPART(MINUTE, TaskDate) AS TaskMinute, " +
+                                                  "     TaskDuration, TaskStatus, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskAnimalID, Repetitive " +
+                                                  " FROM Tasks " +
+                                                  " WHERE Repetitive = @weekly " +
+                                                  " GROUP BY TaskName, TaskDescription," +
+                                                  "     DATEPART(WEEKDAY, TaskDate), " +
+                                                  "     DATEPART(HOUR, TaskDate)," +
+                                                  "     DATEPART(MINUTE, TaskDate)," +
+                                                  "     TaskDuration, TaskStatus, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskAnimalID, Repetitive; ", connection);
+
+                query.Parameters.AddWithValue("@weekly", "Weekly");
+                using (SqlDataReader reader = query.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int weekday = Convert.ToInt32(reader["TaskWeekDay"]) - 1;
+                        DateTime readDateTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, Convert.ToInt32(reader["TaskHour"]), Convert.ToInt32(reader["TaskMinute"]), 0);
+                        for (int i = 0; i < 7; i++)
+                        {
+                            if ((DayOfWeek)weekday == readDateTime.DayOfWeek)
+                            {
+                                break;
+                            }
+                            readDateTime = readDateTime.AddDays(1);
+                        }
+
+                        ZooTaskDTO task = new ZooTaskDTO(
+                            0,
+                            reader["TaskName"].ToString(),
+                            reader["TaskDescription"].ToString(),
+                            readDateTime,
+                            Convert.ToInt32(reader["TaskDuration"].ToString()),
+                            reader["TaskSpecies"].ToString(),
+                            reader["TaskZone"].ToString(),
+                            Convert.ToInt32(reader["TaskEnclosureNumber"]),
+                            reader["TaskStatus"].ToString(),
+                            Convert.IsDBNull(reader["TaskAnimalID"]) ? null : (int?)Convert.ToInt32(reader["TaskAnimalID"]),
+                            Convert.IsDBNull(reader["Repetitive"]) ? null : (reader["Repetitive"].ToString())
                         );
                         tasks.Add(task);
                     }
@@ -146,8 +251,8 @@ namespace DataAccess
             {
                 connection.Open();
                 SqlCommand query = new SqlCommand("INSERT INTO Tasks " +
-                    "(TaskName, TaskDescription, TaskDate, TaskDuration, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskStatus, TaskAnimalID)" +
-                    "VALUES(@TaskName, @TaskDescription, @TaskDate, @TaskDuration, @TaskSpecies, @TaskZone, @TaskEnclosureNumber, @TaskStatus, @TaskAnimalID)", connection);
+                    "(TaskName, TaskDescription, TaskDate, TaskDuration, TaskSpecies, TaskZone, TaskEnclosureNumber, TaskStatus, TaskAnimalID, Repetitive)" +
+                    "VALUES(@TaskName, @TaskDescription, @TaskDate, @TaskDuration, @TaskSpecies, @TaskZone, @TaskEnclosureNumber, @TaskStatus, @TaskAnimalID, @Repetitive)", connection);
 
                 query.Parameters.AddWithValue("@TaskName", task.Name);
                 query.Parameters.AddWithValue("@TaskDescription", task.Description);
@@ -161,6 +266,11 @@ namespace DataAccess
                     query.Parameters.AddWithValue("@TaskAnimalID", task.AnimalID);
                 else
                     query.Parameters.AddWithValue("@TaskAnimalID", DBNull.Value);
+                if (task.Repetitive != null)
+                    query.Parameters.AddWithValue("Repetitive", task.Repetitive);
+                else
+                    query.Parameters.AddWithValue("Repetitive", DBNull.Value);
+
                 query.ExecuteNonQuery();
                 /*try
                 {

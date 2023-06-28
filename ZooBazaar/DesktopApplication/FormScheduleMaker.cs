@@ -24,6 +24,8 @@ namespace DesktopApplication
         Shift[] shifts;
 
         List<Animal> searchedAnimals;
+        public int StartWeekCounter { get; set; } = 1;
+        public int EndWeekCounter { get; set; } = 1;
         public FormScheduleMaker(IAnimalManagement am)
         {
             InitializeComponent();
@@ -33,9 +35,12 @@ namespace DesktopApplication
             initializeSpecieComboBox();
             initializeAreaComboBox();
             updateTasks();
-            updateScheduleDetails();
+            updateStartDate(StartWeekCounter);
+            updateEndDate(StartWeekCounter, EndWeekCounter);
             groupBoxTaskDetails.Visible = false;
             cbxTaskEncArea.SelectedText = "";
+            rbtnDailyTask.Visible = false;
+            rbtnWeeklyTask.Visible = false;
         }
 
         private void btnScheduleTask_Click(object sender, EventArgs e)
@@ -55,7 +60,22 @@ namespace DesktopApplication
                     }
                     Animal selectedAnimal = (Animal)lvwAnimalSearch.SelectedItems[0].Tag;
                     cbxTaskEncArea.SelectedItem = selectedAnimal.OriginContinent;
-                    taskManagement.ScheduleTask(tbxTaskName.Text, selectedAnimal.OriginContinent.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal);
+
+                    if (rbtnDailyTask.Checked)
+                    {
+                        if (taskDateAndTime.DayOfWeek != DayOfWeek.Monday)
+                        {
+                            MessageBox.Show("Plese select a weekday of Monday for daily tasks");
+                            return;
+                        }
+                        taskManagement.ScheduleTaskDaily(tbxTaskName.Text, selectedAnimal.OriginContinent.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal, rbtnDailyTask.Text);
+                    }
+                    else if (rbtnWeeklyTask.Checked)
+                    {
+                        taskManagement.ScheduleTask(tbxTaskName.Text, selectedAnimal.OriginContinent.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal, rbtnWeeklyTask.Text);
+                    }
+                    else taskManagement.ScheduleTask(tbxTaskName.Text, selectedAnimal.OriginContinent.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, selectedAnimal.Species, selectedAnimal, null);
+
                 }
                 catch
                 {
@@ -71,7 +91,19 @@ namespace DesktopApplication
                         MessageBox.Show("You haven't selected the animal specie");
                         return;
                     }
-                    taskManagement.ScheduleTask(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null);
+
+                    if (rbtnDailyTask.Checked)
+                    {
+                        taskManagement.ScheduleTaskDaily(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null, "Daily");
+                    }
+                    else if (rbtnWeeklyTask.Checked)
+                    {
+                        taskManagement.ScheduleTask(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null, "Weekly");
+                    }
+                    else
+                    {
+                        taskManagement.ScheduleTask(tbxTaskName.Text, cbxTaskEncArea.SelectedItem.ToString(), (int)nudTaskEncNumber.Value, tbxTaskDescription.Text, taskDateAndTime, (int)nudEstimatedTaskTime.Value, cbxSearchBySpecie.SelectedItem.ToString(), null, null);
+                    }
                 }
                 catch
                 {
@@ -261,6 +293,8 @@ namespace DesktopApplication
             AutomaticScheduling scheduleMaker = new AutomaticScheduling();
             CaretakerWithHours[] careTakers = employeeManagement.GetCareTakers();
             btnPublishSchedule.Visible = true;
+            ZooTask[] dailyTasks = taskManagement.GetRepetitiveTasks("Daily");
+            ZooTask[] weeklyTasks = taskManagement.GetRepetitiveTasks("Weekly");
             shifts = scheduleMaker.ScheduleEmployeesForShifts(careTakers);
 
             DateTime today = DateTime.Today;
@@ -273,10 +307,16 @@ namespace DesktopApplication
             DateTime endDay = nextMonday.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
 
             bool success = scheduleManagement.AddShifts(shifts, nextMonday, endDay);
+            if (success)
+            {
+                taskManagement.RescheduleTasks(dailyTasks);
+                taskManagement.RescheduleTasks(weeklyTasks);
+            }
+
             string message = string.Empty;
             if (success == false)
             {
-                message += "Schedule could not be created because it overlaps with the one that already exists";
+                message += "Schedule could not be published because it overlaps with the one that already exists";
             }
             else
             {
@@ -288,29 +328,111 @@ namespace DesktopApplication
             MessageBox.Show(message);
         }
 
-        private void updateScheduleDetails()
+        private void updateStartDate(int startCounter)
         {
             //tbxScheduleStartDate;
             DateTime today = DateTime.Today;
-            int daysUntilMonday = 7;
+            int daysUntilStart = 7;
             if (today.DayOfWeek != DayOfWeek.Monday)
             {
-                daysUntilMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
+                daysUntilStart = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
             }
-            DateTime nextMonday = DateTime.Today.AddDays(daysUntilMonday);
-            tbxScheduleStartDate.Text = nextMonday.ToString("dd / MM / yyyy");
-            DateTime endDay = nextMonday.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
+            DateTime scheduleStart = DateTime.Today.AddDays(daysUntilStart);
+            scheduleStart = scheduleStart.AddDays(startCounter * 7 - 7);
+            tbxScheduleStartDate.Text = scheduleStart.ToString("dd / MM / yyyy");
+            //DateTime endDay = nextMonday.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
+            //tbxScheduleEndDate.Text = endDay.ToString("dd / MM / yyyy");
+        }
+
+        private void updateEndDate(int startCounter, int endCounter)
+        {
+            //tbxScheduleStartDate;
+            DateTime today = DateTime.Today;
+            int daysUntilStart = 7;
+            if (today.DayOfWeek != DayOfWeek.Monday)
+            {
+                daysUntilStart = ((int)DayOfWeek.Monday - (int)today.DayOfWeek + 7) % 7;
+            }
+            DateTime scheduleStart = DateTime.Today.AddDays(daysUntilStart);
+            scheduleStart = scheduleStart.AddDays(startCounter * 7 - 7);
+            tbxScheduleStartDate.Text = scheduleStart.ToString("dd / MM / yyyy");
+            DateTime endDay = scheduleStart.AddDays(6 + (((int)nudScheduleLenght.Value - 1) * 7));
+            endDay = endDay.AddDays(endCounter * 7 - 7);
             tbxScheduleEndDate.Text = endDay.ToString("dd / MM / yyyy");
         }
 
         private void nudScheduleLenght_ValueChanged(object sender, EventArgs e)
         {
-            updateScheduleDetails();
+            EndWeekCounter = StartWeekCounter + (int)nudScheduleLenght.Value;
+            updateEndDate(StartWeekCounter, EndWeekCounter);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void rbtnDailyTask_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxRepetitiveTask_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxRepetitiveTask.Checked)
+            {
+                rbtnDailyTask.Visible = true;
+                rbtnWeeklyTask.Visible = true;
+            }
+            else
+            {
+                rbtnDailyTask.Visible = false;
+                rbtnWeeklyTask.Visible = false;
+            }
+        }
+
+        private void btnNextStartDate_Click(object sender, EventArgs e)
+        {
+            nudScheduleLenght.Maximum = 5 - StartWeekCounter;
+            nudScheduleLenght.Value = 1;
+
+            if (StartWeekCounter < 5)
+            {
+                StartWeekCounter++;
+                updateStartDate(StartWeekCounter);
+            }
+        }
+
+        private void btnPrevStartDate_Click(object sender, EventArgs e)
+        {
+            nudScheduleLenght.Maximum = 5 - StartWeekCounter;
+            nudScheduleLenght.Value = 1;
+
+            if (StartWeekCounter > 1)
+            {
+                StartWeekCounter--;
+                updateStartDate(StartWeekCounter);
+            }
+        }
+
+        private void btnNextEndDate_Click(object sender, EventArgs e)
+        {
+            
+            if (EndWeekCounter < 4)
+            {
+                EndWeekCounter++;
+                updateEndDate(StartWeekCounter, EndWeekCounter);
+            }
+
+        }
+
+        private void btnPrevEndDate_Click(object sender, EventArgs e)
+        {
+            if (EndWeekCounter > 1)
+            {
+                EndWeekCounter--;
+                updateEndDate(StartWeekCounter, EndWeekCounter);
+            }
         }
     }
 }

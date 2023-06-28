@@ -18,6 +18,7 @@ namespace DataAccess.DTOs
         public string EnclosureArea { get; private set; }
         public int EnclosureNumber { get; private set; }
         public int? AnimalID { get; set; }
+        public string Repetitive { get; set; }
 
         public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status)
         {
@@ -44,7 +45,7 @@ namespace DataAccess.DTOs
             this.EnclosureNumber = enclosureNumber;
             this.Status = status;
         }
-        public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int? AnimalID)
+        public ZooTaskDTO(int iD, string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int? AnimalID, string? repetitive)
         {
             this.ID = iD;
             this.Name = name;
@@ -57,8 +58,10 @@ namespace DataAccess.DTOs
             this.EnclosureNumber = enclosureNumber;
             this.Status = status;
             this.AnimalID = AnimalID;
+            this.Repetitive = repetitive;
+
         }
-        public ZooTaskDTO(string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int? AnimalID)
+        public ZooTaskDTO(string name, string description, DateTime taskDateTime, int estimatedDuration, string species, string enclosureArea, int enclosureNumber, string status, int? AnimalID, string? repetitive)
         { 
             this.Name = name;
             this.Description = description;
@@ -70,6 +73,7 @@ namespace DataAccess.DTOs
             this.EnclosureNumber = enclosureNumber;
             this.Status = status;
             this.AnimalID = AnimalID;
+            this.Repetitive = repetitive;
         }
 
     }

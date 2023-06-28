@@ -24,34 +24,7 @@ namespace BusinessLogic
             //tasks = new List<ZooTask>();
         }
 
-        public void ScheduleTask(string name, string enclosureArea, int enclosureNo, string description, DateTime taskDateTime, int taskLength, string specie, Animal? animal)
-        {
-
-            ZooTask newTask = new ZooTask()
-            {
-                Name = name,
-                Description = description,
-                EnclosureArea = enclosureArea,
-                EnclosureNumber = enclosureNo,
-                Status = "Not started",
-                TaskDateTime = taskDateTime,
-                EstimatedDuration = taskLength,
-                Species= specie,
-                Animal = animal
-            };
-            if (animal != null)
-            {
-                ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, newTask.Animal.Id);
-                taskRepository.AddTask(zooTaskDTO);
-            }
-            else
-            {
-                ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status);
-                taskRepository.AddTask(zooTaskDTO);
-            }
-        }
-        //THERE U GO BITCH
-        public void ScheduleTaskDaily(string name, string enclosureArea, int enclosureNo, string description, DateTime taskDateTime, int taskLength, string specie, Animal? animal)
+        public void ScheduleTask(string name, string enclosureArea, int enclosureNo, string description, DateTime taskDateTime, int taskLength, string specie, Animal? animal, string? repetitive)
         {
 
             ZooTask newTask = new ZooTask()
@@ -64,20 +37,47 @@ namespace BusinessLogic
                 TaskDateTime = taskDateTime,
                 EstimatedDuration = taskLength,
                 Species = specie,
-                Animal = animal
+                Animal = animal,
+                Repetitive = repetitive
+            };
+            if (animal != null)
+            {
+                ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, newTask.Animal.Id, newTask.Repetitive);
+                taskRepository.AddTask(zooTaskDTO);
+            }
+            else
+            {
+                ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, null, newTask.Repetitive);
+                taskRepository.AddTask(zooTaskDTO);
+            }
+        }
+    
+        public void ScheduleTaskDaily(string name, string enclosureArea, int enclosureNo, string description, DateTime taskDateTime, int taskLength, string specie, Animal? animal, string repetitive)
+        {
+
+            ZooTask newTask = new ZooTask()
+            {
+                Name = name,
+                Description = description,
+                EnclosureArea = enclosureArea,
+                EnclosureNumber = enclosureNo,
+                Status = "Not started",
+                TaskDateTime = taskDateTime,
+                EstimatedDuration = taskLength,
+                Species = specie,
+                Animal = animal,
+                Repetitive = repetitive
             };
             for (int index = 0; index < 7; index++)
             {
-                //MOVE THE LOOP TO THE GRAPHIC LAYER 
-
                 if (animal != null)
                 {
-                    ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, newTask.Animal.Id);
+                    ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, newTask.Animal.Id, newTask.Repetitive);
                     taskRepository.AddTask(zooTaskDTO);
                 }
                 else
                 {
-                    ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status);
+                    ZooTaskDTO zooTaskDTO = new ZooTaskDTO(newTask.Name, newTask.Description, newTask.TaskDateTime, newTask.EstimatedDuration, newTask.Species, newTask.EnclosureArea, newTask.EnclosureNumber, newTask.Status, null, newTask.Repetitive);
                     taskRepository.AddTask(zooTaskDTO);
                 }
 
@@ -152,6 +152,76 @@ namespace BusinessLogic
             }
 
             return foundTasks.ToArray();
+        }
+
+        public ZooTask[] GetRepetitiveTasks(string repetitiveness)
+        {
+            List<ZooTask> foundTasks = new List<ZooTask>();
+
+            switch (repetitiveness) 
+            {
+                case "Daily":
+                    foreach (ZooTaskDTO taskdto in taskRepository.GetDailyTasks())
+                    {
+                        if (taskdto.AnimalID == null)
+                            foundTasks.Add(new ZooTask(taskdto.ID,
+                                                       taskdto.Name,
+                                                       taskdto.Description,
+                                                       taskdto.EnclosureArea,
+                                                       taskdto.EnclosureNumber,
+                                                       taskdto.TaskDateTime,
+                                                       taskdto.EstimatedDuration,
+                                                       taskdto.Status,
+                                                       taskdto.Species,
+                                                       null,
+                                                       taskdto.Repetitive));
+                        else
+                            foundTasks.Add(new ZooTask(taskdto.ID,
+                                                       taskdto.Name,
+                                                       taskdto.Description,
+                                                       taskdto.EnclosureArea,
+                                                       taskdto.EnclosureNumber,
+                                                       taskdto.TaskDateTime,
+                                                       taskdto.EstimatedDuration,
+                                                       taskdto.Status,
+                                                       taskdto.Species,
+                                                       animalRepository.GetAnimalByID((int)taskdto.AnimalID)!.DTOToAnimal(),
+                                                       taskdto.Repetitive));
+                    }
+                    break;
+                case "Weekly":
+                    foreach (ZooTaskDTO taskdto in taskRepository.GetWeeklyTasks())
+                    {
+                        if (taskdto.AnimalID == null)
+                            foundTasks.Add(new ZooTask(taskdto.ID,
+                                                       taskdto.Name,
+                                                       taskdto.Description,
+                                                       taskdto.EnclosureArea,
+                                                       taskdto.EnclosureNumber,
+                                                       taskdto.TaskDateTime,
+                                                       taskdto.EstimatedDuration,
+                                                       taskdto.Status,
+                                                       taskdto.Species,
+                                                       null,
+                                                       taskdto.Repetitive));
+                        else
+                            foundTasks.Add(new ZooTask(taskdto.ID,
+                                                       taskdto.Name,
+                                                       taskdto.Description,
+                                                       taskdto.EnclosureArea,
+                                                       taskdto.EnclosureNumber,
+                                                       taskdto.TaskDateTime,
+                                                       taskdto.EstimatedDuration,
+                                                       taskdto.Status,
+                                                       taskdto.Species,
+                                                       animalRepository.GetAnimalByID((int)taskdto.AnimalID)!.DTOToAnimal(),
+                                                       taskdto.Repetitive));
+                    }
+                    break;
+            }
+            return foundTasks.ToArray();
+
+
         }
 
         public ZooTask GetTask(int id)
@@ -240,6 +310,29 @@ namespace BusinessLogic
         public void RemoveTask(int taskId)
         {
             taskRepository.RemoveTask(taskId);
+        }
+
+        public void RescheduleTasks(ZooTask[] repetitiveTasks)
+        {
+            foreach (ZooTask task in repetitiveTasks)
+            {
+                
+                if (task.Repetitive == "Daily")
+                {
+                    int daysUntilMonday = 7;
+                    if (task.TaskDateTime.DayOfWeek != DayOfWeek.Monday)
+                    {
+                        daysUntilMonday = ((int)DayOfWeek.Monday - (int)task.TaskDateTime.DayOfWeek + 7) % 7;
+                    }
+                    task.TaskDateTime = task.TaskDateTime.AddDays(daysUntilMonday);
+                    ScheduleTaskDaily(task.Name, task.EnclosureArea, task.EnclosureNumber, task.Description, task.TaskDateTime, task.EstimatedDuration, task.Species, task.Animal, task.Repetitive);
+                }
+                else if (task.Repetitive == "Weekly")
+                {
+                    task.TaskDateTime = task.TaskDateTime.AddDays(7);
+                    ScheduleTask(task.Name, task.EnclosureArea, task.EnclosureNumber, task.Description, task.TaskDateTime, task.EstimatedDuration, task.Species, task.Animal, task.Repetitive);
+                }
+            }
         }
 
 

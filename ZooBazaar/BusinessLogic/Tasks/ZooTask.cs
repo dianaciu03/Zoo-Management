@@ -19,6 +19,8 @@ namespace BusinessLogic
         public string Status { get; set; }
         public string Species { get; set; }
         public Animal? Animal { get; set; }
+        public string? Repetitive { get; set; }
+
         private List<Employee> assignedEmployees;
 
         public ZooTask()
@@ -39,6 +41,21 @@ namespace BusinessLogic
             this.Status = Status;
             this.Species = Species;
             this.Animal = Animal;
+            this.assignedEmployees = new List<Employee>();
+        } 
+        public ZooTask(int ID, string Name, string Description, string EnclosureArea, int EnclosureNumber, DateTime TaskDateTime, int EstimatedDuration, string Status, string Species, Animal? Animal, string? repetitive) 
+        {
+            this.ID = ID;
+            this.Name = Name;
+            this.Description = Description;
+            this.EnclosureArea = EnclosureArea;
+            this.EnclosureNumber = EnclosureNumber;
+            this.TaskDateTime = TaskDateTime;
+            this.EstimatedDuration = EstimatedDuration;
+            this.Status = Status;
+            this.Species = Species;
+            this.Animal = Animal;
+            this.Repetitive = repetitive;
             this.assignedEmployees = new List<Employee>();
         }
 
