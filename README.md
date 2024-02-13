@@ -37,9 +37,10 @@ The web application supports one account type as well as anonymous activity for 
 * C# .NET Framework for backend
 * Windows Forms Library for the desktop application
 * ASP.NET Razor Pages for the web application
-* MS SQL for data persistance
+* MS SQL for data persistance (easily generate the database by running the script.sql)
 
 ## Application Development
 - For the first 6 weeks, the team followed the Waterfall Methodology for which we devised together with our client a Project Plan that we strictly followed. The rest of the project we followed the Agile Methodology with 2-week iterations. We managed to improve already exiting features, as well as adding completely new ones ccording to our client's needs.
 - We followed a clean 3-layer architecture consisting of presentation layer, logic layer and data layer
 - The code strictly abides the SOLID design principles, making the application future proof and maintainable, offering the possibility of easily adding new features or account types
+- The database uses a table-per-type approach
